@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border scroll-smooth;
+    @apply scroll-smooth border-border;
   }
   body {
     @apply bg-background text-foreground;
@@ -88,13 +88,26 @@
   p {
     @apply leading-7 [&:not(:first-child)]:mt-6;
   }
-  quotes {
+  blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
-  ul {
-    @apply my-6 ml-6 list-disc [&>li]:mt-2;
-  }
+
   code {
     @apply relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold;
+  }
+  ::-webkit-scrollbar {
+    @apply h-1 w-1;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ring;
+  }
+}
+
+@layer components {
+  .snap-section {
+    @apply h-screen snap-start py-10;
   }
 }

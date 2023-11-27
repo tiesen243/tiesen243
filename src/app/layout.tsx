@@ -1,54 +1,50 @@
-import { variable } from "@/lib/fonts";
-import { cn } from "@/lib/utils";
-import { imgBaseUrl } from "@/lib/constants";
+import { imgBaseUrl } from '@/lib/constants'
+import { variable } from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from 'next'
 export const metadata: Metadata = {
   metadataBase: new URL(imgBaseUrl),
-  title: "Tran Tien | Tiesen243",
+  title: 'Tran Tien | Tiesen243',
   description: "I'm a wibu developer from Vietnam.",
-  colorScheme: "dark",
-
   openGraph: {
-    title: "Tran Tien | Tiesen243",
+    title: 'Tran Tien | Tiesen243',
     description: "I'm a wibu developer from Vietnam.",
-    type: "profile",
-    url: "https://tiesen.id.vn",
-    siteName: "Tran Tien | Tiesen243",
-    locale: "vi_VN",
+    type: 'profile',
+    url: 'https://tiesen.id.vn',
+    siteName: 'Tran Tien | Tiesen243',
+    locale: 'vi_VN',
     images: [
       {
-        url: "/logo.png",
+        url: '/logo.png',
         width: 200,
         height: 200,
-        alt: "tiesen243",
+        alt: 'tiesen243',
       },
     ],
   },
   twitter: {
-    site: "@tiesen243",
-    title: "Tran Tien | Tiesen243",
+    site: '@tiesen243',
+    title: 'Tran Tien | Tiesen243',
     description: "I'm a wibu developer from Vietnam.",
-    card: "summary_large_image",
-    creator: "tiesen243",
-    images: "/logo.png",
+    card: 'summary_large_image',
+    creator: 'tiesen243',
+    images: '/logo.png',
   },
-};
+}
 
-import "./globals.css";
-const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
-  return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          variable,
-        )}
-      >
-        {children}
-      </body>
-    </html>
-  );
-};
+export const viewport: Viewport = {
+  colorScheme: 'dark',
+}
 
-export default RootLayout;
+import Header from '@/components/layout/Header'
+import './globals.css'
+const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <html lang="en" className="dark" suppressHydrationWarning>
+    <body className={cn('min-h-screen bg-background font-sans antialiased', variable)}>
+      {children}
+    </body>
+  </html>
+)
+
+export default RootLayout

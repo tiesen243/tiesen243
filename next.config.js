@@ -2,8 +2,8 @@
 const nextConfig = {
   images: {
     unoptimized: true,
-    domains: ["https://raw.githubusercontent.com/"],
+    domains: ['https://raw.githubusercontent.com/'],
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
