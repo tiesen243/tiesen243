@@ -7,12 +7,15 @@ export const metadata: Metadata = {
   metadataBase: new URL(imgBaseUrl),
   title: "Tran Tien | Tiesen243",
   description: "I'm a wibu developer from Vietnam.",
+  colorScheme: "dark",
+
   openGraph: {
     title: "Tran Tien | Tiesen243",
     description: "I'm a wibu developer from Vietnam.",
     type: "profile",
     url: "https://tiesen.id.vn",
     siteName: "Tran Tien | Tiesen243",
+    locale: "vi_VN",
     images: [
       {
         url: "/logo.png",
@@ -35,7 +38,7 @@ export const metadata: Metadata = {
 import "./globals.css";
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
