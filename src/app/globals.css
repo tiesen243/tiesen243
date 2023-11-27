@@ -68,7 +68,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply select-none border-border;
   }
   body {
     @apply bg-background text-foreground;
@@ -86,7 +86,7 @@
 
 @layer components {
   .snap-section {
-    @apply h-screen snap-start py-16;
+    @apply h-screen snap-start py-20;
   }
   .typography {
     @apply prose prose-zinc dark:prose-invert;

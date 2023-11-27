@@ -17,23 +17,19 @@ export default NavMenu
 
 const navs: { title: string; href: string }[] = [
   {
-    title: 'Home',
-    href: '/#home',
-  },
-  {
     title: 'About',
-    href: '/#about',
+    href: '/portfolio#about',
   },
   {
     title: 'Projects',
-    href: '/#projects',
+    href: '/portfolio#projects',
+  },
+  {
+    title: 'Blogs',
+    href: '/portfolio#blogs',
   },
   {
     title: 'Contact',
-    href: '/#contact',
-  },
-  {
-    title: 'Blog',
-    href: '/blog',
+    href: '/portfolio#contact',
   },
 ]

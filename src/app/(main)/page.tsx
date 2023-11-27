@@ -1,12 +1,6 @@
-import { AboutSection, ContactSection, HomeSection, ProjectsSection } from '@/components/homePage'
+import { Home } from '@/components/home'
+import { NextPage } from 'next'
 
-export default function Home() {
-  return (
-    <>
-      <HomeSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
-    </>
-  )
-}
+const Page: NextPage = () => <Home />
+
+export default Page
