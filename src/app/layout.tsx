@@ -37,7 +37,6 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 }
 
-import Header from '@/components/layout/Header'
 import './globals.css'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
