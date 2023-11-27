@@ -6,29 +6,38 @@ import { config } from '@react-spring/web'
 import TextTransition from '@/components/transition'
 const TEXTS = ['Tiesen', 'Wibu', 'Fullstack Developer']
 
-const Transition: React.FC = () => {
+const currentHour = new Date().getHours()
+const hi =
+  currentHour > 5 && currentHour < 12
+    ? 'Ohayou ~'
+    : currentHour > 12 && currentHour < 18
+      ? 'Konnichiwa ~'
+      : 'Konbanwa ~'
+
+const Introduction: React.FC = () => {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
-    const intervalId = setInterval(
-      () => setIndex((index) => index + 1),
-      3000 // every 3 seconds
-    )
+    const intervalId = setInterval(() => setIndex((index) => index + 1), 3000)
     return () => clearTimeout(intervalId)
   }, [])
 
-  // hidden when not in view
-  if (typeof window === 'undefined') return null
-
   return (
-    <span className="ml-2 text-white">
-      {'< '}
-      <TextTransition inline springConfig={config.gentle} className="text-green-400">
-        {TEXTS[index % TEXTS.length]}
-      </TextTransition>
-      {' />'}
-    </span>
+    <article className="typography">
+      <h2>
+        {hi}
+        <br />
+        {"I'm "}
+        <span className="ml-2 text-white">
+          {'< '}
+          <TextTransition inline springConfig={config.gentle} className="text-green-400">
+            {TEXTS[index % TEXTS.length]}
+          </TextTransition>
+          {' />'}
+        </span>
+      </h2>
+    </article>
   )
 }
 
-export default Transition
+export default Introduction

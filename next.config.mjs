@@ -3,7 +3,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: [ 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,
   },

@@ -1,7 +1,7 @@
 import Badge from '@/components/badge'
 
 const Bio: React.FC = () => (
-  <>
+  <article className="typography">
     <p>
       I am Tran Tien, an {new Date().getFullYear() - 2004} years old Developer from Vietnam. I am a
       self-taught developer who loves to code and build things.
@@ -13,7 +13,7 @@ const Bio: React.FC = () => (
       <Badge src="/skills/nestjs.svg" alt="NestJs" text="NestJs" />
       and more.
     </p>
-  </>
+  </article>
 )
 
 export default Bio
