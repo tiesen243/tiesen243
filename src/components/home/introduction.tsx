@@ -2,11 +2,17 @@
 
 import { useEffect, useState } from 'react'
 import { config } from '@react-spring/web'
+import TextTransition from '../transition'
 
-import TextTransition from '@/components/transition'
 const TEXTS = ['Tiesen', 'Wibu', 'Fullstack Developer']
 
-const currentHour = new Date().getHours()
+const currentHour = Number(
+  new Date().toLocaleString('vi', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    hour: 'numeric',
+  })
+)
+
 const hi =
   currentHour > 5 && currentHour < 12
     ? 'Ohayou ~'

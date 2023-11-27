@@ -1,4 +1,4 @@
-import Badge from '@/components/badge'
+import Badge from '../badge'
 
 const Bio: React.FC = () => (
   <article className="typography">
@@ -6,13 +6,14 @@ const Bio: React.FC = () => (
       I am Tran Tien, an {new Date().getFullYear() - 2004} years old Developer from Vietnam. I am a
       self-taught developer who loves to code and build things.
     </p>
-    <p className="flex flex-wrap items-center gap-2">
-      I am working with
+
+    <span className="flex flex-wrap items-center gap-2">
+      <p>I am working with </p>
       <Badge src="/skills/typescript.svg" alt="TS" text="TypeScript" />
       <Badge src="/skills/nextjs.svg" alt="NextJS" text="NextJS" />
       <Badge src="/skills/nestjs.svg" alt="NestJs" text="NestJs" />
-      and more.
-    </p>
+      <p> and more.</p>
+    </span>
   </article>
 )
 

@@ -5,13 +5,10 @@ interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   src: string
   alt: string
   text: string
-  href?: string
 }
-const Badge = React.forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
-  const Comp = props.href ? 'a' : ('div' as any)
+const Badge: React.FC<BadgeProps> = (props, ref) => {
   return (
-    <Comp
-      {...(props.href ? { href: props.href, target: '_blank', rel: 'noopener noreferrer' } : {})}
+    <div
       className="flex h-8 w-fit items-center gap-2 rounded border bg-primary px-2 text-black no-underline transition-colors hover:bg-primary/80"
       ref={ref}
     >
@@ -21,13 +18,10 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
         width={20}
         height={10}
         className="max-h-full max-w-full"
-        priority
       />
       {props.text}
-    </Comp>
+    </div>
   )
-})
-
-Badge.displayName = 'Badge'
+}
 
 export default Badge

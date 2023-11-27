@@ -1,6 +1,6 @@
 import Bio from './bio'
 import CV from './cv'
-import Introduction from './text'
+import Introduction from './introduction'
 
 const Home: React.FC = () => (
   <section id="welcome" className="flex h-[80vh] flex-col justify-center">
