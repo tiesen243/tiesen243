@@ -4,9 +4,14 @@ import Bio from './bio'
 const Transition = dynamic(() => import('./text'), { ssr: false })
 
 const currentHour = new Date().getHours()
-const hi = currentHour < 12 ? 'Ohayo~' : currentHour < 18 ? 'Konnichiwa~' : 'Konbanwa~'
+const hi =
+  currentHour > 5 && currentHour < 12
+    ? 'Ohayou~'
+    : currentHour > 12 && currentHour < 18
+      ? 'Konnichiwa!'
+      : 'Konbanwa!'
 
-export const Home: React.FC = () => (
+const Home: React.FC = () => (
   <section id="welcome" className="typography flex h-[80vh] flex-col justify-center">
     <h2>
       {hi}
@@ -18,3 +23,5 @@ export const Home: React.FC = () => (
     <Bio />
   </section>
 )
+
+export default Home
