@@ -29,12 +29,12 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       images: [{ url: image }],
     },
     twitter: {
-      title: meta.title,
-      description: meta.description,
-      card: 'summary_large_image',
       site: '@tiesen243',
-      creator: '@tiesen243',
-      images: [{ url: image }],
+      title: 'Tran Tien | Tiesen243',
+      description: "I'm a wibu developer from Vietnam.",
+      card: 'summary_large_image',
+      creator: 'tiesen243',
+      images: image,
     },
   }
 }
