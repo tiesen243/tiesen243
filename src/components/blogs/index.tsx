@@ -7,7 +7,7 @@ const BlogsSection: React.FC = async () => {
   return (
     <section id="blogs" className="snap-section typography">
       <h1 className="border-l-8 border-secondary pl-4">Blogs</h1>
-      <section className="max-h-[80%] space-y-2 overflow-y-auto">
+      <section className="max-h-[45rem] space-y-2 overflow-y-auto">
         {blogMetas.map((meta) => (
           <RenderPost key={meta.slug} meta={meta} type="blogs" />
         ))}

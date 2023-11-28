@@ -1,15 +1,11 @@
-'use client'
-import { buttonVariants } from '../ui'
+import { Button } from '../ui'
 
 const CV: React.FC = () => (
-  <a
-    className={buttonVariants({ variant: 'default' })}
-    href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Download CV
-  </a>
+  <Button variant="outline" className="mx-auto w-fit font-bold" asChild>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+      Download CV
+    </a>
+  </Button>
 )
 
 export default CV

@@ -4,7 +4,7 @@ import Skills from './skills'
 import Language from './languge'
 
 const AboutSection: React.FC = () => (
-  <section id="about" className="snap-section">
+  <section id="about" className="snap-section flex items-center">
     <Timeline>
       <BasicInfo />
       <Skills />

@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Button,
   Card,
@@ -14,16 +12,29 @@ import {
 } from '@/components/ui'
 import { info } from '@/lib/data'
 import { SendHorizonalIcon } from 'lucide-react'
-import { useState } from 'react'
+import { Resend } from 'resend'
+import EmailTemplate from './emailTemplate'
+
+const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY)
 
 const MailForm: React.FC = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    subject: '',
-    message: '',
-  })
+  const action = async (formData: FormData) => {
+    'use server'
+    const email = formData.get('email') as string
+    const subject = formData.get('subject') as string
+    const message = formData.get('message') as string
 
-  const href: string = `mailto:${info.email}?subject=${formData.subject}&body=${formData.message}`
+    await resend.emails.send({
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: 'ttien56906@gmail.com',
+      reply_to: email,
+      subject: subject,
+      text: message,
+      react: <EmailTemplate email={email} subject={subject} message={message} />,
+      tags: [{ name: 'contact', value: 'contact' }],
+    })
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -31,44 +42,31 @@ const MailForm: React.FC = () => {
         <CardDescription>Contact me at {info.email}</CardDescription>
       </CardHeader>
 
-      <CardContent className="space-y-4">
-        <section>
-          <Label>Email</Label>
-          <Input
-            required
-            type="email"
-            placeholder="Enter your email"
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-        </section>
+      <form action={action}>
+        <CardContent className="space-y-4">
+          <section className="space-y-1">
+            <Label>Email</Label>
+            <Input required type="email" name="email" placeholder="Where should I reply?" />
+          </section>
 
-        <section>
-          <Label>Subject</Label>
-          <Input
-            required
-            type="text"
-            placeholder="What is the subject of your email?"
-            onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-          />
-        </section>
+          <section className="space-y-1">
+            <Label>Subject</Label>
+            <Input required type="text" name="subject" placeholder="What is it about?" />
+          </section>
 
-        <section>
-          <Label>Message</Label>
-          <Textarea
-            required
-            placeholder="What do you want to tell me?"
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          />
-        </section>
-      </CardContent>
+          <section className="space-y-1">
+            <Label>Message</Label>
+            <Textarea required name="message" placeholder="What do you want to tell me?" />
+          </section>
+        </CardContent>
 
-      <CardFooter className="flex justify-end">
-        <Button type="submit" className="space-x-4" asChild>
-          <a href={href}>
-            Send <SendHorizonalIcon size={20} />
-          </a>
-        </Button>
-      </CardFooter>
+        <CardFooter className="flex justify-end">
+          <Button type="submit">
+            Send
+            <SendHorizonalIcon className="ml-2" />
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   )
 }
