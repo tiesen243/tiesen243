@@ -27,7 +27,14 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       description: meta.description,
       url: `https://www.tiesen.id.vn/blogs/${params.slug}`,
       type: 'article',
-      images: [{ url: image }],
+      images: [
+        {
+          url: image,
+          width: 200,
+          height: 200,
+          alt: meta.title,
+        },
+      ],
     },
     twitter: {
       site: '@tiesen243',
