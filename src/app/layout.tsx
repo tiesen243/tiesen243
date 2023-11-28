@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: 'Tran Tien | Tiesen243',
   description: "I'm a wibu developer from Vietnam.",
+  classification: 'Personal',
+  keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran'],
+  canonical: 'https://tiesen.id.vn',
   openGraph: {
     title: 'Tran Tien | Tiesen243',
     description: "I'm a wibu developer from Vietnam.",
@@ -30,14 +33,17 @@ export const metadata: Metadata = {
     creator: 'tiesen243',
     images: '/logo.png',
   },
+  alternates: {
+    canonical: 'https://tiesen.id.vn',
+  },
 }
 
 export const viewport: Viewport = {
   colorScheme: 'dark',
 }
 
-import './globals.css'
 import { baseUrl } from '@/lib/constants'
+import './globals.css'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
     <body className={cn('min-h-screen bg-background font-sans antialiased', variable)}>

@@ -36,6 +36,9 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       creator: 'tiesen243',
       images: image,
     },
+    alternates: {
+      canonical: `https://www.tiesen.id.vn/projects/${params.slug}`,
+    },
   }
 }
 
