@@ -19,7 +19,7 @@ export const getMDX = async (slug: string, type: 'blogs' | 'projects'): Promise<
 
   return {
     meta: frontmatter as MDX['meta'],
-    content: content,
+    content,
   }
 }
 

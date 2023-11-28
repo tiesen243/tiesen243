@@ -1,5 +1,4 @@
-import createMDX from '@next/mdx'
-import remarkFrontmatter from 'remark-frontmatter'
+import nextMDX from '@next/mdx'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,15 +6,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  experimental: {
-    mdxRs: true,
-  },
+  reactStrictMode: true,
 }
 
-const withMDX = createMDX({
+const withMDX = nextMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkFrontmatter],
+    remarkPlugins: [import('remark-frontmatter')],
   },
 })
 
