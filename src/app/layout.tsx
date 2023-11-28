@@ -1,5 +1,6 @@
 import { variable } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
+import { Analytics } from '@vercel/analytics/react'
 
 import type { Metadata, Viewport } from 'next'
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
     <body className={cn('min-h-screen bg-background font-sans antialiased', variable)}>
       {children}
+      <Analytics />
     </body>
   </html>
 )
