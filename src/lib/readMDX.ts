@@ -17,7 +17,7 @@ export const getMDX = async (slug: string, type: 'blogs' | 'projects'): Promise<
     source: fileContents,
     options: {
       parseFrontmatter: true,
-      mdxOptions: { rehypePlugins: [[rehypeHighlight]] },
+      mdxOptions: { rehypePlugins: [[rehypeHighlight as any]] },
     },
   })
 
