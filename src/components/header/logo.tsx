@@ -1,14 +1,17 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui'
+import { baseUrl } from '@/lib/constants'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const Logo: React.FC = () => (
   <Link href="/" legacyBehavior passHref>
     <article className="flex cursor-pointer items-center space-x-2">
-      <Avatar>
-        <AvatarImage src="/logo.webp" alt="logo" />
-        <AvatarFallback>Logo</AvatarFallback>
-      </Avatar>
-
+      <Image
+        src={`${baseUrl}/logo.png`}
+        alt="logo"
+        width={40}
+        height={40}
+        className="rounded-full"
+      />
       <section className="flex flex-col">
         <span className="font-medium">Tiesen</span>
         <small className="text-gray-400 transition-colors hover:text-gray-300">@tiesen243</small>
