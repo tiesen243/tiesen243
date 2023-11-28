@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle } from '@/components/ui'
+import { Card, CardHeader } from '@/components/ui'
 import { socials } from '@/lib/data'
 import MailForm from './mailForm'
 
@@ -11,12 +11,10 @@ const ContactSection: React.FC = () => (
     <section className="mb-4 grid grid-cols-2 gap-2">
       {socials.map((social, idx: number) => (
         <a key={idx} href={social.url} target="_blank" rel="noopener noreferrer">
-          <Card className="flex cursor-pointer flex-col justify-between transition-colors ease-linear hover:bg-secondary">
-            <CardHeader>
-              <CardTitle className="flex gap-2 no-underline">
-                {social.icon}
-                {social.title}
-              </CardTitle>
+          <Card className="cursor-pointer transition-colors ease-linear hover:bg-secondary">
+            <CardHeader className="flex flex-row items-center justify-center gap-2 text-xl font-bold">
+              {social.icon}
+              {social.title}
             </CardHeader>
           </Card>
         </a>
