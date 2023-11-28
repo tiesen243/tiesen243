@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   description: "I'm a wibu developer from Vietnam.",
   classification: 'Personal',
   keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran'],
-  canonical: 'https://tiesen.id.vn',
   openGraph: {
     title: 'Tran Tien | Tiesen243',
     description: "I'm a wibu developer from Vietnam.",
