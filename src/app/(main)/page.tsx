@@ -1,7 +1,19 @@
 import { NextPage } from 'next'
-import dynamic from 'next/dynamic'
-const Home = dynamic(() => import('@/components/home'), { ssr: false })
 
-const Page: NextPage = () => <Home />
+import AboutSection from '@/components/about'
+import BlogsSection from '@/components/blogs'
+import ContactSection from '@/components/contact'
+import HomeSection from '@/components/home'
+import ProjectsSection from '@/components/projects'
+
+const Page: NextPage = () => (
+  <>
+    <HomeSection />
+    <AboutSection />
+    <ProjectsSection />
+    <BlogsSection />
+    <ContactSection />
+  </>
+)
 
 export default Page

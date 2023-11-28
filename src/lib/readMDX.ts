@@ -1,36 +1,39 @@
-import { MDXSlug } from '@/type'
 import fs from 'fs'
-import matter from 'gray-matter'
 import path from 'path'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import { ReactElement } from 'react'
+import { MDX } from '@/type'
 
 export const rootBlog = path.join(process.cwd(), 'src', 'contents', 'blogs')
 export const rootProj = path.join(process.cwd(), 'src', 'contents', 'projects')
 
-export const getMeta = (slug: string, type: 'blogs' | 'projects'): MDXSlug => {
+export const getMDX = async (slug: string, type: 'blogs' | 'projects'): Promise<MDX> => {
   const root = type === 'blogs' ? rootBlog : rootProj
-  const realSlug = slug.replace(/\.mdx$/, '')
+  const formatedSlug = slug.replace(/\.mdx$/, '')
+  const filePath = path.join(root, `${formatedSlug}.mdx`)
 
-  const filePath = path.join(root, `${realSlug}.mdx`)
   const fileContents = fs.readFileSync(filePath, { encoding: 'utf8' })
-  const { data } = matter(fileContents)
+  const { content, frontmatter } = await compileMDX({
+    source: fileContents,
+    options: { parseFrontmatter: true },
+  })
 
   return {
-    ...(data as MDXSlug),
-    slug: realSlug,
+    meta: frontmatter as MDX['meta'],
+    content: content,
   }
 }
 
-export const getAllMeta = (type: 'blogs' | 'projects'): MDXSlug[] => {
+export const getAllMeta = async (type: 'blogs' | 'projects'): Promise<MDX['meta'][]> => {
   const root = type === 'blogs' ? rootBlog : rootProj
   const slugs = fs.readdirSync(root)
-  const meta = slugs.map((slug) => getMeta(slug, type))
-  return meta
-}
+  const metas = await Promise.all(
+    slugs.map(async (slug: string) => {
+      const { meta } = await getMDX(slug, type)
+      meta.slug = slug.replace(/\.mdx$/, '')
+      return meta
+    })
+  )
 
-export const getContent = (slug: string, type: 'blogs' | 'projects'): string => {
-  const root = type === 'blogs' ? rootBlog : rootProj
-  const files = path.join(root, slug + '.mdx')
-  const fileContent = fs.readFileSync(files, { encoding: 'utf8' })
-  const { content } = matter(fileContent)
-  return content
+  return metas
 }

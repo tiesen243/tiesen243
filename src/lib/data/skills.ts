@@ -16,8 +16,12 @@ export const skills = [
     icon: '/skills/redux.svg',
   },
   {
-    title: 'Tailwindcss',
+    title: 'TailwindCSS',
     icon: '/skills/tailwindcss.svg',
+  },
+  {
+    title: 'Shadcn',
+    icon: '/skills/shadcn.svg',
   },
   {
     title: 'Material UI',

@@ -2,12 +2,12 @@ import Bio from './bio'
 import CV from './cv'
 import Introduction from './introduction'
 
-const Home: React.FC = () => (
-  <section id="welcome" className="flex h-[80vh] flex-col justify-center">
+const HomeSection: React.FC = () => (
+  <section id="welcome" className="snap-section flex flex-col justify-center">
     <Introduction />
     <Bio />
     <CV />
   </section>
 )
 
-export default Home
+export default HomeSection

@@ -2,10 +2,10 @@ import { Card, CardHeader, CardTitle } from '@/components/ui'
 import { socials } from '@/lib/data'
 import MailForm from './mailForm'
 
-export const ContactSection: React.FC = () => (
+const ContactSection: React.FC = () => (
   <section id="contact" className="snap-section">
     <article className="typography">
-      <h1>Contact</h1>
+      <h1 className="border-l-8 border-secondary pl-4">Contact</h1>
     </article>
 
     <section className="mb-4 grid grid-cols-2 gap-2">
@@ -26,3 +26,5 @@ export const ContactSection: React.FC = () => (
     <MailForm />
   </section>
 )
+
+export default ContactSection

@@ -1,4 +1,4 @@
-import Header from '@/components/layout/Header'
+import Header from '@/components/header'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <div className="h-screen w-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll scroll-smooth">

@@ -3,7 +3,7 @@ import BasicInfo from './basic'
 import Skills from './skills'
 import Language from './languge'
 
-export const AboutSection: React.FC = () => (
+const AboutSection: React.FC = () => (
   <section id="about" className="snap-section">
     <Timeline>
       <BasicInfo />
@@ -12,3 +12,5 @@ export const AboutSection: React.FC = () => (
     </Timeline>
   </section>
 )
+
+export default AboutSection
