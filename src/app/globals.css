@@ -89,6 +89,6 @@
     @apply h-screen snap-start py-20;
   }
   .typography {
-    @apply prose prose-zinc dark:prose-invert lg:prose-lg;
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:bg-[#282936];
   }
 }
