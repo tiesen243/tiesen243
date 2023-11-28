@@ -1,10 +1,9 @@
-import { imgBaseUrl } from '@/lib/constants'
 import { variable } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 
 import type { Metadata, Viewport } from 'next'
 export const metadata: Metadata = {
-  metadataBase: new URL(imgBaseUrl),
+  metadataBase: new URL(baseUrl),
   title: 'Tran Tien | Tiesen243',
   description: "I'm a wibu developer from Vietnam.",
   openGraph: {
@@ -38,6 +37,7 @@ export const viewport: Viewport = {
 }
 
 import './globals.css'
+import { baseUrl } from '@/lib/constants'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
     <body className={cn('min-h-screen bg-background font-sans antialiased', variable)}>

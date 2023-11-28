@@ -1,2 +1,1 @@
-export const imgBaseUrl = 'https://raw.githubusercontent.com/tiesen243/albums/main/'
-export const logoUrl = `${imgBaseUrl}logo.png`
+export const baseUrl = 'https://raw.githubusercontent.com/tiesen243/albums/main'

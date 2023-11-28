@@ -2,7 +2,6 @@ import { Metadata, NextPage } from 'next'
 
 import HeaderPost from '@/components/HeaderPost'
 import BackBtn from '@/components/backBtn'
-import { logoUrl } from '@/lib/constants'
 import { skills } from '@/lib/data'
 import { getMDX } from '@/lib/readMDX'
 
@@ -14,7 +13,7 @@ interface Props {
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { meta } = await getMDX(params.slug, 'projects')
-  const image = meta.image ? meta.image : logoUrl
+  const image = meta.image ? meta.image : '/logo.webp'
 
   return {
     title: meta.title,
@@ -27,6 +26,14 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       description: meta.description,
       url: `https://www.tiesen.id.vn/projects/${params.slug}`,
       type: 'article',
+      images: [{ url: image }],
+    },
+    twitter: {
+      title: meta.title,
+      description: meta.description,
+      card: 'summary_large_image',
+      site: '@tiesen243',
+      creator: '@tiesen243',
       images: [{ url: image }],
     },
   }
