@@ -3,11 +3,11 @@
 import { TypeAnimation } from 'react-type-animation'
 
 const Introduction: React.FC = () => (
-  <article className="typography">
+  <article className="typography prose-pre:bg-background">
     <h2>
       {hi}
       <br /> <br /> I&#39;m
-      <pre className="ml-2 inline text-green-500">
+      <pre className="ml-2 inline text-green-500 ">
         <code>
           {'< '}
           <TypeAnimation sequence={sequence} speed={30} repeat={Infinity} />
