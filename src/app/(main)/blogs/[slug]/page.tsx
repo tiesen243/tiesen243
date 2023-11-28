@@ -13,7 +13,7 @@ interface Props {
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { meta } = await getMDX(params.slug, 'blogs')
-  const image = meta.image ? meta.image : '/logo.webp'
+  const image = meta.image ? meta.image : '/logo.png'
 
   return {
     metadataBase: new URL(baseUrl),
