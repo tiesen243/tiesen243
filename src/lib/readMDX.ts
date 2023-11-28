@@ -1,8 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import { compileMDX } from 'next-mdx-remote/rsc'
-import { ReactElement } from 'react'
 import { MDX } from '@/type'
+import fs from 'fs'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import path from 'path'
 
 export const rootBlog = path.join(process.cwd(), 'src', 'contents', 'blogs')
 export const rootProj = path.join(process.cwd(), 'src', 'contents', 'projects')

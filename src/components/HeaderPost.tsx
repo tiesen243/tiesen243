@@ -12,7 +12,7 @@ const HeaderPost: React.FC<Props> = ({ meta, tags }) => (
     <h1>{meta.title}</h1>
     <time dateTime={meta.date}>{meta.date}</time>
     <section className="flex flex-wrap justify-center gap-1">
-      {tags.map((tag) => {
+      {tags?.map((tag) => {
         if (typeof tag === 'string') return <div key={tag}>{tag}</div>
         else return <Badge key={tag.title} alt={tag.title} text={tag.title} src={tag.icon} />
       })}

@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     description: meta.description,
     creator: '@tiesen243',
     classification: 'Blog',
-    keywords: meta.tags.join(', '),
+    keywords: meta.tags?.join(', '),
     openGraph: {
       title: meta.title,
       description: meta.description,

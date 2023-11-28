@@ -6,11 +6,11 @@ const Introduction: React.FC = () => (
   <article className="typography">
     <h2>
       {hi}
-      <br /> I&#39;m
+      <br /> <br /> I&#39;m
       <pre className="ml-2 inline text-green-500">
         <code>
           {'< '}
-          <TypeAnimation sequence={sequence} speed={49} repeat={Infinity} />
+          <TypeAnimation sequence={sequence} speed={30} repeat={Infinity} />
           {' />'}
         </code>
       </pre>

@@ -7,13 +7,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    mdxRs: true,
+  },
 }
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkFrontmatter],
-    rehypePlugins: [],
   },
 })
 
