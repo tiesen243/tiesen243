@@ -11,9 +11,6 @@ const nextConfig = {
 
 const withMDX = nextMDX({
   extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [import('remark-frontmatter')],
-  },
 })
 
 export default withMDX(nextConfig)

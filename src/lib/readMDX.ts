@@ -2,6 +2,7 @@ import { MDX } from '@/type'
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import path from 'path'
+import rehypeHighlight from 'rehype-highlight'
 
 export const rootBlog = path.join(process.cwd(), 'src', 'contents', 'blogs')
 export const rootProj = path.join(process.cwd(), 'src', 'contents', 'projects')
@@ -14,7 +15,10 @@ export const getMDX = async (slug: string, type: 'blogs' | 'projects'): Promise<
   const fileContents = fs.readFileSync(filePath, { encoding: 'utf8' })
   const { content, frontmatter } = await compileMDX({
     source: fileContents,
-    options: { parseFrontmatter: true },
+    options: {
+      parseFrontmatter: true,
+      mdxOptions: { rehypePlugins: [[rehypeHighlight]] },
+    },
   })
 
   return {
