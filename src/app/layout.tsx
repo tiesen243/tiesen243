@@ -42,10 +42,11 @@ export const viewport: Viewport = {
 }
 
 import fontSans from '@/lib/fonts'
+import { cn } from '@/lib/utils'
 import './globals.css'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
-    <body className={fontSans}>
+    <body className={cn('h-max bg-background font-sans antialiased', fontSans)}>
       {children}
       <Analytics />
     </body>
