@@ -1,19 +1,18 @@
-import { variable } from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import { Analytics } from '@vercel/analytics/react'
-
 import type { Metadata, Viewport } from 'next'
+
+import { appUrl } from '@/lib/constants'
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(appUrl),
   title: 'Tran Tien | Tiesen243',
   description: "I'm a wibu developer from Vietnam.",
   classification: 'Personal',
   keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran'],
   openGraph: {
+    url: appUrl,
     title: 'Tran Tien | Tiesen243',
     description: "I'm a wibu developer from Vietnam.",
     type: 'profile',
-    url: 'https://tiesen.id.vn',
     siteName: 'Tran Tien | Tiesen243',
     locale: 'vi_VN',
     images: [
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     images: '/logo.png',
   },
   alternates: {
-    canonical: 'https://tiesen.id.vn',
+    canonical: appUrl,
   },
 }
 
@@ -42,11 +41,11 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 }
 
-import { baseUrl } from '@/lib/constants'
+import fontSans from '@/lib/fonts'
 import './globals.css'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" className="dark" suppressHydrationWarning>
-    <body className={cn('min-h-screen bg-background font-sans antialiased', variable)}>
+    <body className={fontSans}>
       {children}
       <Analytics />
     </body>

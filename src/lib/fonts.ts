@@ -1,11 +1,10 @@
-import { Poppins } from 'next/font/google'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
+import { cn } from './utils'
 
-const fontSans = Poppins({
-  subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-  variable: '--font-sans',
-})
+const fontSans = cn(
+  'min-h-screen bg-background font-sans antialiased',
+  `${GeistSans.variable} ${GeistMono.variable}`
+)
 
-export const variable = fontSans.variable
 export default fontSans

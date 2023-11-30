@@ -1,1 +1,1 @@
-export const baseUrl = 'https://raw.githubusercontent.com/tiesen243/albums/main'
+export const appUrl = 'https://www.tiesen.id.vn'

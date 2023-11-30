@@ -1,7 +1,5 @@
-import dynamic from 'next/dynamic'
-
+import Logo from './logo'
 import NavMenu from './navMenu'
-const Logo = dynamic(() => import('./logo'), { ssr: false })
 
 const Header: React.FC = () => (
   <header className="sticky inset-0 z-50 border border-b bg-transparent py-2 shadow backdrop-blur">

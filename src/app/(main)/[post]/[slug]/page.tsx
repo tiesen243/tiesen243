@@ -5,7 +5,7 @@ import BackBtn from '@/components/backBtn'
 import { getMDX } from '@/lib/readMDX'
 import { Suspense } from 'react'
 import { Separator } from '@/components/ui'
-import { baseUrl } from '@/lib/constants'
+import { appUrl } from '@/lib/constants'
 
 interface Props {
   params: {
@@ -20,7 +20,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const url = `https://www.tiesen.id.vn/${params.post}/${params.slug}`
 
   return {
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(appUrl),
     title: meta.title,
     description: meta.description,
     creator: '@tiesen243',
@@ -53,7 +53,7 @@ const Page: NextPage<Props> = async ({ params }) => {
       <BackBtn pathname={params.post} />
       <HeaderPost meta={meta} tags={meta.tags} />
       <Separator />
-      <article className="typography my-4">{content}</article>
+      <article className="typography my-4 select-auto">{content}</article>
     </Suspense>
   )
 }
