@@ -18,13 +18,7 @@ const Badge: React.FC<BadgeProps> = (props) => {
       rel="noopener noreferrer"
       className="flex h-8 w-fit items-center gap-2 rounded border bg-primary px-2 text-black no-underline transition-colors hover:bg-primary/80"
     >
-      <Image
-        src={tag.icon}
-        alt={tag.title}
-        width={15}
-        height={10}
-        className="h-auto max-h-full max-w-full"
-      />
+      <Image src={tag.icon} alt={tag.title} width={15} height={10} className="h-auto" />
       {tag.title}
     </a>
   )

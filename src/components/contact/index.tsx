@@ -1,6 +1,6 @@
 import { Card, CardHeader } from '@/components/ui'
 import { socials } from '@/lib/data'
-import MailForm from './mailForm'
+import EmailForm from './emailForm'
 
 const ContactSection: React.FC = () => (
   <section id="contact" className="snap-section">
@@ -21,7 +21,7 @@ const ContactSection: React.FC = () => (
       ))}
     </section>
 
-    <MailForm />
+    <EmailForm />
   </section>
 )
 
