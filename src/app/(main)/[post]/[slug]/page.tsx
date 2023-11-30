@@ -1,11 +1,9 @@
-import { Metadata, NextPage } from 'next'
-
 import HeaderPost from '@/components/HeaderPost'
 import BackBtn from '@/components/backBtn'
-import { getMDX } from '@/lib/readMDX'
-import { Suspense } from 'react'
-import { Separator } from '@/components/ui'
 import { appUrl } from '@/lib/constants'
+import { getMDX } from '@/lib/readMDX'
+import { Metadata, NextPage } from 'next'
+import { Suspense } from 'react'
 
 interface Props {
   params: {
@@ -52,7 +50,6 @@ const Page: NextPage<Props> = async ({ params }) => {
     <Suspense fallback="Loading...">
       <BackBtn pathname={params.post} />
       <HeaderPost meta={meta} tags={meta.tags} />
-      <Separator />
       <article className="typography my-4 select-auto">{content}</article>
     </Suspense>
   )

@@ -86,7 +86,7 @@
 
 @layer components {
   .snap-section {
-    @apply h-screen max-h-screen snap-start snap-always overflow-y-hidden py-16;
+    @apply h-screen max-h-screen snap-start snap-always overflow-y-hidden py-20;
   }
   .typography {
     @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:bg-[#282936];

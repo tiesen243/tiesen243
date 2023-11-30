@@ -2,7 +2,7 @@ import { MDX } from '@/type'
 import { GithubIcon } from 'lucide-react'
 import Image from 'next/image'
 import Badge from './badge'
-import { Button } from './ui'
+import { Button, Separator } from './ui'
 
 interface Props {
   meta: MDX['meta']
@@ -11,6 +11,10 @@ interface Props {
 
 const HeaderPost: React.FC<Props> = ({ meta, tags }) => (
   <div className="typography mx-auto my-4 prose-h1:mb-2">
+    {meta.image && (
+      <Image src={meta.image} alt={meta.title} width={1920} height={1080} className="rounded-lg" />
+    )}
+
     <section className="flex items-center justify-between">
       <div>
         <h1>{meta.title}</h1>
@@ -30,7 +34,7 @@ const HeaderPost: React.FC<Props> = ({ meta, tags }) => (
       {tags?.map((tag, idx: number) => <Badge key={idx} tag={tag} type="dev" />)}
     </section>
 
-    {meta.image && <Image src={meta.image} alt={meta.title} width={1920} height={1080} />}
+    <Separator className="mt-4" />
   </div>
 )
 
