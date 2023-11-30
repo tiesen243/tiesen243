@@ -51,7 +51,7 @@ export const skills = {
       url: 'https://mui.com/',
     },
     {
-      title: 'Nest.js',
+      title: 'NestJS',
       icon: '/skills/nestjs.svg',
       url: 'https://nestjs.com/',
     },

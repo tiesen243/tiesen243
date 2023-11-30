@@ -11,9 +11,9 @@ const Bio: React.FC = () => (
 
       <span className="flex flex-wrap items-center gap-2 prose-p:my-0">
         <p>I am working with </p>
-        <Badge src="/skills/typescript.svg" alt="TS" text="TypeScript" />
-        <Badge src="/skills/nextjs.svg" alt="NextJS" text="NextJS" />
-        <Badge src="/skills/nestjs.svg" alt="NestJs" text="NestJs" />
+        <Badge tag="TypeScript" type="dev" />
+        <Badge tag="Next.js" type="dev" />
+        <Badge tag="NestJS" type="dev" />
         <p> and more.</p>
       </span>
     </section>
