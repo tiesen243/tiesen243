@@ -1,12 +1,14 @@
 import Badge from '@/components/badge'
 import { TimelineContent, TimelineItem, TimelintTitle } from '@/components/ui'
+import { skills } from '@/lib/data'
 
 const Language = () => (
   <TimelineItem>
     <TimelintTitle text="Language" />
     <TimelineContent className="flex flex-wrap gap-1">
-      <Badge src="/langs/vietnam.svg" alt="Vietnamese" text="Vietnamese" />
-      <Badge src="/langs/us.svg" alt="English" text="English" />
+      {skills.languages.map((skill, idx: number) => (
+        <Badge key={idx} tag={skill.title} type="languages" />
+      ))}
     </TimelineContent>
   </TimelineItem>
 )

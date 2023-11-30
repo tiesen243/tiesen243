@@ -6,8 +6,8 @@ const Skills: React.FC = () => (
   <TimelineItem>
     <TimelintTitle text="Skills" />
     <TimelineContent className="flex flex-wrap items-center gap-1">
-      {skills.map((skill, idx: number) => (
-        <Badge key={idx} src={skill.icon} alt={skill.title} text={skill.title} />
+      {skills.dev.map((skill, idx: number) => (
+        <Badge key={idx} tag={skill.title} type="dev" />
       ))}
     </TimelineContent>
   </TimelineItem>

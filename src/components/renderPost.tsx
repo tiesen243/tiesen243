@@ -16,6 +16,7 @@ const RenderPost: React.FC<Props> = ({ meta, type }) => (
       </CardHeader>
       <CardContent>
         <p>{meta.description}</p>
+        {meta.tags?.length > 0 && <p>Tags: {meta.tags.join(', ')}</p>}
       </CardContent>
     </Card>
   </Link>

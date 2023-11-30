@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui'
 
 const Logo: React.FC = () => (
-  <Link href="/" legacyBehavior passHref>
+  <Link href="/#home" legacyBehavior passHref>
     <article className="flex cursor-pointer items-center space-x-2">
       <Avatar>
         <AvatarImage src="/logo.webp" alt="Tiesen Logo" />

@@ -1,17 +1,16 @@
 import { NextPage } from 'next'
 
 import AboutSection from '@/components/about'
-import BlogsSection from '@/components/blogs'
 import ContactSection from '@/components/contact'
 import HomeSection from '@/components/home'
-import ProjectsSection from '@/components/projects'
+import PostsSection from '@/components/posts'
 
 const Page: NextPage = () => (
   <>
     <HomeSection />
     <AboutSection />
-    <ProjectsSection />
-    <BlogsSection />
+    <PostsSection type="projects" />
+    <PostsSection type="blogs" />
     <ContactSection />
   </>
 )

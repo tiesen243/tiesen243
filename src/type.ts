@@ -6,8 +6,21 @@ export interface MDX {
     description: string
     date: string
     tags: string[]
-    image: string
-    slug?: string
+    slug: string
+    image?: string
+    repository?: string
   }
   content: ReactElement
+}
+
+export interface Skill {
+  title: string
+  icon: string
+  url: string
+}
+
+export interface Social {
+  title: string
+  icon: ReactElement
+  url: string
 }

@@ -1,3 +1,4 @@
+import { Social } from '@/type'
 import { FacebookIcon, GithubIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
 
 export const info = {
@@ -16,7 +17,7 @@ export const info = {
   ],
 }
 
-export const socials = [
+export const socials: Social[] = [
   {
     title: 'Facebook',
     url: 'https://www.facebook.com/tiesen243',

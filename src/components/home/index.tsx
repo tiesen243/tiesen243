@@ -3,7 +3,7 @@ import CV from './cv'
 import Introduction from './introduction'
 
 const HomeSection: React.FC = () => (
-  <section id="welcome" className="snap-section flex flex-col justify-center">
+  <section id="home" className="snap-section flex flex-col justify-center">
     <Introduction />
     <Bio />
     <CV />
