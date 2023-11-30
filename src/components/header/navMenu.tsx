@@ -5,7 +5,7 @@ const NavMenu = () => (
   <ul className="flex">
     {navs.map((nav, idx: number) => (
       <li key={idx}>
-        <Button variant="link" className="text-sm" asChild>
+        <Button variant="link" className="p-2 text-sm" asChild>
           <Link href={nav.href}>{nav.title}</Link>
         </Button>
       </li>
