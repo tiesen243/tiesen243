@@ -11,7 +11,7 @@ export const info = {
     {
       date: '2022 - Present',
       school: 'Industrial University of Ho Chi Minh City',
-      major: 'Computer Technology Engineering',
+      major: 'Computer Engineering Technology',
       gpa: null,
     },
   ],
