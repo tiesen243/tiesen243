@@ -1,10 +1,10 @@
-import { TimelineContent, TimelineItem, TimelintTitle } from '@/components/ui/timeline'
+import { TimelineContent, TimelineItem, TimelineTitle } from '@/components/ui/timeline'
 import { info } from '@/lib/data'
 
 const BasicInfo = () => (
   <>
     <TimelineItem>
-      <TimelintTitle text="Basic Infomations" />
+      <TimelineTitle text="Basic Infomations" />
       <TimelineContent>
         <p>
           {`Name: ${info.name}`} <br />
@@ -16,7 +16,7 @@ const BasicInfo = () => (
     </TimelineItem>
 
     <TimelineItem>
-      <TimelintTitle text="Education" />
+      <TimelineTitle text="Education" />
       <TimelineContent>
         {info.education.map((item, index) => (
           <p key={index}>
@@ -34,7 +34,7 @@ const BasicInfo = () => (
     </TimelineItem>
 
     <TimelineItem>
-      <TimelintTitle text="Work Experience" />
+      <TimelineTitle text="Work Experience" />
       <TimelineContent>No experience</TimelineContent>
     </TimelineItem>
   </>

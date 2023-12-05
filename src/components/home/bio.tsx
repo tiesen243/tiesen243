@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Badge from '../badge'
+import Badge from '@/components/badge'
 
 const Bio: React.FC = () => (
   <article className="grid grid-cols-3 gap-2">

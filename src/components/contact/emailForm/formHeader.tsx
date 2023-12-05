@@ -1,4 +1,4 @@
-import { CardDescription, CardHeader, CardTitle } from '@/components/ui'
+import { CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { info } from '@/lib/data'
 
 const FormHeader: React.FC = () => (

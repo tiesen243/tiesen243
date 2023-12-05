@@ -1,8 +1,9 @@
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import { MDX } from '@/type'
 import { GithubIcon } from 'lucide-react'
 import Image from 'next/image'
 import Badge from './badge'
-import { Button, Separator } from './ui'
 
 interface Props {
   meta: MDX['meta']

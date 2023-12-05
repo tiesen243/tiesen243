@@ -1,4 +1,4 @@
-import { Card, CardHeader } from '@/components/ui'
+import { Card, CardHeader } from '@/components/ui/card'
 import { socials } from '@/lib/data'
 import EmailForm from './emailForm'
 

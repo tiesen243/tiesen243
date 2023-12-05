@@ -37,7 +37,7 @@ const hi =
 const sequence = [
   'Tiesen',
   1000,
-  'Wibu',
+  'Weaboo',
   1000,
   'Frontend Developer',
   1000,

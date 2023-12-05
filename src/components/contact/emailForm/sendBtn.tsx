@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui'
+import { Button } from '@/components/ui/button'
 import { SendHorizonalIcon } from 'lucide-react'
 import { useFormStatus } from 'react-dom'
 

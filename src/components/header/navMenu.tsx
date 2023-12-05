@@ -1,13 +1,14 @@
-import { Button } from '@/components/ui'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import Link from 'next/link'
 
 const NavMenu = () => (
   <ul className="flex">
-    {navs.map((nav, idx: number) => (
-      <li key={idx}>
-        <Button variant="link" className="p-2 text-sm" asChild>
-          <Link href={nav.href}>{nav.title}</Link>
-        </Button>
+    {navs.map((nav) => (
+      <li key={nav.title}>
+        <Link className={cn(buttonVariants({ variant: 'link' }), 'p-2')} href={nav.href}>
+          {nav.title}
+        </Link>
       </li>
     ))}
   </ul>

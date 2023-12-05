@@ -1,4 +1,4 @@
-import { Timeline } from '@/components/ui'
+import { Timeline } from '@/components/ui/timeline'
 import BasicInfo from './basic'
 import Language from './languge'
 import Skills from './skills'

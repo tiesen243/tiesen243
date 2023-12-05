@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { MDX } from '@/type'
 
 interface Props {

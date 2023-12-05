@@ -18,7 +18,7 @@ export const TimelineItem: React.FC<TimelineProps> = ({ children }) => (
   </li>
 )
 
-export const TimelintTitle: React.FC<TimelineProps> = ({ text, className }) => (
+export const TimelineTitle: React.FC<TimelineProps> = ({ text, className }) => (
   <h3 className={cn('mb-1 leading-none', className)}>{text}</h3>
 )
 
