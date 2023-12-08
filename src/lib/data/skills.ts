@@ -1,34 +1,20 @@
 export const skills = {
   dev: [
     {
-      title: 'HTML',
-      icon: '/skills/html.svg',
-      url: 'https://www.w3schools.com/html/',
-    },
-    {
-      title: 'CSS',
-      icon: '/skills/css3.svg',
-      url: 'https://www.w3schools.com/css/',
-    },
-    {
-      title: 'JavaScript',
-      icon: '/skills/javascript.svg',
-      url: 'https://www.javascript.com/',
-    },
-    {
       title: 'TypeScript',
       icon: '/skills/typescript.svg',
       url: 'https://www.typescriptlang.org/',
     },
     {
-      title: 'Next.js',
-      icon: '/skills/nextjs.svg',
-      url: 'https://nextjs.org/',
-    },
-    {
       title: 'React',
       icon: '/skills/react.svg',
       url: 'https://reactjs.org/',
+    },
+
+    {
+      title: 'Next.js',
+      icon: '/skills/nextjs.svg',
+      url: 'https://nextjs.org/',
     },
     {
       title: 'Redux',
@@ -61,11 +47,6 @@ export const skills = {
       url: 'https://www.mongodb.com/',
     },
     {
-      title: 'Firebase',
-      icon: '/skills/firebase.svg',
-      url: 'https://firebase.google.com/',
-    },
-    {
       title: 'Python',
       icon: '/skills/python.svg',
       url: 'https://www.python.org/',
@@ -90,20 +71,11 @@ export const skills = {
       icon: '/skills/git.svg',
       url: 'https://git-scm.com/',
     },
-    {
-      title: 'Figma',
-      icon: '/skills/figma.svg',
-      url: 'https://www.figma.com/',
-    },
+
     {
       title: 'Adobe Photoshop',
       icon: '/skills/photoshop.svg',
       url: 'https://www.adobe.com/products/photoshop.html',
-    },
-    {
-      title: 'Teamwork',
-      icon: '/skills/teamwork.svg',
-      url: 'https://www.google.com/search?q=teamwork',
     },
   ],
   languages: [

@@ -11,7 +11,7 @@ const Introduction: React.FC = () => (
         <code>
           {'< '}
           <TypeAnimation sequence={sequence} speed={20} repeat={Infinity} />
-          {' />'}
+          {'/>'}
         </code>
       </pre>
     </h1>
