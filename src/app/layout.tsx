@@ -4,7 +4,10 @@ import type { Metadata, Viewport } from 'next'
 import { appUrl } from '@/lib/constants'
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
-  title: 'Tran Tien | Tiesen243',
+  title: {
+    default: 'Tran Tien | Tiesen243',
+    template: '%s | TieSen243',
+  },
   description: "I'm a wibu developer from Vietnam.",
   classification: 'Personal',
   keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran'],
