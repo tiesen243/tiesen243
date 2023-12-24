@@ -1,8 +1,9 @@
-import { Button } from '@/components/ui/button'
-import { Separator } from '@/components/ui/separator'
-import { MDX } from '@/type'
 import { GithubIcon } from 'lucide-react'
 import Image from 'next/image'
+
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
+import type { MDX } from '@/type'
 import Badge from './badge'
 
 interface Props {
@@ -11,11 +12,7 @@ interface Props {
 }
 
 const HeaderPost: React.FC<Props> = ({ meta, tags }) => (
-  <div className="typography mx-auto my-4 prose-h1:mb-2">
-    {meta.image && (
-      <Image src={meta.image} alt={meta.title} width={1920} height={1080} className="rounded-lg" />
-    )}
-
+  <div className="typography mx-auto my-4 text-pretty prose-h1:mb-2">
     <section className="flex items-center justify-between">
       <div>
         <h1>{meta.title}</h1>
@@ -34,6 +31,10 @@ const HeaderPost: React.FC<Props> = ({ meta, tags }) => (
     <section className="flex flex-wrap justify-center gap-1">
       {tags?.map((tag, idx: number) => <Badge key={idx} tag={tag} type="dev" />)}
     </section>
+
+    {meta.image && (
+      <Image src={meta.image} alt={meta.title} width={1920} height={1080} className="rounded-lg" />
+    )}
 
     <Separator className="mt-4" />
   </div>

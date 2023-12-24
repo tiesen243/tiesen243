@@ -1,9 +1,9 @@
-import HeaderPost from '@/components/HeaderPost'
-import BackBtn from '@/components/backBtn'
+import type { Metadata, NextPage } from 'next'
+
+import BackBtn from '@/components/back-btn'
+import HeaderPost from '@/components/header-post'
 import { appUrl } from '@/lib/constants'
 import { getMDX } from '@/lib/readMDX'
-import { Metadata, NextPage } from 'next'
-import { Suspense } from 'react'
 
 interface Props {
   params: {
@@ -50,7 +50,7 @@ const Page: NextPage<Props> = async ({ params }) => {
     <>
       <BackBtn pathname={params.post} />
       <HeaderPost meta={meta} tags={meta.tags} />
-      <article className="typography my-4 select-auto">
+      <article className="typography my-4 select-auto scroll-auto">
         <blockquote>{meta.description}</blockquote>
         {content}
       </article>

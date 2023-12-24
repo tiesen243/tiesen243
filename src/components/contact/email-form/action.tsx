@@ -1,7 +1,7 @@
 'use server'
 
 import { Resend } from 'resend'
-import EmailTemplate from './emailTemplate'
+import EmailTemplate from './email-template'
 
 const resend = new Resend(process.env.NEXT_PUBLIC_API_KEY)
 export const action = async (formData: FormData) => {

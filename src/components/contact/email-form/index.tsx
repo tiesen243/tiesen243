@@ -3,8 +3,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { action } from './action'
-import FormHeader from './formHeader'
-import SendBtn from './sendBtn'
+import FormHeader from './form-header'
+import SendBtn from './send-btn'
 
 const EmailForm: React.FC = () => (
   <Card>

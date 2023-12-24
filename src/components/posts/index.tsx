@@ -1,4 +1,4 @@
-import RenderPost from '@/components/renderPost'
+import RenderPost from '@/components/render-post'
 import { getAllMeta } from '@/lib/readMDX'
 
 interface Props {
