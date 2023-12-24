@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
     default: 'Tran Tien | Tiesen243',
-    template: '%s | TieSen243',
+    template: '%s | Tiesen243',
   },
   description: "I'm a wibu developer from Vietnam.",
   classification: 'Personal',

@@ -2,7 +2,7 @@ import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const PostLoading: React.FC = () => (
-  <div>
+  <div className="space-y-4">
     <Skeleton className="h-10 w-1/2" />
     <Skeleton className="h-10 w-1/4" />
 
