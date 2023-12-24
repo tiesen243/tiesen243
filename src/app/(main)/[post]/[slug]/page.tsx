@@ -47,11 +47,14 @@ const Page: NextPage<Props> = async ({ params }) => {
   const { content, meta } = await getMDX(params.slug, params.post)
 
   return (
-    <Suspense fallback="Loading...">
+    <>
       <BackBtn pathname={params.post} />
       <HeaderPost meta={meta} tags={meta.tags} />
-      <article className="typography my-4 select-auto">{content}</article>
-    </Suspense>
+      <article className="typography my-4 select-auto">
+        <blockquote>{meta.description}</blockquote>
+        {content}
+      </article>
+    </>
   )
 }
 

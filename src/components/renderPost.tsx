@@ -15,7 +15,11 @@ const RenderPost: React.FC<Props> = ({ meta, type }) => (
         <CardDescription>{meta.date}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{meta.description}</p>
+        <p>
+          {meta.description.length > 100
+            ? `${meta.description.slice(0, 100)}...`
+            : meta.description}
+        </p>
         {meta.tags?.length > 0 && <p>Tags: {meta.tags.join(', ')}</p>}
       </CardContent>
     </Card>
