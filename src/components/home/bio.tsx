@@ -18,7 +18,7 @@ const Bio: React.FC = () => (
       </span>
     </section>
 
-    <Image src="/yuki.webp" alt="Yuki" width={250} height={300} className="rounded" />
+    <Image src="/images/yuki.webp" alt="Yuki" width={250} height={300} className="rounded" />
   </article>
 )
 

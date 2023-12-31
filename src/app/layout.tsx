@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     locale: 'vi_VN',
     images: [
       {
-        url: '/logo.png',
+        url: '/images/logo.png',
         width: 200,
         height: 200,
         alt: 'tiesen243',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     description: "I'm a wibu developer from Vietnam.",
     card: 'summary_large_image',
     creator: 'tiesen243',
-    images: '/logo.png',
+    images: '/images/logo.png',
   },
   alternates: {
     canonical: appUrl,

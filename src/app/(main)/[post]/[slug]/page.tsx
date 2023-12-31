@@ -14,7 +14,7 @@ interface Props {
 const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const { meta } = await getMDX(params.slug, params.post)
-  const image = meta.image ? meta.image : '/logo.png'
+  const image = meta.image ? meta.image : '/images/logo.png'
   const url = `${appUrl}/${params.post}/${params.slug}`
 
   return {
