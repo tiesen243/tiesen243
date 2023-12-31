@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: appUrl,
     title: {
-      default: 'Tran Tien | Tiesen243',
+      default: 'Tiesen243',
       template: '%s | Tiesen243',
     },
     description: "I'm a wibu developer from Vietnam.",
