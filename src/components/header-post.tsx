@@ -3,7 +3,6 @@ import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import type { MDX } from '@/type'
 import Badge from './badge'
 
 interface Props {

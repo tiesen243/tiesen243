@@ -68,7 +68,10 @@
 
 @layer base {
   * {
-    @apply select-none scroll-smooth border-border;
+    @apply select-none border-border;
+  }
+  html :has(.landing-page) {
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -86,7 +89,7 @@
 
 @layer components {
   .snap-section {
-    @apply h-screen max-h-screen snap-start snap-always overflow-y-hidden py-20;
+    @apply min-h-screen snap-start snap-always py-20;
   }
   .typography {
     @apply prose prose-zinc text-pretty lg:prose-lg dark:prose-invert prose-pre:bg-[#282936];

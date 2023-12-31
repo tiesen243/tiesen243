@@ -3,7 +3,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 
 const PostLoading: React.FC = () => (
   <div className="space-y-4">
-    <Skeleton className="h-10 w-1/2" />
+    <Skeleton className="h-20 w-1/2" />
     <Skeleton className="h-10 w-1/4" />
 
     <Separator />

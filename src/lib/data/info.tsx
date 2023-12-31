@@ -1,4 +1,3 @@
-import { Social } from '@/type'
 import { FacebookIcon, GithubIcon, LinkedinIcon, TwitterIcon, YoutubeIcon } from 'lucide-react'
 
 export const info = {

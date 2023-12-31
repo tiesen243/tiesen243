@@ -1,4 +1,3 @@
-import { MDX } from '@/type'
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import path from 'path'

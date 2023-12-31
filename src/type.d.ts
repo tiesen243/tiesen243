@@ -1,6 +1,4 @@
-import { type ReactElement } from 'react'
-
-export interface MDX {
+interface MDX {
   meta: {
     title: string
     description: string
@@ -13,13 +11,13 @@ export interface MDX {
   content: ReactElement
 }
 
-export interface Skill {
+interface Skill {
   title: string
   icon: string
   url: string
 }
 
-export interface Social {
+interface Social {
   title: string
   icon: ReactElement
   url: string

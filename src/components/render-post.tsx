@@ -1,5 +1,4 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { MDX } from '@/type'
 import Link from 'next/link'
 
 interface Props {
@@ -9,9 +8,11 @@ interface Props {
 
 const RenderPost: React.FC<Props> = ({ meta, type }) => (
   <Link href={`/${type}/${meta.slug}`} legacyBehavior passHref>
-    <Card className="flex cursor-pointer flex-col justify-between transition-colors ease-linear hover:bg-secondary">
+    <Card className="cursor-pointer transition-colors ease-linear hover:bg-secondary">
       <CardHeader>
-        <CardTitle>{meta.title}</CardTitle>
+        <CardTitle>
+          {meta.title.length > 40 ? `${meta.title.slice(0, 40)}...` : meta.title}
+        </CardTitle>
         <CardDescription>{meta.date}</CardDescription>
       </CardHeader>
       <CardContent>

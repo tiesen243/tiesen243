@@ -1,7 +1,8 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata, Viewport } from 'next'
 
-import { appUrl } from '@/lib/constants'
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
@@ -10,10 +11,13 @@ export const metadata: Metadata = {
   },
   description: "I'm a wibu developer from Vietnam.",
   classification: 'Personal',
-  keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran'],
+  keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran', 'portfolio'],
   openGraph: {
     url: appUrl,
-    title: 'Tran Tien | Tiesen243',
+    title: {
+      default: 'Tran Tien | Tiesen243',
+      template: '%s | Tiesen243',
+    },
     description: "I'm a wibu developer from Vietnam.",
     type: 'profile',
     siteName: 'Tran Tien | Tiesen243',
@@ -29,7 +33,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     site: '@tiesen243',
-    title: 'Tran Tien | Tiesen243',
+    title: {
+      default: 'Tran Tien | Tiesen243',
+      template: '%s | Tiesen243',
+    },
     description: "I'm a wibu developer from Vietnam.",
     card: 'summary_large_image',
     creator: 'tiesen243',

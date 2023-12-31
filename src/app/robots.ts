@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://tiesen.id.vn/sitemap.xml',
+    sitemap: `${appUrl}/sitemap.xml`,
   }
 }
