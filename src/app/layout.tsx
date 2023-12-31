@@ -6,7 +6,7 @@ const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 export const metadata: Metadata = {
   metadataBase: new URL(appUrl),
   title: {
-    default: 'Tran Tien | Tiesen243',
+    default: 'Tiesen243',
     template: '%s | Tiesen243',
   },
   description: "I'm a wibu developer from Vietnam.",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     },
     description: "I'm a wibu developer from Vietnam.",
     type: 'profile',
-    siteName: 'Tran Tien | Tiesen243',
+    siteName: 'Tiesen243',
     locale: 'vi_VN',
     images: [
       {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   twitter: {
     site: '@tiesen243',
     title: {
-      default: 'Tran Tien | Tiesen243',
+      default: 'Tiesen243',
       template: '%s | Tiesen243',
     },
     description: "I'm a wibu developer from Vietnam.",
