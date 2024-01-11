@@ -5,7 +5,7 @@ import rehypeHighlight from 'rehype-highlight'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
-    unoptimized: true,
+    domains: ['raw.githubusercontent.com'],
   },
   webpack: (config) => {
     config.resolve.fallback = { fs: false, path: false }

@@ -30,7 +30,7 @@ const Hello: React.FC = () => (
     </motion.section>
 
     <motion.section {...animate} className="col-span-5 mt-4 place-self-center md:mt-0">
-      <Image src="/yuki.webp" alt="Yuki" width={500} height={500} />
+      <Image src="/yuki.jpg" alt="Yuki" width={500} height={500} />
     </motion.section>
   </div>
 )
