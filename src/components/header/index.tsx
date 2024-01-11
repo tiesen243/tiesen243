@@ -1,13 +1,36 @@
-import Logo from './logo'
-import NavMenu from './navMenu'
+import { Navbar, NavbarContent, NavbarMenu, NavbarMenuToggle } from '@nextui-org/react'
 
-const Header: React.FC = () => (
-  <header className="sticky inset-0 z-50 border border-b bg-transparent py-2 shadow backdrop-blur">
-    <nav className="container flex max-w-screen-md items-center justify-between">
-      <Logo />
-      <NavMenu />
-    </nav>
-  </header>
-)
+import ThemeBtn from '@/components/them-btn'
+import { gh_api_token, gh_api_url } from '@/lib/constants'
+import Nav from './nav'
+import Brand from './brand'
+
+const Header: React.FC = async () => {
+  const res = await fetch(gh_api_url, {
+    headers: { authorization: `Bearer ${gh_api_token}` },
+  })
+  const user = await res.json()
+
+  return (
+    <Navbar as="header" className="bg-transparent" isBordered>
+      <NavbarContent justify="start">
+        <Brand {...user} />
+      </NavbarContent>
+
+      <NavbarContent justify="center" className="hidden md:flex">
+        <Nav />
+      </NavbarContent>
+
+      <NavbarMenu className="md:hidden">
+        <Nav />
+      </NavbarMenu>
+
+      <NavbarContent justify="end">
+        <ThemeBtn />
+        <NavbarMenuToggle className="md:hidden" />
+      </NavbarContent>
+    </Navbar>
+  )
+}
 
 export default Header

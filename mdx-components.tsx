@@ -1,11 +1,11 @@
+import Image, { type ImageProps } from '@/components/ui/image'
+import { Link, type LinkProps } from '@nextui-org/react'
 import type { MDXComponents } from 'mdx/types'
-import Image, { ImageProps } from 'next/image'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
-    img: (props) => (
-      <Image sizes="100vw" style={{ width: '100%', height: 'auto' }} {...(props as ImageProps)} />
-    ),
     ...components,
+    a: (props) => <Link {...(props as LinkProps)} color="foreground" showAnchorIcon isExternal />,
+    img: (props) => <Image {...(props as ImageProps)} width={200} height={100} />,
   }
 }

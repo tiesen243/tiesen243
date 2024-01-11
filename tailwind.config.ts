@@ -1,9 +1,15 @@
+import { nextui } from '@nextui-org/react'
+import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
 import { fontFamily } from 'tailwindcss/defaultTheme'
 
 const config: Config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+  content: [
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
+  ],
   theme: {
     container: {
       center: true,
@@ -19,61 +25,75 @@ const config: Config = {
       },
       colors: {
         border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
-        destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
-        },
-        muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
-        },
-        accent: {
-          DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        popover: {
-          DEFAULT: 'hsl(var(--popover))',
-          foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
-        },
       },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+
+      animation: {
+        'infinite-scroll': 'infinite-scroll 30s linear infinite',
+        'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
       },
       keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+        'infinite-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' },
         },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+        'infinite-scroll-reverse': {
+          from: { transform: 'translateX(-100%)' },
+          to: { transform: 'translateX(0)' },
         },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            background: 'hsl(0 0% 100%)',
+            foreground: 'hsl(240 10% 3.9%)',
+            content1: 'hsl(0 0% 100%)',
+            default: {
+              DEFAULT: 'hsl(240 5.9% 10%)',
+              foreground: 'hsl(0 0% 98%)',
+            },
+            primary: {
+              DEFAULT: 'hsl(240, 4.88%, 83.92%)',
+            },
+            secondary: {
+              DEFAULT: 'hsl(240 4.8% 95.9%)',
+              foreground: 'hsl(240 3.8% 46.1%)',
+            },
+            danger: {
+              DEFAULT: 'hsl(0 84.2% 60.2%)',
+              foreground: 'hsl(0 0% 98%)',
+            },
+          },
+        },
+        dark: {
+          colors: {
+            background: 'hsl(240 10% 3.9%)',
+            foreground: 'hsl(0 0% 98%)',
+            content1: 'hsl(240 10% 3.9%)',
+            default: {
+              DEFAULT: 'hsl(0 0% 98%)',
+              foreground: 'hsl(240 5.9% 10%)',
+            },
+            primary: {
+              DEFAULT: 'hsl(240, 5.26%, 26.08%)',
+            },
+            secondary: {
+              DEFAULT: 'hsl(240 3.7% 15.9%)',
+              foreground: 'hsl(240 5% 64.9%)',
+            },
+            danger: {
+              DEFAULT: 'hsl(0 62.8% 30.6%)',
+              foreground: 'hsl(0 0% 98%)',
+            },
+          },
+        },
+      },
+    }),
+    typography,
+  ],
 }
-
 export default config

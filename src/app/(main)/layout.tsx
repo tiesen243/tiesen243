@@ -1,10 +1,13 @@
+import Footer from '@/components/footer'
 import Header from '@/components/header'
+import Notification from '@/components/notification'
 
-import '@/lib/syntax.modules.css'
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <div className="h-screen w-screen snap-y snap-mandatory overflow-x-hidden overflow-y-scroll">
+  <div className="flex min-h-dvh flex-col">
     <Header />
-    <main className="container mb-20 mt-4 max-w-screen-md">{children}</main>
+    <main className="container max-w-screen-lg flex-grow">{children}</main>
+    <Notification />
+    <Footer />
   </div>
 )
 

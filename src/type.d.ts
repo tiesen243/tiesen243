@@ -1,24 +1,18 @@
-interface MDX {
-  meta: {
-    title: string
-    description: string
-    date: string
-    tags: string[]
-    slug: string
-    image?: string
-    repository?: string
-  }
-  content: ReactElement
+interface Repo {
+  name: string
+  full_name: string
+  description: string
+  html_url: string
+  homepage: string
+  language: string
+  topics: string[]
 }
 
-interface Skill {
+interface PostMeta {
   title: string
-  icon: string
-  url: string
-}
-
-interface Social {
-  title: string
-  icon: ReactElement
-  url: string
+  description: string
+  slug: string
+  date: string
+  tags: string[]
+  image?: string
 }

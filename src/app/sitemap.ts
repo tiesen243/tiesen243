@@ -1,4 +1,4 @@
-import { getAllMeta } from '@/lib/readMDX'
+import { getAllPostsMetadata } from '@/lib/utils'
 import { MetadataRoute } from 'next'
 
 type Route = {
@@ -8,28 +8,21 @@ type Route = {
 
 const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const routesMap = ['', '/projects', 'blogs'].map((route) => ({
+  const routesMap = ['', 'blogs'].map((route) => ({
     url: `${appUrl}/${route}`,
     lastModified: new Date().toISOString(),
   }))
 
-  const projectsPromise = await getAllMeta('projects').then((res) =>
-    res.map((project) => ({
-      url: `${appUrl}/projects/${project.slug}`,
-      lastModified: new Date().toISOString(),
-    }))
-  )
-
-  const blogsPromise = await getAllMeta('blogs').then((res) =>
+  const blogsPromise = await getAllPostsMetadata().then((res) =>
     res.map((blog) => ({
-      url: `${appUrl}/blog/${blog.slug}`,
+      url: `${appUrl}/blogs/${blog.slug}.html`,
       lastModified: new Date().toISOString(),
     }))
   )
 
   let fetchedRoutes: Route[] = []
   try {
-    fetchedRoutes = (await Promise.all([projectsPromise, blogsPromise])).flat()
+    fetchedRoutes = (await Promise.all([blogsPromise])).flat()
   } catch (error) {
     throw JSON.stringify(error, null, 2)
   }

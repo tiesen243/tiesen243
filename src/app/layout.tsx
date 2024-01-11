@@ -1,64 +1,66 @@
-import { Analytics } from '@vercel/analytics/react'
 import type { Metadata, Viewport } from 'next'
-
-const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+import { cn } from '@nextui-org/react'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(appUrl),
+  metadataBase: new URL('https://tiesen.id.vn'),
   title: {
-    default: 'Tiesen243',
-    template: '%s | Tiesen243',
+    default: 'Tiesen',
+    template: '%s | Tiesen',
   },
-  description: "I'm a wibu developer from Vietnam.",
-  classification: 'Personal',
-  keywords: ['Tiesen', 'Tiesen243', 'Tran Tien', 'Tien Tran', 'portfolio'],
+  description: "Hi, I'm Tiesen. I'm a software engineer and a student.",
+
   openGraph: {
-    url: appUrl,
     title: {
-      default: 'Tiesen243',
-      template: '%s | Tiesen243',
+      default: 'Tiesen',
+      template: '%s | Tiesen',
     },
-    description: "I'm a wibu developer from Vietnam.",
+    description: "Hi, I'm Tiesen. I'm a software engineer and a student.",
     type: 'profile',
-    siteName: 'Tiesen243',
     locale: 'vi_VN',
+    url: 'https://tiesen.id.vn',
+    siteName: 'Tiesen',
     images: [
       {
-        url: '/images/logo.png',
-        width: 200,
-        height: 200,
-        alt: 'tiesen243',
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Tiesen',
       },
     ],
   },
+
   twitter: {
-    site: '@tiesen243',
     title: {
-      default: 'Tiesen243',
-      template: '%s | Tiesen243',
+      default: 'Tiesen',
+      template: '%s | Tiesen',
     },
-    description: "I'm a wibu developer from Vietnam.",
+    description: "Hi, I'm Tiesen. I'm a software engineer and a student.",
+    images: '/logo.png',
     card: 'summary_large_image',
-    creator: 'tiesen243',
-    images: '/images/logo.png',
+    creator: '@tiesen243',
+    creatorId: '@tiesen243',
   },
+
   alternates: {
-    canonical: appUrl,
+    canonical: 'https://tiesen.id.vn',
   },
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
+  themeColor: '#000000',
+  width: 'device-width',
+  height: 'device-height',
 }
 
-import fontSans from '@/lib/fonts'
-import { cn } from '@/lib/utils'
 import './globals.css'
+import 'highlight.js/styles/base16/dracula.css'
+import ThemeProvider from '@/components/theme-provider'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <html lang="en" className="dark" suppressHydrationWarning>
-    <body className={cn('h-max bg-background font-sans antialiased', fontSans)}>
-      {children}
-      <Analytics />
+  <html lang="en" suppressHydrationWarning>
+    <body className={cn('min-h-dvh font-sans antialiased', GeistSans.variable, GeistMono.variable)}>
+      <ThemeProvider>{children}</ThemeProvider>
     </body>
   </html>
 )

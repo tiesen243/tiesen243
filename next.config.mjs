@@ -1,16 +1,23 @@
-import nextMDX from '@next/mdx'
+import createMDX from '@next/mdx'
+import rehypeHighlight from 'rehype-highlight'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     unoptimized: true,
   },
-  reactStrictMode: true,
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, path: false }
+    return config
+  },
 }
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
 })
 
 export default withMDX(nextConfig)
