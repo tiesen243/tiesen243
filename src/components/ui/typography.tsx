@@ -18,19 +18,3 @@ const Typography: React.FC<React.HTMLAttributes<HTMLElement>> = ({
 )
 
 export default Typography
-
-export const Heading: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
-  children,
-  className = '',
-  ...props
-}) => (
-  <h1
-    className={cn(
-      'bg-gradient-to-br from-[#d16ba5] via-[#86a8e7] to-[#5ffbf1] bg-clip-text text-4xl  font-extrabold text-transparent',
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </h1>
-)

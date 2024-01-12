@@ -1,14 +1,14 @@
 import ContactForm from '@/components/contact-form'
 import type { NextPage } from 'next'
 
-import Typography, { Heading } from '@/components/ui/typography'
+import Typography from '@/components/ui/typography'
 import { email } from '@/lib/contact'
 import Social from './_social'
 
 const Page: NextPage = () => (
-  <section id="contact" className="flex min-h-dvh flex-col gap-8 pt-20 prose-a:no-underline">
+  <section id="contact" className="flex min-h-dvh flex-col gap-8 pt-16">
     <Typography>
-      <Heading>Contact</Heading>
+      <h1 className="bg-gradient-text bg-clip-text font-extrabold text-transparent">Contact</h1>
       <blockquote>
         I&apos; m always open to new opportunities. If you want to get in touch, feel free to email
         me at{' '}

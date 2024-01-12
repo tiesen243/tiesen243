@@ -1,17 +1,16 @@
 import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
 
-import Hello from '@/components/hero/hello'
-import InfiniteScroll from '@/components/hero/infinite-scroll'
-import ButtonGroup from '@/components/hero/button-group'
+const Hello = dynamic(() => import('@/components/hero/hello'), { ssr: false })
+const InfiniteScroll = dynamic(() => import('@/components/hero/infinite-scroll'), { ssr: false })
+const ButtonGroup = dynamic(() => import('@/components/hero/button-group'), { ssr: false })
 
-const Home: NextPage = () => {
-  return (
-    <section className="flex min-h-dvh flex-col justify-center gap-8">
-      <Hello />
-      <InfiniteScroll />
-      <ButtonGroup className="grid md:hidden" />
-    </section>
-  )
-}
+const Home: NextPage = () => (
+  <section className="flex min-h-dvh flex-col justify-center gap-8">
+    <Hello />
+    <InfiniteScroll />
+    <ButtonGroup className="grid md:hidden" />
+  </section>
+)
 
 export default Home

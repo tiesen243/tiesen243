@@ -1,5 +1,5 @@
 import ProjectCard from '@/components/project-card'
-import Typography, { Heading } from '@/components/ui/typography'
+import Typography from '@/components/ui/typography'
 import { gh_api_token, gh_api_url } from '@/lib/constants'
 import type { NextPage } from 'next'
 
@@ -11,9 +11,9 @@ const Page: NextPage = async () => {
   const data: Repo[] = await res.json()
 
   return (
-    <section id="projects" className="min-h-dvh pt-20">
+    <section id="projects" className="min-h-dvh pt-16">
       <Typography>
-        <Heading>Projects</Heading>
+        <h1 className="bg-gradient-text bg-clip-text font-extrabold text-transparent">Projects</h1>
 
         <blockquote>
           This is a list of my projects that I have worked on, and some that I still work on.

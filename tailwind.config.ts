@@ -27,7 +27,10 @@ const config: Config = {
         border: 'hsl(var(--border))',
         ring: 'hsl(var(--ring))',
       },
-
+      backgroundImage: {
+        'gradient-text':
+          'linear-gradient(to bottom right, #d16ba5, #c777b9, #b88cc8, #a29cd4, #8ba9dd, #7ab4e4, #6abeee, #5dcdf5, #5ddcf5, #6aebee, #7ab4e4, #8ba9dd, #a29cd4, #b88cc8, #c777b9, #d16ba5)',
+      },
       animation: {
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
         'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',

@@ -23,7 +23,7 @@ const InfiniteScroll: React.FC = () => (
       >
         <ul
           className={cn(
-            'flex items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-8',
+            'flex items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-2',
             i === 0 ? 'animate-infinite-scroll' : 'animate-infinite-scroll-reverse'
           )}
         >
@@ -32,7 +32,7 @@ const InfiniteScroll: React.FC = () => (
 
         <ul
           className={cn(
-            'flex items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-8',
+            'flex items-center justify-center md:justify-start [&_img]:max-w-none [&_li]:mx-2',
             i === 0 ? 'animate-infinite-scroll' : 'animate-infinite-scroll-reverse'
           )}
           aria-hidden="true"
@@ -48,7 +48,7 @@ export default InfiniteScroll
 
 const Items: React.FC<{ skills: Skill[] }> = ({ skills }) =>
   skills.map((skill) => (
-    <div
+    <li
       key={skill.name}
       className="m-2 flex h-20 w-52 items-center justify-center gap-4 bg-primary/30 text-lg font-bold backdrop-blur"
     >
@@ -60,5 +60,5 @@ const Items: React.FC<{ skills: Skill[] }> = ({ skills }) =>
         className={skill.isInvert ? 'dark:invert' : ''}
       />
       {skill.name}
-    </div>
+    </li>
   ))

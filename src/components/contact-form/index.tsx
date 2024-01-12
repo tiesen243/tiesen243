@@ -3,9 +3,9 @@
 import { Button, Card, CardBody, CardFooter, CardHeader, Input, Textarea } from '@nextui-org/react'
 import { useState } from 'react'
 
-import Typography, { Heading } from '@/components/ui/typography'
-import { sendEmail } from './actions'
+import Typography from '@/components/ui/typography'
 import { errorToast, successToast } from '@/lib/utils'
+import { sendEmail } from './actions'
 
 const ContactForm: React.FC = () => {
   const [formState, setFormState] = useState<{
@@ -32,8 +32,8 @@ const ContactForm: React.FC = () => {
 
   return (
     <Card id="contact-form" className="border">
-      <CardHeader>
-        <Heading>Contact Form</Heading>
+      <CardHeader className="bg-gradient-text bg-clip-text text-4xl font-extrabold text-transparent">
+        Contact Form
       </CardHeader>
 
       <form action={send}>

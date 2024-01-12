@@ -1,4 +1,5 @@
-import { NavbarBrand, User as Props, User } from '@nextui-org/react'
+import { NavbarBrand } from '@nextui-org/react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface Props {
@@ -9,23 +10,23 @@ interface Props {
 }
 
 const Brand: React.FC<Props> = (user) => (
-  <NavbarBrand>
-    <Link href="/#hero" passHref legacyBehavior>
-      <User
-        classNames={{
-          base: 'cursor-pointer',
-          name: 'text-lg font-bold text-foreground',
-        }}
-        name={user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}
-        description={` @${user.login}`}
-        avatarProps={{
-          src: user.avatar_url,
-          isBordered: true,
-          className: 'bg-background',
-        }}
+  <Link href="/" passHref legacyBehavior>
+    <NavbarBrand className="group gap-2">
+      <Image
+        src={user.avatar_url}
+        alt={user.name}
+        width={50}
+        height={50}
+        className="rounded-full ring-ring group-hover:ring-2"
       />
-    </Link>
-  </NavbarBrand>
+      <section>
+        <p className="text-lg font-bold">
+          {user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}
+        </p>
+        <p className="text-gray-500">@{user.login}</p>
+      </section>
+    </NavbarBrand>
+  </Link>
 )
 
 export default Brand

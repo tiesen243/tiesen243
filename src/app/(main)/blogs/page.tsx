@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 import PostCard from '@/components/post-card'
-import Typography, { Heading } from '@/components/ui/typography'
+import Typography from '@/components/ui/typography'
 import { getAllPostsMetadata } from '@/lib/utils'
 
 const Page: NextPage = async () => {
@@ -23,7 +23,9 @@ const Page: NextPage = async () => {
   return (
     <>
       <Typography className="mt-4">
-        <Heading>All my blogs</Heading>
+        <h1 className="bg-gradient-text bg-clip-text font-extrabold text-transparent">
+          All my blogs
+        </h1>
       </Typography>
       <ul className="mt-4 grid grid-cols-1 gap-2 md:grid-cols-2">
         {res.map((post) => (

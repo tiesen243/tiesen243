@@ -4,7 +4,6 @@ import Image from '@/components/ui/image'
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import ButtonGroup from './button-group'
-import { Heading } from '../ui/typography'
 
 const animate = {
   initial: { opacity: 0, scale: 0.5 },
@@ -14,7 +13,9 @@ const animate = {
 const Hello: React.FC = () => (
   <div className="grid grid-cols-1 md:grid-cols-12">
     <motion.section {...animate} className="col-span-7 place-self-center text-center md:text-left">
-      <Heading>{hi}, I&apos;m</Heading>
+      <h1 className="bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent">
+        {hi}, I&apos;m
+      </h1>
 
       <pre className="mb-2 mt-4 font-mono">
         <TypeAnimation sequence={sequence} repeat={Infinity} className="text-4xl font-extrabold" />
@@ -30,7 +31,7 @@ const Hello: React.FC = () => (
     </motion.section>
 
     <motion.section {...animate} className="col-span-5 mt-4 place-self-center md:mt-0">
-      <Image src="/yuki.jpg" alt="Yuki" width={500} height={500} />
+      <Image src="/yuki.webp" alt="Yuki" width={500} height={500} />
     </motion.section>
   </div>
 )
