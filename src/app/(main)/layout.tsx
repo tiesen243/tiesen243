@@ -2,11 +2,13 @@ import Header from '@/components/header'
 import Notification from '@/components/notification'
 
 const MainLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <div className="overflow-x-hidden">
+  <>
     <Header />
-    <main className="container max-w-screen-lg">{children}</main>
+    <main className="container max-w-screen-lg overflow-x-hidden overflow-y-scroll pb-20">
+      {children}
+    </main>
     <Notification />
-  </div>
+  </>
 )
 
 export default MainLayout
