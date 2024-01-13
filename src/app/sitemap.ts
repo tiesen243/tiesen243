@@ -5,7 +5,7 @@ type Route = {
   url: string
   lastModified: string
 }
-
+//
 const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routesMap = ['', 'blogs'].map((route) => ({
