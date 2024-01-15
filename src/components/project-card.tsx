@@ -12,8 +12,8 @@ const CardHeader = dynamic(() => import('@nextui-org/react').then((mod) => mod.C
 const Chip = dynamic(() => import('@nextui-org/react').then((mod) => mod.Chip))
 
 const ProjectCard: React.FC<Project> = (props) => (
-  <Card as="article" className="group relative h-full border prose-h3:m-0 prose-p:m-0">
-    <CardHeader as="h3" className="capitalize">
+  <Card as="article" className="group relative h-full border prose-h2:m-0 prose-p:m-0">
+    <CardHeader as="h2" className="capitalize">
       {props.name.replace(/-/g, ' ')}
     </CardHeader>
 

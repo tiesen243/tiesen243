@@ -10,7 +10,7 @@ const ThemeBtn: React.FC = () => {
   const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
 
   return (
-    <Button onClick={toggleTheme} variant="bordered" isIconOnly>
+    <Button aria-label="theme-btn" onClick={toggleTheme} variant="bordered" isIconOnly>
       {theme === 'light' ? <MoonIcon /> : <MoonIcon />}
     </Button>
   )
