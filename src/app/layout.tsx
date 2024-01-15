@@ -45,6 +45,8 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import './globals.css'
 import { Toaster } from '@/components/toast'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body
@@ -59,6 +61,9 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
         <main className="container mb-16 max-w-screen-lg">{children}</main>
         <Toaster />
       </ThemeProvider>
+
+      <Analytics />
+      <SpeedInsights />
     </body>
   </html>
 )
