@@ -45,7 +45,7 @@ const ProjectCard: React.FC<Project> = (props) => (
       )}
     </div>
 
-    <CardFooter className="flex-col gap-1">
+    <CardFooter className="flex-row flex-nowrap gap-1">
       {props.topics.map((topic) => (
         <Chip key={topic}>{topic}</Chip>
       ))}
