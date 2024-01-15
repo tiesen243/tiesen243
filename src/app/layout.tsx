@@ -44,21 +44,14 @@ export const viewport: Viewport = {
 import Header from '@/components/header'
 import ThemeProvider from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
-import { cn } from '@/lib/utils'
 
 import './globals.css'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
-    <body
-      className={cn(
-        'min-h-dvh overflow-x-hidden font-sans',
-        GeistSans.variable,
-        GeistMono.variable
-      )}
-    >
+    <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <ThemeProvider>
         <Header />
-        <main className="container mb-16 max-w-screen-lg">{children}</main>
+        <main className="container max-w-screen-lg pb-16">{children}</main>
         <Toaster />
       </ThemeProvider>
 
