@@ -11,10 +11,9 @@ export type Site = typeof siteConfig
 
 export const siteConfig = {
   title: 'Tiesen',
-  description:
-    "Hi there, I'm Tiesen. I'm a web developer. I'm currently studying at the Industrial University of Ho Chi Minh City. I'm passionate about building products that help people. I'm also a big fan of open source and I love to contribute to open source projects.",
+  description: "Hi there, I'm Tiesen. I'm a web developer.",
   url: 'https://tiesen.id.vn',
-  image: '/logo.png',
+  image: '/images/logo.png',
   author: 'Tiesen',
   creator: '@tiesen243',
   locale: 'vi_VN',
@@ -42,7 +41,7 @@ export const siteConfig = {
     siteName: 'Tiesen',
     images: [
       {
-        url: '/logo.png',
+        url: '/images/logo.png',
         width: 630,
         height: 630,
         alt: 'Tiesen',
@@ -57,7 +56,7 @@ export const siteConfig = {
     },
     description:
       "Hi there, I'm Tiesen. I'm a web developer. I'm currently studying at the Industrial University of Ho Chi Minh City. I'm passionate about building products that help people. I'm also a big fan of open source and I love to contribute to open source projects.",
-    image: '/logo.png',
+    image: '/images/logo.png',
     creator: '@tiesen243',
   },
   socials: [
@@ -106,10 +105,10 @@ export const siteConfig = {
       label: 'Contact',
       url: '/#contact',
     },
-    /* { */
-    /*   label: 'Blogs', */
-    /*   url: '/blogs', */
-    /* }, */
+    {
+      label: 'Blogs',
+      url: '/blogs',
+    },
   ],
 
   env: {
