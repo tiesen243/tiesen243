@@ -106,10 +106,10 @@ export const siteConfig = {
       label: 'Contact',
       url: '/#contact',
     },
-    {
-      label: 'Blogs',
-      url: '/blogs',
-    },
+    /* { */
+    /*   label: 'Blogs', */
+    /*   url: '/blogs', */
+    /* }, */
   ],
 
   env: {
