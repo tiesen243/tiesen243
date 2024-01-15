@@ -9,6 +9,7 @@ const Card = dynamic(() => import('@nextui-org/react').then((mod) => mod.Card))
 const CardBody = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardBody))
 const CardFooter = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardFooter))
 const CardHeader = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardHeader))
+const Chip = dynamic(() => import('@nextui-org/react').then((mod) => mod.Chip))
 
 const ProjectCard: React.FC<Project> = (props) => (
   <Card as="article" className="group relative h-full border prose-h3:m-0 prose-p:m-0">
@@ -44,14 +45,9 @@ const ProjectCard: React.FC<Project> = (props) => (
       )}
     </div>
 
-    <CardFooter>
+    <CardFooter className="flex-col gap-1">
       {props.topics.map((topic) => (
-        <span
-          key={topic}
-          className="mr-2 inline whitespace-nowrap rounded-lg bg-secondary px-2 py-1 text-sm"
-        >
-          {topic}
-        </span>
+        <Chip key={topic}>{topic}</Chip>
       ))}
     </CardFooter>
   </Card>
