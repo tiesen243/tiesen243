@@ -2,6 +2,7 @@ import type { Metadata, NextPage } from 'next'
 
 import { getAllPostsMeta } from '@/lib/utils'
 import Posts from './_posts'
+import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Blogs',
@@ -9,10 +10,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Blogs',
     description: 'Blogs by me',
+    images: siteConfig.openGraph.images,
+    url: `${siteConfig.url}/blogs`,
   },
   twitter: {
     title: 'Blogs',
     description: 'Blogs by me',
+    images: siteConfig.twitter.image,
   },
 }
 

@@ -31,6 +31,12 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
         },
       ],
     },
+    twitter: {
+      title: meta.title,
+      description: meta.description,
+      card: 'summary_large_image',
+      images: meta.image || siteConfig.image,
+    },
   }
 }
 

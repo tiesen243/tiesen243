@@ -17,16 +17,7 @@ export const siteConfig = {
   author: 'Tiesen',
   creator: '@tiesen243',
   locale: 'vi_VN',
-  keywords: [
-    'Tiesen',
-    'Tiesen243',
-    'Portfolio',
-    'Blogs',
-    'React',
-    'Next.js',
-    'Tailwindcss',
-    'NextUI',
-  ],
+  keywords: ['Tiesen', 'Tiesen243', 'tiesen', 'tiesen243', 'tiesen 243', 'Portfolio', 'Blogs'],
   email: 'ttien56906@gmail.com',
   openGraph: {
     type: 'profile',
