@@ -1,23 +1,17 @@
-'use client'
-
-import { formatDate } from '@/lib/utils'
 import { GithubIcon, LinkIcon } from 'lucide-react'
-import dynamic from 'next/dynamic'
 
-const Button = dynamic(() => import('@nextui-org/react').then((mod) => mod.Button))
-const Card = dynamic(() => import('@nextui-org/react').then((mod) => mod.Card))
-const CardBody = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardBody))
-const CardFooter = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardFooter))
-const CardHeader = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardHeader))
-const Chip = dynamic(() => import('@nextui-org/react').then((mod) => mod.Chip))
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { formatDate } from '@/lib/utils'
 
 const ProjectCard: React.FC<Project> = (props) => (
-  <Card as="article" className="group relative h-full border prose-h2:m-0 prose-p:m-0">
-    <CardHeader as="h2" className="capitalize">
-      {props.name.replace(/-/g, ' ')}
+  <Card className="group relative h-full border prose-h2:m-0 prose-p:m-0">
+    <CardHeader className="capitalize">
+      <CardTitle>{props.name.replace(/-/g, ' ')}</CardTitle>
     </CardHeader>
 
-    <CardBody className="flex flex-col justify-between">
+    <CardContent>
       <time dateTime={props.created_at.toString()}>{formatDate(props.created_at)}</time>
       <p>
         {props.description?.length > 50
@@ -28,18 +22,18 @@ const ProjectCard: React.FC<Project> = (props) => (
       <p>
         Language: <span className="capitalize">{props.language}</span>
       </p>
-    </CardBody>
+    </CardContent>
 
-    <div className="absolute z-20 hidden h-full w-full items-center justify-evenly bg-secondary/40 backdrop-blur transition-all group-hover:flex">
-      <Button variant="bordered" size="lg" radius="full" isIconOnly>
+    <div className="absolute inset-0 z-30 hidden h-full w-full items-center justify-center gap-8 bg-secondary/50 backdrop-blur group-hover:flex">
+      <Button size="icon" className="h-14 w-14 rounded-full" asChild>
         <a href={props.html_url} target="_blank" rel="noopener noreferrer">
-          <GithubIcon />
+          <GithubIcon size={24} />
         </a>
       </Button>
       {props.homepage && (
-        <Button variant="bordered" size="lg" radius="full" isIconOnly>
+        <Button size="icon" className="h-14 w-14 rounded-full" asChild>
           <a href={props.homepage} target="_blank" rel="noopener noreferrer">
-            <LinkIcon />
+            <LinkIcon size={24} />
           </a>
         </Button>
       )}
@@ -47,7 +41,7 @@ const ProjectCard: React.FC<Project> = (props) => (
 
     <CardFooter className="flex-row flex-nowrap gap-1">
       {props.topics.map((topic) => (
-        <Chip key={topic}>{topic}</Chip>
+        <Badge key={topic}>{topic}</Badge>
       ))}
     </CardFooter>
   </Card>

@@ -1,57 +1,26 @@
+import { Navbar, NavbarContent, NavbarItem } from '@nextui-org/navbar'
+
 import { siteConfig } from '@/lib/site'
-import {
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-  Spinner,
-  User,
-} from '@nextui-org/react'
-import Link from 'next/link'
+import Brand from './brand'
+import DesktopNav from './desktop-nav'
+import MobileNav from './mobile-nav'
 import ThemeBtn from './theme-btn'
 
 const Header: React.FC = () => (
   <Navbar isBordered>
-    <NavbarBrand>
-      <Link href="/#hero">
-        <User
-          name="Tiesen"
-          description="@tiesen243"
-          className="group"
-          avatarProps={{
-            src: '/images/yuki.webp',
-            fallback: <Spinner color="default" />,
-            showFallback: true,
-            className: 'bg-background group-hover:ring-2 ring-default',
-          }}
-        />
-      </Link>
-    </NavbarBrand>
+    <Brand />
 
     <NavbarContent justify="center" className="hidden md:flex">
-      {siteConfig.navLinks.map((link) => (
-        <NavbarItem key={link.label} className="underline-offset-4 hover:underline">
-          <Link href={link.url}>{link.label}</Link>
-        </NavbarItem>
-      ))}
+      <DesktopNav navLinks={siteConfig.navLinks} />
     </NavbarContent>
 
     <NavbarContent justify="end">
       <NavbarItem>
         <ThemeBtn />
       </NavbarItem>
+
       <NavbarItem className="md:hidden">
-        <NavbarMenuToggle />
-        <NavbarMenu>
-          {siteConfig.navLinks.map((link) => (
-            <NavbarMenuItem key={link.label} className="underline-offset-4 hover:underline">
-              <Link href={link.url}>{link.label}</Link>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
+        <MobileNav navLinks={siteConfig.navLinks} />
       </NavbarItem>
     </NavbarContent>
   </Navbar>

@@ -1,10 +1,6 @@
-'use client'
-
 import { siteConfig } from '@/lib/site'
-import dynamic from 'next/dynamic'
-
-const ContactForm = dynamic(() => import('./contact-form'), { ssr: false })
-const Social = dynamic(() => import('./social'), { ssr: false })
+import Social from './social'
+import ContactForm from './contact-form'
 
 const ContactSection: React.FC = () => (
   <section id="contact" className="min-h-dvh space-y-8 pt-16">

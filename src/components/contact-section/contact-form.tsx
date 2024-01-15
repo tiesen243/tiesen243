@@ -1,17 +1,15 @@
 'use client'
 
-import { sendEmail } from '@/lib/actions'
-import dynamic from 'next/dynamic'
+import { Loader2Icon } from 'lucide-react'
 import { useEffect } from 'react'
 import { useFormState, useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 
-const Card = dynamic(() => import('@nextui-org/react').then((mod) => mod.Card))
-const CardHeader = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardHeader))
-const CardBody = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardBody))
-const Input = dynamic(() => import('@nextui-org/react').then((mod) => mod.Input))
-const Textarea = dynamic(() => import('@nextui-org/react').then((mod) => mod.Textarea))
-const Button = dynamic(() => import('@nextui-org/react').then((mod) => mod.Button))
+import { sendEmail } from '@/lib/actions'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Card, CardContent, CardHeader } from '../ui/card'
 
 const initialFormState = {
   message: '',
@@ -20,12 +18,14 @@ const initialFormState = {
 const ContactForm: React.FC = () => {
   const [state, formAction] = useFormState(sendEmail, initialFormState)
   useEffect(() => {
-    if (state.message !== '') toast(state.message)
+    if (state.message !== undefined) toast(state.message)
   }, [state])
 
+  console.log(state.message)
+
   return (
-    <Card className="grid grid-cols-1 border md:grid-cols-12">
-      <CardHeader as="article" className="col-span-7 flex-col items-start prose-headings:m-0">
+    <Card className="grid grid-cols-1 border md:grid-cols-2">
+      <CardHeader className="flex-col items-start prose-headings:m-0">
         <h1>Contact Form</h1>
 
         <h2>
@@ -38,17 +38,17 @@ const ContactForm: React.FC = () => {
         </p>
       </CardHeader>
 
-      <CardBody className="col-span-5">
-        <form className="space-y-4" action={formAction}>
-          <Input name="subject" variant="bordered" label="Subject" />
-          <Input name="email" variant="bordered" label="Email" type="email" />
-          <Textarea name="message" variant="bordered" label="Message" />
+      <CardContent id="contact-form">
+        <form className="my-8 flex flex-col items-center gap-4" action={formAction}>
+          <Input name="subject" placeholder="Subject" />
+          <Input name="email" type="email" placeholder="Email" />
+          <Textarea name="message" placeholder="Message" />
 
-          <span className="text-danger">{state?.error}</span>
+          <p className="text-destructive">{state?.error}</p>
 
           <SubmitButton />
         </form>
-      </CardBody>
+      </CardContent>
     </Card>
   )
 }
@@ -58,7 +58,8 @@ export default ContactForm
 const SubmitButton: React.FC = () => {
   const { pending } = useFormStatus()
   return (
-    <Button type="submit" isLoading={pending} fullWidth>
+    <Button type="submit" disabled={pending}>
+      {pending && <Loader2Icon className="animate-spin" />}
       Send Message
     </Button>
   )

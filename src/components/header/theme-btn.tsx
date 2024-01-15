@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from '@nextui-org/react'
-import { MoonIcon, SunIcon } from 'lucide-react'
+import { Loader2Icon, MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
+import { Button } from '../ui/button'
 
 const ThemeBtn: React.FC = () => {
   const { theme, setTheme } = useTheme()
@@ -12,10 +12,15 @@ const ThemeBtn: React.FC = () => {
 
   const [mounted, setMounted] = useState<boolean>(false)
   useEffect(() => setMounted(true), [])
-  if (!mounted) return <Button aria-label="theme-btn" variant="bordered" isIconOnly isLoading />
+  if (!mounted)
+    return (
+      <Button aria-label="theme-btn" variant="outline" size="icon">
+        <Loader2Icon className="animate-spin" />
+      </Button>
+    )
 
   return (
-    <Button aria-label="theme-btn" onClick={toggleTheme} variant="bordered" isIconOnly>
+    <Button aria-label="theme-btn" onClick={toggleTheme} variant="outline" size="icon">
       {theme === 'light' ? <MoonIcon /> : <SunIcon />}
     </Button>
   )

@@ -14,7 +14,7 @@ const ProjectsSection: React.FC = async () => {
         <blockquote>This is a list of all my projects, I have worked on.</blockquote>
       </article>
 
-      <ul className="gird-cols-1 grid gap-4 md:grid-cols-2">
+      <ul className="gird-cols-1 grid list-none gap-4 md:grid-cols-2">
         {projects.map((project) => (
           <li key={project.id}>
             <ProjectCard {...project} />

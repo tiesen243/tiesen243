@@ -1,4 +1,8 @@
 import { siteConfig } from '@/lib/site'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
@@ -39,14 +43,10 @@ export const viewport: Viewport = {
 
 import Header from '@/components/header'
 import ThemeProvider from '@/components/theme-provider'
-import { cn } from '@nextui-org/react'
+import { Toaster } from '@/components/ui/sonner'
+import { cn } from '@/lib/utils'
 
-import { GeistMono } from 'geist/font/mono'
-import { GeistSans } from 'geist/font/sans'
 import './globals.css'
-import { Toaster } from '@/components/toast'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Analytics } from '@vercel/analytics/react'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body

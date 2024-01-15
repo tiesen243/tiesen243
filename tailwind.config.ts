@@ -2,19 +2,23 @@ import type { Config } from 'tailwindcss'
 
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import typography from '@tailwindcss/typography'
-import { nextui } from '@nextui-org/react'
+import { nextui } from '@nextui-org/theme'
+import animate from 'tailwindcss-animate'
 
-const config: Config = {
-  content: [
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
-  ],
+const config = {
   darkMode: ['class'],
+  content: [
+    './src/**/*.{ts,tsx}',
+    './node_modules/@nextui-org/theme/dist/components/**/*.{js,jsx,ts,tsx}',
+  ],
+  prefix: '',
   theme: {
     container: {
       center: true,
       padding: '2rem',
+      screens: {
+        '2xl': '1400px',
+      },
     },
     extend: {
       fontFamily: {
@@ -23,17 +27,59 @@ const config: Config = {
       },
       colors: {
         border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+        },
+        secondary: {
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
+        },
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+      },
+
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
       },
       backgroundImage: {
         'gradient-text':
           'linear-gradient(to bottom right, hsl(var(--gradient-from)), hsl(var(--gradient-via)), hsl(var(--gradient-to)))',
       },
-      animation: {
-        'infinite-scroll': 'infinite-scroll 30s linear infinite',
-        'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
-      },
       keyframes: {
+        'accordion-down': {
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
+        },
+        'accordion-up': {
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
@@ -43,52 +89,15 @@ const config: Config = {
           to: { transform: 'translateX(0)' },
         },
       },
+      animation: {
+        'accordion-down': 'accordion-down 0.2s ease-out',
+        'accordion-up': 'accordion-up 0.2s ease-out',
+        'infinite-scroll': 'infinite-scroll 30s linear infinite',
+        'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
+      },
     },
   },
-  plugins: [
-    nextui({
-      themes: {
-        light: {
-          colors: {
-            background: 'hsl(0 0% 100%)',
-            foreground: 'hsl(240 10% 3.9%)',
-            content1: 'hsl(0 0% 100%)',
-            default: {
-              DEFAULT: 'hsl(240 5.9% 10%)',
-              foreground: 'hsl(0 0% 98%)',
-            },
-            secondary: {
-              DEFAULT: 'hsl(240 4.8% 95.9%)',
-              foreground: 'hsl(240 3.8% 46.1%)',
-            },
-            danger: {
-              DEFAULT: 'hsl(0 84.2% 60.2%)',
-              foreground: 'hsl(0 0% 98%)',
-            },
-          },
-        },
-        dark: {
-          colors: {
-            background: 'hsl(240 10% 3.9%)',
-            foreground: 'hsl(0 0% 98%)',
-            content1: 'hsl(240 10% 3.9%)',
-            default: {
-              DEFAULT: 'hsl(0 0% 98%)',
-              foreground: 'hsl(240 5.9% 10%)',
-            },
-            secondary: {
-              DEFAULT: 'hsl(240 3.7% 15.9%)',
-              foreground: 'hsl(240 5% 64.9%)',
-            },
-            danger: {
-              DEFAULT: 'hsl(0 62.8% 30.6%)',
-              foreground: 'hsl(0 0% 98%)',
-            },
-          },
-        },
-      },
-    }),
-    typography,
-  ],
-}
+  plugins: [nextui(), typography, animate],
+} satisfies Config
+
 export default config

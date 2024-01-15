@@ -1,8 +1,8 @@
 import type { Metadata, NextPage } from 'next'
-import { formatDate, getPostsByUrl } from '@/lib/utils'
-import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 import { siteConfig } from '@/lib/site'
+import { getPostsByUrl } from '@/lib/mdx'
 
 interface Props {
   params: {
@@ -40,45 +40,26 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   }
 }
 
-import { Chip } from '@nextui-org/react'
+import BlogHeader from '@/components/blog-header'
 import 'highlight.js/styles/github-dark.css'
+
 const Page: NextPage<Props> = async ({ params }) => {
-  const { meta, content } = await getPostsByUrl(
-    `${siteConfig.env.postEndpoint}/${params.slug.replace(/\.html$/, '.mdx')}`
-  )
+  try {
+    const { meta, content } = await getPostsByUrl(
+      `${siteConfig.env.postEndpoint}/${params.slug.replace(/\.html$/, '.mdx')}`
+    )
+    if (!meta.title) throw new Error('No title')
 
-  return (
-    <>
-      <article>
-        <section className="prose-h1:mb-0">
-          <h1>{meta.title}</h1>
-          <time>{formatDate(meta.date)}</time>
+    return (
+      <>
+        <BlogHeader {...meta} />
 
-          <ul className="m-0 flex list-none flex-row gap-2 pl-0">
-            {meta.tags?.map((tag) => (
-              <li key={tag}>
-                <Chip>{tag}</Chip>
-              </li>
-            ))}
-          </ul>
-
-          <blockquote>{meta.description || 'No description provided.'}</blockquote>
-
-          {meta.image && (
-            <Image
-              src={meta.image}
-              alt={meta.title}
-              width={1920}
-              height={1080}
-              className="rounded object-cover shadow-lg"
-            />
-          )}
-        </section>
-
-        {content}
-      </article>
-    </>
-  )
+        <article>{content}</article>
+      </>
+    )
+  } catch (e) {
+    return notFound()
+  }
 }
 
 export default Page

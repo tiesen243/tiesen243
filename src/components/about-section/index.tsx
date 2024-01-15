@@ -1,7 +1,6 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-
 const Infomation = dynamic(() => import('./infomation'), { ssr: false })
 
 const AboutSection: React.FC = () => (

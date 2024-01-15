@@ -1,7 +1,7 @@
 import type { Metadata, NextPage } from 'next'
 
-import { getAllPostsMeta } from '@/lib/utils'
-import Posts from './_posts'
+import BlogCard from '@/components/blog-card'
+import { getAllPostsMeta } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -29,7 +29,13 @@ const Page: NextPage = async () => {
         <h1>Blogs</h1>
       </article>
 
-      <Posts metas={metas} />
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        {metas.map((meta) => (
+          <li key={meta.slug}>
+            <BlogCard {...meta} />
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }

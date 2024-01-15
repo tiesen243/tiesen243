@@ -1,13 +1,10 @@
 'use client'
 
-import { libraries, softwares } from '@/lib/data'
-import { cn } from '@nextui-org/react'
-import dynamic from 'next/dynamic'
+import { ScrollShadow } from '@nextui-org/scroll-shadow'
 import Image from 'next/image'
 
-const ScrollShadow = dynamic(() => import('@nextui-org/react').then((mod) => mod.ScrollShadow), {
-  ssr: false,
-})
+import { libraries, softwares } from '@/lib/data'
+import { cn } from '@/lib/utils'
 
 const Skills: React.FC = () => (
   <>
@@ -41,7 +38,7 @@ const Skills: React.FC = () => (
 export default Skills
 
 const Item: React.FC<Data> = ({ label, path, isInverted }) => (
-  <li className="flex items-center gap-2 rounded bg-secondary p-2">
+  <li className="flex basis-auto items-center gap-2 rounded bg-secondary px-4 py-2">
     <Image
       src={path}
       alt={label.toLowerCase().replace(/ /g, '-') + '-logo'}

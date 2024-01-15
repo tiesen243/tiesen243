@@ -22,15 +22,12 @@ interface PostSource {
   download_url: string
 }
 
-interface PostData {
-  meta: {
-    title: string
-    description: string
-    tags: string[]
-    date: Date
-    slug?: string
-    name?: string
-    image?: string
-  }
-  content: React.ReactElement<any, string | React.JSXElementConstructor<any>>
+interface PostMeta {
+  title: string
+  description: string
+  tags: string[]
+  date: Date
+  slug?: string
+  name?: string
+  image?: string
 }

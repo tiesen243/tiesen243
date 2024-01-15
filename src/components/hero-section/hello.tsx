@@ -1,20 +1,14 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import Image from 'next/image'
 import Link from 'next/link'
+import { TypeAnimation } from 'react-type-animation'
 
-const Button = dynamic(() => import('@nextui-org/react').then((mod) => mod.Button), {
-  ssr: false,
-})
-const TypeAnimation = dynamic(
-  () => import('react-type-animation').then((mod) => mod.TypeAnimation),
-  { ssr: false }
-)
+import { Button } from '@/components/ui/button'
 
 const Hello: React.FC = () => (
   <>
-    <div className="grid grid-cols-1 gap-2 md:grid-cols-12 md:place-items-center">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:place-items-center">
       <article className="col-span-7 text-center prose-h1:m-0 prose-h2:m-0 prose-a:no-underline prose-pre:p-0 md:text-left">
         <h1>{hi} I&apos;m</h1>
 
@@ -28,7 +22,7 @@ const Hello: React.FC = () => (
         </p>
       </article>
 
-      <section className="col-span-5 row-span-2 mx-auto">
+      <div className="col-span-5 row-span-2 mx-auto">
         <Image
           src="/images/yuki.webp"
           alt="Yuki"
@@ -36,13 +30,13 @@ const Hello: React.FC = () => (
           width={400}
           height={400}
         />
-      </section>
+      </div>
 
-      <section className="col-span-7 grid w-full grid-cols-2 gap-4">
-        <Link href="/#contact-form" passHref legacyBehavior>
-          <Button className="bg-gradient-text font-bold text-default">Hire me</Button>
-        </Link>
-        <Button variant="bordered">
+      <div className="col-span-7 grid w-full grid-cols-2 gap-4">
+        <Button className="bg-gradient-text font-bold text-primary" asChild>
+          <Link href="/#contact-form">Hire me</Link>
+        </Button>
+        <Button variant="outline" asChild>
           <a
             href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             target="_blank"
@@ -51,7 +45,7 @@ const Hello: React.FC = () => (
             Download CV
           </a>
         </Button>
-      </section>
+      </div>
     </div>
   </>
 )

@@ -1,12 +1,16 @@
-import { Card, CardBody, Tab, Tabs } from '@nextui-org/react'
 import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
+
+import { Card, CardContent } from '@/components/ui/card'
+import { Tab, Tabs } from '@nextui-org/tabs'
 
 const Infomation: React.FC = () => (
   <Tabs variant="underlined" className="overflow-auto">
     {tabsContents.map((tab) => (
       <Tab key={tab.id} title={tab.label}>
         <Card className="border">
-          <CardBody className="prose prose-lg prose-zinc dark:prose-invert">{tab.content}</CardBody>
+          <CardContent className="prose prose-lg prose-zinc dark:prose-invert">
+            {tab.content}
+          </CardContent>
         </Card>
       </Tab>
     ))}

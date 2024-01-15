@@ -1,5 +1,5 @@
 import { siteConfig } from '@/lib/site'
-import { getAllPostsMeta } from '@/lib/utils'
+import { getAllPostsMeta } from '@/lib/mdx'
 import { MetadataRoute } from 'next'
 
 type Route = {

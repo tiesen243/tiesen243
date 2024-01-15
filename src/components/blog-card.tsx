@@ -1,19 +1,30 @@
 import Link from 'next/link'
 
 import { formatDate } from '@/lib/utils'
-import { Card, CardBody, CardFooter, CardHeader, Chip } from '@nextui-org/react'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 
-const BlogCard: React.FC<PostData['meta']> = (meta) => (
+const BlogCard: React.FC<PostMeta> = (meta) => (
   <Link href={meta.slug ?? '/'} passHref legacyBehavior>
-    <Card className="h-full w-full border" isPressable>
+    <Card className="flex h-full w-full cursor-pointer flex-col justify-between border transition-colors hover:bg-secondary">
       <CardHeader className="flex-col items-start gap-1">
-        <h3>{meta.title}</h3> <p className="text-secondary-foreground">{formatDate(meta.date)}</p>
+        <CardTitle>{meta.title}</CardTitle>
+        <CardDescription>{formatDate(meta.date)}</CardDescription>
       </CardHeader>
 
-      <CardBody>{meta.description}</CardBody>
+      <CardContent>
+        {meta.description?.length > 100 ? `${meta.description.slice(0, 100)}...` : meta.description}
+      </CardContent>
 
       <CardFooter className="flex gap-2">
-        {meta.tags?.map((tag) => <Chip key={tag}>{tag}</Chip>)}
+        {meta.tags?.map((tag) => <Badge key={tag}>{tag}</Badge>)}
       </CardFooter>
     </Card>
   </Link>
