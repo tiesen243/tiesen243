@@ -44,7 +44,7 @@ const Item: React.FC<Data> = ({ label, path, isInverted }) => (
   <li className="flex items-center gap-2 rounded bg-secondary p-2">
     <Image
       src={path}
-      alt={label.toLowerCase()}
+      alt={label.toLowerCase().replace(/ /g, '-') + '-logo'}
       width={40}
       height={40}
       className={isInverted ? 'dark:invert' : ''}
