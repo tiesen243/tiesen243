@@ -14,7 +14,7 @@ const TypeAnimation = dynamic(
 
 const Hello: React.FC = () => (
   <>
-    <div className="grid grid-cols-1 place-items-center gap-2 md:grid-cols-12">
+    <div className="grid grid-cols-1 gap-2 md:grid-cols-12 md:place-items-center">
       <article className="col-span-7 text-center prose-h1:m-0 prose-h2:m-0 prose-a:no-underline prose-pre:p-0 md:text-left">
         <h1>{hi} I&apos;m</h1>
 
@@ -22,7 +22,7 @@ const Hello: React.FC = () => (
           <TypeAnimation sequence={sequence} wrapper="h2" repeat={Infinity} speed={10} />
         </pre>
 
-        <p className="text-lg text-default">
+        <p className="text-lg">
           Hi there! I&apos;m <strong>Tran Tien</strong>, a {new Date().getFullYear() - 2004} years
           old developer from Vietnam. I seft-taught love to learn new things and build stuffs.
         </p>

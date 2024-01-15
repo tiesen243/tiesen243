@@ -56,7 +56,7 @@ const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
     >
       <ThemeProvider>
         <Header />
-        <main className="container max-w-screen-lg">{children}</main>
+        <main className="container mb-16 max-w-screen-lg">{children}</main>
         <Toaster />
       </ThemeProvider>
     </body>
