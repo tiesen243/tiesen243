@@ -1,34 +1,60 @@
-import { Navbar, NavbarContent, NavbarMenu, NavbarMenuToggle } from '@nextui-org/react'
+import { siteConfig } from '@/lib/site'
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+  NavbarMenuToggle,
+  Spinner,
+  User,
+} from '@nextui-org/react'
+import Link from 'next/link'
+import ThemeBtn from './theme-btn'
 
-import ThemeBtn from '@/components/them-btn'
-import { gh_api_token, gh_api_url } from '@/lib/constants'
-import Brand from './brand'
-import Nav from './nav'
+const Header: React.FC = () => (
+  <Navbar isBordered>
+    <NavbarBrand>
+      <Link href="/#hero">
+        <User
+          name="Tiesen"
+          description="@tiesen243"
+          className="group"
+          avatarProps={{
+            src: '/images/yuki.webp',
+            fallback: <Spinner color="default" />,
+            showFallback: true,
+            className: 'bg-background group-hover:ring-2 ring-default',
+          }}
+        />
+      </Link>
+    </NavbarBrand>
 
-const Header: React.FC = async () => {
-  const res = await fetch(gh_api_url, {
-    headers: { authorization: `Bearer ${gh_api_token}` },
-  })
-  const user = await res.json()
+    <NavbarContent justify="center" className="hidden md:flex">
+      {siteConfig.navLinks.map((link) => (
+        <NavbarItem key={link.label} className="underline-offset-4 hover:underline">
+          <Link href={link.url}>{link.label}</Link>
+        </NavbarItem>
+      ))}
+    </NavbarContent>
 
-  return (
-    <Navbar as="header" className="bg-transparent" isBordered>
-      <Brand {...user} />
-
-      <NavbarContent justify="center" className="hidden md:flex">
-        <Nav />
-      </NavbarContent>
-
-      <NavbarMenu className="md:hidden">
-        <Nav />
-      </NavbarMenu>
-
-      <NavbarContent as="section" justify="end">
+    <NavbarContent justify="end">
+      <NavbarItem>
         <ThemeBtn />
-        <NavbarMenuToggle className="md:hidden" />
-      </NavbarContent>
-    </Navbar>
-  )
-}
+      </NavbarItem>
+      <NavbarItem className="md:hidden">
+        <NavbarMenuToggle />
+        <NavbarMenu>
+          {siteConfig.navLinks.map((link) => (
+            <NavbarMenuItem key={link.label} className="underline-offset-4 hover:underline">
+              <Link href={link.url}>{link.label}</Link>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      </NavbarItem>
+    </NavbarContent>
+  </Navbar>
+)
 
 export default Header

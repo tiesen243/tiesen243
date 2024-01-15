@@ -1,77 +1,62 @@
-import path from 'path'
-import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
-import { toast } from 'react-toastify'
 
-// ---------------- TOAST ----------------
+import customMdxComponents from './comp'
+import { siteConfig } from './site'
 
-export const successToast = (message: string) =>
-  toast.success(message, {
-    position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  })
+export const getPostsByUrl = async (url: string): Promise<PostData> => {
+  const mdxSource = await fetch(url, {
+    headers: {
+      authorization: `Bearer ${siteConfig.env.githubToken}`,
+    },
+    next: { revalidate: 60 * 60 },
+  }).then((res) => res.text())
 
-export const errorToast = (message: string) =>
-  toast.error(message, {
-    position: 'top-right',
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-  })
-
-// ---------------- MDX ----------------
-
-const rootDir = path.join(process.cwd(), 'contents')
-
-type Post = {
-  meta: PostMeta
-  content: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-}
-
-export const getPostBySlug = async (slug: string): Promise<Post> => {
-  const realSlug = slug.replace(/\.mdx$/, '')
-  const filePath = path.join(rootDir, `${realSlug}.mdx`)
-
-  const fileContents = fs.readFileSync(filePath, 'utf8')
-
-  const { frontmatter, content } = (await compileMDX({
-    source: fileContents,
+  const { content, frontmatter } = (await compileMDX({
+    source: mdxSource,
     options: {
       parseFrontmatter: true,
       mdxOptions: {
-        remarkPlugins: [],
         rehypePlugins: [rehypeHighlight as any],
       },
     },
-  })) as {
-    frontmatter: PostMeta
-    content: React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  }
+    components: customMdxComponents,
+  })) as any
 
   return {
-    meta: { ...frontmatter, slug: `${realSlug}.html` },
+    meta: {
+      title: frontmatter.title,
+      description: frontmatter.description,
+      image: frontmatter.image,
+      tags: frontmatter.tags,
+      date: frontmatter.date,
+    },
     content,
   }
 }
 
-export const getAllPostsMetadata = async (): Promise<PostMeta[]> => {
-  const files = fs.readdirSync(rootDir)
+export const getAllPostsMeta = async (): Promise<PostData['meta'][]> => {
+  const res = await fetch(`${siteConfig.env.apiEndpoint}?ref=blogs`, {
+    next: {
+      revalidate: 60 * 60,
+    },
+  })
+  const posts: PostSource[] = await res.json()
 
-  const Metas = await Promise.all(
-    files.map(async (file) => {
-      const { meta } = await getPostBySlug(file)
-      return meta
+  const metas = await Promise.all(
+    posts.map(async (post) => {
+      const { meta } = await getPostsByUrl(`${post.download_url}?ref=blogs`)
+
+      return {
+        ...meta,
+        name: post.name,
+        slug: `/blogs/${post.name.replace('.mdx', '.html')}`,
+      }
     })
   )
 
-  return Metas
+  return metas
 }
+
+export const formatDate = (date: Date | string): string =>
+  new Date(date).toLocaleDateString('vi-VN', { year: 'numeric', month: '2-digit', day: 'numeric' })

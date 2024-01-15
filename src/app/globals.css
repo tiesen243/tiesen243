@@ -4,18 +4,47 @@
 
 @layer base {
   :root {
+    --gradient-from: 332, 91%, 57%;
+    --gradient-via: 292, 100%, 50%;
+    --gradient-to: 265, 100%, 50%;
     --border: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
   }
   .dark {
+    --gradient-from: 353, 92%, 71%;
+    --gradient-via: 270, 28%, 48%;
+    --gradient-to: 236, 71%, 31%;
     --border: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --ring: 240 5.9% 10%;
   }
 }
 
 @layer base {
+  html:has(.landing) {
+    @apply scroll-smooth;
+  }
   * {
-    @apply select-none border-border;
+    @apply relative box-border border-border;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-pretty;
+  }
+
+  p {
+    @apply text-balance;
+  }
+
+  article {
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0 prose-pre:bg-transparent;
+  }
+
+  html:has(.landing) h1 {
+    @apply bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent;
   }
 
   ::-webkit-scrollbar {
@@ -25,35 +54,6 @@
     @apply bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply rounded bg-ring hover:bg-ring/80;
-  }
-}
-
-.animate-wave {
-  animation-name: wave-animation;
-  animation-duration: 2.5s;
-  animation-iteration-count: infinite;
-  transform-origin: 50% 80%;
-  display: inline-block;
-}
-
-@keyframes wave-animation {
-  0%,
-  60%,
-  100% {
-    transform: rotate(0deg);
-  }
-  10%,
-  30% {
-    transform: rotate(14deg);
-  }
-  20% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(-4deg);
-  }
-  50% {
-    transform: rotate(10deg);
+    @apply rounded-full bg-default;
   }
 }

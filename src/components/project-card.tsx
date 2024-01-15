@@ -1,48 +1,57 @@
-import { Button, Card, CardBody, CardFooter, CardHeader, Chip, Link } from '@nextui-org/react'
-import { GithubIcon, LinkIcon } from 'lucide-react'
+'use client'
 
-const ProjectCard: React.FC<{ repo: Repo }> = ({ repo }) => (
-  <Card className="group relative h-full border">
-    <CardHeader className="flex justify-between">
-      <h2 className="text-2xl font-bold capitalize">{repo.name}</h2>
-      {typeof repo.language === 'string' ? <Chip>{repo.language}</Chip> : null}
+import { formatDate } from '@/lib/utils'
+import { GithubIcon, LinkIcon } from 'lucide-react'
+import dynamic from 'next/dynamic'
+
+const Button = dynamic(() => import('@nextui-org/react').then((mod) => mod.Button))
+const Card = dynamic(() => import('@nextui-org/react').then((mod) => mod.Card))
+const CardBody = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardBody))
+const CardFooter = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardFooter))
+const CardHeader = dynamic(() => import('@nextui-org/react').then((mod) => mod.CardHeader))
+
+const ProjectCard: React.FC<Project> = (props) => (
+  <Card as="article" className="group relative h-full border prose-h3:m-0 prose-p:m-0">
+    <CardHeader as="h3" className="capitalize">
+      {props.name.replace(/-/g, ' ')}
     </CardHeader>
 
-    <CardBody>{repo.description}</CardBody>
+    <CardBody className="flex flex-col justify-between">
+      <time dateTime={props.created_at.toString()}>{formatDate(props.created_at)}</time>
+      <p>
+        {props.description?.length > 50
+          ? `${props.description.slice(0, 50)}...`
+          : props.description}
+      </p>
 
-    <section className="absolute inset-0 z-20 hidden h-full w-full items-center justify-center gap-4 bg-content1/50 backdrop-blur group-hover:flex">
-      <Button
-        as={Link}
-        href={repo.html_url}
-        variant="bordered"
-        className="rounded-full"
-        size="lg"
-        isIconOnly
-        isExternal
-      >
-        <GithubIcon />
+      <p>
+        Language: <span className="capitalize">{props.language}</span>
+      </p>
+    </CardBody>
+
+    <div className="absolute z-20 hidden h-full w-full items-center justify-evenly bg-secondary/40 backdrop-blur transition-all group-hover:flex">
+      <Button variant="bordered" size="lg" radius="full" isIconOnly>
+        <a href={props.html_url} target="_blank" rel="noopener noreferrer">
+          <GithubIcon />
+        </a>
       </Button>
-
-      {repo.homepage && (
-        <Button
-          as={Link}
-          href={repo.homepage}
-          variant="bordered"
-          className="rounded-full"
-          size="lg"
-          isIconOnly
-          isExternal
-        >
-          <LinkIcon />
+      {props.homepage && (
+        <Button variant="bordered" size="lg" radius="full" isIconOnly>
+          <a href={props.homepage} target="_blank" rel="noopener noreferrer">
+            <LinkIcon />
+          </a>
         </Button>
       )}
-    </section>
+    </div>
 
-    <CardFooter className="flex gap-1 overflow-x-auto">
-      {repo.topics.map((topic) => (
-        <Chip key={topic} className="z-10">
+    <CardFooter>
+      {props.topics.map((topic) => (
+        <span
+          key={topic}
+          className="mr-2 inline whitespace-nowrap rounded-lg bg-secondary px-2 py-1 text-sm"
+        >
           {topic}
-        </Chip>
+        </span>
       ))}
     </CardFooter>
   </Card>

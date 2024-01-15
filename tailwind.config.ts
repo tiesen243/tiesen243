@@ -1,22 +1,20 @@
-import { nextui } from '@nextui-org/react'
-import typography from '@tailwindcss/typography'
 import type { Config } from 'tailwindcss'
+
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import typography from '@tailwindcss/typography'
+import { nextui } from '@nextui-org/react'
 
 const config: Config = {
-  darkMode: ['class'],
   content: [
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}',
   ],
+  darkMode: ['class'],
   theme: {
     container: {
       center: true,
       padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
     },
     extend: {
       fontFamily: {
@@ -29,7 +27,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gradient-text':
-          'linear-gradient(to bottom right, #d16ba5, #c777b9, #b88cc8, #a29cd4, #8ba9dd, #7ab4e4, #6abeee, #5dcdf5, #5ddcf5, #6aebee, #7ab4e4, #8ba9dd, #a29cd4, #b88cc8, #c777b9, #d16ba5)',
+          'linear-gradient(to bottom right, hsl(var(--gradient-from)), hsl(var(--gradient-via)), hsl(var(--gradient-to)))',
       },
       animation: {
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
@@ -59,9 +57,6 @@ const config: Config = {
               DEFAULT: 'hsl(240 5.9% 10%)',
               foreground: 'hsl(0 0% 98%)',
             },
-            primary: {
-              DEFAULT: 'hsl(240, 4.88%, 83.92%)',
-            },
             secondary: {
               DEFAULT: 'hsl(240 4.8% 95.9%)',
               foreground: 'hsl(240 3.8% 46.1%)',
@@ -80,9 +75,6 @@ const config: Config = {
             default: {
               DEFAULT: 'hsl(0 0% 98%)',
               foreground: 'hsl(240 5.9% 10%)',
-            },
-            primary: {
-              DEFAULT: 'hsl(240, 5.26%, 26.08%)',
             },
             secondary: {
               DEFAULT: 'hsl(240 3.7% 15.9%)',
