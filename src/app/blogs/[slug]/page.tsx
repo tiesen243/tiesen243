@@ -62,7 +62,9 @@ const Page: NextPage<Props> = async ({ params }) => {
       <>
         <BlogHeader {...meta} />
 
-        <article>{content}</article>
+        <article className="prose-pre:bg-secondary-foreground dark:prose-pre:bg-secondary">
+          {content}
+        </article>
       </>
     )
   } catch (e) {

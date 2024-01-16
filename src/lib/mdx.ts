@@ -3,8 +3,6 @@ import { siteConfig } from './site'
 import rehypeHighlight from 'rehype-highlight'
 import customMdxComponents from '@/components/customMdxComponents'
 
-const revalidate = 30
-
 export const getPostsByUrl = async (
   url: string
 ): Promise<{
@@ -14,7 +12,7 @@ export const getPostsByUrl = async (
   try {
     const mdxSource = await fetch(url, {
       headers: { authorization: `Bearer ${siteConfig.env.githubToken}` },
-      next: { revalidate: 1 },
+      next: { revalidate: 30 },
     }).then((res) => res.text())
 
     const { content, frontmatter } = await compileMDX<PostMeta>({
@@ -56,7 +54,7 @@ export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
   try {
     const res = await fetch(`${siteConfig.env.apiEndpoint}?ref=blogs`, {
       headers: { authorization: `Bearer ${siteConfig.env.githubToken}` },
-      next: { revalidate: 1 },
+      next: { revalidate: 30 },
     })
     const posts: PostSource[] = await res.json()
 
