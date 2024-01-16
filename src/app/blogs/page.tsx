@@ -25,7 +25,7 @@ const Page: NextPage = async () => {
 
   return (
     <div className="landing">
-      <article>
+      <article className="prose-h1:pb-2">
         <h1>Blogs</h1>
       </article>
 

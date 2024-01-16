@@ -9,55 +9,69 @@ export const getPostsByUrl = async (
   meta: PostMeta
   content: React.ReactElement
 }> => {
-  const mdxSource = await fetch(url, {
-    headers: {
-      authorization: `Bearer ${siteConfig.env.githubToken}`,
-    },
-    next: { revalidate: 60 * 60 },
-  }).then((res) => res.text())
+  try {
+    const mdxSource = await fetch(url, {
+      headers: { authorization: `Bearer ${siteConfig.env.githubToken}` },
+      next: { revalidate: 60 * 60 },
+    }).then((res) => res.text())
 
-  const { content, frontmatter } = await compileMDX<PostMeta>({
-    source: mdxSource,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [rehypeHighlight as any],
+    const { content, frontmatter } = await compileMDX<PostMeta>({
+      source: mdxSource,
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: {
+          rehypePlugins: [rehypeHighlight as any],
+        },
       },
-    },
-    components: customMdxComponents,
-  })
+      components: customMdxComponents,
+    })
 
-  return {
-    meta: {
-      title: frontmatter.title,
-      description: frontmatter.description,
-      image: frontmatter.image,
-      tags: frontmatter.tags,
-      date: frontmatter.date,
-    },
-    content,
+    return {
+      meta: {
+        title: frontmatter.title,
+        description: frontmatter.description,
+        image: frontmatter.image,
+        tags: frontmatter.tags,
+        date: frontmatter.date,
+      },
+      content,
+    }
+  } catch (e) {
+    return {
+      meta: {
+        title: '',
+        description: '',
+        image: '',
+        tags: [],
+        date: new Date(),
+      },
+      content: null as any,
+    }
   }
 }
 
 export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
-  const res = await fetch(`${siteConfig.env.apiEndpoint}?ref=blogs`, {
-    next: {
-      revalidate: 60 * 60,
-    },
-  })
-  const posts: PostSource[] = await res.json()
-
-  const metas = await Promise.all(
-    posts.map(async (post) => {
-      const { meta } = await getPostsByUrl(`${post.download_url}?ref=blogs`)
-
-      return {
-        ...meta,
-        name: post.name,
-        slug: `/blogs/${post.name.replace('.mdx', '.html')}`,
-      }
+  try {
+    const res = await fetch(`${siteConfig.env.apiEndpoint}?ref=blogs`, {
+      headers: { authorization: `Bearer ${siteConfig.env.githubToken}` },
+      next: { revalidate: 60 * 60 },
     })
-  )
+    const posts: PostSource[] = await res.json()
 
-  return metas
+    const metas = await Promise.all(
+      posts.map(async (post) => {
+        const { meta } = await getPostsByUrl(`${post.download_url}?ref=blogs`)
+
+        return {
+          ...meta,
+          name: post.name,
+          slug: `/blogs/${post.name.replace('.mdx', '.html')}`,
+        }
+      })
+    )
+
+    return metas
+  } catch (e) {
+    return []
+  }
 }
