@@ -105,7 +105,7 @@
   }
 
   article {
-    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0;
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0 prose-img:rounded-lg prose-img:shadow-lg;
   }
 
   ::-webkit-scrollbar {

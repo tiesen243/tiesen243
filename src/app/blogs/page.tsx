@@ -1,24 +1,24 @@
-import type { Metadata, NextPage } from 'next'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 
 import BlogCard from '@/components/blog-card'
 import { getAllPostsMeta } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'
 
-export const metadata: Metadata = {
+export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
   title: 'Blogs',
   description: 'Blogs by me',
   openGraph: {
     title: 'Blogs',
     description: 'Blogs by me',
-    images: siteConfig.openGraph.images,
     url: `${siteConfig.url}/blogs`,
+    images: (await parent).openGraph?.images || [],
   },
   twitter: {
     title: 'Blogs',
     description: 'Blogs by me',
-    images: siteConfig.twitter.image,
+    images: (await parent).twitter?.images || [],
   },
-}
+})
 
 const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()

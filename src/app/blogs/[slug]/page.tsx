@@ -18,19 +18,6 @@ export const generateMetadata = async (
     `${siteConfig.env.postEndpoint}/${params.slug.replace(/\.html$/, '.mdx')}`
   )
 
-  const parentImages = (await parent).openGraph?.images || []
-  console.log(parentImages)
-  const images = meta.image
-    ? [
-        {
-          url: meta.image,
-          width: 1920,
-          height: 1080,
-          alt: meta.title,
-        },
-      ]
-    : parentImages
-
   return {
     title: meta.title,
     description: meta.description,
@@ -48,13 +35,13 @@ export const generateMetadata = async (
               alt: meta.title,
             },
           ]
-        : parentImages,
+        : (await parent).openGraph?.images || [],
     },
     twitter: {
       title: meta.title,
       description: meta.description,
       card: 'summary_large_image',
-      images: meta.image ? images : parentImages[0],
+      images: meta.image ? meta.image : (await parent).twitter?.images || [],
     },
     alternates: {
       canonical: `${siteConfig.url}/blogs/${params.slug}`,
