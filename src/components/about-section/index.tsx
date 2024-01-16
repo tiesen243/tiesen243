@@ -5,8 +5,8 @@ const Infomation = dynamic(() => import('./infomation'), { ssr: false })
 
 const AboutSection: React.FC = () => (
   <section id="about" className="min-h-dvh pt-16">
-    <article>
-      <h1>About Me</h1>
+    <article className="prose-h2:m-0 prose-h2:pb-2">
+      <h2>About Me</h2>
 
       <p>
         I am a full stack web developer with a passion for creating interactive and responsive web

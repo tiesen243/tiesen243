@@ -82,7 +82,8 @@
     @apply scroll-smooth;
   }
 
-  html:has(.landing) h1 {
+  html:has(.landing) h1,
+  html:has(.landing) h2 {
     @apply bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent;
   }
 
@@ -104,7 +105,7 @@
   }
 
   article {
-    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0 prose-pre:bg-transparent;
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0;
   }
 
   ::-webkit-scrollbar {

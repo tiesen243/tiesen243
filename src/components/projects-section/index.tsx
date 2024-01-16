@@ -9,8 +9,8 @@ const ProjectsSection: React.FC = async () => {
 
   return (
     <section id="projects" className="min-h-dvh space-y-4 pt-16">
-      <article className="prose-h1:m-0">
-        <h1>Projects</h1>
+      <article className="prose-h2:m-0 prose-h2:pb-2">
+        <h2>Projects</h2>
         <blockquote>This is a list of all my projects, I have worked on.</blockquote>
       </article>
 

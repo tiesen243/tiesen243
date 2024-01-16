@@ -11,9 +11,9 @@ export type Site = typeof siteConfig
 
 export const siteConfig = {
   title: 'Tiesen',
-  description: "Hi there, I'm Tiesen. I'm a web developer.",
+  description:
+    "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
   url: 'https://tiesen.id.vn',
-  image: '/images/logo.png',
   author: 'Tiesen',
   creator: '@tiesen243',
   locale: 'vi_VN',
@@ -26,17 +26,10 @@ export const siteConfig = {
       default: 'Tiesen',
       template: '%s | Tiesen',
     },
-    description: "Hi there, I'm Tiesen. I'm a web developer.",
+    description:
+      "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
     url: 'https://tiesen.id.vn',
     siteName: 'Tiesen',
-    images: [
-      {
-        url: '/images/logo.png',
-        width: 630,
-        height: 630,
-        alt: 'Tiesen',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -44,8 +37,8 @@ export const siteConfig = {
       default: 'Tiesen',
       template: '%s | Tiesen',
     },
-    description: "Hi there, I'm Tiesen. I'm a web developer.",
-    image: '/images/logo.png',
+    description:
+      "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
     creator: '@tiesen243',
   },
   socials: [
@@ -75,7 +68,7 @@ export const siteConfig = {
       icon: <YoutubeIcon />,
     },
     {
-      label: 'Buy me a coffee',
+      label: 'Support me',
       href: 'https://me.momo.vn/tiesen243',
       icon: <CoffeeIcon />,
     },

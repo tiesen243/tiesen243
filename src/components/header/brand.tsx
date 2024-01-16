@@ -7,14 +7,14 @@ const Brand: React.FC = () => (
   <NavbarBrand>
     <Link href="/#hero" passHref legacyBehavior>
       <User
-        name="Tiesen"
-        description="@tiesen243"
+        name={<p className="font-bold">Tran Tien</p>}
+        description={<p className="text-primary/90">@tiesen243</p>}
         className="group cursor-pointer"
         avatarProps={{
           src: '/images/yuki.webp',
           fallback: <Loader2 className="animate-spin" />,
           showFallback: true,
-          className: 'bg-background group-hover:ring-2 ring-ring',
+          className: 'bg-background group-hover:ring-2 ring-ring group-hover:text-primary/60',
         }}
       />
     </Link>
