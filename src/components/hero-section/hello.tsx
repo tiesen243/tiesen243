@@ -9,12 +9,13 @@ import { Button } from '@/components/ui/button'
 const Hello: React.FC = () => (
   <>
     <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:place-items-center">
-      <article className="col-span-7 text-center prose-headings:m-0 prose-a:no-underline prose-pre:bg-transparent prose-pre:p-0 md:text-left">
+      <article className="col-span-7 text-center prose-headings:m-0 prose-a:no-underline md:text-left">
         <h1>{hi} I&apos;m</h1>
 
-        <pre className="font-mono text-4xl text-primary">
-          <TypeAnimation sequence={sequence} wrapper="span" repeat={Infinity} speed={10} />
-        </pre>
+        <span className="font-mono text-4xl font-bold">
+          {' '}
+          <TypeAnimation sequence={sequence} repeat={Infinity} speed={10} />
+        </span>
 
         <p className="text-lg">
           Hi there! I&apos;m <strong>Tran Tien</strong>, a {new Date().getFullYear() - 2004} years

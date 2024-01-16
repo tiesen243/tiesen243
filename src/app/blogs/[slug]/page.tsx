@@ -50,8 +50,7 @@ export const generateMetadata = async (
 }
 
 import BlogHeader from '@/components/blog-header'
-
-import 'highlight.js/styles/base16/dracula.css'
+import 'highlight.js/styles/github-dark.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(

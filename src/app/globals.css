@@ -76,7 +76,7 @@
 
 @layer base {
   * {
-    @apply relative box-border select-none border-border;
+    @apply relative box-border border-border selection:bg-foreground selection:text-background;
   }
   html:has(.landing) {
     @apply scroll-smooth;
@@ -105,7 +105,7 @@
   }
 
   article {
-    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-pre:m-0 prose-img:rounded-lg prose-img:shadow-lg;
+    @apply prose prose-lg prose-zinc dark:prose-invert  prose-pre:m-0 prose-pre:bg-secondary-foreground prose-img:rounded-lg prose-img:shadow-lg dark:prose-pre:bg-secondary;
   }
 
   ::-webkit-scrollbar {

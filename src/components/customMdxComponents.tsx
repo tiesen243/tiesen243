@@ -8,6 +8,7 @@ const customMdxComponents: MDXComponents = {
   img: (props) => <Image {...(props as ImageProps)} width={1920} height={1080} />,
   button: (props) => <Button {...(props as ButtonProps)} />,
   code: (props) => <code {...props} className="font-mono" />,
+  pre: (props) => <pre {...props} className="*:selection:bg-white *:selection:text-black" />,
 }
 
 export default customMdxComponents
