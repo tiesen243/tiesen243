@@ -12,8 +12,8 @@ const Hello: React.FC = () => (
       <article className="text-center prose-headings:m-0 prose-a:no-underline prose-pre:overflow-hidden prose-pre:bg-transparent prose-pre:p-0 md:col-span-7 md:text-left">
         <h1>{hi} I&apos;m</h1>
 
-        <pre className="bg-none font-mono text-4xl font-bold">
-          <TypeAnimation sequence={sequence} repeat={Infinity} speed={10} />{' '}
+        <pre className="font-mono text-4xl font-bold text-primary">
+          <TypeAnimation sequence={sequence} repeat={Infinity} speed={10} />
         </pre>
 
         <p className="text-lg">
