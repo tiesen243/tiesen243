@@ -97,11 +97,11 @@
   h4,
   h5,
   h6 {
-    @apply text-pretty;
+    @apply text-balance;
   }
 
   p {
-    @apply text-balance;
+    @apply text-pretty;
   }
 
   article {
