@@ -73,7 +73,11 @@ const tabsContents = [
         <ActivityIcon /> <span>Experience</span>
       </div>
     ),
-    content: (<p>I have no experience yet :))</p>),
+    content: (
+      <ul>
+        <li>I have no experience yet :))</li>
+      </ul>
+    ),
   },
   {
     id: 'hobbies',
