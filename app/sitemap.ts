@@ -2,19 +2,17 @@ import { siteConfig } from '@/lib/site'
 import { getAllPostsMeta } from '@/lib/mdx'
 import { MetadataRoute } from 'next'
 
-type Route = {
-  url: string
-  lastModified: string
-}
+const baseUrl = process.env.NODE_ENV === 'production' ? siteConfig.url : 'http://localhost:3000'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routesMap = ['', 'blogs'].map((route) => ({
-    url: `${siteConfig.url}/${route}`,
+    url: `${baseUrl}/${route}`,
     lastModified: new Date().toISOString(),
   }))
 
   const blogsPromise = await getAllPostsMeta().then((res) =>
     res.map((blog) => ({
-      url: `${siteConfig.url}${blog.slug}`,
+      url: `${baseUrl}${blog.slug}`,
       lastModified: new Date().toISOString(),
     }))
   )

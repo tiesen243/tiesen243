@@ -31,3 +31,8 @@ interface PostMeta {
   name?: string
   image?: string
 }
+
+interface Route {
+  url: string
+  lastModified: string
+}

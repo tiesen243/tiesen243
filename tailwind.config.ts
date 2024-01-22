@@ -8,7 +8,8 @@ import animate from 'tailwindcss-animate'
 const config = {
   darkMode: ['class'],
   content: [
-    './src/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
     './node_modules/@nextui-org/theme/dist/components/**/*.{js,jsx,ts,tsx}',
   ],
   prefix: '',
