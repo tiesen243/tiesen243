@@ -12,7 +12,7 @@ const Skills: React.FC = () => (
       <ScrollShadow
         key={i}
         orientation="horizontal"
-        className="my-1 inline-flex max-w-[500px] flex-nowrap md:max-w-screen-xl"
+        className="container inline-flex flex-nowrap overflow-x-hidden"
         visibility="both"
         hideScrollBar
       >

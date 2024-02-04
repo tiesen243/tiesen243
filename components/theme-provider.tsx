@@ -1,24 +1,11 @@
 'use client'
 
-import { NextUIProvider } from '@nextui-org/system'
 import { ThemeProvider as NextThemeProvider } from 'next-themes'
-import { useRouter } from 'next/navigation'
 
-const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { push } = useRouter()
-
-  return (
-    <NextUIProvider navigate={push}>
-      <NextThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        {children}
-      </NextThemeProvider>
-    </NextUIProvider>
-  )
-}
+const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
+  <NextThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+    {children}
+  </NextThemeProvider>
+)
 
 export default ThemeProvider

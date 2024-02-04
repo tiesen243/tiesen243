@@ -3,7 +3,7 @@ import Infomation from './infomation'
 import Skills from './skills'
 
 const AboutSection: React.FC = () => (
-  <section id="about" className="container min-h-dvh space-y-8 pt-4">
+  <section id="about" className="container min-h-dvh space-y-4 pt-4">
     <Hello />
     <Skills />
 

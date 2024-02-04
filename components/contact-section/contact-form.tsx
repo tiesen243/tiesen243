@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { sendEmail } from '@/lib/actions'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
 
 const ContactForm: React.FC = () => {
   const send = async (formData: FormData) => {
@@ -33,15 +33,17 @@ const ContactForm: React.FC = () => {
         </CardDescription>
       </CardHeader>
 
-      <CardContent id="contact-form">
-        <form className="my-8 flex flex-col items-center gap-4" action={send}>
+      <form className="mt-8" action={send}>
+        <CardContent id="contact-form" className="flex flex-col items-center gap-4">
           <Input name="subject" placeholder="Subject" required />
           <Input name="email" type="email" placeholder="Email" required />
           <Textarea name="message" placeholder="Message" required />
+        </CardContent>
 
+        <CardFooter className="justify-end">
           <SubmitButton />
-        </form>
-      </CardContent>
+        </CardFooter>
+      </form>
     </Card>
   )
 }

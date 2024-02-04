@@ -6,22 +6,18 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { formatDate } from '@/lib/utils'
 
 const ProjectCard: React.FC<Project> = (props) => (
-  <Card className="group relative h-full border prose-h2:m-0 prose-p:m-0">
+  <Card className="group relative h-full w-full border prose-h2:m-0 prose-p:m-0">
     <CardHeader className="capitalize">
       <CardTitle>{props.name.replace(/-/g, ' ')}</CardTitle>
     </CardHeader>
 
     <CardContent>
       <time dateTime={props.created_at.toString()}>{formatDate(props.created_at)}</time>
-      <p>
-        {props.description?.length > 50
-          ? `${props.description.slice(0, 50)}...`
-          : props.description}
+      <p className="max-w-[400px] overflow-hidden text-ellipsis whitespace-nowrap md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg">
+        {props.description}
       </p>
 
-      <p>
-        Language: <span className="capitalize">{props.language}</span>
-      </p>
+      {props.language && <p className="capitalize">Language: {props.language}</p>}
     </CardContent>
 
     <div className="absolute inset-0 z-30 hidden h-full w-full items-center justify-center gap-8 bg-secondary/50 backdrop-blur group-hover:flex">
