@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nextui-org/navbar": "^2.0.27",
     "@nextui-org/scroll-shadow": "^2.1.12",
     "@nextui-org/system": "^2.0.15",
     "@nextui-org/tabs": "^2.0.26",

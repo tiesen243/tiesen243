@@ -1,10 +1,12 @@
-'use client'
-
-import dynamic from 'next/dynamic'
-const Infomation = dynamic(() => import('./infomation'), { ssr: false })
+import Hello from './hello'
+import Infomation from './infomation'
+import Skills from './skills'
 
 const AboutSection: React.FC = () => (
-  <section id="about" className="min-h-dvh pt-16">
+  <section id="about" className="container min-h-dvh space-y-8 pt-4">
+    <Hello />
+    <Skills />
+
     <article className="prose-h2:m-0 prose-h2:pb-2">
       <h2>About Me</h2>
 

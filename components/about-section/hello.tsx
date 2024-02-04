@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { TypeAnimation } from 'react-type-animation'
 
 import { Button } from '@/components/ui/button'
+import { MotionDiv } from '../motion'
 
 const Hello: React.FC = () => (
   <>

@@ -8,7 +8,7 @@ const Social: React.FC = () => (
         <a href={social.href} target="_blank" rel="noopener noreferrer">
           <Card className="transition-colors hover:bg-secondary">
             <CardHeader className="flex-row items-center justify-center gap-2 font-bold">
-              {social.icon}
+              <social.icon />
               <span>{social.label}</span>
             </CardHeader>
           </Card>

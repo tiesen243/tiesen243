@@ -3,7 +3,7 @@ import Social from './social'
 import ContactForm from './contact-form'
 
 const ContactSection: React.FC = () => (
-  <section id="contact" className="min-h-dvh space-y-8 pt-16">
+  <section id="contact" className="container min-h-dvh space-y-8 pt-4">
     <article className="prose-h2:m-0 prose-h2:pb-2">
       <h2>Contact</h2>
       <blockquote>

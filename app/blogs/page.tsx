@@ -3,6 +3,7 @@ import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import BlogCard from '@/components/blog-card'
 import { getAllPostsMeta } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'
+import { MotionLi } from '@/components/motion'
 
 export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
   title: 'Blogs',
@@ -24,19 +25,24 @@ const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()
 
   return (
-    <div className="landing">
+    <main className="landing container pt-4">
       <article className="prose-h1:pb-2">
         <h1>Blogs</h1>
       </article>
 
-      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <ul className="grid grid-cols-1 gap-4">
         {metas.map((meta) => (
-          <li key={meta.slug}>
+          <MotionLi
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            key={meta.slug}
+          >
             <BlogCard {...meta} />
-          </li>
+          </MotionLi>
         ))}
       </ul>
-    </div>
+    </main>
   )
 }
 

@@ -1,8 +1,7 @@
 'use client'
 
 import { Loader2Icon } from 'lucide-react'
-import { useEffect } from 'react'
-import { useFormState, useFormStatus } from 'react-dom'
+import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
@@ -11,15 +10,13 @@ import { Textarea } from '@/components/ui/textarea'
 import { sendEmail } from '@/lib/actions'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 
-const initialFormState = {
-  message: '',
-}
-
 const ContactForm: React.FC = () => {
-  const [state, formAction] = useFormState(sendEmail, initialFormState)
-  useEffect(() => {
-    if (state.message !== undefined) toast(state.message)
-  }, [state])
+  const send = async (formData: FormData) => {
+    const res = await sendEmail(formData)
+    if (res.error) return toast.error(res.message)
+
+    return toast.success(res.message)
+  }
 
   return (
     <Card className="grid grid-cols-1 border md:grid-cols-2">
@@ -37,12 +34,10 @@ const ContactForm: React.FC = () => {
       </CardHeader>
 
       <CardContent id="contact-form">
-        <form className="my-8 flex flex-col items-center gap-4" action={formAction}>
+        <form className="my-8 flex flex-col items-center gap-4" action={send}>
           <Input name="subject" placeholder="Subject" required />
           <Input name="email" type="email" placeholder="Email" required />
           <Textarea name="message" placeholder="Message" required />
-
-          <p className="text-destructive">{state?.error}</p>
 
           <SubmitButton />
         </form>

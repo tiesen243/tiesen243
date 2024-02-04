@@ -1,3 +1,5 @@
+'use client'
+
 import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
 
 import { Card, CardContent } from '@/components/ui/card'

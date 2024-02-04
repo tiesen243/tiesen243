@@ -1,27 +1,27 @@
 'use client'
 
-import { Loader2Icon, MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { Button } from '../ui/button'
+import { Loader2Icon, SunIcon, MoonIcon } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
 
 const ThemeBtn: React.FC = () => {
   const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light')
+  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
 
   const [mounted, setMounted] = useState<boolean>(false)
   useEffect(() => setMounted(true), [])
   if (!mounted)
     return (
-      <Button aria-label="theme-btn" variant="outline" size="icon">
+      <Button variant="outline" size="icon" disabled>
         <Loader2Icon className="animate-spin" />
       </Button>
     )
 
   return (
-    <Button aria-label="theme-btn" onClick={toggleTheme} variant="outline" size="icon">
-      {theme === 'light' ? <MoonIcon /> : <SunIcon />}
+    <Button onClick={toggleTheme} variant="outline" size="icon">
+      {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
     </Button>
   )
 }
