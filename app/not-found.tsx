@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const NotFound: NextPage = () => {
   return (
-    <div className="flex min-h-[80dvh] flex-col items-center justify-center">
+    <main className="flex min-h-dvh flex-grow flex-col items-center justify-center">
       <article>
         <h1 className="text-center text-5xl font-bold">Egg!!</h1>
         <p className="text-center">404 | Page Not Found</p>
@@ -13,7 +13,7 @@ const NotFound: NextPage = () => {
       <Link href="/" passHref legacyBehavior>
         <Button className="bg-gradient-text text-primary">Back to Home</Button>
       </Link>
-    </div>
+    </main>
   )
 }
 

@@ -1,6 +1,6 @@
 const Footer: React.FC = () => {
   return (
-    <footer className="border-t p-4 text-center">
+    <footer className="mt-4 border-t p-4 text-center">
       <p>&copy; CopyRight {new Date().getFullYear()} | Developed by Tiesen. All rights reserved.</p>
     </footer>
   )

@@ -47,7 +47,7 @@ const Page: NextPage = async () => {
         {[1, 2, 3, 4].map((idx) => (
           <li key={idx}>
             <Image
-              src={`${siteConfig.env.rawcontent}/albums/main/des/${idx}.png`}
+              src={`/images/design/${idx}.png`}
               alt={`image-${idx}`}
               width={1920}
               height={1080}
