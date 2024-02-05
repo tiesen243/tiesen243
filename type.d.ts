@@ -1,7 +1,6 @@
 interface Data {
   label: string
-  path: string
-  isInverted?: boolean
+  icon: React.ReactElement
 }
 
 interface Project {

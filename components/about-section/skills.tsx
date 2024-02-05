@@ -1,7 +1,6 @@
 'use client'
 
 import { ScrollShadow } from '@nextui-org/scroll-shadow'
-import Image from 'next/image'
 
 import { libraries, softwares } from '@/lib/data'
 import { cn } from '@/lib/utils'
@@ -37,15 +36,9 @@ const Skills: React.FC = () => (
 
 export default Skills
 
-const Item: React.FC<Data> = ({ label, path, isInverted }) => (
+const Item: React.FC<Data> = (data) => (
   <li className="flex basis-auto items-center gap-2 rounded bg-secondary px-4 py-2">
-    <Image
-      src={path}
-      alt={label.toLowerCase().replace(/ /g, '-') + '-logo'}
-      width={40}
-      height={40}
-      className={isInverted ? 'dark:invert' : ''}
-    />
-    <span className="whitespace-nowrap font-bold">{label}</span>
+    <span className="h-8 w-8 dark:invert">{data.icon}</span>
+    <span className="whitespace-nowrap font-bold">{data.label}</span>
   </li>
 )
