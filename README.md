@@ -2,8 +2,8 @@
 
 <img align="right" width=200px height=200px alt="side_sticker" src="https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif" />
 
-- I'm passionate about Full Stack Web Development and Machine Learning
-- 🌱 I’m currently learning Computer Engineering Technology
+- 🔭 I'm passionate about Full Stack Web Development and Machine Learning
+- 🥅 I'm currently learning Computer Engineering Technology
 - :zap: See my [portfolio](https://tiesen.id.vn/) for more information
 
 ## ✨ GitHub Stats:
