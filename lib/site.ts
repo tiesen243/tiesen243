@@ -103,6 +103,6 @@ export const siteConfig = {
     resendToken: process.env.NEXT_PUBLIC_RESEND_TOKEN || '',
     projectsApi: process.env.NEXT_PUBLIC_PROJECTS_API || '',
     apiEndpoint: process.env.NEXT_PUBLIC_API_ENDPOINT || '',
-    postEndpoint: process.env.NEXT_PUBLIC_POST_ENDPOINT || '',
+    rawcontent: process.env.NEXT_PUBLIC_RAWCONTENT_ENDPOINT || '',
   },
 }

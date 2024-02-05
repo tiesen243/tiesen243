@@ -3,12 +3,15 @@ import type { NextPage } from 'next'
 import { MotionLi } from '@/components/motion'
 import ProjectCard from '@/components/project-card'
 import { siteConfig } from '@/lib/site'
+import Image from 'next/image'
 
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
     headers: { authorization: siteConfig.env.githubToken },
-    next: { revalidate: 24 * 60 * 60 },
-  }).then((res) => res.json())
+    next: { revalidate: 5 },
+  })
+    .then((res) => res.json())
+    .then((data) => data.filter((project: Project) => project.topics.includes('showcase')))
 
   return (
     <main id="projects" className="landing container min-h-dvh space-y-4 pt-4">
@@ -27,6 +30,22 @@ const Page: NextPage = async () => {
           >
             <ProjectCard {...project} />
           </MotionLi>
+        ))}
+      </ul>
+
+      <article className="prose-h2:m-0 prose-h2:pt-2">Some of shit i had cook</article>
+
+      <ul className="space-y-4">
+        {[1, 2, 3, 4].map((idx) => (
+          <li key={idx}>
+            <Image
+              src={`${siteConfig.env.rawcontent}/albums/main/des/${idx}.png`}
+              alt={`image-${idx}`}
+              width={1920}
+              height={1080}
+              className="rounded object-contain shadow-lg"
+            />
+          </li>
         ))}
       </ul>
     </main>

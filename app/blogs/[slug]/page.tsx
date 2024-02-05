@@ -15,7 +15,7 @@ export const generateMetadata = async (
   parent: ResolvingMetadata
 ): Promise<Metadata> => {
   const { meta } = await getPostsByUrl(
-    `${siteConfig.env.postEndpoint}/${params.slug.replace(/\.html$/, '.mdx')}`
+    `${siteConfig.env.rawcontent}/${params.slug.replace(/\.html$/, '.mdx')}`
   )
 
   return {
@@ -54,7 +54,7 @@ import 'highlight.js/styles/github-dark.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(
-      `${siteConfig.env.postEndpoint}/${params.slug.replace(/\.html$/, '.mdx')}`
+      `${siteConfig.env.rawcontent}/tiesen243/blogs/${params.slug.replace(/\.html$/, '.mdx')}`
     )
     if (!meta.title) throw new Error('No title')
 

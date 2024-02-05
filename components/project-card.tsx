@@ -36,9 +36,11 @@ const ProjectCard: React.FC<Project> = (props) => (
     </div>
 
     <CardFooter className="flex-row flex-nowrap gap-1">
-      {props.topics.map((topic) => (
-        <Badge key={topic}>{topic}</Badge>
-      ))}
+      {props.topics
+        .filter((topic) => topic !== 'showcase')
+        .map((topic) => (
+          <Badge key={topic}>{topic}</Badge>
+        ))}
     </CardFooter>
   </Card>
 )
