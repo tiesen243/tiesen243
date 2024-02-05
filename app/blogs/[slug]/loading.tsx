@@ -1,9 +1,8 @@
 import { Skeleton } from '@/components/ui/skeleton'
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 
 const LoadingPage: NextPage = () => (
-  <main className="container pt-4">
-    <Skeleton className="my-4 aspect-square h-12" />
+  <main className="container flex-grow pt-4">
     <section className="space-y-4">
       <Skeleton className="h-12 w-1/2" />
       <Skeleton className="h-12 w-1/3" />

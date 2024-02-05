@@ -8,13 +8,13 @@ import Image from 'next/image'
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
     headers: { authorization: siteConfig.env.githubToken },
-    next: { revalidate: 5 },
+    next: { revalidate: 60 * 60 },
   })
     .then((res) => res.json())
     .then((data) => data.filter((project: Project) => project.topics.includes('showcase')))
 
   return (
-    <main id="projects" className="landing container min-h-dvh space-y-4 pt-4">
+    <main id="projects" className="landing container min-h-dvh flex-grow space-y-4 pt-4">
       <article className="prose-h2:m-0 prose-h2:pb-2">
         <h2>Projects</h2>
         <blockquote>This is a list of all my projects, I have worked on.</blockquote>
@@ -33,7 +33,15 @@ const Page: NextPage = async () => {
         ))}
       </ul>
 
-      <article className="prose-h2:m-0 prose-h2:pt-2">Some of shit i had cook</article>
+      <article>
+        <h3>Something I have cooked up on my free time</h3>
+        <p>
+          I have a habit of creating things in my free time, here are some of the things I have
+          created.
+          <br />
+          Hope you like it :3
+        </p>
+      </article>
 
       <ul className="space-y-4">
         {[1, 2, 3, 4].map((idx) => (

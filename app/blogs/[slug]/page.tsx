@@ -59,7 +59,7 @@ const Page: NextPage<Props> = async ({ params }) => {
     if (!meta.title) throw new Error('No title')
 
     return (
-      <main className="container pt-4">
+      <main className="container flex-grow pt-4">
         <BlogHeader {...meta} />
 
         <article className="prose-pre:bg-secondary-foreground dark:prose-pre:bg-secondary">

@@ -10,7 +10,7 @@ const Hello: React.FC = () => (
       <article className="text-center prose-headings:m-0 prose-a:no-underline prose-pre:overflow-hidden prose-pre:bg-transparent prose-pre:p-0 md:col-span-7 md:text-left">
         <h1>{hi} I&apos;m</h1>
 
-        <pre className="font-mono text-4xl font-bold text-primary">
+        <pre className="select-none font-mono text-4xl font-bold text-primary">
           <TypeAnimation sequence={sequence} repeat={Infinity} speed={10} />
         </pre>
 
@@ -26,7 +26,7 @@ const Hello: React.FC = () => (
 
       <div className="grid w-full grid-cols-2 gap-4 md:col-span-7">
         <Button className="bg-gradient-text font-bold text-primary" asChild>
-          <Link href="/#contact-form">Hire me</Link>
+          <Link href="/#contact-form">Contact me</Link>
         </Button>
         <Button variant="outline" asChild>
           <a

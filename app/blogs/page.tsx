@@ -25,7 +25,7 @@ const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()
 
   return (
-    <main className="landing container pt-4">
+    <main className="landing container flex-grow pt-4">
       <article className="prose-h1:pb-2">
         <h1>Blogs</h1>
       </article>

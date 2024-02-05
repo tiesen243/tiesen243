@@ -1,8 +1,8 @@
 import { Skeleton } from '@/components/ui/skeleton'
-import { NextPage } from 'next'
+import type { NextPage } from 'next'
 
 const LoadingPage: NextPage = () => (
-  <div className="landing container pt-4">
+  <div className="landing container flex-grow pt-4">
     <article>
       <h1>Blogs</h1>
     </article>

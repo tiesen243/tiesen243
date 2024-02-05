@@ -88,7 +88,7 @@
   }
 
   body {
-    @apply mb-4 min-h-dvh overflow-x-hidden bg-background font-sans text-foreground antialiased;
+    @apply flex min-h-dvh flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased;
   }
 
   /* prettier-ignore */
@@ -101,7 +101,7 @@
   }
 
   article {
-    @apply prose prose-lg prose-zinc dark:prose-invert prose-pre:m-0 prose-img:rounded-lg prose-img:shadow-lg;
+    @apply prose prose-lg prose-zinc dark:prose-invert lg:prose-xl xl:prose-2xl prose-pre:m-0 prose-img:rounded-lg prose-img:shadow-lg;
   }
 
   ::-webkit-scrollbar {

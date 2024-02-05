@@ -15,7 +15,11 @@ const Menu: React.FC = () => {
 
   return (
     <>
-      <button className="fixed top-4 z-50 text-primary" onClick={() => setOpen(!open)}>
+      <button
+        className="fixed top-4 z-50 text-primary"
+        aria-label="menu-toggle"
+        onClick={() => setOpen(!open)}
+      >
         <XIcon
           size={32}
           className={`absolute transition-all duration-500 ease-linear ${open ? 'rotate-180' : 'rotate-0 opacity-0'}`}
@@ -67,8 +71,13 @@ const ThemeBtn: React.FC = () => {
 
   return (
     <div className="flex select-none items-center justify-between text-left text-2xl font-bold">
-      <label htmlFor="theme">Dark</label>
-      <Switch id="theme" checked={theme === 'dark'} onCheckedChange={toggleTheme} />
+      <label htmlFor="theme-switch">Dark</label>
+      <Switch
+        id="theme-switch"
+        aria-label="theme-switch"
+        checked={theme === 'dark'}
+        onCheckedChange={toggleTheme}
+      />
     </div>
   )
 }
