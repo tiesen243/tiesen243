@@ -2,7 +2,7 @@
 
 import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
 
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardHeader } from '@/components/ui/card'
 import { Tab, Tabs } from '@nextui-org/tabs'
 
 const Infomation: React.FC = () => (
@@ -10,9 +10,9 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <Tab key={tab.id} title={tab.label}>
         <Card className="border">
-          <CardContent className="prose prose-lg prose-zinc dark:prose-invert">
+          <CardHeader className="prose prose-lg prose-zinc dark:prose-invert">
             {tab.content}
-          </CardContent>
+          </CardHeader>
         </Card>
       </Tab>
     ))}
@@ -42,7 +42,7 @@ const tabsContents = [
     ),
     content: (
       <ul>
-        {['NextJs', 'NestJs', 'TailwindCss', 'TypeScript'].map((item) => (
+        {['NextJs', 'Prisma', 'TailwindCSS', 'TypeScript'].map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>

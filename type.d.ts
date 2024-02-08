@@ -1,6 +1,7 @@
-interface Data {
+interface Icon {
   label: string
-  icon: React.ReactElement
+  color?: string
+  icon: (props: LucideProps) => JSX.Element
 }
 
 interface Project {

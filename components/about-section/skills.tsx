@@ -36,9 +36,9 @@ const Skills: React.FC = () => (
 
 export default Skills
 
-const Item: React.FC<Data> = (data) => (
-  <li className="flex basis-auto items-center gap-2 rounded bg-secondary px-4 py-2">
-    <span className="h-8 w-8 dark:invert">{data.icon}</span>
-    <span className="whitespace-nowrap font-bold">{data.label}</span>
+const Item: React.FC<Icon> = (data) => (
+  <li className="flex basis-auto select-none items-center gap-2 rounded-lg bg-secondary px-4 py-2 shadow-lg">
+    <data.icon className={`h-8 w-8 ${!data.color && 'dark:invert'}`} fill={data.color} />
+    <span className="whitespace-nowrap text-xl font-bold">{data.label}</span>
   </li>
 )
