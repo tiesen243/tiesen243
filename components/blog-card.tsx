@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { formatDate } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
 import {
   Card,
   CardContent,
@@ -9,14 +9,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 
 const BlogCard: React.FC<PostMeta> = (meta) => (
   <Link href={meta.slug ?? '/'} passHref legacyBehavior>
     <Card className="flex h-full w-full cursor-pointer flex-col justify-between border transition-colors hover:bg-secondary">
       <CardHeader className="flex-col items-start gap-1">
         <CardTitle>{meta.title}</CardTitle>
-        <CardDescription>{formatDate(meta.date)}</CardDescription>
+        <CardDescription>{new Date(meta.date).toDateString()}</CardDescription>
       </CardHeader>
 
       <CardContent>

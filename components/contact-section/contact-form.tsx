@@ -5,10 +5,17 @@ import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { sendEmail } from '@/lib/actions'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../ui/card'
+import { sendEmail } from './action'
 
 const ContactForm: React.FC = () => {
   const send = async (formData: FormData) => {

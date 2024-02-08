@@ -1,7 +1,7 @@
 'use server'
 
+import { siteConfig } from '@/lib/site'
 import { Resend } from 'resend'
-import { siteConfig } from './site'
 
 const resend = new Resend(siteConfig.env.resendToken)
 export const sendEmail = async (formData: FormData) => {

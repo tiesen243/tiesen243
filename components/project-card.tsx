@@ -3,7 +3,6 @@ import { GithubIcon, LinkIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { formatDate } from '@/lib/utils'
 
 const ProjectCard: React.FC<Project> = (props) => (
   <Card className="group relative h-full w-full border prose-h2:m-0 prose-p:m-0">
@@ -12,7 +11,10 @@ const ProjectCard: React.FC<Project> = (props) => (
     </CardHeader>
 
     <CardContent>
-      <time dateTime={props.created_at.toString()}>{formatDate(props.created_at)}</time>
+      <time dateTime={props.created_at.toString()}>
+        {new Date(props.created_at).toDateString()}
+      </time>
+
       <p className="max-w-[400px] overflow-hidden text-ellipsis whitespace-nowrap md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg">
         {props.description}
       </p>

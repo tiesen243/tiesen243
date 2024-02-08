@@ -5,7 +5,7 @@ import ContactSection from '@/components/contact-section'
 import HomeSection from '@/components/home-section'
 
 const Page: NextPage = () => (
-  <main className="landing flex-grow">
+  <main className="flex-grow">
     <HomeSection />
     <AboutSection />
     <ContactSection />

@@ -4,6 +4,7 @@ import { MotionLi } from '@/components/motion'
 import ProjectCard from '@/components/project-card'
 import { siteConfig } from '@/lib/site'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
@@ -14,9 +15,13 @@ const Page: NextPage = async () => {
     .then((data) => data.filter((project: Project) => project.topics.includes('showcase')))
 
   return (
-    <main id="projects" className="landing container min-h-dvh flex-grow space-y-4 pt-4">
-      <article className="prose-h2:m-0 prose-h2:pb-2">
-        <h2>Projects</h2>
+    <main id="projects" className="container min-h-dvh flex-grow space-y-4 pt-4">
+      <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-blockquote:m-0">
+        <div>
+          <Link href="/">~</Link>
+          <span>/</span>
+          <Link href="/projects">Projects</Link>
+        </div>
         <blockquote>This is a list of all my projects, I have worked on.</blockquote>
       </article>
 

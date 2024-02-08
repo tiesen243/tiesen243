@@ -1,4 +1,5 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
+import Link from 'next/link'
 
 import BlogCard from '@/components/blog-card'
 import { getAllPostsMeta } from '@/lib/mdx'
@@ -25,9 +26,14 @@ const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()
 
   return (
-    <main className="landing container flex-grow pt-4">
-      <article className="prose-h1:pb-2">
-        <h1>Blogs</h1>
+    <main className="container flex-grow pt-4">
+      <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-blockquote:m-0">
+        <div>
+          <Link href="/">~</Link>
+          <span>/</span>
+          <Link href="/blogs">Blogs</Link>
+        </div>
+        <blockquote>This is a list of all my blogs, I have written.</blockquote>
       </article>
 
       <ul className="grid grid-cols-1 gap-4">

@@ -76,10 +76,7 @@
 
 @layer base {
   * {
-    @apply relative box-border border-border selection:bg-foreground selection:text-background;
-  }
-  html:has(.landing) {
-    @apply scroll-smooth;
+    @apply relative box-border scroll-smooth border-border selection:bg-foreground selection:text-background;
   }
 
   html:has(.landing) h1,
