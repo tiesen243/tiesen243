@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => (
       </div>
 
       <div className="grid w-full grid-cols-2 gap-4 md:col-span-7">
-        <Button className="bg-gradient-text font-bold text-primary" asChild>
+        <Button className="bg-gradient-text font-bold text-white" asChild>
           <Link href="/#contact-form">Contact me</Link>
         </Button>
         <Button variant="outline" asChild>
