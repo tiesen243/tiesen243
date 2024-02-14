@@ -6,7 +6,7 @@ import Link from 'next/link'
 const Loading: NextPage = () => (
   <main className="container min-h-dvh flex-grow space-y-4 pt-4">
     <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-blockquote:m-0">
-      <div>
+      <div className="flex items-center gap-1">
         <Link href="/">~</Link>
         <span>/</span>
         <Link href="/projects">Projects</Link>

@@ -62,7 +62,7 @@ const Page: NextPage<Props> = async ({ params }) => {
     return (
       <main className="container flex-grow pt-4">
         <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline">
-          <div>
+          <div className="flex items-center gap-1">
             <Link href="/">~</Link>
             <span>/</span>
             <Link href="/blogs">Blogs</Link>

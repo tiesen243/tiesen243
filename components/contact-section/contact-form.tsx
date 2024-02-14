@@ -28,7 +28,9 @@ const ContactForm: React.FC = () => {
   return (
     <Card className="grid grid-cols-1 border md:grid-cols-2">
       <CardHeader className="flex-col items-start">
-        <h2>Contact Form</h2>
+        <h2 className="bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent">
+          Contact Form
+        </h2>
 
         <CardTitle className="text-2xl font-bold">
           Let&apos;s work together! <span className="text-primary">👋</span>

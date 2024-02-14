@@ -5,7 +5,7 @@ import Link from 'next/link'
 const LoadingPage: NextPage = () => (
   <main className="container flex-grow pt-4">
     <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline">
-      <div className="flex items-center">
+      <div className="flex items-center gap-1">
         <Link href="/">~</Link>
         <span>/</span>
         <Link href="/blogs">Blogs</Link>

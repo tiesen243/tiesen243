@@ -68,7 +68,7 @@ const config = {
       },
       backgroundImage: {
         'gradient-text':
-          'linear-gradient(to bottom right, hsl(var(--gradient-from)), hsl(var(--gradient-via)), hsl(var(--gradient-to)))',
+          'linear-gradient(to bottom right, hsl(var(--gradient-from)), hsl(var(--gradient-to)))',
       },
       keyframes: {
         'accordion-down': {
@@ -88,8 +88,17 @@ const config = {
           from: { transform: 'translateX(-100%)' },
           to: { transform: 'translateX(0)' },
         },
+        shimmer: {
+          from: {
+            backgroundPosition: '0 0',
+          },
+          to: {
+            backgroundPosition: '-200% 0',
+          },
+        },
       },
       animation: {
+        shimmer: 'shimmer 2s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'infinite-scroll': 'infinite-scroll 30s linear infinite',

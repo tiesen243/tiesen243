@@ -34,9 +34,8 @@
 
     --radius: 0.5rem;
 
-    --gradient-from: 332, 91%, 57%;
-    --gradient-via: 292, 100%, 50%;
-    --gradient-to: 265, 100%, 50%;
+    --gradient-from: 195, 100%, 60%;
+    --gradient-to: 156, 100%, 50%;
   }
 
   .dark {
@@ -67,21 +66,12 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
-
-    --gradient-from: 353, 92%, 71%;
-    --gradient-via: 270, 28%, 48%;
-    --gradient-to: 236, 71%, 31%;
   }
 }
 
 @layer base {
   * {
     @apply relative box-border scroll-smooth border-border selection:bg-foreground selection:text-background;
-  }
-
-  html:has(.landing) h1,
-  html:has(.landing) h2 {
-    @apply bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent;
   }
 
   body {
