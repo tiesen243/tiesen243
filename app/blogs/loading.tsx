@@ -14,7 +14,7 @@ const LoadingPage: NextPage = () => (
       <blockquote>This is a list of all my blogs, I have written.</blockquote>
     </article>
 
-    <ul className="grid grid-cols-1 gap-4">
+    <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
       {Array.from({ length: 6 }).map((_, i) => (
         <li key={i}>
           <Skeleton className="h-48 w-full" />

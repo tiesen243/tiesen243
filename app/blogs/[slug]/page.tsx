@@ -71,13 +71,13 @@ const Page: NextPage<Props> = async ({ params }) => {
           </div>
         </article>
 
-        <article className="prose-h1:mb-0 prose-ul:m-0 prose-ul:p-0">
+        <article className="prose-h1:mb-0 prose-blockquote:m-0 prose-ul:m-0 prose-ul:p-0">
           <h1>{meta.title}</h1>
           <time dateTime={meta.date.toString()}>{new Date(meta.date).toDateString()}</time>
 
-          <ul className="flex list-none flex-row gap-2">
+          <ul className="flex list-none items-center">
             {meta.tags?.map((tag) => (
-              <li key={tag}>
+              <li key={tag} className="m-0">
                 <Badge>{tag}</Badge>
               </li>
             ))}
