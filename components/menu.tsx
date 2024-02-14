@@ -9,7 +9,6 @@ import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/lib/site'
 import { useTheme } from 'next-themes'
 import { Switch } from './ui/switch'
-// dad
 
 const Menu: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false)

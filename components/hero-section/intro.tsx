@@ -13,8 +13,8 @@ const Intro: React.FC = () => (
       />
     </div>
     <p className="mx-auto mt-4 max-w-lg text-center text-xs font-normal text-muted-foreground md:text-xl">
-      Hi there! I'm Tran Tien, a 20 years old developer from Vietnam. I seft-taught love to learn
-      new things and build stuffs.
+      Hi there! I&apos;m Tran Tien, a 20 years old developer from Vietnam. I seft-taught love to
+      learn new things and build stuffs.
     </p>
     <div className="absolute -top-60 flex h-[890px] w-full items-center justify-center gap-8 md:-top-40 ">
       <Button
