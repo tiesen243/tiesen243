@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { Badge } from '@/components/ui/badge'
 import { getPostsByUrl } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'
+
 interface Props {
   params: {
     slug: string
@@ -16,7 +17,7 @@ export const generateMetadata = async (
   parent: ResolvingMetadata
 ): Promise<Metadata> => {
   const { meta } = await getPostsByUrl(
-    `${siteConfig.env.rawcontent}/${params.slug.replace(/\.html$/, '.mdx')}`
+    `${siteConfig.env.rawBlogPost}/${params.slug.replace('.html', '.mdx')}`
   )
 
   return {
@@ -55,7 +56,7 @@ import 'highlight.js/styles/github-dark.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(
-      `${siteConfig.env.rawcontent}/tiesen243/blogs/${params.slug.replace(/\.html$/, '.mdx')}`
+      `${siteConfig.env.rawBlogPost}/${params.slug.replace('.html', '.mdx')}`
     )
     if (!meta.title) throw new Error('No title')
 
