@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 const ProjectCard: React.FC<Project> = (props) => (
-  <Card className="group relative h-full w-full border prose-h2:m-0 prose-p:m-0">
+  <Card className="group relative h-full w-full border shadow-lg prose-h2:m-0 prose-p:m-0">
     <CardHeader className="capitalize">
       <CardTitle>{props.name.replace(/-/g, ' ')}</CardTitle>
     </CardHeader>
