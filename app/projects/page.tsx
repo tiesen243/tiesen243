@@ -9,10 +9,11 @@ import { siteConfig } from '@/lib/site'
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
     headers: { authorization: siteConfig.env.githubToken },
-    next: { revalidate: 60 * 60 },
+    next: { revalidate: 10 },
   })
     .then((res) => res.json())
-    .then((data) => data.filter((project: Project) => project.topics.includes('showcase')))
+    .then((p: Project[]) => p.filter((p) => p.topics.includes('showcase')))
+    .catch((_e) => [])
 
   return (
     <main id="projects" className="container min-h-dvh flex-grow space-y-4 pt-4">
