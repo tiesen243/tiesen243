@@ -52,8 +52,5 @@
   },
   "peerDependencies": {
     "@nextui-org/system": "*"
-  },
-  "engines": {
-    "yarn": "^4.1.0"
   }
 }
