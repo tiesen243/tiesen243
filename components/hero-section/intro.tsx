@@ -5,11 +5,11 @@ import Link from 'next/link'
 const Intro: React.FC = () => (
   <>
     <div className="flex flex-col items-center gap-4">
-      <h1 className="text-md font-bold md:text-4xl">{hi}</h1>
+      <h1 className="text-4xl font-bold">{hi}</h1>
       <TypeAnimation
         sequence={sequence}
         repeat={Infinity}
-        className="bg-gradient-text  bg-clip-text pb-4 text-center font-mono text-lg font-bold text-transparent md:text-7xl"
+        className="bg-gradient-text bg-clip-text pb-4 text-center font-mono text-5xl font-bold text-transparent md:text-7xl"
       />
     </div>
     <p className="mx-auto mt-4 max-w-lg text-center text-xs font-normal text-muted-foreground md:text-xl">
@@ -24,7 +24,7 @@ const Intro: React.FC = () => (
         <Link href="/#contact-form">Contact Me</Link>
       </Button>
 
-      <Button className="z-30 mt-8 inline-flex h-12 animate-shimmer items-center justify-center rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 text-xs font-bold text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:mt-28 md:px-4 md:py-2 md:text-base">
+      <Button className="z-30 mt-8 animate-shimmer rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 text-xs font-bold text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:mt-28 md:px-4 md:py-2 md:text-base">
         <Link href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
           Download CV
         </Link>

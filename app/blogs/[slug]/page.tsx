@@ -1,6 +1,5 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { Badge } from '@/components/ui/badge'
@@ -51,6 +50,7 @@ export const generateMetadata = async (
   }
 }
 
+import { BreadCrumbs } from '@/components/breadcrumbs'
 import 'highlight.js/styles/github-dark.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
@@ -60,18 +60,15 @@ const Page: NextPage<Props> = async ({ params }) => {
     if (!meta.title) throw new Error('No title')
 
     return (
-      <main className="container flex-grow pt-4">
-        <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline">
-          <div className="flex items-center gap-1">
-            <Link href="/">~</Link>
-            <span>/</span>
-            <Link href="/blogs">Blogs</Link>
-            <span>/</span>
-            <Link href={`/blogs/${params.slug}`}>{params.slug}</Link>
-          </div>
-        </article>
-
-        <article className="prose-h1:mb-0 prose-blockquote:m-0 prose-ul:m-0 prose-ul:p-0">
+      <main className="container flex-grow">
+        <BreadCrumbs
+          items={[
+            { label: '~', href: '/' },
+            { label: 'Blogs', href: '/blogs' },
+            { label: meta.title, href: `/blogs/${params.slug}` },
+          ]}
+        />
+        <article className="prose-h1:mb-0 prose-blockquote:m-0 prose-pre:bg-secondary-foreground prose-ul:m-0 prose-ul:p-0 dark:prose-pre:bg-secondary">
           <h1>{meta.title}</h1>
           <time dateTime={meta.date.toString()}>{new Date(meta.date).toDateString()}</time>
 
@@ -94,9 +91,7 @@ const Page: NextPage<Props> = async ({ params }) => {
               className="rounded object-cover shadow-lg"
             />
           )}
-        </article>
 
-        <article className="prose-pre:bg-secondary-foreground dark:prose-pre:bg-secondary">
           {content}
         </article>
       </main>

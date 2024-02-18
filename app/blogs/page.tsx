@@ -1,10 +1,10 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
-import Link from 'next/link'
 
 import BlogCard from '@/components/blog-card'
+import { BreadCrumbs } from '@/components/breadcrumbs'
+import { MotionLi } from '@/components/motion'
 import { getAllPostsMeta } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'
-import { MotionLi } from '@/components/motion'
 
 export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
   title: 'Blogs',
@@ -26,15 +26,13 @@ const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()
 
   return (
-    <main className="container flex-grow pt-4">
-      <article className="mb-4 select-none prose-a:no-underline prose-a:underline-offset-4 hover:prose-a:underline prose-blockquote:m-0">
-        <div className="flex items-center gap-1">
-          <Link href="/">~</Link>
-          <span>/</span>
-          <Link href="/blogs">Blogs</Link>
-        </div>
-        <blockquote>This is a list of all my blogs, I have written.</blockquote>
-      </article>
+    <main className="container flex-grow">
+      <BreadCrumbs
+        items={[
+          { label: '~', href: '/' },
+          { label: 'Blogs', href: '/blogs' },
+        ]}
+      />
 
       <ul className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {metas.map((meta) => (

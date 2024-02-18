@@ -33,8 +33,6 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' },
@@ -42,15 +40,15 @@ export const viewport: Viewport = {
 }
 
 import Footer from '@/components/footer'
-import Menu from '@/components/menu'
-import ThemeProvider from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Header } from '@/components/header'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <ThemeProvider>
-        <Menu />
+        <Header />
         {children}
         <Footer />
         <Toaster />
