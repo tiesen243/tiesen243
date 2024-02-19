@@ -12,11 +12,13 @@ const Intro: React.FC = () => (
         className="bg-gradient-text bg-clip-text pb-4 text-center font-mono text-5xl font-bold text-transparent md:text-7xl"
       />
     </div>
+
     <p className="mx-auto mt-4 max-w-lg text-center text-xs font-normal text-muted-foreground md:text-xl">
       Hi there! I&apos;m Tran Tien, a 20 years old developer from Vietnam. I seft-taught love to
       learn new things and build stuffs.
     </p>
-    <div className="absolute -top-60 flex h-[890px] w-full items-center justify-center gap-8 md:-top-40 ">
+
+    <div className="absolute -top-60 flex h-[920px] w-full items-center justify-center gap-8 md:-top-40 ">
       <Button
         className="z-30 mt-8 rounded-full bg-gradient-text text-xs font-bold text-black md:mt-28 md:px-4 md:py-2 md:text-base"
         asChild
@@ -57,8 +59,6 @@ const sequence = [
   'Weaboo',
   1000,
   'Frontend Developer',
-  1000,
-  'Backend Developer',
   1000,
   'NextJs Developer',
   1000,
