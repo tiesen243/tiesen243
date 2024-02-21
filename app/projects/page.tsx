@@ -49,7 +49,12 @@ const Page: NextPage = async () => {
 
       <ul className="space-y-4">
         {[1, 2, 3, 4].map((idx) => (
-          <li key={idx}>
+          <MotionLi
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            key={idx}
+          >
             <Image
               src={`/images/design/${idx}.png`}
               alt={`image-${idx}`}
@@ -57,7 +62,7 @@ const Page: NextPage = async () => {
               height={1080}
               className="rounded object-contain shadow-lg"
             />
-          </li>
+          </MotionLi>
         ))}
       </ul>
     </main>
