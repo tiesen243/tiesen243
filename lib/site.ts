@@ -1,10 +1,10 @@
 import {
-  CoffeeIcon,
-  FacebookIcon,
   GithubIcon,
   LinkedinIcon,
+  FacebookIcon,
   TwitterIcon,
   YoutubeIcon,
+  CoffeeIcon,
 } from 'lucide-react'
 
 export type Site = typeof siteConfig

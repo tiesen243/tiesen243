@@ -1,5 +1,6 @@
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+
+import { Button } from '@/components/ui/button'
 import { TypeAnimation } from '@/components/ui/type-animation'
 
 const Intro: React.FC = () => (

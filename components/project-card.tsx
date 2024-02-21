@@ -2,15 +2,15 @@ import { GithubIcon, LinkIcon } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import * as card from '@/components/ui/card'
 
 const ProjectCard: React.FC<Project> = (props) => (
-  <Card className="group relative h-full w-full border shadow-lg prose-h2:m-0 prose-p:m-0">
-    <CardHeader className="capitalize">
-      <CardTitle>{props.name.replace(/-/g, ' ')}</CardTitle>
-    </CardHeader>
+  <card.Card className="group relative h-full w-full border shadow-lg prose-h2:m-0 prose-p:m-0">
+    <card.CardHeader className="capitalize">
+      <card.CardTitle>{props.name.replace(/-/g, ' ')}</card.CardTitle>
+    </card.CardHeader>
 
-    <CardContent>
+    <card.CardContent>
       <time dateTime={props.created_at.toString()}>
         {new Date(props.created_at).toDateString()}
       </time>
@@ -20,7 +20,7 @@ const ProjectCard: React.FC<Project> = (props) => (
       </p>
 
       {props.language && <p className="capitalize">Language: {props.language}</p>}
-    </CardContent>
+    </card.CardContent>
 
     <div className="absolute inset-0 z-30 hidden h-full w-full items-center justify-center gap-8 bg-secondary/50 backdrop-blur group-hover:flex">
       <Button size="icon" className="h-14 w-14 rounded-full" asChild>
@@ -37,14 +37,14 @@ const ProjectCard: React.FC<Project> = (props) => (
       )}
     </div>
 
-    <CardFooter className="flex-row flex-nowrap gap-1">
+    <card.CardFooter className="flex-row flex-nowrap gap-1">
       {props.topics
         .filter((topic) => topic !== 'showcase')
         .map((topic) => (
           <Badge key={topic}>{topic}</Badge>
         ))}
-    </CardFooter>
-  </Card>
+    </card.CardFooter>
+  </card.Card>
 )
 
 export default ProjectCard

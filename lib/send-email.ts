@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site'
 import { Resend } from 'resend'
 
 const resend = new Resend(siteConfig.env.resendToken)
-export const sendEmail = async (formData: FormData) => {
+const sendEmail = async (formData: FormData) => {
   try {
     const data = {
       subject: String(formData.get('subject')),
@@ -31,3 +31,5 @@ export const sendEmail = async (formData: FormData) => {
     return { error: e.message }
   }
 }
+
+export default sendEmail

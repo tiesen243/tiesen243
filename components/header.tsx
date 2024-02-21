@@ -8,7 +8,7 @@ import { MotionDiv } from '@/components/motion'
 import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/lib/site'
 
-export const Header: React.FC = () => {
+const Header: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false)
 
   return (
@@ -60,3 +60,5 @@ export const Header: React.FC = () => {
     </header>
   )
 }
+
+export default Header

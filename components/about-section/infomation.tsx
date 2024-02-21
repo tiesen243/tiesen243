@@ -1,31 +1,31 @@
-import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
+import { NotebookIcon, SchoolIcon, ActivityIcon, HeartIcon } from 'lucide-react'
 
-import { Card, CardHeader } from '@/components/ui/card'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import * as card from '@/components/ui/card'
+import * as tabs from '@/components/ui/tabs'
 
 const Infomation: React.FC = () => (
-  <Tabs defaultValue={tabsContents[0].id} className="overflow-auto">
+  <tabs.Tabs defaultValue={tabsContents[0].id} className="overflow-auto">
     {tabsContents.map((tab) => (
-      <TabsList key={tab.id} className="bg-transparent">
-        <TabsTrigger
+      <tabs.TabsList key={tab.id} className="bg-transparent">
+        <tabs.TabsTrigger
           value={tab.id}
           className="rounded-none border-primary data-[state=active]:border-b"
         >
           {tab.label}
-        </TabsTrigger>
-      </TabsList>
+        </tabs.TabsTrigger>
+      </tabs.TabsList>
     ))}
 
     {tabsContents.map((tab) => (
-      <TabsContent key={tab.id} value={tab.id}>
-        <Card>
-          <CardHeader className="prose prose-lg prose-zinc dark:prose-invert">
+      <tabs.TabsContent key={tab.id} value={tab.id}>
+        <card.Card>
+          <card.CardHeader className="prose prose-lg prose-zinc dark:prose-invert">
             {tab.content}
-          </CardHeader>
-        </Card>
-      </TabsContent>
+          </card.CardHeader>
+        </card.Card>
+      </tabs.TabsContent>
     ))}
-  </Tabs>
+  </tabs.Tabs>
 )
 
 export default Infomation
