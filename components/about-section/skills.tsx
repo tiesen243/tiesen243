@@ -1,20 +1,11 @@
-'use client'
-
-import { ScrollShadow } from '@nextui-org/scroll-shadow'
-
 import { libraries, softwares } from '@/lib/data'
 import { cn } from '@/lib/utils'
 
 const Skills: React.FC = () => (
   <>
     {[libraries, softwares].map((items, i) => (
-      <ScrollShadow
-        key={i}
-        orientation="horizontal"
-        className="container inline-flex flex-nowrap overflow-x-hidden"
-        visibility="both"
-        hideScrollBar
-      >
+      <div key={i} className="scroll-shadows container inline-flex flex-nowrap overflow-x-hidden">
+        <div className="absolute left-0 top-0 z-10 h-full w-12 bg-gradient-to-r from-background to-transparent shadow-2xl shadow-background" />
         {[0, 1].map((j) => (
           <ul
             key={j}
@@ -29,7 +20,8 @@ const Skills: React.FC = () => (
             ))}
           </ul>
         ))}
-      </ScrollShadow>
+        <div className="absolute right-0 top-0 z-10 h-full w-12 bg-gradient-to-l from-background to-transparent shadow-2xl shadow-background" />
+      </div>
     ))}
   </>
 )

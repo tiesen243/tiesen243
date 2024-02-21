@@ -1,14 +1,14 @@
-import { TypeAnimation } from 'react-type-animation'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { TypeAnimation } from '@/components/ui/type-animation'
 
 const Intro: React.FC = () => (
   <>
     <div className="flex flex-col items-center gap-4">
       <h1 className="text-4xl font-bold">{hi}</h1>
       <TypeAnimation
-        sequence={sequence}
-        repeat={Infinity}
+        delay={1}
+        texts={['Tiesen', 'Weeb Developer', 'NextJs Developer']}
         className="bg-gradient-text bg-clip-text pb-4 text-center font-mono text-5xl font-bold text-transparent md:text-7xl"
       />
     </div>
@@ -35,8 +35,6 @@ const Intro: React.FC = () => (
   </>
 )
 
-// Button code
-
 export default Intro
 
 const currentHour = Number(
@@ -52,14 +50,3 @@ const hi =
     : currentHour > 12 && currentHour < 18
       ? 'Konnichiwa~'
       : 'Konbanwa~'
-
-const sequence = [
-  'Tiesen',
-  1000,
-  'Weaboo',
-  1000,
-  'Frontend Developer',
-  1000,
-  'NextJs Developer',
-  1000,
-]

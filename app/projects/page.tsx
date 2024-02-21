@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 
-import { BreadCrumbs } from '@/components/breadcrumbs'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { MotionLi } from '@/components/motion'
 import ProjectCard from '@/components/project-card'
 import { siteConfig } from '@/lib/site'

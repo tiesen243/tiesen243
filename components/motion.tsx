@@ -4,4 +4,5 @@ import { motion } from 'framer-motion'
 
 export const MotionDiv = motion.div
 export const MotionLi = motion.li
-export { TypeAnimation } from 'react-type-animation'
+export const MotionSpan = motion.span
+export const MotionPath = motion.path

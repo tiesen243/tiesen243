@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import { BreadCrumbs } from '@/components/breadcrumbs'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const LoadingPage: NextPage = () => (

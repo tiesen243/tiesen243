@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import { BreadCrumbs } from '@/components/breadcrumbs'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { Card } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 

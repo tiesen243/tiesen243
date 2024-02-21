@@ -18,6 +18,7 @@ const AboutSection: React.FC = () => (
           to create amazing applications.
         </p>
       </article>
+
       <div className="aspect-square h-full w-full md:col-span-5">
         <Image src="/images/yuki.gif" fill className="rounded" alt="Yuki" />
       </div>

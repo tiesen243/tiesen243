@@ -1,20 +1,29 @@
-'use client'
-
 import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
 
 import { Card, CardHeader } from '@/components/ui/card'
-import { Tab, Tabs } from '@nextui-org/tabs'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 
 const Infomation: React.FC = () => (
-  <Tabs variant="underlined" className="overflow-auto">
+  <Tabs defaultValue={tabsContents[0].id} className="overflow-auto">
     {tabsContents.map((tab) => (
-      <Tab key={tab.id} title={tab.label}>
-        <Card className="border">
+      <TabsList key={tab.id} className="bg-transparent">
+        <TabsTrigger
+          value={tab.id}
+          className="rounded-none border-primary data-[state=active]:border-b"
+        >
+          {tab.label}
+        </TabsTrigger>
+      </TabsList>
+    ))}
+
+    {tabsContents.map((tab) => (
+      <TabsContent key={tab.id} value={tab.id}>
+        <Card>
           <CardHeader className="prose prose-lg prose-zinc dark:prose-invert">
             {tab.content}
           </CardHeader>
         </Card>
-      </Tab>
+      </TabsContent>
     ))}
   </Tabs>
 )

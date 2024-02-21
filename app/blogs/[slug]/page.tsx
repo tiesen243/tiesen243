@@ -51,7 +51,7 @@ export const generateMetadata = async (
   }
 }
 
-import { BreadCrumbs } from '@/components/breadcrumbs'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import 'highlight.js/styles/github-dark.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {

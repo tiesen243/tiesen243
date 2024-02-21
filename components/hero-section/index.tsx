@@ -1,6 +1,5 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import * as React from 'react'
 import Intro from './intro'
@@ -10,7 +9,7 @@ const transition = {
   ease: 'linear',
 }
 
-const HeroSection: React.FC<{ className?: string }> = ({ className }) => {
+const HeroSection: React.FC = () => {
   const ref = React.useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -27,7 +26,7 @@ const HeroSection: React.FC<{ className?: string }> = ({ className }) => {
 
   return (
     <div className="relative h-[400vh] overflow-clip rounded-md pt-40" ref={ref}>
-      <div className={cn('sticky top-80', className)}>
+      <div className={'sticky top-80'}>
         <Intro />
 
         <svg

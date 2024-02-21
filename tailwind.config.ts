@@ -6,11 +6,7 @@ import animate from 'tailwindcss-animate'
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './node_modules/@nextui-org/theme/dist/components/**/*.{js,jsx,ts,tsx}',
-  ],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
   prefix: '',
   theme: {
     container: {

@@ -1,7 +1,7 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 
 import BlogCard from '@/components/blog-card'
-import { BreadCrumbs } from '@/components/breadcrumbs'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { MotionLi } from '@/components/motion'
 import { getAllPostsMeta } from '@/lib/mdx'
 import { siteConfig } from '@/lib/site'

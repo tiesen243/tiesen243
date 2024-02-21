@@ -40,15 +40,13 @@ export const viewport: Viewport = {
 }
 
 import Footer from '@/components/footer'
+import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Header } from '@/components/header'
 const RootLayout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <ThemeProvider>
-        <Header />
         {children}
         <Footer />
         <Toaster />

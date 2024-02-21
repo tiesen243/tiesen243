@@ -1,27 +1,29 @@
 'use client'
 
-import { MenuIcon, MoonIcon, SunIcon, XIcon } from 'lucide-react'
+import { MenuIcon, XIcon } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
 
 import { MotionDiv } from '@/components/motion'
 import { Card } from '@/components/ui/card'
 import { siteConfig } from '@/lib/site'
-import { useTheme } from 'next-themes'
 
-export const Header: React.FC = () => (
-  <header className="sticky inset-0 z-50 flex h-fit items-start justify-between p-4 pb-0">
-    <MenuBtn />
-    <ThemeBtn />
-  </header>
-)
-
-const MenuBtn: React.FC = () => {
+export const Header: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false)
 
   return (
-    <>
-      <button aria-label="menu-toggle" onClick={() => setOpen(!open)}>
+    <header className="fixed inset-0 z-50 flex h-fit justify-start p-4 pb-0 md:justify-end">
+      <ul className="hidden items-center gap-4 md:flex">
+        {siteConfig.navLinks.map((link) => (
+          <li key={link.url}>
+            <Link href={link.url} className="font-bold underline-offset-4 hover:underline">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <button aria-label="menu-toggle" className="block md:hidden" onClick={() => setOpen(!open)}>
         <XIcon
           size={32}
           className={`absolute transition-all duration-500 ease-linear ${open ? 'rotate-180' : 'rotate-0 opacity-0'}`}
@@ -33,7 +35,7 @@ const MenuBtn: React.FC = () => {
       </button>
 
       <MotionDiv
-        className="absolute flex h-fit w-56 gap-4 p-4"
+        className="absolute flex h-fit w-56 gap-4 p-4 md:hidden"
         initial={{ y: '-100%', opacity: 0 }}
         animate={{ y: open ? 0 : '-100%', opacity: open ? 1 : 0 }}
         transition={{ duration: 0.5 }}
@@ -55,17 +57,6 @@ const MenuBtn: React.FC = () => {
           </nav>
         </Card>
       </MotionDiv>
-    </>
-  )
-}
-
-const ThemeBtn: React.FC = () => {
-  const { theme, setTheme } = useTheme()
-
-  return (
-    <button aria-label="theme-toggle" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-      <SunIcon size={32} className="absolute rotate-0 opacity-100 dark:rotate-90 dark:opacity-0" />
-      <MoonIcon size={32} className="rotate-180 opacity-0 dark:rotate-0 dark:opacity-100" />
-    </button>
+    </header>
   )
 }
