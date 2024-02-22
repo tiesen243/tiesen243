@@ -1,23 +1,45 @@
 'use client'
 
 import { Loader2Icon } from 'lucide-react'
+import * as React from 'react'
 import { useFormStatus } from 'react-dom'
 import { toast } from 'sonner'
-import { useRef } from 'react'
 
 import { Button } from '@/components/ui/button'
 import * as card from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import sendEmail from '@/lib/send-email'
+import { siteConfig } from '@/lib/site'
 
 const ContactForm: React.FC = () => {
-  const formRef = useRef<HTMLFormElement>(null)
+  const formRef = React.useRef<HTMLFormElement>(null)
+
   const send = async (formData: FormData) => {
-    const res = await sendEmail(formData)
-    if (res.error) return toast.error(res.message)
-    formRef.current?.reset()
-    return toast.success(res.message)
+    try {
+      const data = Object.fromEntries(formData)
+      const res = await fetch(String(process.env.NEXT_PUBLIC_SEND_EMAIL), {
+        method: 'POST',
+        body: JSON.stringify({
+          from: 'Contact Form',
+          to: siteConfig.email,
+          reply_to: data.email,
+          subject: data.subject,
+          message: data.message,
+        }),
+      }).then((res) => res.json())
+
+      if (res.error)
+        return toast.error("Email couldn't be sent", {
+          description: (Object.values(res.error) as string[]).map((err: string, idx: number) => (
+            <p key={idx}>{err}</p>
+          )),
+        })
+
+      formRef.current?.reset()
+      return toast.success(res.message)
+    } catch (error: any) {
+      toast.error(error.message)
+    }
   }
 
   return (
@@ -39,9 +61,9 @@ const ContactForm: React.FC = () => {
 
       <form className="mt-8" action={send} ref={formRef}>
         <card.CardContent id="contact-form" className="flex flex-col items-center gap-4">
-          <Input name="subject" placeholder="Subject" required />
-          <Input name="email" type="email" placeholder="Email" required />
-          <Textarea name="message" placeholder="Message" required />
+          <Input name="subject" placeholder="Subject" />
+          <Input name="email" type="email" placeholder="Email" />
+          <Textarea name="message" placeholder="Message" />
         </card.CardContent>
 
         <card.CardFooter className="justify-end">
