@@ -7,9 +7,7 @@ import { getPostsByUrl } from '@/lib/mdx'
 import { baseUrl, siteConfig } from '@/lib/site'
 
 interface Props {
-  params: {
-    slug: string
-  }
+  params: { slug: string }
 }
 
 export const generateMetadata = async (
@@ -52,7 +50,7 @@ export const generateMetadata = async (
 }
 
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
-import 'highlight.js/styles/github-dark.css'
+import 'highlight.js/styles/github-dark.min.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(
