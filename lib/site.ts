@@ -1,42 +1,37 @@
 import {
+  CoffeeIcon,
+  FacebookIcon,
   GithubIcon,
   LinkedinIcon,
-  FacebookIcon,
   TwitterIcon,
   YoutubeIcon,
-  CoffeeIcon,
 } from 'lucide-react'
 
 export type Site = typeof siteConfig
 
+export const baseUrl =
+  process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
+
 export const siteConfig = {
-  title: 'Tiesen',
+  title: { default: 'Tiesen', template: '%s | Tiesen' },
   description:
     "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
-  url: 'https://tiesen.id.vn',
-  author: 'Tiesen',
+  authors: { name: 'Tiesen', url: baseUrl },
   creator: '@tiesen243',
-  locale: 'vi_VN',
   keywords: ['tiesen', 'tiesen243', 'tiesen 243', 'Trần Tiến', 'Tran Tien', 'portfolio', 'blogs'],
   email: 'ttien56906@gmail.com',
   openGraph: {
     type: 'profile',
     locale: 'vi_VN',
-    title: {
-      default: 'Tiesen',
-      template: '%s | Tiesen',
-    },
+    title: { default: 'Tiesen', template: '%s | Tiesen' },
     description:
       "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
-    url: 'https://tiesen.id.vn',
+    url: baseUrl,
     siteName: 'Tiesen',
   },
   twitter: {
     card: 'summary_large_image',
-    title: {
-      default: 'Tiesen',
-      template: '%s | Tiesen',
-    },
+    title: { default: 'Tiesen', template: '%s | Tiesen' },
     description:
       "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
     creator: '@tiesen243',

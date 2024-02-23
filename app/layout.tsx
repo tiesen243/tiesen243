@@ -1,4 +1,4 @@
-import { siteConfig } from '@/lib/site'
+import { baseUrl, siteConfig } from '@/lib/site'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { GeistMono } from 'geist/font/mono'
@@ -6,30 +6,21 @@ import { GeistSans } from 'geist/font/sans'
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {
-  title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.title}`,
-  },
-  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.title,
+  metadataBase: new URL(baseUrl),
   description: siteConfig.description,
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
+  },
+  applicationName: siteConfig.title.default,
   keywords: siteConfig.keywords,
   openGraph: siteConfig.openGraph,
   twitter: siteConfig.twitter,
-  authors: [
-    {
-      name: siteConfig.author,
-      url: siteConfig.url,
-    },
-  ],
+  authors: siteConfig.authors,
   creator: siteConfig.creator,
-  alternates: {
-    canonical: siteConfig.url,
-    types: {
-      'application/rss+xml': [
-        { url: `${siteConfig.url}/feed.xml`, title: `${siteConfig.title} RSS Feed` },
-      ],
-    },
-  },
+  alternates: { canonical: baseUrl },
 }
 
 export const viewport: Viewport = {

@@ -1,8 +1,6 @@
-import { siteConfig } from '@/lib/site'
 import { getAllPostsMeta } from '@/lib/mdx'
+import { baseUrl } from '@/lib/site'
 import { MetadataRoute } from 'next'
-
-const baseUrl = process.env.NODE_ENV === 'production' ? siteConfig.url : 'http://localhost:3000'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routesMap = ['', 'blogs'].map((route) => ({
