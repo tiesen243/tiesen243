@@ -1,23 +1,23 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 
 import BlogCard from '@/components/blog-card'
-import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { MotionLi } from '@/components/motion'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { getAllPostsMeta } from '@/lib/mdx'
-import { siteConfig } from '@/lib/site'
+import { baseUrl } from '@/lib/site'
 
 export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
   title: 'Blogs',
-  description: 'Blogs by me',
+  description: 'A collection of blogs written by me',
   openGraph: {
     title: 'Blogs',
-    description: 'Blogs by me',
-    url: `${siteConfig.url}/blogs`,
+    description: 'A collection of blogs written by me',
+    url: `${baseUrl}/blogs`,
     images: (await parent).openGraph?.images || [],
   },
   twitter: {
     title: 'Blogs',
-    description: 'Blogs by me',
+    description: 'A collection of blogs written by me',
     images: (await parent).twitter?.images || [],
   },
 })

@@ -1,10 +1,26 @@
-import type { NextPage } from 'next'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { MotionLi } from '@/components/motion'
 import ProjectCard from '@/components/project-card'
-import { siteConfig } from '@/lib/site'
+import { baseUrl, siteConfig } from '@/lib/site'
+
+export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
+  title: 'Projects',
+  description: 'A showcase of my projects and things I have created',
+  openGraph: {
+    title: 'Projects',
+    description: 'A showcase of my projects and things I have created',
+    url: `${baseUrl}/projects`,
+    images: (await parent).openGraph?.images || [],
+  },
+  twitter: {
+    title: 'Projects',
+    description: 'A showcase of my projects and things I have created',
+    images: (await parent).twitter?.images || [],
+  },
+})
 
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {

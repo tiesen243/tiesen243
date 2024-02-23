@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { Badge } from '@/components/ui/badge'
 import { getPostsByUrl } from '@/lib/mdx'
-import { siteConfig } from '@/lib/site'
+import { baseUrl, siteConfig } from '@/lib/site'
 
 interface Props {
   params: {
@@ -46,7 +46,7 @@ export const generateMetadata = async (
       images: meta.image ? meta.image : (await parent).twitter?.images || [],
     },
     alternates: {
-      canonical: `${siteConfig.url}/blogs/${params.slug}`,
+      canonical: `${baseUrl}/blogs/${params.slug}`,
     },
   }
 }
