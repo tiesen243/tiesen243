@@ -13,16 +13,6 @@ const Header: React.FC = () => {
 
   return (
     <header className="fixed inset-0 z-50 flex h-fit justify-start p-2 pb-0 md:justify-end">
-      <ul className="hidden items-center gap-2 rounded bg-secondary/40 p-2 backdrop-blur-xl md:flex">
-        {siteConfig.navLinks.slice(1, 5).map((link) => (
-          <li key={link.url}>
-            <Link href={link.url} className="font-bold underline-offset-4 hover:underline">
-              {link.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
       <button aria-label="menu-toggle" className="block md:hidden" onClick={() => setOpen(!open)}>
         <XIcon
           size={24}

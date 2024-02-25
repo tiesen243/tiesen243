@@ -25,7 +25,7 @@ export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promi
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
     headers: { authorization: siteConfig.env.githubToken },
-    next: { revalidate: 10 },
+    next: { revalidate: 60 * 60 },
   })
     .then((res) => res.json())
     .then((p: Project[]) => p.filter((p) => p.topics.includes('showcase')))
@@ -40,7 +40,7 @@ const Page: NextPage = async () => {
         ]}
       />
 
-      <ul className="gird-cols-1 grid gap-4">
+      <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <MotionLi
             initial={{ opacity: 0, scale: 0.5 }}
@@ -76,7 +76,7 @@ const Page: NextPage = async () => {
               alt={`image-${idx}`}
               width={1920}
               height={1080}
-              className="rounded object-contain shadow-lg"
+              className="rounded-lg object-contain shadow-lg"
             />
           </MotionLi>
         ))}

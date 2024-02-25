@@ -13,11 +13,11 @@ const Loading: NextPage = () => (
       ]}
     />
 
-    <ul className="gird-cols-1 grid gap-4">
+    <ul className="gird-cols-1 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       {[1, 2, 3, 4].map((idx) => (
         <li key={idx}>
           <Card>
-            <Skeleton className="h-48 w-full" />
+            <Skeleton className="h-80 w-full" />
           </Card>
         </li>
       ))}
