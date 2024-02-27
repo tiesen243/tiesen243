@@ -9,7 +9,7 @@ const Infomation: React.FC = () => (
       <tabs.TabsList key={tab.id} className="bg-transparent">
         <tabs.TabsTrigger
           value={tab.id}
-          className="rounded-none border-b border-primary/0 transition-all data-[state=active]:border-primary"
+          className="rounded-none border-b-2 border-primary/0 transition-all data-[state=active]:border-primary"
         >
           {tab.label}
         </tabs.TabsTrigger>
