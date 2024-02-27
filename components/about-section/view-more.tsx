@@ -1,14 +1,13 @@
 import Link from 'next/link'
-import { ChevronsRight } from 'lucide-react'
 
-import { MotionLink, MotionSpan } from '@/components/motion'
+import { MotionLink, MotionSpan, MotionSvg } from '@/components/motion'
 
 const ViewMore = () => (
-  <div className="flex flex-col items-start justify-between text-xl font-bold md:flex-row md:items-center md:gap-20">
+  <div className="my-4 flex flex-col items-start justify-between gap-4 text-xl font-bold md:flex-row md:items-center md:gap-20">
     {['projects', 'blogs'].map((link) => (
-      <Link href={`/${link}`} key={link} passHref legacyBehavior>
+      <Link key={link} href={`/${link}`} passHref legacyBehavior>
         <MotionLink
-          className="group inline-flex w-full items-center justify-between gap-2"
+          className="inline-flex w-full items-center justify-between gap-2"
           initial="initial"
           animate="initial"
           whileHover="animate"
@@ -16,8 +15,23 @@ const ViewMore = () => (
         >
           View my {link}
           <MotionSpan variants={line} className="h-max border-b border-primary" />
-          <MotionSpan variants={arrow}>
-            <ChevronsRight />
+          <MotionSpan variants={arrow} transition={{ repeat: Infinity }}>
+            <MotionSvg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-chevrons-right"
+              variants={icon}
+            >
+              <path d="m6 17 5-5-5-5" />
+              <path d="m13 17 5-5-5-5" />
+            </MotionSvg>
           </MotionSpan>
         </MotionLink>
       </Link>
@@ -27,14 +41,21 @@ const ViewMore = () => (
 
 export default ViewMore
 
-const arrow = {
+const icon = {
   initial: {
-    translateX: -5,
     opacity: 0,
   },
   animate: {
-    translateX: [0, -5, 0],
     opacity: 1,
+  },
+}
+
+const arrow = {
+  initial: {
+    translateX: 0,
+  },
+  animate: {
+    translateX: [0, -5, 0],
   },
 }
 

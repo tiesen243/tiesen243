@@ -50,8 +50,21 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul>
-        {['NextJs', 'Prisma', 'TailwindCSS', 'TypeScript'].map((item) => (
+      <ul className="grid grid-cols-3 md:grid-cols-4">
+        {[
+          'TypeScript',
+          'NextJs',
+          'Prisma',
+          'tRPC',
+          'TailwindCSS',
+          'Python',
+          'Numpy',
+          'Pandas',
+          'Matplotlib',
+          'Seaborn',
+          'C++',
+          'Arduino',
+        ].map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
