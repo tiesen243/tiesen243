@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Infomation from './infomation'
 import Skills from './skills'
+import ViewMore from './view-more'
 
 const AboutSection: React.FC = () => (
   <section id="about" className="container min-h-dvh space-y-4 pt-4">
@@ -26,6 +27,7 @@ const AboutSection: React.FC = () => (
 
     <Skills />
     <Infomation />
+    <ViewMore />
   </section>
 )
 
