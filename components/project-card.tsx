@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 import { Badge } from '@/components/ui/badge'
-import * as card from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import * as card from '@/components/ui/card'
 import { GithubIcon, LinkIcon } from 'lucide-react'
 
 const ProjectCard: React.FC<Project> = (props) => (
@@ -39,12 +39,16 @@ const ProjectCard: React.FC<Project> = (props) => (
       <card.CardDescription className="line-clamp-2">{props.description}</card.CardDescription>
     </card.CardContent>
 
-    <card.CardFooter className="flex-row flex-nowrap gap-1 overflow-x-auto whitespace-nowrap">
-      {props.topics
-        .filter((topic) => topic !== 'showcase')
-        .map((topic) => (
-          <Badge key={topic}>{topic}</Badge>
-        ))}
+    <card.CardFooter className="whitespace-nowrap">
+      <ul className="tags inline-flex max-w-full space-x-1 overflow-x-auto">
+        {props.topics
+          .filter((topic) => topic !== 'showcase')
+          .map((topic) => (
+            <li key={topic}>
+              <Badge>{topic}</Badge>
+            </li>
+          ))}
+      </ul>
     </card.CardFooter>
   </card.Card>
 )
