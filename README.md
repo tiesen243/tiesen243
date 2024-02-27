@@ -1,4 +1,4 @@
-## Hi there :wave: I'm Tiesen, a Weeb Developer from Vietnam!
+## Hi there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35px" height="35px"/> I'm Tiesen, a Weeb Developer from Vietnam!
 
 <img align="right" width=200px height=200px alt="side_sticker" src="https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif" />
 
@@ -39,3 +39,15 @@
 ## 📫 Connect with me:
 
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/tiesen243) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/tiesen243) [![Stack Overflow](https://img.shields.io/badge/-Stackoverflow-FE7A16?logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/21715095) [![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/tiesen243) [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@tiesen243)
+
+## 🐍 Snake Eating Contributions
+
+<div align="center">
+    ![snake gif](https://github.com/tiesen243/tiesen243/blob/output/github-contribution-grid-snake.gif)
+</div>
+
+## 👀 Visitors Count
+
+<div align="center">
+    <img src='https://count.getloli.com/get/@tiesen243?theme=gelbooru-h' alt='visitor badge'/>
+</div>
