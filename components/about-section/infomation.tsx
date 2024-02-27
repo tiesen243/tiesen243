@@ -9,7 +9,7 @@ const Infomation: React.FC = () => (
       <tabs.TabsList key={tab.id} className="bg-transparent">
         <tabs.TabsTrigger
           value={tab.id}
-          className="rounded-none border-primary data-[state=active]:border-b"
+          className="rounded-none border-b border-primary/0 transition-all data-[state=active]:border-primary"
         >
           {tab.label}
         </tabs.TabsTrigger>
@@ -19,7 +19,7 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <tabs.TabsContent key={tab.id} value={tab.id}>
         <card.Card>
-          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert">
+          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert md:prose-lg">
             {tab.content}
           </card.CardHeader>
         </card.Card>
@@ -40,17 +40,17 @@ const education = [
   },
 ]
 
-const className = 'flex items-center font-bold gap-2 [&>svg]:hidden [&>svg]:md:block'
+const className = 'flex items-center font-bold gap-1'
 const tabsContents = [
   {
     id: 'skills',
     label: (
       <div className={className}>
-        <NotebookIcon /> <span>Skills</span>
+        <NotebookIcon className="size-4 md:size-6" /> <span>Skills</span>
       </div>
     ),
     content: (
-      <ul className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
+      <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {[
           'TypeScript',
           'NextJs',
@@ -74,7 +74,7 @@ const tabsContents = [
     id: 'education',
     label: (
       <div className={className}>
-        <SchoolIcon /> <span>Education</span>
+        <SchoolIcon className="size-4 md:size-6" /> <span>Education</span>
       </div>
     ),
     content: (
@@ -94,7 +94,7 @@ const tabsContents = [
     id: 'experience',
     label: (
       <div className={className}>
-        <ActivityIcon /> <span>Experience</span>
+        <ActivityIcon className="size-4 md:size-6" /> <span>Experience</span>
       </div>
     ),
     content: (
@@ -107,7 +107,7 @@ const tabsContents = [
     id: 'hobbies',
     label: (
       <div className={className}>
-        <HeartIcon /> <span>Hobbies</span>
+        <HeartIcon className="size-4 md:size-6" /> <span>Hobbies</span>
       </div>
     ),
     content: (
