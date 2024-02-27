@@ -35,9 +35,8 @@
 
 ## 🐍 Snake Eating Contributions
 
-<div align="center">
-    ![snake gif](https://github.com/tiesen243/tiesen243/blob/output/github-contribution-grid-snake.gif)
-</div>
+![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
+![snake-light](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake.svg#gh-light-mode-only)
 
 ## 👀 Visitors Count
 
