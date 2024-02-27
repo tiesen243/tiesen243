@@ -19,7 +19,7 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <tabs.TabsContent key={tab.id} value={tab.id}>
         <card.Card>
-          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert md:prose-lg">
+          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert md:prose-lg prose-li:text-foreground">
             {tab.content}
           </card.CardHeader>
         </card.Card>
@@ -50,7 +50,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <ul className="grid grid-cols-3  md:grid-cols-4 lg:grid-cols-6">
         {[
           'TypeScript',
           'NextJs',
@@ -81,10 +81,10 @@ const tabsContents = [
       <ul className="prose-h3:m-0 prose-p:m-0">
         {education.map((item) => (
           <li key={item.id}>
-            <time>{item.time}</time>
+            <time className="text-muted-foreground">{item.time}</time>
             <h3>{item.school}</h3>
-            <p>Majors: {item.major}</p>
-            {item.gpa && <p>GPA: {item.gpa}</p>}
+            <p className="text-muted-foreground">Majors: {item.major}</p>
+            {item.gpa && <p className="text-muted-foreground">GPA: {item.gpa}</p>}
           </li>
         ))}
       </ul>
