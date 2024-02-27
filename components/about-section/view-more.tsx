@@ -12,6 +12,7 @@ const ViewMore = () => (
           initial="initial"
           animate="initial"
           whileHover="animate"
+          whileTap="animate"
         >
           View my {link}
           <MotionSpan variants={line} className="h-max border-b border-primary" />
