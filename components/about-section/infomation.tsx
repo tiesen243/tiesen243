@@ -19,7 +19,7 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <tabs.TabsContent key={tab.id} value={tab.id}>
         <card.Card>
-          <card.CardHeader className="prose prose-lg prose-zinc dark:prose-invert">
+          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert">
             {tab.content}
           </card.CardHeader>
         </card.Card>
@@ -50,7 +50,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="grid grid-cols-3 md:grid-cols-4">
+      <ul className="grid grid-cols-3 gap-4 md:grid-cols-4 lg:grid-cols-6">
         {[
           'TypeScript',
           'NextJs',
