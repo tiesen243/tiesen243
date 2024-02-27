@@ -40,13 +40,13 @@ const education = [
   },
 ]
 
-const className = 'flex items-center font-bold gap-1'
+const className = 'flex items-center font-bold gap-1 [&>svg]:size-4 [&>svg]:md:size-6'
 const tabsContents = [
   {
     id: 'skills',
     label: (
       <div className={className}>
-        <NotebookIcon className="size-4 md:size-6" /> <span>Skills</span>
+        <NotebookIcon /> <span>Skills</span>
       </div>
     ),
     content: (
@@ -74,7 +74,7 @@ const tabsContents = [
     id: 'education',
     label: (
       <div className={className}>
-        <SchoolIcon className="size-4 md:size-6" /> <span>Education</span>
+        <SchoolIcon /> <span>Education</span>
       </div>
     ),
     content: (
@@ -94,7 +94,7 @@ const tabsContents = [
     id: 'experience',
     label: (
       <div className={className}>
-        <ActivityIcon className="size-4 md:size-6" /> <span>Experience</span>
+        <ActivityIcon /> <span>Experience</span>
       </div>
     ),
     content: (
@@ -107,7 +107,7 @@ const tabsContents = [
     id: 'hobbies',
     label: (
       <div className={className}>
-        <HeartIcon className="size-4 md:size-6" /> <span>Hobbies</span>
+        <HeartIcon /> <span>Hobbies</span>
       </div>
     ),
     content: (
