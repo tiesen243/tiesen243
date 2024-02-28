@@ -8,7 +8,7 @@ const Loading: NextPage = () => (
   <main className="container min-h-dvh flex-grow space-y-4 pt-4">
     <BreadCrumbs
       items={[
-        { label: '~', href: '/' },
+        { label: '~', href: '/#about' },
         { label: 'Projects', href: '/projects' },
       ]}
     />

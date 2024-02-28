@@ -26,10 +26,10 @@ const Page: NextPage = async () => {
   const metas = await getAllPostsMeta()
 
   return (
-    <main className="container flex-grow">
+    <main className="container min-h-dvh flex-grow space-y-4 pt-4">
       <BreadCrumbs
         items={[
-          { label: '~', href: '/' },
+          { label: '~', href: '/#about' },
           { label: 'Blogs', href: '/blogs' },
         ]}
       />

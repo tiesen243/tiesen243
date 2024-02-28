@@ -8,17 +8,15 @@ const LoadingPage: NextPage = () => (
     <BreadCrumbs
       items={[
         { label: '~', href: '/#about' },
-        { label: 'Blogs', href: '/blogs' },
+        { label: 'Projects', href: '/projects' },
         { label: 'loading...', href: '#' },
       ]}
     />
 
     <section className="space-y-4">
-      <Skeleton className="h-12 w-1/2" />
-      <Skeleton className="h-12 w-1/3" />
-      <Skeleton className="aspect-[20/9] w-full" />
+      <Skeleton className="aspect-video w-full" />
 
-      {Array.from({ length: Math.floor(Math.random() * 10) + 4 }).map((_, i) => (
+      {Array.from({ length: 5 }).map((_, i) => (
         <Skeleton key={i} className="h-4 w-full" />
       ))}
     </section>

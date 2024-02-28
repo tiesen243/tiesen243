@@ -1,10 +1,10 @@
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 
-import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { MotionLi } from '@/components/motion'
 import ProjectCard from '@/components/project-card'
-import { baseUrl, siteConfig } from '@/lib/site'
+import { BreadCrumbs } from '@/components/ui/breadcrumbs'
+import { baseUrl } from '@/lib/site'
 
 export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
   title: 'Projects',
@@ -23,8 +23,8 @@ export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promi
 })
 
 const Page: NextPage = async () => {
-  const projects: Project[] = await fetch(siteConfig.env.projectsApi, {
-    headers: { authorization: siteConfig.env.githubToken },
+  const projects: Project[] = await fetch(process.env.PROJECTS_URL!, {
+    headers: { authorization: process.env.GITHUB_TOKEN! },
     next: { revalidate: 60 * 60 },
   })
     .then((res) => res.json())
@@ -32,10 +32,10 @@ const Page: NextPage = async () => {
     .catch((_e) => [])
 
   return (
-    <main id="projects" className="container min-h-dvh flex-grow space-y-4 pt-4">
+    <main className="container min-h-dvh flex-grow space-y-4 pt-4">
       <BreadCrumbs
         items={[
-          { label: '~', href: '/' },
+          { label: '~', href: '/#about' },
           { label: 'Projects', href: '/projects' },
         ]}
       />

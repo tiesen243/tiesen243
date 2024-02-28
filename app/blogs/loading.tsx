@@ -4,10 +4,10 @@ import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { Skeleton } from '@/components/ui/skeleton'
 
 const LoadingPage: NextPage = () => (
-  <div className="container flex-grow">
+  <main className="container min-h-dvh flex-grow space-y-4 pt-4">
     <BreadCrumbs
       items={[
-        { label: '~', href: '/' },
+        { label: '~', href: '/#about' },
         { label: 'Blogs', href: '/blogs' },
       ]}
     />
@@ -19,7 +19,7 @@ const LoadingPage: NextPage = () => (
         </li>
       ))}
     </ul>
-  </div>
+  </main>
 )
 
 export default LoadingPage

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { Badge } from '@/components/ui/badge'
 import { getPostsByUrl } from '@/lib/mdx'
-import { baseUrl, siteConfig } from '@/lib/site'
+import { baseUrl } from '@/lib/site'
 
 interface Props {
   params: { slug: string }
@@ -15,7 +15,7 @@ export const generateMetadata = async (
   parent: ResolvingMetadata
 ): Promise<Metadata> => {
   const { meta } = await getPostsByUrl(
-    `${siteConfig.env.rawBlogPost}/${params.slug.replace('.html', '.mdx')}`
+    `${process.env.RAW_BLOGPOST_URL!}/${params.slug.replace('.html', '.mdx')}`
   )
 
   return {
@@ -30,8 +30,8 @@ export const generateMetadata = async (
         ? [
             {
               url: meta.image,
-              width: 1920,
-              height: 1080,
+              width: 1200,
+              height: 630,
               alt: meta.title,
             },
           ]
@@ -54,15 +54,15 @@ import 'highlight.js/styles/github-dark.min.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(
-      `${siteConfig.env.rawBlogPost}/${params.slug.replace('.html', '.mdx')}`
+      `${process.env.NEXT_PUBLIC_RAW_BLOGPOST!}/${params.slug.replace('.html', '.mdx')}`
     )
     if (!meta.title) throw new Error('No title')
 
     return (
-      <main className="container flex-grow">
+      <main className="container min-h-dvh flex-grow space-y-4 pt-4">
         <BreadCrumbs
           items={[
-            { label: '~', href: '/' },
+            { label: '~', href: '/#about' },
             { label: 'Blogs', href: '/blogs' },
             { label: meta.title, href: `/blogs/${params.slug}` },
           ]}
