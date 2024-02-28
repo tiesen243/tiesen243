@@ -1,9 +1,0 @@
-{
-  "git": {
-    "deploymentEnabled": {
-      "main": true,
-      "output": false,
-      "blogs": false
-    }
-  }
-}
