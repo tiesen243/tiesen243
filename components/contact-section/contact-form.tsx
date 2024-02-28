@@ -17,7 +17,7 @@ const ContactForm: React.FC = () => {
   const send = async (formData: FormData) => {
     try {
       const data = Object.fromEntries(formData)
-      const res = await fetch(String(process.env.NEXT_PUBLIC_SEND_EMAIL), {
+      const res = await fetch(process.env.NEXT_PUBLIC_SEND_EMAIL!, {
         method: 'POST',
         body: JSON.stringify({
           from: 'Contact Form',
