@@ -24,13 +24,13 @@
 ### Languages and Frameworks
 
 <div align="center">
-<img src='https://skillicons.dev/icons?i=html,css,nodejs,ts,react,nextjs,tailwind,prisma,mongodb,anaconda,python,cpp,arduino,md'/>
+    <img src='https://skillicons.dev/icons?i=html,css,nodejs,ts,react,nextjs,tailwind,prisma,mongodb,anaconda,python,cpp,arduino,md'/>
 </div>
 
 ### Tools and Platforms
 
 <div align="center">
-<img src='https://skillicons.dev/icons?i=arch,bash,bun,git,github,vercel,vscode,neovim,ps,ai,pr,figma'/>
+    <img src='https://skillicons.dev/icons?i=arch,bash,bun,git,github,vercel,vscode,neovim,ps,ai,pr,figma'/>
 </div>
 
 ## 🐍 Snake Eating Contributions
