@@ -14,7 +14,9 @@ const ViewMore = () => (
           whileTap="animate"
         >
           View my {link}
-          <MotionSpan variants={line} className="h-max border-b border-primary" />
+          <span className="flex-grow">
+            <MotionSpan variants={line} className="absolute inset-0 h-[1px] bg-ring" />
+          </span>
           <MotionSpan variants={arrow} transition={{ repeat: Infinity }}>
             <MotionSvg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,9 +63,9 @@ const arrow = {
 
 const line = {
   initial: {
-    flexGrow: 0,
+    width: 0,
   },
   animate: {
-    flexGrow: 1,
+    width: '100%',
   },
 }
