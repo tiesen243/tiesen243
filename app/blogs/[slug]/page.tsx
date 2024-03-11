@@ -54,7 +54,7 @@ import 'highlight.js/styles/github-dark.min.css'
 const Page: NextPage<Props> = async ({ params }) => {
   try {
     const { meta, content } = await getPostsByUrl(
-      `${process.env.NEXT_PUBLIC_RAW_BLOGPOST!}/${params.slug.replace('.html', '.mdx')}`
+      `${process.env.RAW_BLOGPOST_URL!}/${params.slug.replace('.html', '.mdx')}`
     )
     if (!meta.title) throw new Error('No title')
 
