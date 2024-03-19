@@ -21,7 +21,7 @@ const AboutSection: React.FC = () => (
       </article>
 
       <div className="aspect-square h-full w-full md:col-span-5">
-        <Image src="/images/yuki.gif" fill className="rounded" alt="Yuki" />
+        <Image src="/images/yuki.gif" fill className="rounded" alt="Yuki" unoptimized />
       </div>
     </section>
 
