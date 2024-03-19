@@ -98,7 +98,8 @@ export const abcRoute = new Elysia({ prefix: '/[abc]' })
   .onBeforeHandle(authMiddleware)
 
 
-  .post('/hello', async ({ store: { db, user }, body }) => {
+  .post('/auth/hello', async ({ store: { db, user }, body }) => {
+      console.log({ user })
       return { message: `Hello ${body.content}`
     }.
     { body: 'hello' }
