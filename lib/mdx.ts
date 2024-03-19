@@ -57,6 +57,7 @@ export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
       next: { revalidate },
     })
     const posts: PostSource[] = await res.json()
+    posts.filter((post) => post.name.endsWith('.mdx'))
 
     const metas = await Promise.all(
       posts.map(async (post) => {

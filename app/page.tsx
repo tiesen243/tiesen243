@@ -1,9 +1,13 @@
+'use client'
+
 import type { NextPage } from 'next'
 
-import AboutSection from '@/components/about-section'
-import ContactSection from '@/components/contact-section'
-import HeroSection from '@/components/hero-section'
-import Header from '@/components/header'
+import dynamic from 'next/dynamic'
+
+const Header = dynamic(() => import('@/components/header'), { ssr: false })
+const HeroSection = dynamic(() => import('@/components/hero-section'), { ssr: false })
+const AboutSection = dynamic(() => import('@/components/about-section'), { ssr: false })
+const ContactSection = dynamic(() => import('@/components/contact-section'), { ssr: false })
 
 const Page: NextPage = () => (
   <>
