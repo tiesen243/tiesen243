@@ -63,9 +63,13 @@ Make your route model at `/server/dto` and import to your route
 ```ts
 /* /server/dto/[abd].dto.ts */
 
+import { Elysia } from 'elysia'
+
 const abcDto = new Elysia({ name: 'Model.[abc]' }).state({ db }).model({
   hello: t.Object({ content: t.String({ minLength: 4 }) }),
 })
+
+export default abcDto
 ```
 
 Create your new route
@@ -73,9 +77,14 @@ Create your new route
 ```ts
 /* /server/route/[abc].route.ts */
 
+import { Elysia } from 'elysia'
+
+import abcDto from '@/server/dto/abc.dto'
+import { authMiddleware, base } from '@/server/plugin'
+
 export const abcRoute = new Elysia({ prefix: '/[abc]' })
   .use(base)
-  .use(postDto)
+  .use(abcDto)
 
   // public routes
 
