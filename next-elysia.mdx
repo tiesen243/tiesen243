@@ -1,0 +1,154 @@
+---
+title: Nextjs + Elysia Started
+description: Create a full-stack application with Next.js and ElysiaJS
+tags: [Next.js, ElysiaJS, Full-Stack]
+image: https://github.com/tiesen243/tiesen243/assets/101703006/ad3c0e4f-4197-45c9-bcc1-8dc12bbd00d1
+date: 2024-03-19T10:00:00.000Z
+---
+
+
+## Table of Contents 
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Backend](#backend)
+4. [Fontend](#fontend)
+
+## Introduction
+
+Hello everynyan!
+
+Today, we're diving into the world of full-stack web development using Next.js and Elysia.js, two powerful frameworks that streamline frontend and backend development, respectively.
+
+## Installation
+
+```bash
+bun create next-app --example https://github.com/tiesen243/next-elysia [your-app-name]
+cd [your-app-name]
+bun install
+```
+
+Next step, update your enviroment variables
+
+```bash
+# .env
+DATABASE_URL=""
+
+# Generate a random string for NEXTAUTH_SECRET
+# openssl rand -base64 32
+NEXTAUTH_SECRET=""    
+```
+
+> In this project, i'm use MongoDb for Database, if you use other database, remember to change provider in `/prisma/schema.prisma` and change Id fields
+
+Then, push schema to your database
+
+```bash
+bun run db:push
+```
+
+Finaly, run your development server
+
+```bash
+bun dev
+```
+
+## Backend
+
+Define your route at `/server/routes` and update this route to `/server/elysia`
+
+> Replace `[abc]` with your route
+
+Make your route model at `/server/dto` and import to your route
+
+```ts
+/* /server/dto/[abd].dto.ts */
+
+const abcDto = new Elysia({ name: 'Model.[abc]' }).state({ db }).model({
+  hello: t.Object({ content: t.String({ minLength: 4 }) }),
+})
+```
+
+Create your new route
+
+```ts
+/* /server/route/[abc].route.ts */
+
+export const abcRoute = new Elysia({ prefix: '/[abc]' })
+  .use(base)
+  .use(postDto)
+
+  // public routes
+
+  .post('/hello', async ({ store: { db }, body }) => {
+      return { message: `Hello ${body.content}`
+    }.
+    { body: 'hello' }
+  )
+
+  // protected routes
+  .onBeforeHandle(authMiddleware)
+
+
+  .post('/hello', async ({ store: { db, user }, body }) => {
+      return { message: `Hello ${body.content}`
+    }.
+    { body: 'hello' }
+  )
+```
+
+Add this route to app
+
+```ts
+export const app = new Elysia({ prefix: '/api/elysia' })
+  /* others config */
+  .use(abcRoute)
+```
+
+## Fontend
+
+Now, use your new api endpoint with `@tanstack/react-query` and `@elysiajs/eden` for example:
+> Currently, when use `treaty` function with `prisma` will throw an error `PrismaClient is unable to run in this browser environment, or has been bundled for the browser` so i use `edenTreaty` instead.
+
+```tsx
+/* /app/page.tsx */
+
+'use client'
+
+import { useMutation } from '@tanstack/react-query'
+import type { NextPage } from 'next'
+
+import { api } from '@/lib/api'
+
+const Page: NextPage = () => {
+  const { data, isPending, isError } = useMutation({
+    mutationFn: async ({ content }: { content: string }) => {
+      const { data, error } = await api.[abc].create.post({ content })
+      if (error) throw error.value
+      return data
+    },
+    onError: (error) => console.log(error),
+    onSuccess: async ({ message }) => {
+      console.log(message)
+    },
+  })
+  if (isPending) return <div>Loading...</div>
+  if (isError) return <div>Error</div>
+
+  return <div>{data?.message}</div>
+}
+
+export default Page
+```
+
+### Thanks for reading, hope you like this
+
+### Documents
+
+- Next.js: [https://nextjs.org/](https://nextjs.org/)
+- ElysiaJS: [https://elysiajs.com/](https://elysiajs.com/)
+- Tanstack/react-query: [https://tanstack.com/query/latest](https://tanstack.com/query/latest) 
+
+
+
+
+
