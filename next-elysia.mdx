@@ -61,7 +61,7 @@ Define your route at `/server/routes` and update this route to `/server/elysia`
 Make your route model at `/server/dto` and import to your route
 
 ```ts
-/* /server/dto/[abd].dto.ts */
+/* server/dto/[abd].dto.ts */
 
 import { Elysia } from 'elysia'
 
@@ -75,7 +75,7 @@ export default abcDto
 Create your new route
 
 ```ts
-/* /server/route/[abc].route.ts */
+/* server/route/[abc].route.ts */
 
 import { Elysia } from 'elysia'
 
@@ -95,7 +95,7 @@ export const abcRoute = new Elysia({ prefix: '/[abc]' })
   )
 
   // protected routes
-  .onBeforeHandle(authMiddleware)
+  .use(authMiddleware)
 
   .post('/auth/hello', async ({ store: { db, user }, body }) => {
       console.log({ user })
@@ -119,7 +119,7 @@ Now, use your new api endpoint with `@tanstack/react-query` and `@elysiajs/eden`
 > Currently, when use `treaty` function with `prisma` will throw an error `PrismaClient is unable to run in this browser environment, or has been bundled for the browser` so i use `edenTreaty` instead.
 
 ```tsx
-/* /app/page.tsx */
+/* app/page.tsx */
 
 'use client'
 
@@ -136,9 +136,7 @@ const Page: NextPage = () => {
       return data
     },
     onError: (error) => console.log(error),
-    onSuccess: async ({ message }) => {
-      console.log(message)
-    },
+    onSuccess: async ({ message }) => console.log(message),
   })
   if (isPending) return <div>Loading...</div>
   if (isError) return <div>Error</div>
