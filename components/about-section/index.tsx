@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import Infomation from './infomation'
 import Skills from './skills'
 import ViewMore from './view-more'
