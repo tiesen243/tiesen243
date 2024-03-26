@@ -116,36 +116,120 @@ export const app = new Elysia({ prefix: '/api/elysia' })
 
 ## Fontend
 
-Now, use your new api endpoint with `@tanstack/react-query` and `@elysiajs/eden` for example:
-> Currently, when use `treaty` function with `prisma` will throw an error `PrismaClient is unable to run in this browser environment, or has been bundled for the browser` so i use `edenTreaty` instead.
+Now, use your new api endpoint with `swr` and `@elysiajs/eden` for example:
 
-```tsx
-/* app/page.tsx */
+```typescript
+// lib/hooks/post.ts
 
-'use client'
-
-import { useMutation } from '@tanstack/react-query'
-import type { NextPage } from 'next'
+import useSWRInfinite from 'swr/infinite'
+import useSWRMutation from 'swr/mutation'
 
 import { api } from '@/lib/api'
 
-const Page: NextPage = () => {
-  const { data, isPending, isError } = useMutation({
-    mutationFn: async ({ content }: { content: string }) => {
-      const { data, error } = await api.[abc].create.post({ content })
+export const usePost = ({ PAGE_SIZE = 2 }: { PAGE_SIZE?: number }) => {
+  const {
+    data,
+    error: getError,
+    isLoading,
+    size,
+    setSize,
+    mutate,
+  } = useSWRInfinite(
+    (index) => String(index + 1),
+    async (key) => {
+      const page = Number(key.replace('posts-', '')) || 1
+      const { data, error } = await api.post.getAll.get({ query: { page, limit: PAGE_SIZE } })
       if (error) throw error.value
       return data
     },
-    onError: (error) => console.log(error),
-    onSuccess: async ({ message }) => console.log(message),
+  )
+
+  const {
+    trigger,
+    isMutating,
+    error: createError,
+  } = useSWRMutation<Res, Error, string, { content: string }>('posts', async (_, { arg }) => {
+    const { data, error } = await api.post.create.post(arg)
+    if (error) throw error.value
+    else return { message: data.message, data: data }
   })
-  if (isPending) return <div>Loading...</div>
-  if (isError) return <div>Error</div>
 
-  return <div>{data?.message}</div>
+  const posts = data ? data.flat() : []
+
+  const isReachingEnd = getError?.message === 'No posts found'
+
+  const isLoadingMore =
+    isLoading || (size > 0 && data && typeof data[size - 1] === 'undefined' && isReachingEnd === false)
+
+  const deletePost = async (id: string) => {
+    const { error } = await api.post.deletePost({ id }).delete()
+    if (error) throw error.value
+    mutate()
+  }
+
+  return {
+    posts,
+    isLoading,
+    isMutating,
+    isLoadingMore,
+    isReachingEnd,
+    createError,
+    getError,
+    trigger,
+    setSize,
+    deletePost,
+    mutate,
+  }
 }
+```
 
-export default Page
+Then, use it in `app/page.tsx`
+
+```tsx
+'use client'
+
+import { Button } from '@/components/ui/button'
+import * as card from '@/components/ui/card'
+import { usePost } from '@/lib/hooks'
+import { XIcon } from 'lucide-react'
+
+const PostList: React.FC<{ userId: string }> = ({ userId }) => {
+  const { posts, deletePost, setSize, isLoadingMore, isReachingEnd } = usePost({})
+
+  return (
+    <section className="space-y-4">
+      {posts.map((post) => (
+        <card.Card key={post.id} className="relative">
+          {userId === post.author.id && (
+            <Button
+              variant="destructive"
+              size="icon"
+              className="absolute right-2 top-2 z-10"
+              onClick={async () => deletePost(post.id)}
+            >
+              <XIcon />
+            </Button>
+          )}
+          <card.CardHeader>
+            <card.CardDescription>{post.author.name}</card.CardDescription>
+            <card.CardTitle>{post.content}</card.CardTitle>
+          </card.CardHeader>
+        </card.Card>
+      ))}
+
+      <Button
+        variant="ghost"
+        onClick={() => setSize((size) => size + 1)}
+        className="w-full"
+        isLoading={isLoadingMore === true && isReachingEnd === false}
+        disabled={isReachingEnd}
+      >
+        {isReachingEnd ? 'No more posts' : 'Load more'}
+      </Button>
+    </section>
+  )
+}
+export default PostList
 ```
 
 ### Notes
