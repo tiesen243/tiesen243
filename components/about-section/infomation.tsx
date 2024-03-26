@@ -53,15 +53,15 @@ const tabsContents = [
       <ul className="grid grid-cols-3  md:grid-cols-4 lg:grid-cols-6">
         {[
           'TypeScript',
-          'NextJs',
-          'Prisma',
-          'tRPC',
+          'Next.js',
           'TailwindCSS',
+          'ElysiaJS',
+          'tRPC',
+          'Prisma',
           'Python',
           'Numpy',
           'Pandas',
           'Matplotlib',
-          'Seaborn',
           'C++',
           'Arduino',
         ].map((item) => (
