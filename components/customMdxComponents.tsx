@@ -14,7 +14,7 @@ const customMdxComponents: MDXComponents = {
   h2: (props) => (
     <h2 {...props} id={props.children?.toString().toLowerCase().replace(/\s/g, '-')} />
   ),
-  pre: (props) => <pre {...props} className="p-0" />,
+  pre: (props) => <pre {...props} className={cn(props.className, 'p-0')} />,
   code: (props) => <code {...props} className={cn(props.className, 'font-mono')} />,
 }
 
