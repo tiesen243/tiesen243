@@ -100,6 +100,13 @@ const config = {
         'infinite-scroll': 'infinite-scroll 30s linear infinite',
         'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '100%',
+          },
+        },
+      },
     },
   },
   plugins: [typography, animate],

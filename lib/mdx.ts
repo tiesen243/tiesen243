@@ -1,13 +1,16 @@
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
+
 import customMdxComponents from '@/components/customMdxComponents'
 
-const revalidate = 30
 interface Post {
-  meta: PostMeta
+  meta: Omit<PostMeta, 'slug' | 'name'>
   content: React.ReactElement
 }
+
+const revalidate = 30
 const token = process.env.GITHUB_TOKEN!
+
 export const getPostsByUrl = async (url: string): Promise<Post> => {
   try {
     const mdxSource = await fetch(url, {
@@ -19,9 +22,7 @@ export const getPostsByUrl = async (url: string): Promise<Post> => {
       source: mdxSource,
       options: {
         parseFrontmatter: true,
-        mdxOptions: {
-          rehypePlugins: [rehypeHighlight as any],
-        },
+        mdxOptions: { rehypePlugins: [rehypeHighlight as any] },
       },
       components: customMdxComponents,
     })
@@ -56,8 +57,9 @@ export const getAllPostsMeta = async (): Promise<PostMeta[]> => {
       headers: { authorization: `Bearer ${token}` },
       next: { revalidate },
     })
-    const posts: PostSource[] = await res.json()
-    posts.filter((post) => post.name.endsWith('.mdx'))
+    const posts = await res
+      .json()
+      .then((posts: PostSource[]) => posts.filter((post) => post.name.endsWith('.mdx')))
 
     const metas = await Promise.all(
       posts.map(async (post) => {

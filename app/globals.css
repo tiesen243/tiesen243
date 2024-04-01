@@ -88,7 +88,7 @@
   }
 
   article {
-    @apply prose prose-lg prose-zinc dark:prose-invert lg:prose-xl xl:prose-2xl prose-pre:m-0 prose-img:rounded-lg prose-img:shadow-lg;
+    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-headings:mb-1 prose-headings:mt-2 prose-p:my-1;
   }
 
   ::-webkit-scrollbar {

@@ -10,14 +10,13 @@ interface Props {
   params: { slug: string }
 }
 
+const convert = (slug: string) => slug.replace('.html', '.mdx')
+
 export const generateMetadata = async (
-  { params }: Props,
+  { params: { slug } }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> => {
-  const { meta } = await getPostsByUrl(
-    `${process.env.RAW_BLOGPOST_URL!}/${params.slug.replace('.html', '.mdx')}`
-  )
-
+  const { meta } = await getPostsByUrl(`${process.env.RAW_BLOGPOST_URL!}/${convert(slug)}`)
   return {
     title: meta.title,
     description: meta.description,
@@ -26,37 +25,27 @@ export const generateMetadata = async (
       title: meta.title,
       description: meta.description,
       type: 'article',
-      images: meta.image
-        ? [
-            {
-              url: meta.image,
-              width: 1200,
-              height: 630,
-              alt: meta.title,
-            },
-          ]
-        : (await parent).openGraph?.images || [],
+      images: [{ url: meta.image!, alt: meta.title }, ...((await parent).openGraph?.images || [])],
     },
     twitter: {
       title: meta.title,
       description: meta.description,
       card: 'summary_large_image',
-      images: meta.image ? meta.image : (await parent).twitter?.images || [],
+      images: [meta.image!, ...((await parent).twitter?.images || [])],
     },
     alternates: {
-      canonical: `${baseUrl}/blogs/${params.slug}`,
+      canonical: `${baseUrl}/blogs/${slug}`,
     },
   }
 }
 
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
-import 'highlight.js/styles/github-dark.min.css'
-const Page: NextPage<Props> = async ({ params }) => {
+import 'highlight.js/styles/github-dark.css'
+const Page: NextPage<Props> = async ({ params: { slug } }) => {
   try {
     const { meta, content } = await getPostsByUrl(
-      `${process.env.RAW_BLOGPOST_URL!}/${params.slug.replace('.html', '.mdx')}`
+      `${process.env.RAW_BLOGPOST_URL!}/${convert(slug)}`
     )
-    if (!meta.title) throw new Error('No title')
 
     return (
       <main className="container min-h-dvh flex-grow space-y-4 pt-4">
@@ -64,15 +53,15 @@ const Page: NextPage<Props> = async ({ params }) => {
           items={[
             { label: '~', href: '/#about' },
             { label: 'Blogs', href: '/blogs' },
-            { label: meta.title, href: `/blogs/${params.slug}` },
+            { label: meta.title, href: `/blogs/${slug}` },
           ]}
         />
-        <article className="prose-h1:mb-0 prose-blockquote:m-0 prose-pre:bg-secondary-foreground prose-ul:m-0 prose-ul:p-0 dark:prose-pre:bg-secondary">
+        <article className="mx-auto max-w-screen-md prose-headings:my-2">
           <h1>{meta.title}</h1>
           <time dateTime={meta.date.toString()}>{new Date(meta.date).toDateString()}</time>
 
           <ul className="flex list-none items-center">
-            {meta.tags?.map((tag) => (
+            {meta.tags.map((tag) => (
               <li key={tag} className="m-0">
                 <Badge>{tag}</Badge>
               </li>

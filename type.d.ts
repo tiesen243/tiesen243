@@ -27,9 +27,9 @@ interface PostMeta {
   description: string
   tags: string[]
   date: Date
-  slug?: string
-  name?: string
-  image?: string
+  slug: string
+  name: string
+  image: string
 }
 
 interface Route {
