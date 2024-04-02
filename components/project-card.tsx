@@ -24,14 +24,16 @@ const ProjectCard: React.FC<Project> = (props) => (
           <GithubIcon />
         </a>
 
-        <a
-          href={props.homepage}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonVariants({ variant: 'ghost', size: 'icon' })}
-        >
-          <Link2Icon />
-        </a>
+        {props.homepage && (
+          <a
+            href={props.homepage}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={buttonVariants({ variant: 'ghost', size: 'icon' })}
+          >
+            <Link2Icon />
+          </a>
+        )}
       </div>
     </card.CardHeader>
 
