@@ -23,7 +23,7 @@ export const BaseHead: React.FC<Props> = (props) => {
         <meta property="og:image" content={images} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${baseUrl}/blog/${props.slug}`} />
-        <meta name="twitter:site" content="@tiesen" />
+        <meta name="twitter:site" content="@tiesen243" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
@@ -32,12 +32,6 @@ export const BaseHead: React.FC<Props> = (props) => {
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="canonical" href={`${baseUrl}/blog/${props.slug}`} />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title="RSS Feed for Tiesen"
-          href="/feed.xml"
-        />
       </Head>
 
       {props.children}

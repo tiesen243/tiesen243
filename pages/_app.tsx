@@ -21,13 +21,12 @@ const RootLayout: React.FC<AppProps> = ({ Component, pageProps }) => (
       />
 
       <MDXProvider components={MdxComponents}>
-        <article className="container max-w-screen-md">
+        <article className="mx-auto max-w-screen-md">
           <Component {...pageProps} />
         </article>
       </MDXProvider>
-
-      <Footer />
     </main>
+    <Footer />
   </ThemeProvider>
 )
 
