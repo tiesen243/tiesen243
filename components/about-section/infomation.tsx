@@ -10,6 +10,7 @@ const Infomation: React.FC = () => (
         <tabs.TabsTrigger
           value={tab.id}
           className="rounded-none border-b-2 border-primary/0 transition-all data-[state=active]:border-primary"
+          aria-label={`Switch to ${tab.id}`}
         >
           {tab.label}
         </tabs.TabsTrigger>
