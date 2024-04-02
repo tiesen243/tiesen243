@@ -7,7 +7,12 @@ export const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => (
   <Link key={blog.slug} href={`/blog/${blog.slug}`} passHref>
     <card.Card className="transition-colors ease-linear hover:bg-secondary">
       <card.CardHeader className="mb-2 aspect-video w-full">
-        <Image src={blog.meta.image} alt={blog.meta.title} fill />
+        <Image
+          src={blog.meta.image}
+          alt={blog.meta.title}
+          className="rounded-t-lg object-cover"
+          fill
+        />
       </card.CardHeader>
 
       <card.CardFooter className="flex-col items-start">

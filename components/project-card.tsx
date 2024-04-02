@@ -11,7 +11,7 @@ const ProjectCard: React.FC<Project> = (props) => (
       <Image
         src={`/images/projects/${props.name}.jpg`}
         alt={props.name}
-        className="rounded-t-lg"
+        className="rounded-t-lg object-cover"
         fill
       />
       <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center gap-8 rounded-t-lg bg-card/70 opacity-0 backdrop-blur-xl backdrop-saturate-150 group-hover:opacity-100">
