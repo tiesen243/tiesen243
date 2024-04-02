@@ -20,10 +20,10 @@ export const ThemeBtn: React.FC = () => {
   return (
     <tabs.Tabs defaultValue={theme}>
       <tabs.TabsList>
-        <tabs.TabsTrigger value="light" onClick={() => setTheme('light')}>
+        <tabs.TabsTrigger value="light" onClick={() => setTheme('light')} aria-label="Light Theme">
           <SunIcon />
         </tabs.TabsTrigger>
-        <tabs.TabsTrigger value="dark" onClick={() => setTheme('dark')}>
+        <tabs.TabsTrigger value="dark" onClick={() => setTheme('dark')} aria-label="Dark Theme">
           <MoonIcon />
         </tabs.TabsTrigger>
       </tabs.TabsList>
