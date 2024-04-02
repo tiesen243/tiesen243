@@ -1,8 +1,9 @@
 import { baseUrl } from '@/lib/site'
 import Head from 'next/head'
+import { BreadCrumbs } from './ui/breadcrumbs'
 
 interface Props {
-  title?: string
+  title: string
   description?: string
   image?: string
   slug: string
@@ -34,7 +35,15 @@ export const BaseHead: React.FC<Props> = (props) => {
         <link rel="canonical" href={`${baseUrl}/blog/${props.slug}`} />
       </Head>
 
-      {props.children}
+      <BreadCrumbs
+        items={[
+          { href: '/#about', label: '~' },
+          { href: '/blog', label: 'Blog' },
+          { href: `/blog/${props.slug}`, label: props.title },
+        ]}
+      />
+
+      <article className="mx-auto max-w-screen-md">{props.children}</article>
     </>
   )
 }
