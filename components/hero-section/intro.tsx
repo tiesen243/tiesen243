@@ -28,7 +28,7 @@ const Intro: React.FC = () => (
       </Button>
 
       <Button className="z-30 mt-8 animate-shimmer rounded-full border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 text-xs font-bold text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 md:mt-28 md:px-4 md:py-2 md:text-base">
-        <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
+        <Link href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
           Download CV
         </Link>
       </Button>
