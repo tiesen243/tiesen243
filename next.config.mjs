@@ -1,5 +1,11 @@
+import createMDX from '@next/mdx'
+
+import remarkFrontmatter from 'remark-frontmatter'
+import remarkPrism from 'remark-prism'
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['tsx', 'md', 'mdx'],
   images: {
     remotePatterns: [
       {
@@ -14,4 +20,13 @@ const nextConfig = {
   },
 }
 
-export default nextConfig
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    jsx: true,
+    providerImportSource: '@mdx-js/react',
+    remarkPlugins: [remarkFrontmatter, remarkPrism],
+  },
+})
+
+export default withMDX(nextConfig)

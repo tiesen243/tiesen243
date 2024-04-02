@@ -1,0 +1,296 @@
+---
+title: Nextjs + Elysia Started
+description: Create a full-stack application with Next.js and ElysiaJS
+tags: [Next.js, ElysiaJS, Full-Stack]
+image: https://github.com/tiesen243/tiesen243/assets/101703006/572022b4-a286-4669-a0ca-7a3e32e3a1a1
+date: 2024-03-19T10:00:00.000Z
+---
+
+# Next.js + Elysia Started
+
+Create a full-stack application with Next.js and ElysiaJS
+
+![image](https://github.com/tiesen243/tiesen243/assets/101703006/572022b4-a286-4669-a0ca-7a3e32e3a1a1)
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Installation](#installation)
+3. [Backend](#backend)
+4. [Fontend](#fontend)
+5. [Reference](#reference)
+
+## Introduction
+
+Hello everynyan!
+Today, we're diving into the world of full-stack web development using Next.js and Elysia.js, two powerful frameworks that streamline frontend and backend development, respectively.
+
+## Installation
+
+```bash
+bun create next-app --example https://github.com/tiesen243/next-elysia [your-app-name]
+cd [your-app-name]
+bun install
+```
+
+Next step, update your enviroment variables
+
+```bash filename=".env" 
+DATABASE_URL=""
+
+# Generate a random string for NEXTAUTH_SECRET
+# openssl rand -base64 32
+NEXTAUTH_SECRET=""
+```
+
+> In this project, i'm use MongoDb for Database, if you use other database, remember to change provider in `prisma/schema.prisma` and change Id fields
+
+Then, push schema to your database
+
+```bash
+bun run db:push
+```
+
+Finaly, run your development server
+
+```bash
+bun dev
+```
+
+## Backend
+
+Define your route at `server/routes/**.ts` and update this route to `server/elysia`
+
+> Replace `[abc]` with your route
+
+Make your route model at `server/dto` and import to your route
+
+```typescript filename="server/dto/abc.dto.ts"
+import { Elysia } from 'elysia'
+
+const abcDto = new Elysia({ name: 'Model.[abc]' }).state({ db }).model({
+  hello: t.Object({ content: t.String({ minLength: 4 }) }),
+})
+
+export default abcDto
+```
+
+Create your new route
+
+```typescript filename="server/route/[abc].route.ts"
+import { Elysia } from 'elysia'
+
+import abcDto from '@/server/dto/abc.dto'
+import { authMiddleware, base } from '@/server/plugin'
+
+export const abcRoute = new Elysia({ prefix: '/[abc]' })
+  .use(base)
+  .use(abcDto)
+
+  // public routes
+
+  .post('/hello', async ({ store: { db }, body }) => {
+      return { message: `Hello ${body.content}`
+    }.
+    { body: 'hello' }
+  )
+
+  // protected routes
+  .use(authMiddleware)
+
+  .post('/auth/hello', async ({ store: { db, user }, body }) => {
+      console.log({ user })
+      return { message: `Hello ${body.content}`
+    }.
+    { body: 'hello' }
+  )
+```
+
+Add this route to app
+
+```typescript filename="server/elysia.ts"
+export const app = new Elysia({ prefix: '/api/elysia' })
+  /* others config */
+  .use(abcRoute)
+```
+
+## Fontend
+
+Now, use your new api endpoint with `swr` and `@elysiajs/eden` for example:
+
+```typescript filename="lib/hooks/post.ts"
+import useSWRInfinite from 'swr/infinite'
+import useSWRMutation from 'swr/mutation'
+
+import { api } from '@/lib/api'
+
+export const usePost = ({ PAGE_SIZE = 2 }: { PAGE_SIZE?: number }) => {
+  const {
+    data,
+    error: getError,
+    isLoading,
+    size,
+    setSize,
+    mutate,
+  } = useSWRInfinite(
+    (index) => String(index + 1),
+    async (key) => {
+      const page = Number(key.replace('posts-', '')) || 1
+      const { data, error } = await api.post.getAll.get({ query: { page, limit: PAGE_SIZE } })
+      if (error) throw error.value
+      return data
+    }
+  )
+
+  const {
+    trigger,
+    isMutating,
+    error: createError,
+  } = useSWRMutation<Res, Error, string, { content: string }>('posts', async (_, { arg }) => {
+    const { data, error } = await api.post.create.post(arg)
+    if (error) throw error.value
+    else return { message: data.message, data: data }
+  })
+
+  const posts = data ? data.flat() : []
+
+  const isReachingEnd = getError?.message === 'No posts found'
+
+  const isLoadingMore =
+    isLoading ||
+    (size > 0 && data && typeof data[size - 1] === 'undefined' && isReachingEnd === false)
+
+  const deletePost = async (id: string) => {
+    const { error } = await api.post.deletePost({ id }).delete()
+    if (error) throw error.value
+    mutate()
+  }
+
+  return {
+    posts,
+    isLoading,
+    isMutating,
+    isLoadingMore,
+    isReachingEnd,
+    createError,
+    getError,
+    trigger,
+    setSize,
+    deletePost,
+    mutate,
+  }
+}
+```
+
+Then, use it in your app
+
+```typescript filename="app/page.tsx"
+'use client'
+
+import { Button } from '@/components/ui/button'
+import * as card from '@/components/ui/card'
+import { usePost } from '@/lib/hooks'
+import { XIcon } from 'lucide-react'
+
+const PostList: React.FC<{ userId: string }> = ({ userId }) => {
+  const { posts, deletePost, setSize, isLoadingMore, isReachingEnd } = usePost({})
+
+  return (
+    <section className="space-y-4">
+      {posts.map((post) => (
+        <card.Card key={post.id} className="relative">
+          {userId === post.author.id && (
+            <Button
+              variant="destructive"
+              size="icon"
+              className="absolute right-2 top-2 z-10"
+              onClick={async () => deletePost(post.id)}
+            >
+              <XIcon />
+            </Button>
+          )}
+          <card.CardHeader>
+            <card.CardDescription>{post.author.name}</card.CardDescription>
+            <card.CardTitle>{post.content}</card.CardTitle>
+          </card.CardHeader>
+        </card.Card>
+      ))}
+
+      <Button
+        variant="ghost"
+        onClick={() => setSize((size) => size + 1)}
+        className="w-full"
+        isLoading={isLoadingMore === true && isReachingEnd === false}
+        disabled={isReachingEnd}
+      >
+        {isReachingEnd ? 'No more posts' : 'Load more'}
+      </Button>
+    </section>
+  )
+}
+export default PostList
+```
+
+### Notes
+
+1. Note: `trigger` function form `swr/mutation` only works with method chaining. You can't use it with async/await. If you use async/await, `isMutating` will always return `false`, so you need to use `useFormStatus` to check the `pending` status of the form.
+
+2. If you want to use `middleware`, this is the example:
+
+```typescript filename="middleware.ts"
+import { auth } from '@/server/auth'
+import { NextResponse, type NextRequest } from 'next/server'
+
+export const middleware = async (req: NextRequest) => {
+  const session = await auth()
+  const url = req.nextUrl
+  const path = url.pathname
+
+  // Redirect to sign in if user is not signed in and not on the sign in page
+  if (!path.startsWith('/auth') && !session)
+    return NextResponse.redirect(new URL('/auth/signin', url))
+
+  // Redirect to dashboard if user is already signed in
+  if (path.startsWith('/auth') && session) return NextResponse.redirect(new URL('/', url))
+
+  // Redirect to homepage if user is not admin
+  // Remember to add role to the user object in `schema.prisma`
+  if (path.startsWith('/dashboard') && session && session.user.role !== 'ADMIN')
+    return NextResponse.redirect(new URL('/', url))
+
+  return NextResponse.next()
+}
+
+export const config = {
+  matcher: ['/auth/:path*', '/dashboard/:path*'],
+}
+```
+
+## Reference
+
+### Documents
+
+- Next.js: [nextjs.org](https://nextjs.org/)
+- ElysiaJS: [elysiajs.com](https://elysiajs.com/)
+- SWR: [swr.vercel.app](https://swr.vercel.app/)
+
+### Try it now!!!
+
+1. Fork my repository: [here](https://github.com/tiesen243/next-elysia/)
+2. Demo web app: [here](https://next-elysia.vercel.app/)
+
+<div align="center">
+  <b>Thanks for reading, hope you like this</b>
+</div>
+
+import { BaseHead } from '@/components/base-head'
+export default ({ children }) => (
+  <BaseHead
+    title="Nextjs + Elysia Started"
+    description="Create a full-stack application with Next.js and ElysiaJS"
+    image="image: https://github.com/tiesen243/tiesen243/assets/101703006/572022b4-a286-4669-a0ca-7a3e32e3a1a1"
+    slug="nextjs-elysia-started"
+  >
+    {children}
+  </BaseHead>
+)

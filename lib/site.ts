@@ -28,6 +28,7 @@ export const siteConfig = {
       "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
     url: baseUrl,
     siteName: 'Tiesen',
+    images: '/og.jpg',
   },
   twitter: {
     card: 'summary_large_image',
@@ -35,7 +36,9 @@ export const siteConfig = {
     description:
       "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
     creator: '@tiesen243',
+    images: '/og.jpg',
   },
+
   socials: [
     {
       label: 'Github',
@@ -88,8 +91,8 @@ export const siteConfig = {
       url: '/projects',
     },
     {
-      label: 'Blogs',
-      url: '/blogs',
+      label: 'Blog',
+      url: '/blog',
     },
   ],
 }

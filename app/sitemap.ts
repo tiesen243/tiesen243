@@ -1,4 +1,4 @@
-import { getAllPostsMeta } from '@/lib/mdx'
+import { getPosts } from '@/lib/get-posts'
 import { baseUrl } from '@/lib/site'
 import { MetadataRoute } from 'next'
 
@@ -8,12 +8,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }))
 
-  const blogsPromise = await getAllPostsMeta().then((res) =>
-    res.map((blog) => ({
-      url: `${baseUrl}${blog.slug}`,
-      lastModified: new Date().toISOString(),
-    }))
-  )
+  const blogsPromise = getPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.meta.date.toISOString(),
+  }))
 
   let fetchedRoutes: Route[] = []
   try {

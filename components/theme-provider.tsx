@@ -6,7 +6,7 @@ import * as React from 'react'
 import * as tabs from '@/components/ui/tabs'
 
 export const ThemeProvider: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <nextThemes.ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+  <nextThemes.ThemeProvider attribute="class" disableTransitionOnChange>
     {children}
   </nextThemes.ThemeProvider>
 )

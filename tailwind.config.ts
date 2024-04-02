@@ -1,12 +1,11 @@
 import type { Config } from 'tailwindcss'
 
 import { fontFamily } from 'tailwindcss/defaultTheme'
-import typography from '@tailwindcss/typography'
 import animate from 'tailwindcss-animate'
 
 const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './pages/**/*.{ts,tsx,mdx}'],
   prefix: '',
   theme: {
     container: {
@@ -18,8 +17,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
-        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -109,7 +108,7 @@ const config = {
       },
     },
   },
-  plugins: [typography, animate],
+  plugins: [animate],
 } satisfies Config
 
 export default config

@@ -9,14 +9,10 @@ const Footer: React.FC = () => {
       <div className="container flex justify-between gap-4">
         <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <Link href="/" className="flex h-fit items-center gap-2">
-            <div className="h-fit w-fit rounded-lg border-2 bg-background p-2">
-              <Image
-                src="/images/logo.svg"
-                alt="logo"
-                width={20}
-                height={20}
-                className="dark:invert"
-              />
+            <div className="rounded-lg border-2 bg-background p-2">
+              <div className="size-6 dark:invert">
+                <Image src="/images/logo.svg" alt="logo" fill />
+              </div>
             </div>
             <span className="text-4xl font-bold md:text-2xl">{siteConfig.title.default}</span>
           </Link>

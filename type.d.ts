@@ -22,14 +22,15 @@ interface PostSource {
   download_url: string
 }
 
-interface PostMeta {
-  title: string
-  description: string
-  tags: string[]
-  date: Date
+interface BlogPost {
+  meta: {
+    title: string
+    description: string
+    date: Date
+    tags: string[]
+    image: string
+  }
   slug: string
-  name: string
-  image: string
 }
 
 interface Route {

@@ -1,4 +1,4 @@
-import { NotebookIcon, SchoolIcon, ActivityIcon, HeartIcon } from 'lucide-react'
+import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
 
 import * as card from '@/components/ui/card'
 import * as tabs from '@/components/ui/tabs'
@@ -19,7 +19,7 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <tabs.TabsContent key={tab.id} value={tab.id}>
         <card.Card>
-          <card.CardHeader className="prose prose-zinc w-full max-w-full dark:prose-invert md:prose-lg prose-li:text-foreground">
+          <card.CardHeader className="prose prose-zinc dark:prose-invert md:prose-lg prose-li:text-foreground w-full max-w-full">
             {tab.content}
           </card.CardHeader>
         </card.Card>
@@ -50,7 +50,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="grid grid-cols-3  md:grid-cols-4 lg:grid-cols-6">
+      <ul className="grid grid-cols-3 text-xl font-medium md:grid-cols-4 lg:grid-cols-6">
         {[
           'TypeScript',
           'Next.js',
@@ -78,11 +78,11 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="prose-h3:m-0 prose-p:m-0">
+      <ul>
         {education.map((item) => (
           <li key={item.id}>
             <time className="text-muted-foreground">{item.time}</time>
-            <h3>{item.school}</h3>
+            <h3 className="text-xl font-medium">{item.school}</h3>
             <p className="text-muted-foreground">Majors: {item.major}</p>
             {item.gpa && <p className="text-muted-foreground">GPA: {item.gpa}</p>}
           </li>
@@ -111,7 +111,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul>
+      <ul className="text-xl font-medium">
         {['Watching anime', 'Reading manga and light novel', 'Playing some gacha game'].map(
           (item) => (
             <li key={item}>{item}</li>

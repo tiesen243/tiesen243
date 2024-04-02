@@ -1,4 +1,4 @@
-import type { Metadata, NextPage, ResolvingMetadata } from 'next'
+import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
 
 import { MotionLi } from '@/components/motion'
@@ -6,21 +6,19 @@ import ProjectCard from '@/components/project-card'
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
 import { baseUrl } from '@/lib/site'
 
-export const generateMetadata = async (_: any, parent: ResolvingMetadata): Promise<Metadata> => ({
+export const metadata: Metadata = {
   title: 'Projects',
   description: 'A showcase of my projects and things I have created',
   openGraph: {
     title: 'Projects',
     description: 'A showcase of my projects and things I have created',
     url: `${baseUrl}/projects`,
-    images: (await parent).openGraph?.images || [],
   },
   twitter: {
     title: 'Projects',
     description: 'A showcase of my projects and things I have created',
-    images: (await parent).twitter?.images || [],
   },
-})
+}
 
 const Page: NextPage = async () => {
   const projects: Project[] = await fetch(process.env.PROJECTS_URL!, {
@@ -32,7 +30,7 @@ const Page: NextPage = async () => {
     .catch((_e) => [])
 
   return (
-    <main className="container min-h-dvh flex-grow space-y-4 pt-4">
+    <main className="container flex-grow space-y-4">
       <BreadCrumbs
         items={[
           { label: '~', href: '/#about' },
@@ -52,16 +50,6 @@ const Page: NextPage = async () => {
           </MotionLi>
         ))}
       </ul>
-
-      <article>
-        <h3>Something I have cooked up on my free time</h3>
-        <p>
-          I have a habit of creating things in my free time, here are some of the things I have
-          created.
-          <br />
-          Hope you like it :3
-        </p>
-      </article>
 
       <ul className="space-y-4">
         {[1, 2, 3, 4].map((idx) => (

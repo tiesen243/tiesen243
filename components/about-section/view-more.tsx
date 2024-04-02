@@ -4,7 +4,7 @@ import { MotionLink, MotionSpan, MotionSvg } from '@/components/motion'
 
 const ViewMore = () => (
   <div className="my-4 flex flex-col items-start justify-between gap-4 text-xl font-bold md:flex-row md:items-center md:gap-20">
-    {['projects', 'blogs'].map((link) => (
+    {['projects', 'blog'].map((link) => (
       <Link key={link} href={`/${link}`} passHref legacyBehavior>
         <MotionLink
           className="inline-flex w-full items-center justify-between gap-2"
@@ -25,9 +25,9 @@ const ViewMore = () => (
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               className="lucide lucide-chevrons-right"
               variants={icon}
             >

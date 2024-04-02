@@ -71,7 +71,7 @@
 
 @layer base {
   * {
-    @apply relative box-border scroll-smooth border-border selection:bg-foreground selection:text-background;
+    @apply relative box-border scroll-smooth border-border;
   }
 
   body {
@@ -85,10 +85,6 @@
 
   p {
     @apply text-pretty;
-  }
-
-  article {
-    @apply prose prose-zinc dark:prose-invert lg:prose-lg prose-headings:mb-1 prose-headings:mt-2 prose-p:my-1;
   }
 
   ::-webkit-scrollbar {
