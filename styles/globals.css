@@ -34,8 +34,8 @@
 
     --radius: 0.5rem;
 
-    --gradient-from: 195, 100%, 60%;
-    --gradient-to: 156, 100%, 50%;
+    --from: #d973a2;
+    --to: #363cbf;
   }
 
   .dark {
@@ -66,6 +66,9 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    --from: #e87e8b;
+    --to: #7dbfe8;
   }
 }
 
@@ -74,7 +77,8 @@
     @apply relative box-border scroll-smooth border-border;
   }
 
-  body {
+  body,
+  #__next {
     @apply flex min-h-dvh flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased;
   }
 

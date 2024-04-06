@@ -7,7 +7,7 @@ import { buttonVariants } from './ui/button'
 
 const ProjectCard: React.FC<Project> = (props) => (
   <card.Card className="group">
-    <card.CardHeader className="mb-2 aspect-video w-full space-y-0">
+    <card.CardHeader className="mb-4 aspect-video w-full space-y-0">
       <Image
         src={`/images/projects/${props.name}.jpg`}
         alt={props.name}

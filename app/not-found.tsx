@@ -1,16 +1,17 @@
-import { Button } from '@/components/ui/button'
 import type { NextPage } from 'next'
 import Link from 'next/link'
 
-const NotFound: NextPage = () => (
-  <main className="flex min-h-dvh flex-grow flex-col items-center justify-center">
-    <article>
-      <h1 className="text-center text-5xl font-bold">Egg!!</h1>
-      <p className="text-center">404 | Page Not Found</p>
-    </article>
+import { Button } from '@/components/ui/button'
 
-    <Link href="/" passHref legacyBehavior>
-      <Button className="bg-gradient-text text-primary">Back to Home</Button>
+const NotFound: NextPage = () => (
+  <main className="flex min-h-dvh flex-grow flex-col items-center justify-center space-y-8">
+    <h1 className="text-center text-5xl font-bold">Egg!!</h1>
+    <p className="text-2xl">404 | Page Not Found</p>
+
+    <Link href="/" passHref>
+      <Button className="bg-gradient-to-br from-[var(--from)] to-[var(--to)] text-xl font-black">
+        Back to Home
+      </Button>
     </Link>
   </main>
 )

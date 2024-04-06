@@ -10,7 +10,7 @@ const Intro: React.FC = () => (
       <TypeAnimation
         delay={1}
         texts={['Tiesen', 'Weeb Developer', 'NextJs Developer']}
-        className="bg-gradient-text bg-clip-text pb-4 text-center font-mono text-5xl font-bold text-transparent md:text-7xl"
+        className="bg-gradient-to-br from-[var(--from)] to-[var(--to)] bg-clip-text pb-4 text-center font-mono text-5xl font-bold text-transparent md:text-7xl"
       />
     </div>
 
@@ -21,7 +21,7 @@ const Intro: React.FC = () => (
 
     <div className="absolute -top-60 flex h-[920px] w-full items-center justify-center gap-8 md:-top-40 ">
       <Button
-        className="z-30 mt-8 rounded-full bg-gradient-text text-xs font-bold text-black md:mt-28 md:px-4 md:py-2 md:text-base"
+        className="z-30 mt-8 rounded-full bg-gradient-to-br from-[var(--from)] to-[var(--to)] text-xs font-bold shadow-lg md:mt-28 md:px-4 md:py-2 md:text-base"
         asChild
       >
         <Link href="/#contact-form">Contact Me</Link>

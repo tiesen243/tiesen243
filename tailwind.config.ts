@@ -61,10 +61,6 @@ const config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
-      backgroundImage: {
-        'gradient-text':
-          'linear-gradient(to bottom right, hsl(var(--gradient-from)), hsl(var(--gradient-to)))',
-      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
