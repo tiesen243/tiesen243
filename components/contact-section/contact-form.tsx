@@ -34,9 +34,9 @@ const ContactForm: React.FC = () => {
 
       if (res.error)
         return toast.error("Email couldn't be sent", {
-          description: Object.values(res.error).map((err: string, idx: number) => (
-            <p key={idx}>{err}</p>
-          )),
+          description: Object.entries(res.error)
+            .flatMap(([_, value]) => `${value}`)
+            .join('<br/>'),
         })
 
       formRef.current?.reset()
