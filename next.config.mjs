@@ -1,13 +1,5 @@
-import { createMdxtsPlugin } from 'mdxts/next'
-
-const withMdxts = createMdxtsPlugin({
-  theme: 'dracula',
-  siteUrl:
-    process.env.NODE_ENV === 'production' ? 'https://mdxts.vercel.app' : 'http://localhost:3000',
-  gitSource: 'https://github.com/souporserious/mdxts',
-})
-
-export default withMdxts({
+/** @type {import('next').NextConfig} */
+export default {
   reactStrictMode: true,
   images: {
     remotePatterns: [
@@ -15,4 +7,7 @@ export default withMdxts({
       { protocol: 'https', hostname: 'raw.githubusercontent.com' },
     ],
   },
-})
+  experimental: {
+    serverComponentsExternalPackages: ['shiki'],
+  },
+}

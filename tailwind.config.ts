@@ -7,7 +7,7 @@ import typography from '@tailwindcss/typography'
 
 const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.{md,mdx}'],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.{md,mdx,tsx}'],
   prefix: '',
   theme: {
     container: {

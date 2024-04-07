@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 
-import { posts } from '@/content'
 import { baseUrl } from '@/lib/site'
+import { getPosts } from '@/content'
 
 interface Route {
   url: string
@@ -14,9 +14,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }))
 
-  const blogRoutes = posts.all().map((post) => ({
-    url: `${baseUrl}${post.pathname}`,
-    lastModified: new Date().toISOString(),
+  const posts = await getPosts()
+
+  const blogRoutes = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: post.date.toISOString(),
   }))
 
   let fetchedRoutes: Route[] = []

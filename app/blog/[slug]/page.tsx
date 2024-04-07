@@ -1,22 +1,39 @@
 import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { Typography } from '@/components/ui/typography'
-import { posts } from '@/content'
-import type { NextPage } from 'next'
+import { getPost } from '@/content'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 interface Props {
   params: { slug: string }
 }
 
-export function generateStaticParams() {
-  return posts.paths().map((pathname) => ({ slug: pathname.at(-1) }))
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const { meta } = await getPost(`${params.slug}.mdx`)
+
+  const previousImages = (await parent).openGraph?.images ?? []
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    keywords: meta.tags,
+    openGraph: {
+      images: [meta.image, ...previousImages],
+    },
+    twitter: {
+      images: [meta.image, ...previousImages],
+    },
+  }
 }
 
 const Page: NextPage<Props> = async ({ params: { slug } }) => {
-  const doc = await posts.get(`/blog/${slug}`)
-  if (!doc) return notFound()
-
-  const { frontMatter, Content } = doc
+  const doc = await getPost(`${slug}.mdx`)
+  const { content, meta } = doc
+  if (!meta.title) return notFound()
 
   return (
     <>
@@ -32,21 +49,28 @@ const Page: NextPage<Props> = async ({ params: { slug } }) => {
         items={[
           { name: '~', href: '/' },
           { name: 'Blog', href: '/blog' },
-          { name: frontMatter.title, href: `/blog/${slug}` },
+          { name: meta.title, href: `/blog/${slug}` },
         ]}
       />
 
-      <article className="flex flex-col items-center">
-        <Typography variant="h1">{frontMatter.title}</Typography>
+      <article className="mx-auto flex max-w-screen-md flex-col items-center">
+        <Typography variant="h1">{meta.title}</Typography>
         <Typography className="text-muted-foreground [&:not(:first-child)]:mt-0">
-          {frontMatter.date.toDateString()}
+          {meta.date.toDateString()}
         </Typography>
-        <Typography className="[&:not(:first-child)]:mt-0">{frontMatter.description}</Typography>
+        <Typography className="[&:not(:first-child)]:mt-0">{meta.description}</Typography>
       </article>
 
-      <article className="prose prose-zinc dark:prose-invert md:prose-lg prose-pre:bg-transparent">
-        {/* @ts-expect-error cuz Content is a component */}
-        <Content />
+      <article className="mx-auto max-w-screen-md">
+        <Image
+          src={meta.image}
+          width={1920}
+          height={1080}
+          alt={meta.title}
+          className="rounded-lg"
+        />
+
+        {content}
       </article>
     </>
   )
