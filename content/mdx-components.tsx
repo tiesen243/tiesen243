@@ -1,9 +1,8 @@
 import Image, { ImageProps } from 'next/image'
-import { codeToHtml } from 'shiki'
 
+import { Typography } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 import { MDXComponents } from 'mdx/types'
-import { Typography } from '@/components/ui/typography'
 
 export const mdxComponents = {
   h1: (props) => <Typography variant="h1" {...props} />,
@@ -33,12 +32,7 @@ export const mdxComponents = {
     />
   ),
 
-  pre: () => <></>,
-  code: async (props) => {
-    const html = await codeToHtml(props.children?.toString() ?? '', {
-      lang: props.className ? props.className?.replace('language-', '') : 'text',
-      theme: 'dracula',
-    })
-    return <pre dangerouslySetInnerHTML={{ __html: html }} className="overflow-x-auto" />
-  },
+  pre: (props) => (
+    <pre {...props} className={cn('overflow-x-auto rounded-lg p-4 font-mono', props.className)} />
+  ),
 } satisfies MDXComponents
