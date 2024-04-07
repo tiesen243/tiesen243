@@ -32,6 +32,7 @@ export const TypeAnimation: React.FC<Props> = ({ delay, texts, className = '' })
   const updatedThisRound = useMotionValue(true)
 
   React.useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     animate(count, 60, {
       type: 'tween',
       delay: delay,
@@ -59,7 +60,7 @@ export const TypeAnimation: React.FC<Props> = ({ delay, texts, className = '' })
       <MotionDiv
         variants={cursorVariants}
         animate="blinking"
-        className="inline-block h-10 w-1 translate-y-1 bg-gradient-text md:h-14"
+        className="bg-gradient-text inline-block h-10 w-1 translate-y-1 md:h-14"
       />
     </span>
   )

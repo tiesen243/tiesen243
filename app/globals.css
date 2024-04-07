@@ -77,11 +77,6 @@
     @apply relative box-border scroll-smooth border-border;
   }
 
-  body,
-  #__next {
-    @apply flex min-h-dvh flex-col overflow-x-hidden bg-background font-sans text-foreground antialiased;
-  }
-
   /* prettier-ignore */
   h1, h2, h3, h4, h5, h6 {
     @apply text-balance;
@@ -89,6 +84,10 @@
 
   p {
     @apply text-pretty;
+  }
+
+  code {
+    @apply font-mono;
   }
 
   ::-webkit-scrollbar {

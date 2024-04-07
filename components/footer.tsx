@@ -15,7 +15,9 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => (
               <Image src="/images/logo.svg" alt="logo" fill />
             </div>
           </div>
-          <span className="text-4xl font-bold md:text-2xl">{siteConfig.title.default}</span>
+          <span className="text-4xl font-bold md:text-2xl">
+            {siteConfig.metadata.applicationName}
+          </span>
         </Link>
 
         <ul className="flex flex-col gap-2 text-2xl md:col-span-2 md:text-xl">

@@ -1,11 +1,11 @@
 import { siteConfig } from '@/lib/site'
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: siteConfig.title.default,
-    short_name: siteConfig.title.default,
-    description: siteConfig.description,
+    name: siteConfig.metadata.applicationName,
+    short_name: siteConfig.metadata.applicationName,
+    description: siteConfig.metadata.description,
     start_url: '/',
     display: 'standalone',
     background_color: '#fff',

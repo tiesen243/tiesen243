@@ -1,7 +1,4 @@
-import createMDX from '@next/mdx'
-
-import remarkFrontmatter from 'remark-frontmatter'
-import remarkPrism from 'remark-prism'
+import { createMdxtsPlugin } from 'mdxts/next'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -20,13 +17,10 @@ const nextConfig = {
   },
 }
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-  options: {
-    jsx: true,
-    providerImportSource: '@mdx-js/react',
-    remarkPlugins: [remarkFrontmatter, remarkPrism],
-  },
+const withMDX = createMdxtsPlugin({
+  theme: 'dracula',
+  siteUrl: 'https://tiesen.id.vn',
+  gitSource: 'https://github.com/souporserious/mdxts',
 })
 
 export default withMDX(nextConfig)

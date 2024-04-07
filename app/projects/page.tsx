@@ -2,22 +2,12 @@ import type { Metadata, NextPage } from 'next'
 import Image from 'next/image'
 
 import { MotionLi } from '@/components/motion'
-import ProjectCard from '@/components/project-card'
+import { ProjectCard } from '@/components/project-card'
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
-import { baseUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'A showcase of my projects and things I have created',
-  openGraph: {
-    title: 'Projects',
-    description: 'A showcase of my projects and things I have created',
-    url: `${baseUrl}/projects`,
-  },
-  twitter: {
-    title: 'Projects',
-    description: 'A showcase of my projects and things I have created',
-  },
 }
 
 const Page: NextPage = async () => {

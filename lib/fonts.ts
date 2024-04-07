@@ -1,14 +1,4 @@
-import { Inter, Fira_Mono } from 'next/font/google'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-})
-
-const fira = Fira_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  weight: ['400', '500', '700'],
-})
-
-export const fonts = `${inter.variable} ${fira.variable}`
+export const fonts = `${GeistSans.variable} ${GeistMono.variable}`

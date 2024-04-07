@@ -17,7 +17,11 @@ const ContactForm: React.FC = () => {
   const send = async (formData: FormData) => {
     try {
       const data = Object.fromEntries(formData)
-      const res = await fetch(process.env.NEXT_PUBLIC_SEND_EMAIL!, {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const res: {
+        error?: Record<string, string>
+        message?: string
+      } = await fetch(process.env.NEXT_PUBLIC_SEND_EMAIL!, {
         method: 'POST',
         body: JSON.stringify({
           from: 'Contact Form',
@@ -30,22 +34,23 @@ const ContactForm: React.FC = () => {
 
       if (res.error)
         return toast.error("Email couldn't be sent", {
-          description: (Object.values(res.error) as string[]).map((err: string, idx: number) => (
+          description: Object.values(res.error).map((err: string, idx: number) => (
             <p key={idx}>{err}</p>
           )),
         })
 
       formRef.current?.reset()
       return toast.success(res.message)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      toast.error(error.message)
+      if (error instanceof Error) toast.error(error.message)
     }
   }
 
   return (
     <card.Card className="grid grid-cols-1 border md:grid-cols-2">
       <card.CardHeader className="flex-col items-start">
-        <h2 className="bg-gradient-text bg-clip-text text-6xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-to-br from-[var(--from)] to-[var(--to)] bg-clip-text text-6xl font-extrabold text-transparent">
           Contact Form
         </h2>
 
@@ -79,9 +84,8 @@ export default ContactForm
 const SubmitButton: React.FC = () => {
   const { pending } = useFormStatus()
   return (
-    <Button type="submit" disabled={pending}>
-      {pending && <Loader2Icon className="animate-spin" />}
-      Send Message
+    <Button type="submit" disabled={pending} className="w-full">
+      {pending ? <Loader2Icon className="animate-spin" /> : 'Send Message'}
     </Button>
   )
 }

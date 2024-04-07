@@ -1,11 +1,11 @@
 import Image from 'next/image'
+import { GithubIcon, Link2Icon } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
 import * as card from '@/components/ui/card'
-import { GithubIcon, Link2Icon } from 'lucide-react'
-import { buttonVariants } from './ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
-const ProjectCard: React.FC<Project> = (props) => (
+export const ProjectCard: React.FC<Project> = (props) => (
   <card.Card className="group">
     <card.CardHeader className="mb-4 aspect-video w-full space-y-0">
       <Image
@@ -56,5 +56,3 @@ const ProjectCard: React.FC<Project> = (props) => (
     </card.CardFooter>
   </card.Card>
 )
-
-export default ProjectCard

@@ -5,7 +5,12 @@ import animate from 'tailwindcss-animate'
 
 const config = {
   darkMode: ['class'],
-  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './pages/**/*.{ts,tsx,mdx}'],
+  content: [
+    './mdx-components.tsx',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './content/**/*.{ts,tsx,mdx}',
+  ],
   prefix: '',
   theme: {
     container: {
@@ -17,8 +22,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-sans)', ...fontFamily.sans],
-        mono: ['var(--font-mono)', ...fontFamily.mono],
+        sans: ['var(--font-geist-sans)', ...fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...fontFamily.mono],
       },
       colors: {
         border: 'hsl(var(--border))',

@@ -1,25 +1,25 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import * as card from '@/components/ui/card'
+import type { Doc } from '@/content'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 
-export const BlogCard: React.FC<{ blog: BlogPost }> = ({ blog }) => (
-  <Link key={blog.slug} href={`/blog/${blog.slug}`} passHref>
-    <card.Card className="transition-colors ease-linear hover:bg-secondary">
-      <card.CardHeader className="mb-4 aspect-video w-full">
+export const BlogCard: React.FC<{ doc: Doc }> = ({ doc }) => (
+  <Link href={doc.pathname} passHref>
+    <Card className="transition-colors ease-linear hover:bg-secondary">
+      <CardHeader className="mb-4 aspect-video w-full">
         <Image
-          src={blog.meta.image ?? '/og.jpg'}
-          alt={blog.meta.title}
-          className="rounded-t-lg object-cover"
+          src={`/images/blog/${doc.pathname.split('/').at(-1)}.png`}
+          alt={doc.title}
+          className="rounded-t-lg"
           fill
         />
-      </card.CardHeader>
+      </CardHeader>
 
-      <card.CardFooter className="flex-col items-start">
-        <card.CardTitle>{blog.meta.title}</card.CardTitle>
-        <card.CardDescription>{blog.meta.description}</card.CardDescription>
-        <card.CardDescription>{blog.meta.date.toDateString()}</card.CardDescription>
-      </card.CardFooter>
-    </card.Card>
+      <CardFooter className="flex-col items-start gap-2">
+        <CardTitle>{doc.title}</CardTitle>
+        <CardDescription>{doc.description}</CardDescription>
+      </CardFooter>
+    </Card>
   </Link>
 )
