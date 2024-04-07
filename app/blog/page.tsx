@@ -2,7 +2,7 @@ import type { Metadata, NextPage } from 'next'
 
 import { BlogCard } from '@/components/blog-card'
 import { BreadCrumbs } from '@/components/ui/breadcrumbs'
-import { allDocs } from '@/content'
+import { type Post, posts } from '@/content'
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -19,8 +19,8 @@ const Page: NextPage = () => (
     />
 
     <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-      {allDocs.all().map((doc) => (
-        <BlogCard key={doc.pathname} doc={doc} />
+      {posts.all().map((doc) => (
+        <BlogCard key={doc.pathname} doc={doc as Post} />
       ))}
     </section>
   </main>

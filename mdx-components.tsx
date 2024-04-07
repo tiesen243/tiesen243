@@ -21,7 +21,9 @@ export const useMDXComponents = (): MDXComponents => ({
       {...props}
     />
   ),
-  h3: (props) => <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight" {...props} />,
+  h3: (props) => (
+    <h3 className="scroll-m-20 pt-2 text-2xl font-semibold tracking-tight" {...props} />
+  ),
   h4: (props) => <h4 className="scroll-m-20 text-xl font-semibold tracking-tight" {...props} />,
   p: (props) => <p className="leading-7 [&:not(:first-child)]:my-2" {...props} />,
   blockquote: (props) => <blockquote className="my-4 border-l-2 pl-6 italic" {...props} />,

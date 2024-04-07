@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { allDocs } from '@/content'
+import { posts } from '@/content'
 import { baseUrl } from '@/lib/site'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -9,7 +9,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }))
 
-  const blogRoutes = allDocs.all().map((post) => ({
+  const blogRoutes = posts.all().map((post) => ({
     url: `${baseUrl}${post.pathname}`,
     lastModified: new Date().toISOString(),
   }))

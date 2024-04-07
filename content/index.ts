@@ -1,16 +1,20 @@
 import { createSource } from 'mdxts'
 
-export const allDocs = createSource<{
-  metadata: {
-    title: string
-    description: string
-    image: string
-    tags: string[]
-    date: Date
-  }
+type FrontMatter = {
+  title: string
+  description: string
   image: string
+  tags: string[]
+  date: Date
+}
+
+export const posts = createSource<{
+  metadata: { date: string }
+  frontMatter: FrontMatter
 }>('./**/*.mdx', {
   baseDirectory: 'content',
 })
 
-export type Doc = ReturnType<typeof allDocs.all>[0]
+export type Post = ReturnType<typeof posts.all>[0] & {
+  frontMatter: FrontMatter
+}
