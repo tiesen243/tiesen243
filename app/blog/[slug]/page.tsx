@@ -1,9 +1,10 @@
-import { BreadCrumbs } from '@/components/ui/breadcrumb'
-import { Typography } from '@/components/ui/typography'
-import { getPost, getPosts } from '@/content'
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
+
+import { BreadCrumbs } from '@/components/ui/breadcrumb'
+import { Typography } from '@/components/ui/typography'
+import { getPost } from '@/content'
 
 interface Props {
   params: { slug: string }
@@ -28,11 +29,6 @@ export async function generateMetadata(
       images: [meta.image, ...previousImages],
     },
   }
-}
-
-export const generateStaticParams = async () => {
-  const posts = await getPosts()
-  return posts.map(({ slug }) => ({ params: { slug } }))
 }
 
 const Page: NextPage<Props> = async ({ params: { slug } }) => {
