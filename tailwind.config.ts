@@ -1,16 +1,13 @@
 import type { Config } from 'tailwindcss'
-
 import { fontFamily } from 'tailwindcss/defaultTheme'
+
+/* Plugins */
 import animate from 'tailwindcss-animate'
+import typography from '@tailwindcss/typography'
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './mdx-components.tsx',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './content/**/*.{ts,tsx,mdx}',
-  ],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './content/**/*.{md,mdx}'],
   prefix: '',
   theme: {
     container: {
@@ -60,7 +57,6 @@ const config = {
           foreground: 'hsl(var(--card-foreground))',
         },
       },
-
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -75,7 +71,6 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
-
         'infinite-scroll': {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-100%)' },
@@ -84,32 +79,16 @@ const config = {
           from: { transform: 'translateX(-100%)' },
           to: { transform: 'translateX(0)' },
         },
-        shimmer: {
-          from: {
-            backgroundPosition: '0 0',
-          },
-          to: {
-            backgroundPosition: '-200% 0',
-          },
-        },
       },
       animation: {
-        shimmer: 'shimmer 2s linear infinite',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'infinite-scroll': 'infinite-scroll 30s linear infinite',
-        'infinite-scroll-reverse': 'infinite-scroll-reverse 30s linear infinite',
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: '100%',
-          },
-        },
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        'infinite-scroll-reverse': 'infinite-scroll 25s linear infinite reverse',
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, typography],
 } satisfies Config
 
 export default config

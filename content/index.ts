@@ -1,20 +1,15 @@
-import { createSource } from 'mdxts'
+import { type Module, createSource } from 'mdxts'
 
-type FrontMatter = {
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  date: Date
+export interface Post {
+  frontMatter: {
+    title: string
+    description: string
+    image: string
+    tags: string[]
+    date: Date
+  }
 }
 
-export const posts = createSource<{
-  metadata: { date: string }
-  frontMatter: FrontMatter
-}>('./**/*.mdx', {
+export const posts = createSource<Post>('./**/*.mdx', {
   baseDirectory: 'content',
 })
-
-export type Post = ReturnType<typeof posts.all>[0] & {
-  frontMatter: FrontMatter
-}

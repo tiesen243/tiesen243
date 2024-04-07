@@ -1,20 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import type { Post } from '@/content'
-import * as card from '@/components/ui/card'
 
-export const BlogCard: React.FC<{ doc: Post }> = ({ doc: { pathname, frontMatter } }) => (
-  <Link href={pathname} passHref>
-    <card.Card className="transition-colors ease-linear hover:bg-secondary">
-      <card.CardHeader className="mb-4 aspect-video w-full">
-        <Image src={frontMatter.image} alt={frontMatter.title} className="rounded-t-lg" fill />
-      </card.CardHeader>
+export const BlogCard: React.FC<Post & { pathname: string }> = (post) => (
+  <Link href={post.pathname} passHref>
+    <Card key={post.pathname} className="transition-colors ease-linear hover:bg-secondary">
+      <CardHeader className="aspect-video w-full">
+        <Image
+          src={post.frontMatter.image ?? '/og.jpg'}
+          alt={post.frontMatter.title}
+          className="rounded-t-lg object-cover"
+          fill
+        />
+      </CardHeader>
 
-      <card.CardFooter className="flex-col items-start gap-2">
-        <card.CardTitle>{frontMatter.title}</card.CardTitle>
-        <card.CardDescription>{frontMatter.description}</card.CardDescription>
-      </card.CardFooter>
-    </card.Card>
+      <CardFooter className="flex-col items-start gap-1 pt-4">
+        <CardTitle>{post.frontMatter.title}</CardTitle>
+        <CardDescription className="line-clamp-1">{post.frontMatter?.description}</CardDescription>
+        <CardDescription className="text-sm text-muted-foreground">
+          {post.frontMatter.date.toDateString()}
+        </CardDescription>
+      </CardFooter>
+    </Card>
   </Link>
 )

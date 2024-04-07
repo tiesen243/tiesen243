@@ -1,16 +1,7 @@
-import {
-  CoffeeIcon,
-  FacebookIcon,
-  GithubIcon,
-  LinkedinIcon,
-  TwitterIcon,
-  YoutubeIcon,
-} from 'lucide-react'
+import * as icons from 'lucide-react'
 
 export const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
-
-export type Site = typeof siteConfig
 
 export const siteConfig = {
   metadata: {
@@ -47,32 +38,32 @@ export const siteConfig = {
     {
       label: 'Github',
       href: 'https://github.com/tiesen243',
-      icon: GithubIcon,
+      icon: icons.GithubIcon,
     },
     {
       label: 'Linkedin',
       href: 'https://www.linkedin.com/in/tiesen243/',
-      icon: LinkedinIcon,
+      icon: icons.LinkedinIcon,
     },
     {
       label: 'Facebook',
       href: 'https://www.facebook.com/tiesen243/',
-      icon: FacebookIcon,
+      icon: icons.FacebookIcon,
     },
     {
       label: 'Twitter',
       href: 'https://twitter.com/tiesen243',
-      icon: TwitterIcon,
+      icon: icons.TwitterIcon,
     },
     {
       label: 'Youtube',
       href: 'https://www.youtube.com/@tiesen243',
-      icon: YoutubeIcon,
+      icon: icons.YoutubeIcon,
     },
     {
       label: 'Support me',
       href: 'https://me.momo.vn/tiesen243',
-      icon: CoffeeIcon,
+      icon: icons.CoffeeIcon,
     },
   ],
 

@@ -1,7 +1,7 @@
 import { siteConfig } from '@/lib/site'
-import * as card from '../ui/card'
+import * as card from '@/components/ui/card'
 
-const Social: React.FC = () => (
+export const Socials: React.FC = () => (
   <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
     {siteConfig.socials.map((social) => (
       <li key={social.label}>
@@ -17,5 +17,3 @@ const Social: React.FC = () => (
     ))}
   </ul>
 )
-
-export default Social

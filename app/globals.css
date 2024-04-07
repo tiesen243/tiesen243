@@ -74,20 +74,15 @@
 
 @layer base {
   * {
-    @apply relative box-border scroll-smooth border-border;
+    @apply relative box-border border-border selection:bg-foreground selection:text-background;
   }
 
-  /* prettier-ignore */
+  /* prettier-ignore  */
   h1, h2, h3, h4, h5, h6 {
     @apply text-balance;
   }
-
   p {
     @apply text-pretty;
-  }
-
-  code {
-    @apply font-mono;
   }
 
   ::-webkit-scrollbar {
@@ -98,15 +93,5 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply rounded-full bg-ring;
-  }
-}
-
-@layer components {
-  .tags::-webkit-scrollbar {
-    display: none;
-  }
-  .tags {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
   }
 }

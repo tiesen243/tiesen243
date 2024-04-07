@@ -1,58 +1,66 @@
 import Image from 'next/image'
-import { GithubIcon, Link2Icon } from 'lucide-react'
+import { GithubIcon, LinkIcon } from 'lucide-react'
 
-import { Badge } from '@/components/ui/badge'
 import * as card from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
 
-export const ProjectCard: React.FC<Project> = (props) => (
-  <card.Card className="group">
-    <card.CardHeader className="mb-4 aspect-video w-full space-y-0">
+export interface Project {
+  id: string
+  name: string
+  description: string
+  language: string
+  topics: string[]
+  html_url: string
+  homepage: string
+  created_at: Date
+}
+
+export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
+  <card.Card key={project.id} className="group">
+    <card.CardHeader className="mb-2 aspect-video w-full space-y-0">
       <Image
-        src={`/images/projects/${props.name}.jpg`}
-        alt={props.name}
+        src={`/images/projects/${project.name}.jpg`}
+        alt={project.name}
         className="rounded-t-lg object-cover"
         fill
       />
-      <div className="absolute inset-0 z-10 flex h-full w-full items-center justify-center gap-8 rounded-t-lg bg-card/70 opacity-0 backdrop-blur-xl backdrop-saturate-150 group-hover:opacity-100">
-        <a
-          href={props.html_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={buttonVariants({ variant: 'ghost', size: 'icon' })}
-        >
-          <GithubIcon />
-        </a>
 
-        {props.homepage && (
+      <div className="absolute inset-0 flex items-center justify-center gap-12 rounded-t-lg bg-background/70 opacity-0 backdrop-saturate-150 group-hover:opacity-100 group-hover:backdrop-blur-xl">
+        {project.homepage && (
           <a
-            href={props.homepage}
+            href={project.homepage}
             target="_blank"
             rel="noopener noreferrer"
-            className={buttonVariants({ variant: 'ghost', size: 'icon' })}
+            className={buttonVariants({ variant: 'ghost', className: 'h-14 w-14' })}
           >
-            <Link2Icon />
+            <LinkIcon size={32} />
           </a>
         )}
+        <a
+          href={project.html_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={buttonVariants({ variant: 'ghost', className: 'h-14 w-14' })}
+        >
+          <GithubIcon size={32} />
+        </a>
       </div>
     </card.CardHeader>
 
-    <card.CardContent className="flex-grow">
-      <card.CardTitle className="capitalize">{props.name.replace(/-/g, ' ')}</card.CardTitle>
-      <card.CardDescription className="line-clamp-1">{props.description}</card.CardDescription>
-      <card.CardDescription>{new Date(props.created_at).toDateString()}</card.CardDescription>
+    <card.CardContent>
+      <div className="flex items-center justify-between">
+        <card.CardTitle className="capitalize">{project.name.replace(/-/g, ' ')}</card.CardTitle>
+        <time className="text-muted-foreground">{new Date(project.created_at).toDateString()}</time>
+      </div>
+      <card.CardDescription>Language: {project.language}</card.CardDescription>
+      <card.CardDescription className="line-clamp-1">{project.description}</card.CardDescription>
     </card.CardContent>
 
-    <card.CardFooter>
-      <ul className="tags inline-flex max-w-full space-x-1 overflow-x-auto whitespace-nowrap">
-        {props.topics
-          .filter((topic) => topic !== 'showcase')
-          .map((topic) => (
-            <li key={topic}>
-              <Badge>{topic}</Badge>
-            </li>
-          ))}
-      </ul>
+    <card.CardFooter className="flex flex-nowrap gap-1 overflow-x-auto whitespace-nowrap">
+      {project.topics.map((topic) => (
+        <Badge key={topic}>{topic}</Badge>
+      ))}
     </card.CardFooter>
   </card.Card>
 )

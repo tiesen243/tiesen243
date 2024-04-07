@@ -2,8 +2,10 @@ import { ActivityIcon, HeartIcon, NotebookIcon, SchoolIcon } from 'lucide-react'
 
 import * as card from '@/components/ui/card'
 import * as tabs from '@/components/ui/tabs'
+import { education, hobbies, skills } from '@/lib/data'
+import { Typography } from '../ui/typography'
 
-const Infomation: React.FC = () => (
+export const Infomation: React.FC = () => (
   <tabs.Tabs defaultValue={tabsContents[0].id} className="overflow-auto">
     {tabsContents.map((tab) => (
       <tabs.TabsList key={tab.id} className="bg-transparent">
@@ -20,26 +22,12 @@ const Infomation: React.FC = () => (
     {tabsContents.map((tab) => (
       <tabs.TabsContent key={tab.id} value={tab.id}>
         <card.Card>
-          <card.CardHeader className="prose prose-zinc dark:prose-invert md:prose-lg prose-li:text-foreground w-full max-w-full">
-            {tab.content}
-          </card.CardHeader>
+          <card.CardHeader>{tab.content}</card.CardHeader>
         </card.Card>
       </tabs.TabsContent>
     ))}
   </tabs.Tabs>
 )
-
-export default Infomation
-
-const education = [
-  {
-    id: '1',
-    time: '2022 - present',
-    school: 'Industrial University of Ho Chi Minh City',
-    major: 'Computer Engineering Technology',
-    gpa: null,
-  },
-]
 
 const className = 'flex items-center font-bold gap-1 [&>svg]:size-4 [&>svg]:md:size-6'
 const tabsContents = [
@@ -51,24 +39,14 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="grid grid-cols-3 text-xl font-medium md:grid-cols-4 lg:grid-cols-6">
-        {[
-          'TypeScript',
-          'Next.js',
-          'TailwindCSS',
-          'ElysiaJS',
-          'tRPC',
-          'Prisma',
-          'Python',
-          'Numpy',
-          'Pandas',
-          'Matplotlib',
-          'C++',
-          'Arduino',
-        ].map((item) => (
+      <Typography
+        variant="ul"
+        className="my-0 grid grid-cols-3 gap-4 text-xl font-medium md:grid-cols-4 lg:grid-cols-6 [&>li]:mt-0"
+      >
+        {skills.map((item) => (
           <li key={item}>{item}</li>
         ))}
-      </ul>
+      </Typography>
     ),
   },
   {
@@ -79,7 +57,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul>
+      <ul className="space-y-4">
         {education.map((item) => (
           <li key={item.id}>
             <time className="text-muted-foreground">{item.time}</time>
@@ -99,7 +77,7 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul>
+      <ul className="space-y-4">
         <li>I have no experience yet :))</li>
       </ul>
     ),
@@ -112,13 +90,11 @@ const tabsContents = [
       </div>
     ),
     content: (
-      <ul className="text-xl font-medium">
-        {['Watching anime', 'Reading manga and light novel', 'Playing some gacha game'].map(
-          (item) => (
-            <li key={item}>{item}</li>
-          )
-        )}
-      </ul>
+      <Typography variant="ul" className="my-0 text-xl font-medium">
+        {hobbies.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </Typography>
     ),
   },
 ]

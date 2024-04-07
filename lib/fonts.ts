@@ -1,4 +1,6 @@
-import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 
-export const fonts = `${GeistSans.variable} ${GeistMono.variable}`
+import { cn } from '@/lib/utils'
+
+export const fonts = cn(GeistSans.variable, GeistMono.variable)

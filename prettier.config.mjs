@@ -1,12 +1,10 @@
-// prettier.config.js, .prettierrc.js, prettier.config.mjs, or .prettierrc.mjs
-
-/** @type {import("prettier").Config} */
+/** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
 const config = {
-  trailingComma: 'es5',
   printWidth: 100,
-  tabWidth: 2,
   semi: false,
   singleQuote: true,
+  tabWidth: 2,
+  trailingComma: 'all',
   plugins: ['prettier-plugin-tailwindcss'],
 }
 

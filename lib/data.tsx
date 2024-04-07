@@ -1,6 +1,43 @@
 import type { LucideProps } from 'lucide-react'
 import { cn } from './utils'
 
+export const education = [
+  {
+    id: '1',
+    time: '2022 - present',
+    school: 'Industrial University of Ho Chi Minh City',
+    major: 'Computer Engineering Technology',
+    gpa: null,
+  },
+]
+
+export const skills = [
+  'TypeScript',
+  'Next.js',
+  'TailwindCSS',
+  'ElysiaJS',
+  'tRPC',
+  'Prisma',
+  'Python',
+  'Numpy',
+  'Pandas',
+  'Matplotlib',
+  'C++',
+  'Arduino',
+]
+
+export const hobbies = [
+  'Watching anime',
+  'Reading manga and light novel',
+  'Playing some gacha game',
+]
+
+export interface Icon {
+  label: string
+  color?: string
+  icon: (props: LucideProps) => JSX.Element
+}
+
 export const softwares: Icon[] = [
   {
     label: 'Arch Linux',

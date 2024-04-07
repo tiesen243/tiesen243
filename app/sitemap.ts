@@ -3,8 +3,13 @@ import type { MetadataRoute } from 'next'
 import { posts } from '@/content'
 import { baseUrl } from '@/lib/site'
 
+interface Route {
+  url: string
+  lastModified: string
+}
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const routesMap = ['', 'projects', '/blog'].map((route) => ({
+  const routesMap = ['', 'projects', 'blog'].map((route) => ({
     url: `${baseUrl}/${route}`,
     lastModified: new Date().toISOString(),
   }))

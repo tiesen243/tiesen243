@@ -1,22 +1,23 @@
 'use client'
-
-import { Loader2Icon } from 'lucide-react'
-import * as React from 'react'
 import { useFormStatus } from 'react-dom'
-import { toast } from 'sonner'
 
-import { Button } from '@/components/ui/button'
 import * as card from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site'
+import { useState } from 'react'
 
-const ContactForm: React.FC = () => {
-  const formRef = React.useRef<HTMLFormElement>(null)
+export const ContactForm: React.FC = () => {
+  const [error, setError] = useState<Record<string, string>>({})
+  const [message, setMessage] = useState<string | undefined>('')
 
   const send = async (formData: FormData) => {
+    setError({})
+    setMessage(undefined)
     try {
       const data = Object.fromEntries(formData)
+
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const res: {
         error?: Record<string, string>
@@ -33,17 +34,17 @@ const ContactForm: React.FC = () => {
       }).then((res) => res.json())
 
       if (res.error)
-        return toast.error("Email couldn't be sent", {
-          description: Object.entries(res.error)
-            .flatMap(([_, value]) => `${value}`)
-            .join('<br/>'),
+        Object.entries(res.error).forEach(([key, value]) => {
+          setError((prev) => ({ ...prev, [key]: value }))
         })
+      else {
+        setError({})
+        setMessage(res.message)
+      }
 
-      formRef.current?.reset()
-      return toast.success(res.message)
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      if (error instanceof Error) toast.error(error.message)
+      if (error instanceof Error) setError({ error: error.message })
     }
   }
 
@@ -64,14 +65,28 @@ const ContactForm: React.FC = () => {
         </card.CardDescription>
       </card.CardHeader>
 
-      <form className="mt-8" action={send} ref={formRef}>
-        <card.CardContent id="contact-form" className="flex flex-col items-center gap-4">
-          <Input name="subject" placeholder="Subject" />
-          <Input name="email" type="email" placeholder="Email" />
-          <Textarea name="message" placeholder="Message" />
+      <form className="mt-8" action={send}>
+        <card.CardContent id="contact-form" className="space-y-4">
+          <div>
+            <Input name="subject" placeholder="Subject" />
+            <span className="text-destructive">{error.subject}</span>
+          </div>
+
+          <div>
+            <Input name="email" type="email" placeholder="Email" />
+            <span className="text-destructive">{error.email}</span>
+          </div>
+
+          <div>
+            <Textarea name="message" placeholder="Message" />
+            <span className="text-destructive">{error.message}</span>
+          </div>
         </card.CardContent>
 
-        <card.CardFooter className="justify-end">
+        <card.CardFooter className="flex-col items-start gap-2">
+          {message && <p>{message}</p>}
+          {error.error && <p className="text-destructive">{error.error}</p>}
+
           <SubmitButton />
         </card.CardFooter>
       </form>
@@ -79,13 +94,11 @@ const ContactForm: React.FC = () => {
   )
 }
 
-export default ContactForm
-
 const SubmitButton: React.FC = () => {
   const { pending } = useFormStatus()
   return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? <Loader2Icon className="animate-spin" /> : 'Send Message'}
+    <Button type="submit" className="w-full" isLoading={pending}>
+      Send
     </Button>
   )
 }
