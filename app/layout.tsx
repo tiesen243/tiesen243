@@ -1,5 +1,7 @@
 import type { Metadata, NextPage } from 'next'
 import { siteConfig } from '@/lib/site'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 
 export const metadata: Metadata = siteConfig.metadata
 
@@ -21,6 +23,9 @@ const RootLayout: NextPage<React.PropsWithChildren> = ({ children }) => (
         <main className="container flex-grow">{children}</main>
         <Footer />
       </Provider>
+
+      <SpeedInsights />
+      <Analytics />
     </body>
   </html>
 )
