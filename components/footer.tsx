@@ -25,9 +25,11 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => (
 
         <ul className="flex flex-col gap-2 text-2xl md:col-span-2 md:text-xl">
           {siteConfig.navLinks.map(({ label, url }) => (
-            <Typography key={label} variant="link" href={url}>
-              {label}
-            </Typography>
+            <li key={label}>
+              <Typography variant="link" href={url}>
+                {label}
+              </Typography>
+            </li>
           ))}
         </ul>
       </section>

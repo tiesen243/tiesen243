@@ -24,7 +24,6 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "rehype-mdx-code-props": "^3.0.0",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2",
     "tailwind-typewriter": "^1.0.1",
