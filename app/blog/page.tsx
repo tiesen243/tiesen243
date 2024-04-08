@@ -8,7 +8,7 @@ import { baseUrl } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'A blog about web development and programming',
-  openGraph: { url: `${baseUrl}/blog`, images: '/og.jpg' },
+  openGraph: { images: '/og.jpg', url: `${baseUrl}/blog` },
 }
 
 const Page: NextPage = async () => {

@@ -9,7 +9,7 @@ import { baseUrl } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'Projects I have worked on',
-  openGraph: { url: `${baseUrl}/projects` },
+  openGraph: { images: '/og.jpg', url: `${baseUrl}/projects` },
   alternates: { canonical: `${baseUrl}/projects` },
 }
 
