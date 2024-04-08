@@ -1,16 +1,16 @@
-import type { Metadata, NextPage } from 'next'
 import { siteConfig } from '@/lib/site'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Analytics } from '@vercel/analytics/next'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
+import type { Metadata, NextPage } from 'next'
 
 export const metadata: Metadata = siteConfig.metadata
 
 import { fonts } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
 
+import Footer from '@/components/footer'
 import Provider from '@/components/provider'
 import './globals.css'
-import Footer from '@/components/footer'
 const RootLayout: NextPage<React.PropsWithChildren> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body
