@@ -25,7 +25,7 @@ export const About: React.FC = () => (
         loop
         muted
         playsInline
-        className="aspect-square w-full rounded-lg shadow-lg md:col-span-4"
+        className="aspect-square w-full rounded-lg md:col-span-4"
       >
         <source src="/images/yuki.webm" type="video/webm" />
       </video>
