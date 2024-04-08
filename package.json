@@ -24,9 +24,9 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-type-animation": "^3.2.0",
     "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2",
-    "tailwind-typewriter": "^1.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {

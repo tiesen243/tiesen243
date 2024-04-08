@@ -3,8 +3,6 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 
 /* Plugins */
 import animate from 'tailwindcss-animate'
-// @ts-ignore
-import typewriter from 'tailwind-typewriter'
 
 const config = {
   darkMode: ['class'],
@@ -103,19 +101,7 @@ const config = {
       },
     },
   },
-  plugins: [
-    animate,
-    typewriter({
-      wordsets: {
-        yuki: {
-          words: ['Tiesen', 'Weeb Developer', 'Next.js Developer', 'Frontend Developer'],
-          delay: 1,
-          pauseBetween: 1,
-          caretColor: 'hsl(var(--primary))',
-        },
-      },
-    }),
-  ],
+  plugins: [animate],
 } satisfies Config
 
 export default config

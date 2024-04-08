@@ -5,6 +5,10 @@ import * as React from 'react'
 
 export const Meteors = ({ number, className }: { number?: number; className?: string }) => {
   const meteors = new Array(number ?? 20).fill(true)
+  const [mounted, setMounted] = React.useState(false)
+  React.useEffect(() => setMounted(true), [])
+  if (!mounted) return null
+
   return meteors.map((_, idx) => (
     <span
       key={'meteor' + idx}
