@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
+import { Typography } from '@/components/ui/typography'
 import { siteConfig } from '@/lib/site'
 import { cn } from '@/lib/utils'
 import { ThemeBtn } from './theme-btn'
-import { Typography } from './ui/typography'
 
 const Footer: React.FC<{ className?: string }> = ({ className }) => (
   <footer className={cn('mt-4 border-t py-4', className)}>
@@ -16,7 +16,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => (
               alt="logo"
               width={20}
               height={20}
-              className="dark:invert"
+              className="w-auto dark:invert"
             />
           </div>
 

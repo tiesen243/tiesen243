@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import { Typography } from '@/components/ui/typography'
 import { Skills } from './skills'
 import { Infomation } from './infomation'
@@ -22,15 +20,15 @@ export const About: React.FC = () => (
         </Typography>
       </article>
 
-      <div className="aspect-square h-full w-full md:col-span-4">
-        <Image
-          src="/images/yuki.gif"
-          className="rounded object-cover"
-          alt="Yuki"
-          unoptimized
-          fill
-        />
-      </div>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="aspect-square w-full rounded-lg shadow-lg md:col-span-4"
+      >
+        <source src="/images/yuki.webm" type="video/webm" />
+      </video>
     </section>
 
     <Skills />
