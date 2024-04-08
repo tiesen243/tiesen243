@@ -8,7 +8,7 @@ import { baseUrl } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'A blog about web development and programming',
-  openGraph: { url: `${baseUrl}/blog` },
+  openGraph: { url: `${baseUrl}/blog`, images: '/og.jpg' },
 }
 
 const Page: NextPage = async () => {
@@ -22,7 +22,7 @@ const Page: NextPage = async () => {
         ]}
       />
 
-      <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <BlogCard key={post.title} {...post} />
         ))}
