@@ -27,7 +27,7 @@ export const Intro: React.FC = () => (
 const words = ['Tiesen', 'Weeb Developer', 'Next.js Developer', 'Frontend Developer']
 const sq = (words: string[]): (string | number)[] => {
   const result = []
-  for (let i of words) {
+  for (const i of words) {
     result.push(i)
     result.push(1000)
   }
