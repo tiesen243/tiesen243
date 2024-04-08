@@ -11,13 +11,9 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => (
       <section className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div className="flex h-fit items-center gap-2">
           <div className="rounded-lg border bg-background p-2">
-            <Image
-              src="/images/logo.svg"
-              alt="logo"
-              width={20}
-              height={20}
-              className="w-auto dark:invert"
-            />
+            <div className="size-6">
+              <Image src="/images/logo.svg" alt="logo" className="dark:invert" fill />
+            </div>
           </div>
 
           <Typography variant="h4">{siteConfig.metadata.applicationName}</Typography>
