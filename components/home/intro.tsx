@@ -11,7 +11,7 @@ export const Intro: React.FC = () => (
 
     <Typography
       variant="h1"
-      className="h-14 bg-gradient-yuki bg-clip-text font-mono text-transparent"
+      className="h-14 select-none bg-gradient-yuki bg-clip-text font-mono text-transparent"
     >
       <TypeAnimation sequence={sq(words)} repeat={Infinity} speed={10} />
     </Typography>
