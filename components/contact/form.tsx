@@ -51,7 +51,7 @@ export const ContactForm: React.FC = () => {
   return (
     <card.Card className="grid grid-cols-1 border md:grid-cols-2">
       <card.CardHeader className="flex-col items-start">
-        <h2 className="bg-gradient-to-br from-[var(--from)] to-[var(--to)] bg-clip-text text-6xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-yuki bg-clip-text text-6xl font-extrabold text-transparent">
           Contact Form
         </h2>
 

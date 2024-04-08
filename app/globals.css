@@ -77,6 +77,10 @@
     @apply relative box-border border-border selection:bg-foreground selection:text-background;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   /* prettier-ignore  */
   h1, h2, h3, h4, h5, h6 {
     @apply text-balance;
@@ -93,5 +97,15 @@
   }
   ::-webkit-scrollbar-thumb {
     @apply rounded-full bg-ring;
+  }
+}
+
+@layer components {
+  .topics {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .topics::-webkit-scrollbar {
+    display: none;
   }
 }

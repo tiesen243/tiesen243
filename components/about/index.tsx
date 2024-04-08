@@ -9,7 +9,7 @@ export const About: React.FC = () => (
   <section id="about" className="min-h-dvh space-y-4 pt-4">
     <section className="col-span-1 grid gap-4 md:grid-cols-12">
       <article className="md:col-span-8">
-        <h2 className="bg-gradient-to-br from-[var(--from)] to-[var(--to)] bg-clip-text text-6xl font-extrabold text-transparent">
+        <h2 className="bg-gradient-yuki bg-clip-text text-6xl font-extrabold text-transparent">
           About Me
         </h2>
 

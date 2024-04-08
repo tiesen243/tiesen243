@@ -16,20 +16,32 @@ export interface PostMeta {
 }
 
 export const getPost = async (slug: string) => {
-  const source = fs.readFileSync(`${root}/content/blog/${slug}`, 'utf8')
+  try {
+    const source = fs.readFileSync(`${root}/content/blog/${slug}`, 'utf8')
 
-  const { content, frontmatter } = await compileMDX<PostMeta>({
-    source,
-    options: {
-      parseFrontmatter: true,
-      mdxOptions: {
-        rehypePlugins: [[rehypeShiki as any, { theme: 'dracula' }]],
+    const { content, frontmatter } = await compileMDX<PostMeta>({
+      source,
+      options: {
+        parseFrontmatter: true,
+        mdxOptions: { rehypePlugins: [[rehypeShiki as any, { theme: 'dracula' }]] },
       },
-    },
-    components: mdxComponents,
-  })
+      components: mdxComponents,
+    })
 
-  return { content, meta: { ...frontmatter, slug: slug.replace('.mdx', '') } }
+    return { content, meta: { ...frontmatter, slug: slug.replace('.mdx', '') } }
+  } catch (error) {
+    return {
+      content: '',
+      meta: {
+        title: '',
+        description: '',
+        image: '',
+        tags: [],
+        date: new Date(),
+        slug: slug.replace('.mdx', ''),
+      },
+    }
+  }
 }
 
 export const getPosts = async () => {

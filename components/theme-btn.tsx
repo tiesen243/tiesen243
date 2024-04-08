@@ -1,10 +1,11 @@
 'use client'
 
-import { MoonIcon, SunIcon } from 'lucide-react'
+import { Loader2Icon, MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import * as React from 'react'
 
-import { Button } from '@/components/ui/button'
+import { Tabs, TabsList, TabsTrigger } from './ui/tabs'
+import { Button } from './ui/button'
 
 export const ThemeBtn: React.FC = () => {
   const { theme, setTheme } = useTheme()
@@ -12,11 +13,18 @@ export const ThemeBtn: React.FC = () => {
 
   const [isMounted, setIsMounted] = React.useState<boolean>(false)
   React.useEffect(() => setIsMounted(true), [])
-  if (!isMounted) return <Button variant="outline" size="icon" isLoading />
+  if (!isMounted) return <Button variant="secondary" size="icon" isLoading />
 
   return (
-    <Button variant="outline" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
-      {theme === 'light' ? <MoonIcon /> : <SunIcon />}
-    </Button>
+    <Tabs defaultValue={theme} onValueChange={toggleTheme}>
+      <TabsList>
+        <TabsTrigger value="light">
+          <SunIcon />
+        </TabsTrigger>
+        <TabsTrigger value="dark">
+          <MoonIcon />
+        </TabsTrigger>
+      </TabsList>
+    </Tabs>
   )
 }

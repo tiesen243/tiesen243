@@ -22,7 +22,7 @@ const Page: NextPage = async () => {
     <>
       <BreadCrumbs
         items={[
-          { name: '~', href: '/' },
+          { name: '~', href: '/#about' },
           { name: 'Projects', href: '/projects' },
         ]}
       />

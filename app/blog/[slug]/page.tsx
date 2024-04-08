@@ -4,10 +4,16 @@ import { notFound } from 'next/navigation'
 
 import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { Typography } from '@/components/ui/typography'
-import { getPost } from '@/content'
+import { getPost, getPosts } from '@/content'
+import { ScrollToTop } from '@/components/scroll-to-top'
 
 interface Props {
   params: { slug: string }
+}
+
+export const generateStaticParams = async () => {
+  const metas = await getPosts()
+  return metas.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata(
@@ -32,23 +38,15 @@ export async function generateMetadata(
 }
 
 const Page: NextPage<Props> = async ({ params: { slug } }) => {
-  const doc = await getPost(`${slug}.mdx`)
-  const { content, meta } = doc
+  const { content, meta } = await getPost(`${slug}.mdx`)
   if (!meta.title) return notFound()
 
   return (
     <>
-      <style>
-        {`
-          html {
-            scroll-behavior: smooth;
-          }
-        `}
-      </style>
       <BreadCrumbs
-        className="list-none"
+        className="top list-none"
         items={[
-          { name: '~', href: '/' },
+          { name: '~', href: '/#about' },
           { name: 'Blog', href: '/blog' },
           { name: meta.title, href: `/blog/${slug}` },
         ]}
@@ -73,6 +71,8 @@ const Page: NextPage<Props> = async ({ params: { slug } }) => {
 
         {content}
       </article>
+
+      <ScrollToTop />
     </>
   )
 }

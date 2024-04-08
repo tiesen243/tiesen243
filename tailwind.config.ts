@@ -3,7 +3,8 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 
 /* Plugins */
 import animate from 'tailwindcss-animate'
-import typography from '@tailwindcss/typography'
+// @ts-ignore
+import typewriter from 'tailwind-typewriter'
 
 const config = {
   darkMode: ['class'],
@@ -62,6 +63,9 @@ const config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      backgroundImage: {
+        'gradient-yuki': 'linear-gradient(135deg, var(--from), var(--to))',
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
@@ -79,16 +83,39 @@ const config = {
           from: { transform: 'translateX(-100%)' },
           to: { transform: 'translateX(0)' },
         },
+        shimmer: {
+          from: { backgroundPosition: '0 0' },
+          to: { backgroundPosition: '-200% 0' },
+        },
+        meteor: {
+          '0%': { transform: 'rotate(215deg) translateX(0)', opacity: '1' },
+          '70%': { opacity: '1' },
+          '100%': { transform: 'rotate(215deg) translateX(-500px)', opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'infinite-scroll': 'infinite-scroll 25s linear infinite',
         'infinite-scroll-reverse': 'infinite-scroll 25s linear infinite reverse',
+        shimmer: 'shimmer 2s linear infinite',
+        'meteor-effect': 'meteor 5s linear infinite',
       },
     },
   },
-  plugins: [animate, typography],
+  plugins: [
+    animate,
+    typewriter({
+      wordsets: {
+        yuki: {
+          words: ['Tiesen', 'Weeb Developer', 'Next.js Developer', 'Frontend Developer'],
+          delay: 1,
+          pauseBetween: 1,
+          caretColor: 'hsl(var(--primary))',
+        },
+      },
+    }),
+  ],
 } satisfies Config
 
 export default config

@@ -25,11 +25,12 @@
     "react": "^18",
     "react-dom": "^18",
     "rehype-mdx-code-props": "^3.0.0",
+    "sharp": "^0.33.3",
     "tailwind-merge": "^2.2.2",
+    "tailwind-typewriter": "^1.0.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.12",
     "@types/mdx": "^2.0.12",
     "@types/node": "^20",
     "@types/react": "^18",

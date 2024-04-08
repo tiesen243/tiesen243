@@ -1,9 +1,9 @@
-import Image from 'next/image'
 import { GithubIcon, LinkIcon } from 'lucide-react'
+import Image from 'next/image'
 
-import * as card from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
+import * as card from '@/components/ui/card'
 
 export interface Project {
   id: string
@@ -17,8 +17,8 @@ export interface Project {
 }
 
 export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
-  <card.Card key={project.id} className="group">
-    <card.CardHeader className="mb-2 aspect-video w-full space-y-0">
+  <card.Card key={project.id}>
+    <card.CardHeader className="group mb-2 aspect-video w-full space-y-0">
       <Image
         src={`/images/projects/${project.name}.jpg`}
         alt={project.name}
@@ -57,10 +57,12 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
       <card.CardDescription className="line-clamp-1">{project.description}</card.CardDescription>
     </card.CardContent>
 
-    <card.CardFooter className="flex flex-nowrap gap-1 overflow-x-auto whitespace-nowrap">
-      {project.topics.map((topic) => (
-        <Badge key={topic}>{topic}</Badge>
-      ))}
+    <card.CardFooter className="topics mx-6 flex flex-nowrap gap-1 overflow-x-auto whitespace-nowrap px-0">
+      {project.topics
+        .filter((topic) => !['showcase'].includes(topic))
+        .map((topic) => (
+          <Badge key={topic}>{topic}</Badge>
+        ))}
     </card.CardFooter>
   </card.Card>
 )
