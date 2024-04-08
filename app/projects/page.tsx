@@ -4,10 +4,13 @@ import { type Project, ProjectCard } from '@/components/project-card'
 import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import Image from 'next/image'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { baseUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Projects',
   description: 'Projects I have worked on',
+  openGraph: { url: `${baseUrl}/projects` },
+  alternates: { canonical: `${baseUrl}/projects` },
 }
 
 const Page: NextPage = async () => {

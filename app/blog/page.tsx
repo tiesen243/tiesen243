@@ -3,10 +3,12 @@ import type { Metadata, NextPage } from 'next'
 import { BlogCard } from '@/components/blog-card'
 import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { getPosts } from '@/content'
+import { baseUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'A blog about web development and programming',
+  openGraph: { url: `${baseUrl}/blog` },
 }
 
 const Page: NextPage = async () => {

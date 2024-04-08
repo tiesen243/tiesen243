@@ -6,6 +6,7 @@ import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { Typography } from '@/components/ui/typography'
 import { getPost, getPosts } from '@/content'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { baseUrl } from '@/lib/site'
 
 interface Props {
   params: { slug: string }
@@ -28,12 +29,9 @@ export async function generateMetadata(
     title: meta.title,
     description: meta.description,
     keywords: meta.tags,
-    openGraph: {
-      images: [meta.image, ...previousImages],
-    },
-    twitter: {
-      images: [meta.image, ...previousImages],
-    },
+    openGraph: { images: [meta.image, ...previousImages], url: `${baseUrl}/blog/${params.slug}` },
+    twitter: { images: [meta.image, ...previousImages] },
+    alternates: { canonical: `${baseUrl}/blog/${params.slug}` },
   }
 }
 
