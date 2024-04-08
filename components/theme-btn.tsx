@@ -18,10 +18,10 @@ export const ThemeBtn: React.FC = () => {
   return (
     <Tabs defaultValue={theme} onValueChange={toggleTheme}>
       <TabsList>
-        <TabsTrigger value="light" aria-label="Light theme">
+        <TabsTrigger value="light" aria-label="Light Theme">
           <SunIcon />
         </TabsTrigger>
-        <TabsTrigger value="dark" aria-label="Dark theme">
+        <TabsTrigger value="dark" aria-label="Dark Theme">
           <MoonIcon />
         </TabsTrigger>
       </TabsList>
