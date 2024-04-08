@@ -1,10 +1,10 @@
 'use client'
 
+import { ChevronsUp } from 'lucide-react'
 import * as React from 'react'
-import { ArrowUp } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export const ScrollToTop: React.FC = () => {
   const [visible, setVisible] = React.useState(false)
@@ -22,15 +22,15 @@ export const ScrollToTop: React.FC = () => {
   return (
     <Button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      variant="ghost"
       size="icon"
+      variant="secondary"
       className={cn(
-        'fixed bottom-4 right-4 z-50 rounded-full',
+        'fixed bottom-4 right-4 z-50',
         'transition-opacity duration-300',
         visible ? 'opacity-100' : 'opacity-0',
       )}
     >
-      <ArrowUp />
+      <ChevronsUp />
     </Button>
   )
 }
