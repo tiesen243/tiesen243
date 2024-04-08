@@ -1,12 +1,13 @@
 'use client'
+
 import { useFormStatus } from 'react-dom'
+import { useState } from 'react'
 
 import * as card from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site'
-import { useState } from 'react'
 
 export const ContactForm: React.FC = () => {
   const [error, setError] = useState<Record<string, string>>({})
@@ -51,10 +52,6 @@ export const ContactForm: React.FC = () => {
   return (
     <card.Card className="grid grid-cols-1 border md:grid-cols-2">
       <card.CardHeader className="flex-col items-start">
-        <h2 className="bg-gradient-yuki bg-clip-text text-6xl font-extrabold text-transparent">
-          Contact Form
-        </h2>
-
         <card.CardTitle className="text-2xl font-bold">
           Let&apos;s work together! <span className="text-primary">👋</span>
         </card.CardTitle>
