@@ -26,7 +26,7 @@ Today, we're diving into the world of full-stack web development using Next.js a
 
 ## Installation
 
-```bash title="Create a new project"
+```bash
 bun create next-app --example https://github.com/tiesen243/next-elysia [your-app-name]
 cd [your-app-name]
 ```
@@ -42,7 +42,7 @@ DATABASE_URL=""
 
 Then, push schema to your database
 
-```bash title="Push schema to database"
+```bash
 bun run db:format
 bun run db:migrate
 bun run db:push
@@ -50,7 +50,7 @@ bun run db:push
 
 Finaly, run your development server
 
-```bash title="Run development server"
+```bash
 bun dev
 ```
 
@@ -350,8 +350,8 @@ import { validateCookie } from '@/server/auth'
 
 export const middleware = async (req: NextRequest) => {
   const cookie = req.cookies.get('auth_session')
-  const { user } = await validateCookie(`${cookie?.name}=${cookie?.value}`)
-  if (!user) return NextResponse.redirect(new URL('/auth/login', req.url))
+
+  if (!cookie) return NextResponse.redirect(new URL('/auth/login', req.url))
 }
 
 export const config = {
