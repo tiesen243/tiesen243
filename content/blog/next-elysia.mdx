@@ -26,13 +26,15 @@ Today, we're diving into the world of full-stack web development using Next.js a
 
 ## Installation
 
-```bash {1}
+```bash title="Create a new project"
 bun create next-app --example https://github.com/tiesen243/next-elysia [your-app-name]
+cd [your-app-name]
 ```
 
 Next step, update your enviroment variables
+> If you want to add other variables, remember to add it to `env.mjs` to validate it
 
-```bash filename=".env"
+```bash title=".env"
 DATABASE_URL=""
 ```
 
@@ -40,171 +42,256 @@ DATABASE_URL=""
 
 Then, push schema to your database
 
-```bash
+```bash title="Push schema to database"
+bun run db:format
+bun run db:migrate
 bun run db:push
 ```
 
 Finaly, run your development server
 
-```bash
+```bash title="Run development server"
 bun dev
 ```
 
 ## Backend
 
-Define your route at `server/routes/**.ts` and update this route to `server/elysia`
+Make your route model at `server/models/*.ts` and import to your route
 
-> Replace `[abc]` with your route
+Define your route at `server/routes/*.ts` and update this route to `server/elysia.ts`
 
-Make your route model at `server/dto` and import to your route
+> Note: in this example, i'm use `post` as a model name for example
 
-```typescript filename="server/dto/abc.dto.ts"
+```ts title="server/models/post.model.ts"
 import { Elysia } from 'elysia'
 
-const abcDto = new Elysia({ name: 'Model.[abc]' }).state({ db }).model({
+export const PostModel = new Elysia({ name: 'Model.Post' }).model({
   hello: t.Object({ content: t.String({ minLength: 4 }) }),
 })
-
-export default abcDto
 ```
 
 Create your new route
 
-```typescript filename="server/route/[abc].route.ts"
+```ts title="server/routes/post.route.ts"
 import { Elysia } from 'elysia'
 
-import abcDto from '@/server/dto/abc.dto'
-import { authMiddleware, base } from '@/server/plugin'
+import { authMiddleware } from '@/server/auth'
+import { PostModel } from '@/server/models/post.model'
+import { db } from '@/prisma'
 
-export const abcRoute = new Elysia({ prefix: '/[abc]' })
-  .use(base)
-  .use(abcDto)
+export const PostRoute = new Elysia({ prefix: '/[abc]' })
+  .use(PostModel)
 
   // public routes
 
-  .post('/hello', async ({ store: { db }, body }) => {
-      return { message: `Hello ${body.content}`
-    }.
-    { body: 'hello' }
-  )
+  .get('/all', async ({ error }) => {
+    const posts = await db.post.findMany({
+      orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        content: true,
+        author: { select: { id: true, name: true } },
+      },
+    })
+    if (!posts || posts.length === 0) return error(404, { message: 'No posts found' })
+    return posts
+  })
+
+ 
 
   // protected routes
   .use(authMiddleware)
 
-  .post('/auth/hello', async ({ store: { db, user }, body }) => {
-      console.log({ user })
-      return { message: `Hello ${body.content}`
-    }.
-    { body: 'hello' }
+  .post(
+    '/create',
+    async ({ user, body: { content }, error }) => {
+      const post = await db.post.create({
+        data: { content, author: { connect: { id: user?.id } } },
+      })
+      if (!post) return error(500, { message: 'Failed to create post' })
+      return { message: 'Post created successfully' }
+    },
+    { body: 'CreatePost' },
   )
+
+  .delete('/del/:id', async ({ params: { id }, user, error }) => {
+    const post = await db.post.findUnique({ where: { id } })
+    if (!post) return error(404, { message: 'Post not found' })
+
+    if (post.authorId !== user?.id)
+      return error(403, { message: 'You are not authorized to delete this post' })
+
+    await db.post.delete({ where: { id } })
+    return { message: 'Post deleted successfully' }
+  })
 ```
 
-Add this route to app
+Add this route to app 
 
-```typescript filename="server/elysia.ts"
+```ts title="server/elysia.ts"
+import { Elysia } from 'elysia'
+
+import { PostRoute } from '@/server/routes/post.route'
+
 export const app = new Elysia({ prefix: '/api/elysia' })
   /* others config */
-  .use(abcRoute)
+  .use(PostRoute)
 ```
 
 ## Fontend
 
-Now, use your new api endpoint with `swr` and `@elysiajs/eden` for example:
+Now, use your api endpoint with `swr` and `@elysiajs/eden` for example:
 
 > In this example, i'm use `api.post` for post route
 
-```typescript filename="lib/hooks/post.ts"
-import useSWRMutation from 'swr/mutation'
+Create hook for post to get all post, create post and delete post
+
+```ts title="lib/hooks/post.ts"
 import useSWR from 'swr'
+import useSWRMutation from 'swr/mutation'
 
 import { api } from '@/lib/api'
 
 export const usePost = () => {
   const {
     data: posts,
-    mutate,
+    error: getError,
     isLoading,
-  } = useSWR('posts', async () =>
-    api.post.getAll
-      .get()
-      .then((res) => (res.error?.value ? Promise.reject(res.error.value) : res.data)),
+    mutate,
+  } = useSWR('posts', () =>
+    api.post.all.get().then(({ error, data }) => (error ? Promise.reject(error.value) : data)),
   )
 
   const {
-    trigger,
+    trigger: create,
     isMutating,
     error: createError,
-  } = useSWRMutation<Res, Error, string, { content: string }>('posts', async (_, { arg }) => {
-    const { data, error } = await api.post.create.post(arg)
-    if (error) throw error.value
-    else return { message: data.message, data: data }
-  })
+  } = useSWRMutation<unknown, Error, string, { content: string }>('posts', (_, { arg }) =>
+    api.post.create.post(arg).then(({ data, error }) => {
+      if (error) throw error.value
+      mutate()
+      return data
+    }),
+  )
 
-  const deletePost = async (id: string) => {
-    await api.post.deletePost({ id }).delete()
-    mutate()
-  }
+  const { trigger: del } = useSWRMutation<unknown, Error, string, string>('posts', (_, { arg }) =>
+    api.post
+      .del({ id: arg })
+      .delete()
+      .then(() => mutate()),
+  )
 
   return {
     posts,
+    getError,
     isLoading,
+    mutate,
+
+    create,
     isMutating,
     createError,
-    trigger,
-    deletePost,
-    mutate,
+
+    del,
   }
 }
+
 ```
 
 Then, use it in your app
 
-```tsx filename="components/post-list.tsx"
+```tsx title="components/post-list.tsx"
 'use client'
 
 import { Loader2Icon, XIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
-import * as card from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { usePost } from '@/lib/hooks'
+import { Button } from '@/components/ui/button'
 
-export const PostList: React.FC<{ userId: string }> = ({ userId }) => {
-  const { posts, isLoading, deletePost } = usePost()
+export const PostList: React.FC<{ userId?: string }> = ({ userId }) => {
+  const { posts, isLoading, getError, del } = usePost()
 
   if (isLoading) return <Loader2Icon className="mx-auto animate-spin" />
+  if (getError || !posts)
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    return <p className="text-center text-destructive">Error: {getError?.message}</p>
 
   return (
-    <section className="space-y-4">
-      {posts?.map((post) => (
-        <card.Card key={post.id} className="relative">
-          {userId === post.author.id && (
+    <section className="mx-auto mb-4 max-w-screen-md space-y-4">
+      {posts.map((post) => (
+        <Card key={post.id}>
+          {post.author.id === userId && (
             <Button
-              variant="destructive"
-              size="icon"
+              onClick={() => del(post.id)}
               className="absolute right-2 top-2 z-10"
-              onClick={() => deletePost(post.id)}
+              variant="ghost"
+              size="icon"
             >
               <XIcon />
             </Button>
           )}
-          <card.CardHeader>
-            <card.CardDescription>{post.author.name}</card.CardDescription>
-            <card.CardTitle>{post.content}</card.CardTitle>
-          </card.CardHeader>
-        </card.Card>
+          <CardHeader>
+            <CardDescription>{post.author.name}</CardDescription>
+            <CardTitle>{post.content}</CardTitle>
+          </CardHeader>
+        </Card>
       ))}
     </section>
   )
 }
 ```
 
+Create a form to create post 
+
+```tsx title="components/create-post.tsx"
+'use client'
+
+import { useRef } from 'react'
+import { SendHorizonalIcon } from 'lucide-react'
+
+import { Card, CardFooter, CardHeader } from '@/components/ui/card'
+import { FormField } from '@/components/ui/form-field'
+import { usePost } from '@/lib/hooks'
+import { Button } from '@/components/ui/button'
+
+export const CreatePost: React.FC = () => {
+  const { create: trigger, isMutating, createError } = usePost()
+  const formRef = useRef<HTMLFormElement>(null)
+
+  return (
+    <Card className="mx-auto mb-4 max-w-screen-md">
+      <form
+        ref={formRef}
+        action={(fd: FormData) => {
+          trigger({ content: String(fd.get('content')) })
+          formRef.current?.reset()
+        }}
+      >
+        <CardHeader className="flex-row items-center gap-2 space-y-0">
+          <FormField name="content" placeholder="What are you thinking?" className="flex-grow" />
+          <Button variant="ghost" size="icon" isLoading={isMutating}>
+            <SendHorizonalIcon />
+          </Button>
+        </CardHeader>
+        <CardFooter>
+          {createError && (
+            <p className="text-destructive">Error: {createError?.fieldsError?.content}</p>
+          )}
+        </CardFooter>
+      </form>
+    </Card>
+  )
+}
+```
+
 And, use it in your page
 
-```tsx filename="app/page.tsx"
+```tsx title="app/page.tsx"
 import type { NextPage } from 'next'
 
 import { auth } from '@/server/auth'
 import { PostList } from '@/components/post-list'
+import { CreatePost } from '@/components/create-post'
 
 const Page: NextPage = async () => {
   const { user } = await auth()
@@ -212,6 +299,7 @@ const Page: NextPage = async () => {
   return (
     <main className="container">
       <PostList userId={user.id} />
+      <CreatePost />
     </main>
   )
 }
@@ -219,36 +307,55 @@ const Page: NextPage = async () => {
 
 ### Notes
 
-1. Note: `trigger` function form `swr/mutation` only works with method chaining. You can't use it with async/await. If you use async/await, `isMutating` will always return `false`, so you need to use `useFormStatus` to check the `pending` status of the form.
+1. `trigger` function form `swr/mutation` will make `isMutating` state always `false` if you use it in `async` function or `promise` function, so you should use it in normal function 
 
-2. If you want to use `middleware`, this is the example:
+```ts 
+const action = () => trigger() // not work 
 
-```typescript filename="middleware.ts"
-import { auth } from '@/server/auth'
-import { NextResponse, type NextRequest } from 'next/server'
+const action = async () => {
+  await trigger() // not work
+} 
+
+const action = () => {
+  trigger() // work
+}
+```
+
+2. If you want to use `api` in your server side, and you want to use `auth` function, you should pass `headers()` to options in your api call. This is the example:
+
+```ts title="app/server/page.tsx"
+import type { NextPage } from 'next'
+
+import { api } from '@/lib/api'
+import { headers } from 'next/headers'
+
+const Page: NextPage = async () => {
+  const { data, error } = await api.post.create.post(
+    { content: 'hello' },
+    { headers: headers() as unknown as Record<string, string> },
+  )
+  console.log({ data, error })
+  return <div>Page</div>
+}
+
+export default Page
+```
+
+3. If you want to use middleware, you must use Prisma Accelerate to make it work because Prisma can't run in Edge Serverless. This is the example:
+
+```ts title="middleware.ts"
+import { NextRequest, NextResponse } from 'next/server'
+
+import { validateCookie } from '@/server/auth'
 
 export const middleware = async (req: NextRequest) => {
-  const session = await auth()
-  const url = req.nextUrl
-  const path = url.pathname
-
-  // Redirect to sign in if user is not signed in and not on the sign in page
-  if (!path.startsWith('/auth') && !session)
-    return NextResponse.redirect(new URL('/auth/signin', url))
-
-  // Redirect to dashboard if user is already signed in
-  if (path.startsWith('/auth') && session) return NextResponse.redirect(new URL('/', url))
-
-  // Redirect to homepage if user is not admin
-  // Remember to add role to the user object in `schema.prisma`
-  if (path.startsWith('/dashboard') && session && session.user.role !== 'ADMIN')
-    return NextResponse.redirect(new URL('/', url))
-
-  return NextResponse.next()
+  const cookie = req.cookies.get('auth_session')
+  const { user } = await validateCookie(`${cookie?.name}=${cookie?.value}`)
+  if (!user) return NextResponse.redirect(new URL('/auth/login', req.url))
 }
 
 export const config = {
-  matcher: ['/auth/:path*', '/dashboard/:path*'],
+  matcher: ['/middleware'],
 }
 ```
 

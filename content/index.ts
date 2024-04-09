@@ -1,6 +1,7 @@
-import rehypeShiki from '@shikijs/rehype'
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import rehypePrettyCode, { type Options } from 'rehype-pretty-code'
+import { getHighlighter } from 'shiki'
 
 import { mdxComponents } from './mdx-components'
 
@@ -23,7 +24,32 @@ export const getPost = async (slug: string) => {
       source,
       options: {
         parseFrontmatter: true,
-        mdxOptions: { rehypePlugins: [[rehypeShiki as any, { theme: 'dracula' }]] },
+        mdxOptions: {
+          rehypePlugins: [
+            [
+              rehypePrettyCode as any,
+              /** @type {import("rehype-pretty-code").Options} */
+              {
+                theme: 'dracula',
+                getHighlighter,
+                onVisitLine(node) {
+                  // Prevent lines from collapsing in `display: grid` mode, and allow empty
+                  // lines to be copy/pasted
+                  if (node.children.length === 0) {
+                    node.children = [{ type: 'text', value: ' ' }]
+                  }
+                },
+                onVisitHighlightedLine(node) {
+                  node.properties.className?.push('line--highlighted')
+                },
+                onVisitHighlightedChars(node, id) {
+                  node.properties.className = ['word']
+                  node.properties['data-word-id'] = id
+                },
+              } satisfies Options,
+            ],
+          ],
+        },
       },
       components: mdxComponents,
     })
