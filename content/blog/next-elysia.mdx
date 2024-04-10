@@ -97,7 +97,6 @@ export const PostRoute = new Elysia({ prefix: '/[abc]' })
     return posts
   })
 
- 
 
   // protected routes
   .use(authMiddleware)
@@ -194,7 +193,6 @@ export const usePost = () => {
     del,
   }
 }
-
 ```
 
 Then, use it in your app
@@ -364,7 +362,7 @@ export const middleware = async (req: NextRequest) => {
 }
 
 export const config = {
-  matcher: ['/middleware'],
+  matcher: ['/server'],
 }
 ```
 
