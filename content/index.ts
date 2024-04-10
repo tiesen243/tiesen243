@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
+
 import rehypePrettyCode, { type Options } from 'rehype-pretty-code'
 import { getHighlighter } from 'shiki'
 
