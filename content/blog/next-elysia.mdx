@@ -63,11 +63,13 @@ Define your route at `server/routes/*.ts` and update this route to `server/elysi
 > Note: in this example, i'm use `post` as a model name for example
 
 ```ts title="server/models/post.model.ts"
-import { Elysia } from 'elysia'
+import Elysia, { t } from 'elysia'
 
-export const PostModel = new Elysia({ name: 'Model.Post' }).model({
-  hello: t.Object({ content: t.String({ minLength: 4 }) }),
+const CreatePost = t.Object({
+  content: t.String({ minLength: 4, error: 'Content must be at least 4 characters' }),
 })
+
+export const PostModel = new Elysia({ name: 'Model.Post' }).model({ CreatePost })
 ```
 
 Create your new route
