@@ -61,70 +61,69 @@ Make your route model at `server/models/*.ts` and import to your route
 
 Define your route at `server/routes/*.ts` and update this route to `server/elysia.ts`
 
-> Note: in this example, i'm use `post` as a model name for example
+> Note: in this example, i'm use `post` route
 
 ```ts title="server/models/post.model.ts"
 import Elysia, { t } from 'elysia'
 
-const CreatePost = t.Object({
+const createPost = t.Object({
   content: t.String({ minLength: 4, error: 'Content must be at least 4 characters' }),
 })
 
-export const PostModel = new Elysia({ name: 'Model.Post' }).model({ CreatePost })
+const deletePost = t.Object({
+  id: t.String({ minLength: 4, error: 'ID must be at least 4 characters' }),
+})
+
+export const postModel = new Elysia({ name: 'Model.Post' }).model({ createPost, deletePost })
 ```
 
 Create your new route
 
 ```ts title="server/routes/post.route.ts"
-import { Elysia } from 'elysia'
+import Elysia from 'elysia'
 
-import { authMiddleware } from '@/server/auth'
-import { PostModel } from '@/server/models/post.model'
-import { db } from '@/prisma'
+import { context } from '@/server/plugins'
+import { postModel } from '@/server/models/post.model'
 
-export const PostRoute = new Elysia({ prefix: '/[abc]' })
-  .use(PostModel)
+export const postRoute = new Elysia({ name: 'Route.Post', prefix: '/post' })
+  .use(context)
+  .use(postModel)
 
-  // public routes
-
-  .get('/all', async ({ error }) => {
+  .get('/getAll', async ({ db, error }) => {
     const posts = await db.post.findMany({
+      include: { author: { select: { id: true, name: true } } },
       orderBy: { createdAt: 'desc' },
-      select: {
-        id: true,
-        content: true,
-        author: { select: { id: true, name: true } },
-      },
     })
-    if (!posts || posts.length === 0) return error(404, { message: 'No posts found' })
+    if (!posts) return error(404, { message: 'No posts found' })
     return posts
   })
 
-  // protected routes
-  .use(authMiddleware)
+  .onBeforeHandle({ as: 'scoped' }, ({ session, user, error }) => {
+    if (!session || !user) return error(401, { message: 'Unauthorized' })
+  })
 
   .post(
     '/create',
-    async ({ user, body: { content }, error }) => {
-      const post = await db.post.create({
+    async ({ db, body: { content }, user, error }) => {
+      const newPost = await db.post.create({
         data: { content, author: { connect: { id: user?.id } } },
       })
-      if (!post) return error(500, { message: 'Failed to create post' })
+      if (!newPost) return error(500, { message: 'Failed to create post' })
       return { message: 'Post created successfully' }
     },
-    { body: 'CreatePost' },
+    { body: 'createPost' },
   )
 
-  .delete('/del/:id', async ({ params: { id }, user, error }) => {
-    const post = await db.post.findUnique({ where: { id } })
-    if (!post) return error(404, { message: 'Post not found' })
-
-    if (post.authorId !== user?.id)
-      return error(403, { message: 'You are not authorized to delete this post' })
-
-    await db.post.delete({ where: { id } })
-    return { message: 'Post deleted successfully' }
-  })
+  .delete(
+    '/del',
+    async ({ db, body: { id }, error }) => {
+      const post = await db.post.findUnique({ where: { id } })
+      if (!post) return error(404, { message: 'Post not found' })
+      await db.post.delete({ where: { id } })
+      return { message: 'Post deleted successfully' }
+    },
+    { body: 'deletePost' },
+  )
 ```
 
 Add this route to app
@@ -132,11 +131,12 @@ Add this route to app
 ```ts title="server/elysia.ts"
 import { Elysia } from 'elysia'
 
-import { PostRoute } from '@/server/routes/post.route'
+import { postRoute } from '@/server/routes/post.route'
 
 export const app = new Elysia({ prefix: '/api/elysia' })
-  /* others config */
-  .use(PostRoute)
+  /* ... */
+  .use(postRoute)
+  /* ... */
 ```
 
 ## Fontend
@@ -159,39 +159,46 @@ export const usePost = () => {
     error: getError,
     isLoading,
     mutate,
-  } = useSWR('posts', () =>
-    api.post.all.get().then(({ error, data }) => (error ? Promise.reject(error.value) : data)),
-  )
+  } = useSWR('posts', async () => {
+    const { data, error } = await api.post.getAll.get()
+    if (error) throw error.value
+    return data
+  })
 
   const {
     trigger: create,
     isMutating,
     error: createError,
-  } = useSWRMutation<unknown, Error, string, { content: string }>('posts', (_, { arg }) =>
-    api.post.create.post(arg).then(({ data, error }) => {
+  } = useSWRMutation<unknown, Error, string, FormData>('createPost', async (_, { arg }) => {
+    const content = String(arg.get('content'))
+    const { data, error } = await api.post.create.post({ content })
+    if (error) throw error.value
+    mutate()
+    return data
+  })
+
+  const { trigger: del } = useSWRMutation<unknown, Error, string, { id: string }>(
+    'deletePost',
+    async (_, { arg: { id } }) => {
+      const { data, error } = await api.post.del.delete({ id })
       if (error) throw error.value
       mutate()
       return data
-    }),
-  )
-
-  const { trigger: del } = useSWRMutation<unknown, Error, string, string>('posts', (_, { arg }) =>
-    api.post
-      .del({ id: arg })
-      .delete()
-      .then(() => mutate()),
+    },
   )
 
   return {
+    /* get posts */
     posts,
     getError,
     isLoading,
-    mutate,
 
+    /* create post */
     create,
     isMutating,
     createError,
 
+    /* delete post */
     del,
   }
 }
@@ -208,7 +215,7 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 import { usePost } from '@/lib/hooks'
 import { Button } from '@/components/ui/button'
 
-export const PostList: React.FC<{ userId?: string }> = ({ userId }) => {
+export const PostList: React.FC<{ user?: string }> = ({ user }) => {
   const { posts, isLoading, getError, del } = usePost()
 
   if (isLoading) return <Loader2Icon className="mx-auto animate-spin" />
@@ -220,9 +227,9 @@ export const PostList: React.FC<{ userId?: string }> = ({ userId }) => {
     <section className="mx-auto mb-4 max-w-screen-md space-y-4">
       {posts.map((post) => (
         <Card key={post.id}>
-          {post.author.id === userId && (
+          {post.author.id === user && (
             <Button
-              onClick={() => del(post.id)}
+              onClick={() => del({ id: post.id })}
               className="absolute right-2 top-2 z-10"
               variant="ghost"
               size="icon"
@@ -246,27 +253,25 @@ Create a form to create post
 ```tsx title="components/create-post.tsx"
 'use client'
 
-import { useRef } from 'react'
 import { SendHorizonalIcon } from 'lucide-react'
+import { useRef } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardFooter, CardHeader } from '@/components/ui/card'
 import { FormField } from '@/components/ui/form-field'
 import { usePost } from '@/lib/hooks'
-import { Button } from '@/components/ui/button'
 
 export const CreatePost: React.FC = () => {
-  const { create: trigger, isMutating, createError } = usePost()
+  const { create, isMutating, createError } = usePost()
   const formRef = useRef<HTMLFormElement>(null)
 
+  const action = (fd: FormData) => {
+    create(fd)
+    formRef.current?.reset()
+  }
   return (
     <Card className="mx-auto mb-4 max-w-screen-md">
-      <form
-        ref={formRef}
-        action={(fd: FormData) => {
-          trigger({ content: String(fd.get('content')) })
-          formRef.current?.reset()
-        }}
-      >
+      <form ref={formRef} action={action}>
         <CardHeader className="flex-row items-center gap-2 space-y-0">
           <FormField name="content" placeholder="What are you thinking?" className="flex-grow" />
           <Button variant="ghost" size="icon" isLoading={isMutating}>
@@ -274,9 +279,7 @@ export const CreatePost: React.FC = () => {
           </Button>
         </CardHeader>
         <CardFooter>
-          {createError && (
-            <p className="text-destructive">Error: {createError?.fieldsError?.content}</p>
-          )}
+          {createError && <p className="text-destructive">{createError.fieldErrors?.content}</p>}
         </CardFooter>
       </form>
     </Card>
@@ -298,8 +301,8 @@ const Page: NextPage = async () => {
 
   return (
     <main className="container">
+      {user && <CreatePost />}
       <PostList userId={user.id} />
-      <CreatePost />
     </main>
   )
 }
@@ -340,7 +343,7 @@ const Page: NextPage = () => {
       { content },
       { headers: { Cookie: `auth_session=${session?.value}` } },
     )
-    revalidatePath('/middleware')
+    revalidatePath('/server')
   }
   return (
     <form action={create} className="space-y-4">
