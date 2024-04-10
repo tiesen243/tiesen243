@@ -32,6 +32,7 @@ cd [your-app-name]
 ```
 
 Next step, update your enviroment variables
+
 > If you want to add other variables, remember to add it to `env.mjs` to validate it
 
 ```bash title=".env"
@@ -126,7 +127,7 @@ export const PostRoute = new Elysia({ prefix: '/[abc]' })
   })
 ```
 
-Add this route to app 
+Add this route to app
 
 ```ts title="server/elysia.ts"
 import { Elysia } from 'elysia'
@@ -240,7 +241,7 @@ export const PostList: React.FC<{ userId?: string }> = ({ userId }) => {
 }
 ```
 
-Create a form to create post 
+Create a form to create post
 
 ```tsx title="components/create-post.tsx"
 'use client'
@@ -306,14 +307,14 @@ const Page: NextPage = async () => {
 
 ### Notes
 
-1. `trigger` function form `swr/mutation` will make `isMutating` state always `false` if you use it in `async` function or `promise` function, so you should use it in normal function 
+1. `trigger` function form `swr/mutation` will make `isMutating` state always `false` if you use it in `async` function or `promise` function, so you should use it in normal function
 
-```ts 
-const action = () => trigger() // not work 
+```ts
+const action = () => trigger() // not work
 
 const action = async () => {
   await trigger() // not work
-} 
+}
 
 const action = () => {
   trigger() // work
@@ -386,14 +387,14 @@ export const config = {
 
 ```ts title="middleware.ts"
 export const middleware = async (req: NextRequest) => {
-  /* ... */ 
+  /* ... */
   const role = req.cookies.get('role')
   if (/* check role */) {
     /* do something */
   }
   /* ... */
 }
-````
+```
 
 ## Reference
 
