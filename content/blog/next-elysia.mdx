@@ -341,23 +341,48 @@ const Page: NextPage = async () => {
 export default Page
 ```
 
-3. If you want to use middleware, you must use Prisma Accelerate to make it work because Prisma can't run in Edge Serverless. This is the example:
+3. Middleware example:
 
 ```ts title="middleware.ts"
 import { NextRequest, NextResponse } from 'next/server'
 
-import { validateCookie } from '@/server/auth'
-
 export const middleware = async (req: NextRequest) => {
-  const cookie = req.cookies.get('auth_session')
-
-  if (!cookie) return NextResponse.redirect(new URL('/auth/login', req.url))
+  const session = req.cookies.get('auth_session')
+  if (!session) return NextResponse.redirect(new URL('/auth/login', req.url))
 }
 
 export const config = {
   matcher: ['/middleware'],
 }
 ```
+
+> If you want to use role-based middleware, you should pass `user` to cookie in sign in route and pass it to `middleware` function
+
+```ts title="server/routes/user.route.ts"
+/* ... */
+  .post(
+    '/sign-in',
+    async ({ body: { email, password }, error }) => {
+      /* ... */
+      cookies().set('role', user.role, options)
+      /* ... */
+      return { message: 'User signed in successfully' }
+    },
+    { body: 'signIn' },
+  )
+/* ... */
+```
+
+```ts title="middleware.ts"
+export const middleware = async (req: NextRequest) => {
+  /* ... */ 
+  const role = req.cookies.get('role')
+  if (/* check role */) {
+    /* do something */
+  }
+  /* ... */
+}
+````
 
 ## Reference
 

@@ -44,7 +44,7 @@ export const mdxComponents = {
 
   code: (props) => (
     <code
-      className="relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
+      className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold"
       {...props}
     />
   ),
@@ -52,8 +52,6 @@ export const mdxComponents = {
 } satisfies MDXComponents
 
 const slugify = (input: unknown) => {
-  if (typeof input !== 'string') {
-    return ''
-  }
+  if (typeof input !== 'string') return ''
   return input.replaceAll(' ', '-').toLowerCase().trim()
 }

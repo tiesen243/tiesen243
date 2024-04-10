@@ -21,17 +21,19 @@ export function Codeblock(props: CodeblockProps) {
   const ref = useRef<HTMLPreElement>(null)
   const [copied, setCopied] = useState(false)
 
+  const copyToClipboard = () => {
+    if (typeof window === 'undefined' || !ref.current) return
+    setCopied(true)
+    void window.navigator.clipboard.writeText(ref.current.innerText)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
   return (
     <>
       <button
         aria-label="Copy to Clipboard"
         data-theme={theme}
-        onClick={() => {
-          if (typeof window === 'undefined' || !ref.current) return
-          setCopied(true)
-          void window.navigator.clipboard.writeText(ref.current.innerText)
-          setTimeout(() => setCopied(false), 1500)
-        }}
+        onClick={copyToClipboard}
         className="absolute right-2 top-[10px] z-20 h-8 w-8 cursor-pointer rounded text-muted-foreground hover:bg-muted"
       >
         <div className="relative h-full w-full p-1">
@@ -43,7 +45,7 @@ export function Codeblock(props: CodeblockProps) {
       </button>
       <pre
         ref={ref}
-        className="relative my-4 overflow-x-auto rounded-b-lg border bg-muted p-4 font-mono text-sm font-semibold text-muted-foreground"
+        className="relative my-4 overflow-x-auto rounded-lg border bg-muted p-4 font-mono text-sm font-semibold text-muted-foreground [&>*]:bg-transparent"
         {...rest}
       >
         {children}
