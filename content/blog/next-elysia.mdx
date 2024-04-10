@@ -321,24 +321,36 @@ const action = () => {
 }
 ```
 
-2. If you want to use `api` in `react server component` with protected route, you should pass `headers()` to `headers` option in your api call. This is the example:
+2. If you want to use `api` in `react server component` with protected route, you should manully pass `cookie` to `headers` option in your api call. This is the example:
 
-```ts title="app/server/page.tsx"
+```tsx title="app/server/page.tsx"
 import type { NextPage } from 'next'
+import { cookies } from 'next/headers'
 
-import { api } from '@/lib/api'
-import { headers } from 'next/headers'
+import { Button } from '@/components/ui/button'
+import { FormField } from '@/components/ui/form-field'
 
-const Page: NextPage = async () => {
-  const { data, error } = await api.post.create.post(
-    { content: 'hello' },
-    { headers: headers() as unknown as Record<string, string> },
+const Page: NextPage = () => {
+  const session = cookies().get('auth_session')
+
+  const create = async (formData: FormData) => {
+    'use server'
+    const content = String(formData.get('content'))
+    await api.post.create.post(
+      { content },
+      { headers: { Cookie: `auth_session=${session?.value}` } },
+    )
+    revalidatePath('/middleware')
+  }
+  return (
+    <form action={create} className="space-y-4">
+      <FormField name="content" label="Content" />
+      <Button type="submit" className="w-full">
+        Create Post
+      </Button>
+    </form>
   )
-  console.log({ data, error })
-  return <div>Page</div>
 }
-
-export default Page
 ```
 
 3. Middleware example:

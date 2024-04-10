@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 export const ButtonGroup: React.FC = () => (
   <div className="mt-4 flex items-center justify-center gap-4 [&>*]:text-xl [&>*]:font-bold [&>*]:transition-all [&>*]:ease-linear">
-    <Button className="bg-gradient-yuki hover:scale-105" asChild>
+    <Button className="bg-gradient-yuki text-white hover:scale-105" asChild>
       <Link href="/#contact-form">Contact Me</Link>
     </Button>
 

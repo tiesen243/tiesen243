@@ -24,6 +24,7 @@ export const mdxComponents = {
       <Component
         href={href as string}
         className="decoration-primary underline-offset-4 hover:underline"
+        {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {children}
       </Component>
