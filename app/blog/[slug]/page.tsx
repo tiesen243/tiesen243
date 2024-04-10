@@ -2,10 +2,11 @@ import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
+import { ScrollToTop } from '@/components/scroll-to-top'
+import { Badge } from '@/components/ui/badge'
 import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { Typography } from '@/components/ui/typography'
 import { getPost, getPosts } from '@/content'
-import { ScrollToTop } from '@/components/scroll-to-top'
 import { baseUrl } from '@/lib/site'
 
 interface Props {
@@ -57,6 +58,12 @@ const Page: NextPage<Props> = async ({ params: { slug } }) => {
         </Typography>
         <Typography className="[&:not(:first-child)]:mt-0">{meta.description}</Typography>
       </article>
+
+      <section className="my-2 flex cursor-default select-none items-center justify-center gap-2">
+        {meta.tags.map((tag) => (
+          <Badge key={tag}>{tag}</Badge>
+        ))}
+      </section>
 
       <article className="mx-auto max-w-screen-md">
         <Image
