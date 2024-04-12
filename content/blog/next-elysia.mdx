@@ -136,7 +136,7 @@ import { postRoute } from '@/server/routes/post.route'
 export const app = new Elysia({ prefix: '/api/elysia' })
   /* ... */
   .use(postRoute)
-  /* ... */
+/* ... */
 ```
 
 ## Fontend
@@ -334,15 +334,10 @@ import { Button } from '@/components/ui/button'
 import { FormField } from '@/components/ui/form-field'
 
 const Page: NextPage = () => {
-  const session = cookies().get('auth_session')
-
   const create = async (formData: FormData) => {
     'use server'
     const content = String(formData.get('content'))
-    await api.post.create.post(
-      { content },
-      { headers: { Cookie: `auth_session=${session?.value}` } },
-    )
+    await api.post.create.post({ content }, { headers: { Cookie: cookies().toString() } })
     revalidatePath('/server')
   }
   return (
@@ -355,6 +350,8 @@ const Page: NextPage = () => {
   )
 }
 ```
+
+> Note: I don't know why this only work in local but not in deployed app on Vercel
 
 3. Middleware example:
 
