@@ -3,12 +3,14 @@ import * as icons from 'lucide-react'
 export const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
 
+const description =
+  "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things."
+
 export const siteConfig = {
   metadata: {
     metadataBase: new URL(baseUrl),
     title: { default: 'Tiesen', template: '%s | Tiesen' },
-    description:
-      "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things.",
+    description,
     authors: { name: 'Tiesen', url: baseUrl },
     creator: '@tiesen243',
     keywords: ['tiesen', 'tiesen243', 'tiesen 243', 'Trần Tiến', 'Tran Tien', 'portfolio', 'blog'],
@@ -18,12 +20,11 @@ export const siteConfig = {
       locale: 'vi_VN',
       url: baseUrl,
       siteName: 'Tiesen',
-      images: '/og.jpg',
+      images: `/og?title=Welcome to my portfolio&desc=${description}`,
     },
     twitter: {
       card: 'summary_large_image',
       creator: '@tiesen243',
-      images: '/og.jpg',
     },
     icons: {
       icon: '/favicon.ico',

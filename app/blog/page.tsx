@@ -5,10 +5,13 @@ import { BreadCrumbs } from '@/components/ui/breadcrumb'
 import { getPosts } from '@/content'
 import { baseUrl } from '@/lib/site'
 
+const desc = 'A collection of my thoughts and experiences. I write about programming, and life.'
+
 export const metadata: Metadata = {
   title: 'Blog',
-  description: 'A blog about web development and programming',
-  openGraph: { images: '/og.jpg', url: `${baseUrl}/blog` },
+  description: desc,
+  openGraph: { images: `/og?title=Blog&desc=${desc}`, url: `${baseUrl}/blog` },
+  alternates: { canonical: `${baseUrl}/blog` },
 }
 
 const Page: NextPage = async () => {

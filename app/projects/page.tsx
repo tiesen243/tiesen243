@@ -6,10 +6,12 @@ import Image from 'next/image'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { baseUrl } from '@/lib/site'
 
+const desc =
+  'A showcase of my projects and works. I love to build things that make a difference. Check out my projects!'
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Projects I have worked on',
-  openGraph: { images: '/og.jpg', url: `${baseUrl}/projects` },
+  description: desc,
+  openGraph: { images: `/og?title=Projects&desc=${desc}`, url: `${baseUrl}/projects` },
   alternates: { canonical: `${baseUrl}/projects` },
 }
 
