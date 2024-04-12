@@ -31,7 +31,7 @@ export async function generateMetadata(
     description: meta.description,
     keywords: meta.tags,
     openGraph: {
-      images: [`/og?title=${meta.title}&desc=${meta.description}`, ...previousImages],
+      images: [meta.image, ...previousImages],
       url: `${baseUrl}/blog/${params.slug}`,
     },
     alternates: { canonical: `${baseUrl}/blog/${params.slug}` },
