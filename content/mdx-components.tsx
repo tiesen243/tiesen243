@@ -54,5 +54,10 @@ export const mdxComponents = {
 
 const slugify = (input: unknown) => {
   if (typeof input !== 'string') return ''
-  return input.replaceAll(' ', '-').toLowerCase().trim()
+  return input
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replaceAll(' ', '-')
+    .toLowerCase()
+    .trim()
 }

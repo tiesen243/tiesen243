@@ -6,6 +6,7 @@ date: 2024-04-10
 tags:
   - archlinux
   - hyprland
+hasMultipleLang: true
 ---
 
 ## Table of Contents
@@ -47,7 +48,7 @@ Then, use `Rufus` to burn the ISO image to the USB drive. You can download Rufus
 
 Second, plug the USB drive into the computer that you want to install Arch Linux on. Then, you need to boot the computer from the USB drive. You can do this by restarting the computer and pressing the boot menu key when the computer starts up. The boot menu key is usually F12, but it can vary depending on the computer. Once you have booted the computer from the USB drive, you need to select the Arch Linux installation option from the boot menu.
 
-> Remember to disable safe boot in the BIOS settings
+> Remember to disable `Secure Boot` in the BIOS settings
 
 Now, started to install Arch Linux on your computer. You can follow the Arch Linux installation guide to install Arch Linux on your computer.
 
@@ -112,16 +113,15 @@ Create the partitions on the drive.
 ```bash
 # Format the partitions
 mkfs.fat -F32 /dev/[drive_name] # EFI partition 1G
-mkfs.ext4 /dev/[drive_name] # Home partition >= 40GB
+mkfs.ext4 /dev/[drive_name] # Home partition >= 40G
 
 # Mount the partitions to the system
-mount --mkdir /dev/[drive_name] /mnt/archinstall # Home partition
-mount --mkdir /dev/[drive_name] /mnt/archinstall/boot # EFI partition
+mount --mkdir /dev/[drive_name] /mnt/archinstall # Home partition (>= 40G)
+mount --mkdir /dev/[drive_name] /mnt/archinstall/boot # EFI partition (1G)
 
-# Run `archinstall` script to start the installation
 ```
 
-In archinstall script, you can choose the following options:
+Run `archinstall` script to start the installation. In archinstall script, you can choose the following options:
 
 - `Disk configuration`:
   - Choose `Pre-mounted configuration` to use the partitions that you have created
@@ -166,13 +166,13 @@ nvim /etc/default/grub
 
 Uncomment the following line
 
-```bash
+```bash title="/etc/default/grub"
 GRUB_DISABLE_OS_PROBER=false
 ```
 
 Update the grub resolution by find and update the following line
 
-```bash
+```bash title="/etc/default/grub"
 GRUB_GFXMODE=1920x1080x32
 ```
 
@@ -268,12 +268,13 @@ node -v
 npm install -g bun
 ```
 
-> Remember to config git ssh key
+> Remember to config git ssh key before doing the next step
 
 Next, clone my `dotfiles` repository to customize the system.
 
 ```bash
 git clone git@github.com:tiesen243/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ```
 
 ### Customize the system

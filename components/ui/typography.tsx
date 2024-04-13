@@ -12,9 +12,9 @@ const typographyVariants = cva('font-sans', {
     variant: {
       h1: 'scroll-m-20 text-4xl py-2 font-extrabold tracking-tight lg:text-5xl',
       h2: 'scroll-m-20 border-b py-2 text-3xl font-semibold tracking-tight first:mt-0',
-      h3: 'scroll-m-20 text-2xl py-2 font-semibold tracking-tight',
+      h3: 'scroll-m-20 text-2xl pt-2 font-semibold tracking-tight',
       h4: 'scroll-m-20 text-xl py-2 font-semibold tracking-tight',
-      p: 'leading-7 [&:not(:first-child)]:mt-6',
+      p: 'leading-7 [&:not(:first-child)]:mt-4',
       span: '',
       blockquote: 'mt-6 border-l-2 pl-6 italic',
       ul: 'my-6 ml-6 list-disc [&>li]:mt-2',

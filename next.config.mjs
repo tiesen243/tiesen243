@@ -10,4 +10,13 @@ export default {
   experimental: {
     serverComponentsExternalPackages: ['shiki'],
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/blog',
+        destination: '/blog/en',
+        permanent: true,
+      },
+    ]
+  },
 }

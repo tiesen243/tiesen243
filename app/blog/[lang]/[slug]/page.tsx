@@ -10,19 +10,25 @@ import { getPost, getPosts } from '@/content'
 import { baseUrl } from '@/lib/site'
 
 interface Props {
-  params: { slug: string }
+  params: { lang: 'en' | 'vi'; slug: string }
 }
 
 export const generateStaticParams = async () => {
-  const metas = await getPosts()
-  return metas.map((post) => ({ slug: post.slug }))
+  const en = await getPosts('en')
+  const vi = await getPosts('vi')
+
+  return [
+    ...en.map((slug) => ({ params: { lang: 'en', slug } })),
+    ...vi.map((slug) => ({ params: { lang: 'vi', slug } })),
+  ]
 }
 
-export async function generateMetadata(
+export const generateMetadata = async (
   { params }: Props,
   parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const { meta } = await getPost(`${params.slug}.mdx`)
+): Promise<Metadata> => {
+  const { lang, slug } = params
+  const { meta } = await getPost(lang, `${slug}.mdx`)
 
   const previousImages = (await parent).openGraph?.images ?? []
 
@@ -32,26 +38,39 @@ export async function generateMetadata(
     keywords: meta.tags,
     openGraph: {
       images: [meta.image, ...previousImages],
-      url: `${baseUrl}/blog/${params.slug}`,
+      url: `${baseUrl}/blog/${lang}/${params.slug}`,
     },
-    alternates: { canonical: `${baseUrl}/blog/${params.slug}` },
+    alternates: { canonical: `${baseUrl}/blog/${lang}/${params.slug}` },
   }
 }
 
-const Page: NextPage<Props> = async ({ params: { slug } }) => {
-  const { content, meta } = await getPost(`${slug}.mdx`)
+const Page: NextPage<Props> = async ({ params }) => {
+  const { lang, slug } = params
+  const { content, meta } = await getPost(lang, `${slug}.mdx`)
   if (!meta.title) return notFound()
 
   return (
     <>
-      <BreadCrumbs
-        className="top list-none"
-        items={[
-          { name: '~', href: '/#about' },
-          { name: 'Blog', href: '/blog' },
-          { name: meta.title, href: `/blog/${slug}` },
-        ]}
-      />
+      <div className="flex items-center justify-between">
+        <BreadCrumbs
+          className="top list-none"
+          items={[
+            { name: '~', href: '/#about' },
+            { name: 'Blog', href: `/blog/${lang}` },
+            { name: meta.title, href: `/blog/${lang}/${slug}` },
+          ]}
+        />
+
+        {meta.hasMultipleLang && (
+          <Typography
+            variant="link"
+            href={`/blog/${lang === 'en' ? 'vi' : 'en'}/${slug}`}
+            className="text-muted-foreground hover:text-foreground"
+          >
+            {lang === 'en' ? 'Tiếng Việt' : 'English'}
+          </Typography>
+        )}
+      </div>
 
       <article className="mx-auto flex max-w-screen-md flex-col items-center">
         <Typography variant="h1">{meta.title}</Typography>

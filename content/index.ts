@@ -1,6 +1,7 @@
 import fs from 'fs'
 import { compileMDX } from 'next-mdx-remote/rsc'
 
+/* mdx plugins */
 import rehypePrettyCode, { type Options } from 'rehype-pretty-code'
 import { getHighlighter } from 'shiki'
 
@@ -15,11 +16,12 @@ export interface PostMeta {
   tags: string[]
   date: Date
   slug: string
+  hasMultipleLang?: boolean
 }
 
-export const getPost = async (slug: string) => {
+export const getPost = async (lang: 'en' | 'vi' = 'en', slug: string) => {
   try {
-    const source = fs.readFileSync(`${root}/content/blog/${slug}`, 'utf8')
+    const source = fs.readFileSync(`${root}/content/blog/${lang}/${slug}`, 'utf8')
 
     const { content, frontmatter } = await compileMDX<PostMeta>({
       source,
@@ -29,16 +31,11 @@ export const getPost = async (slug: string) => {
           rehypePlugins: [
             [
               rehypePrettyCode as any,
-              /** @type {import("rehype-pretty-code").Options} */
               {
                 theme: 'dracula',
                 getHighlighter,
                 onVisitLine(node) {
-                  // Prevent lines from collapsing in `display: grid` mode, and allow empty
-                  // lines to be copy/pasted
-                  if (node.children.length === 0) {
-                    node.children = [{ type: 'text', value: ' ' }]
-                  }
+                  if (node.children.length === 0) node.children = [{ type: 'text', value: ' ' }]
                 },
                 onVisitHighlightedLine(node) {
                   node.properties.className?.push('line--highlighted')
@@ -66,13 +63,14 @@ export const getPost = async (slug: string) => {
         tags: [],
         date: new Date(),
         slug: slug.replace('.mdx', ''),
+        hasMultipleLang: false,
       },
     }
   }
 }
 
-export const getPosts = async () => {
-  const slugs = fs.readdirSync(`${root}/content/blog`)
-  const posts = await Promise.all(slugs.map(getPost))
+export const getPosts = async (lang: 'en' | 'vi' = 'en') => {
+  const slugs = fs.readdirSync(`${root}/content/blog/${lang}`)
+  const posts = await Promise.all(slugs.map((slug) => getPost(lang, slug)))
   return posts.map((post) => post.meta)
 }
