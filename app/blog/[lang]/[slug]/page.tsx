@@ -18,8 +18,8 @@ export const generateStaticParams = async () => {
   const vi = await getPosts('vi')
 
   return [
-    ...en.map((slug) => ({ params: { lang: 'en', slug } })),
-    ...vi.map((slug) => ({ params: { lang: 'vi', slug } })),
+    ...en.map((post) => ({ lang: 'en', slug: post.slug })),
+    ...vi.map((post) => ({ lang: 'vi', slug: post.slug })),
   ]
 }
 
