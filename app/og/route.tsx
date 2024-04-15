@@ -56,7 +56,7 @@ export const GET = async (_: NextRequest, { params }: Props): Promise<ImageRespo
 
         <div tw="flex-1 flex w-full items-end justify-between">
           <div tw="flex flex-col items-start w-3/4 pr-4">
-            <h2 tw="text-4xl">{title}</h2>
+            <h2 tw="text-4xl capitalize">{title}</h2>
             <p tw="text-2xl mt-4">{description}</p>
           </div>
 
