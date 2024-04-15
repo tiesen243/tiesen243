@@ -1,0 +1,164 @@
+---
+title: Validate form with Zod and SWR
+description: Validate form in React using Zod and SWR Hooks
+image: /og?title=Validate%20form%20with%20Zod%20and%20SWR&desc=Validate%20form%20in%20React%20using%20Zod%20and%20SWR%20Hooks
+tags:
+  - React 
+  - Zod
+  - SWR
+  - Form
+  - Validation
+date: 2024-04-15
+---
+
+## Table of Contents
+
+1. [Introduction](#introduction)
+2. [Project Setup](#project-setup)
+3. [Creating a Form](#creating-a-form)
+4. [Conclusion](#conclusion)
+
+## Introduction
+
+In this article, we will learn how to validate a form in React using Zod and SWR hooks. Zod is a TypeScript-first schema declaration and validation library. SWR is a React Hooks library for remote data fetching. We will use Zod to validate the form data and SWR to fetch the data from the server.
+
+### Tech Stack
+
+- [Next.js](https://nextjs.org/): A React framework for building server-side rendered and static web applications.
+- [Zod](https://zod.dev/): TypeScript-first schema validation with static type inference 
+- [SWR](https://swr.vercel.app/): React Hooks library for data fetching
+
+## Project Setup 
+
+Let's start by creating a new React project using Create Next App.
+
+```bash
+bun create next-app form-validation
+```
+
+Next, install the required dependencies.
+
+```bash
+bun add zod swr
+```
+
+Then, install some reuseable components from Shadcn/ui
+
+```bash
+bunx --bun shadcn-ui@latest init
+bunx --bun shadcn-ui@latest Button Input Textarea Label
+```
+
+## Creating a Form 
+
+First, let's create a `FormField` component that will render the form fields.
+
+```tsx title="components/ui/form-field.tsx"
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
+import { cn } from '@/lib/utils'
+
+export type FieldProps = {
+  label?: string
+  multiline?: boolean
+  inputClassName?: string
+  message?: string
+} & React.ComponentProps<typeof Input> &
+  React.ComponentProps<typeof Textarea>
+
+export const FormField: React.FC<FieldProps> = ({
+  label,
+  multiline = false,
+  className = '',
+  inputClassName = '',
+  message = '',
+  ...props
+}) => {
+  const Comp = multiline ? Textarea : Input
+  return (
+    <div className={cn('space-y-2', className)}>
+      {label && <Label htmlFor={props.name}>{label}</Label>}
+      <Comp {...props} className={inputClassName} />
+      {message && <p className="text-sm text-red-600">{message}</p>}
+    </div>
+  )
+}
+```
+
+Next, create a `formSchema` that will define the form fields and their validation rules. 
+
+```ts title="lib/form-schema.ts"
+import { z } from 'zod'
+
+export const formSchema = z.object({
+  name: z.string().min(3, 'Name must be at least 3 characters'),
+  email: z.string().email('Invalid email address'),
+  message: z.string().min(10, 'Message must be at least 10 characters'),
+})
+```
+
+> Optionally, if you want to typescript auto-completion for error messages, you can define a type for the form schema like this:
+
+```ts title="type.d.ts"
+interface Error {
+  message: string
+  fieldErrors?: Record<string, string>
+}
+```
+
+Now, create a `ContactForm` component that will render the form fields and handle form submission.
+
+```tsx title="components/contact-form.tsx"
+"use client"
+
+import type { NextPage } from 'next'
+import useSWRMutation from 'swr/mutation'
+
+import { FormField } from '@/components/ui/form-field'
+import { Button } from '@/components/ui/button'
+import { formSchema } from '@/lib/form-schema'
+
+const ContactPage: NextPage = () => {
+  const { trigger, isMutating, error } = useSWRMutation<unknown, Error, string, FormData>(
+    'login',
+    async (_, { arg }) => {
+      const inp = formSchema.safeParse(Object.fromEntries(arg.entries()))
+      if (!inp.success) throw inp.error.flatten()
+      /* Call your API here */
+    },
+  )
+
+  return (
+    <form
+      action={(formData:FormData) => {
+        trigger(formData)
+      }}
+    >
+      <FormField label="Name" name="name" message={error?.fieldErrors?.name} />
+      <FormField label="Email" name="email" type="email" message={error?.fieldErrors?.email} />
+      <FormField label="Message" name="message" multiline message={error?.fieldErrors?.message} />
+
+      <Button type="submit" className="w-full" disabled={isMutating}>
+        {isMutating ? 'Sending...' : 'Send'}
+      </Button>
+    </form>
+  )
+}
+
+export default ContactPage
+```
+
+Now, when you submit the form, it will validate the form fields using Zod and call the API using SWR. 
+If there are any validation errors, it will display the error message below the form field like this:
+
+![image](https://github.com/tiesen243/tiesen243/assets/101703006/be3dfc38-2cb8-478a-958e-2377460ce010)
+
+## Conclusion
+
+In this article, we learned how to validate a form in React using Zod and SWR hooks. Zod is a TypeScript-first schema declaration and validation library. SWR is a React Hooks library for remote data fetching. We used Zod to validate the form data and SWR to fetch the data from the server.
+
+I hope you found this article helpful. Thanks for reading!
+
+
+

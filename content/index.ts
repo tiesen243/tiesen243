@@ -71,6 +71,8 @@ export const getPost = async (lang: 'en' | 'vi' = 'en', slug: string) => {
 
 export const getPosts = async (lang: 'en' | 'vi' = 'en') => {
   const slugs = fs.readdirSync(`${root}/content/blog/${lang}`)
-  const posts = await Promise.all(slugs.map((slug) => getPost(lang, slug)))
+  const posts = await Promise.all(slugs.map((slug) => getPost(lang, slug))).then((posts) =>
+    posts.sort((a, b) => Number(new Date(b.meta.date)) - Number(new Date(a.meta.date))),
+  )
   return posts.map((post) => post.meta)
 }
