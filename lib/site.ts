@@ -1,5 +1,13 @@
-import * as icons from 'lucide-react'
-import { Metadata, Viewport } from 'next'
+import {
+  type LucideIcon,
+  GithubIcon,
+  LinkedinIcon,
+  FacebookIcon,
+  TwitterIcon,
+  YoutubeIcon,
+  CoffeeIcon,
+} from 'lucide-react'
+import type { Metadata, Viewport } from 'next'
 
 export const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
@@ -11,7 +19,7 @@ interface SiteConfig {
   meta: Metadata
   viewport: Viewport
   email: string
-  socials: { label: string; href: string; icon: icons.LucideIcon }[]
+  socials: { label: string; href: string; icon: LucideIcon }[]
   navLinks: { label: string; url: string }[]
 }
 
@@ -58,32 +66,32 @@ export const siteConfig: SiteConfig = {
     {
       label: 'Github',
       href: 'https://github.com/tiesen243',
-      icon: icons.GithubIcon,
+      icon: GithubIcon,
     },
     {
       label: 'Linkedin',
       href: 'https://www.linkedin.com/in/tiesen243/',
-      icon: icons.LinkedinIcon,
+      icon: LinkedinIcon,
     },
     {
       label: 'Facebook',
       href: 'https://www.facebook.com/tiesen243/',
-      icon: icons.FacebookIcon,
+      icon: FacebookIcon,
     },
     {
       label: 'Twitter',
       href: 'https://twitter.com/tiesen243',
-      icon: icons.TwitterIcon,
+      icon: TwitterIcon,
     },
     {
       label: 'Youtube',
       href: 'https://www.youtube.com/@tiesen243',
-      icon: icons.YoutubeIcon,
+      icon: YoutubeIcon,
     },
     {
       label: 'Support me',
       href: 'https://me.momo.vn/tiesen243',
-      icon: icons.CoffeeIcon,
+      icon: CoffeeIcon,
     },
   ],
 
