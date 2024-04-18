@@ -1,6 +1,7 @@
-import { siteConfig } from '@/lib/site'
 import { ImageResponse } from 'next/og'
 import type { NextRequest } from 'next/server'
+
+import { siteConfig } from '@/lib/site'
 
 interface Props {
   params: {
@@ -18,8 +19,8 @@ export const GET = async (_: NextRequest, { params }: Props): Promise<ImageRespo
     backgroundSize: '100px 100px',
   }
 
-  const title = params.title ?? siteConfig.metadata.title.default
-  const description = params.desc ?? siteConfig.metadata.description
+  const title = params.title ?? siteConfig.meta.applicationName ?? ''
+  const description = params.desc ?? siteConfig.meta.description
 
   return new ImageResponse(
     (

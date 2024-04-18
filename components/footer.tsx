@@ -16,7 +16,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => (
             </div>
           </div>
 
-          <Typography variant="h4">{siteConfig.metadata.applicationName}</Typography>
+          <Typography variant="h4">{siteConfig.meta.applicationName}</Typography>
         </div>
 
         <ul className="flex flex-col gap-2 text-2xl md:col-span-2 md:text-xl">

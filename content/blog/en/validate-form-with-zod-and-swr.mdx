@@ -3,7 +3,7 @@ title: Validate form with Zod and SWR
 description: Validate form in React using Zod and SWR Hooks
 image: /og?title=Validate%20form%20with%20Zod%20and%20SWR&desc=Validate%20form%20in%20React%20using%20Zod%20and%20SWR%20Hooks
 tags:
-  - React 
+  - React
   - Zod
   - SWR
   - Form
@@ -25,10 +25,10 @@ In this article, we will learn how to validate a form in React using Zod and SWR
 ### Tech Stack
 
 - [Next.js](https://nextjs.org/): A React framework for building server-side rendered and static web applications.
-- [Zod](https://zod.dev/): TypeScript-first schema validation with static type inference 
+- [Zod](https://zod.dev/): TypeScript-first schema validation with static type inference
 - [SWR](https://swr.vercel.app/): React Hooks library for data fetching
 
-## Project Setup 
+## Project Setup
 
 Let's start by creating a new React project using Create Next App.
 
@@ -49,7 +49,7 @@ bunx --bun shadcn-ui@latest init
 bunx --bun shadcn-ui@latest Button Input Textarea Label
 ```
 
-## Creating a Form 
+## Creating a Form
 
 First, let's create a `FormField` component that will render the form fields.
 
@@ -88,7 +88,7 @@ export const FormField = <T extends HTMLInputElement | HTMLTextAreaElement = HTM
 FormField.displayName = 'FormField'
 ```
 
-Next, create a `formSchema` that will define the form fields and their validation rules. 
+Next, create a `formSchema` that will define the form fields and their validation rules.
 
 ```ts title="lib/form-schema.ts"
 import { z } from 'zod'
@@ -112,7 +112,7 @@ interface Error {
 Now, create a `ContactForm` component that will render the form fields and handle form submission.
 
 ```tsx title="components/contact-form.tsx"
-"use client"
+'use client'
 
 import type { NextPage } from 'next'
 import useSWRMutation from 'swr/mutation'
@@ -133,7 +133,7 @@ const ContactPage: NextPage = () => {
 
   return (
     <form
-      action={(formData:FormData) => {
+      action={(formData: FormData) => {
         trigger(formData)
       }}
     >
@@ -151,7 +151,7 @@ const ContactPage: NextPage = () => {
 export default ContactPage
 ```
 
-Now, when you submit the form, it will validate the form fields using Zod and call the API using SWR. 
+Now, when you submit the form, it will validate the form fields using Zod and call the API using SWR.
 If there are any validation errors, it will display the error message below the form field like this:
 
 ![image](https://github.com/tiesen243/tiesen243/assets/101703006/be3dfc38-2cb8-478a-958e-2377460ce010)
@@ -161,6 +161,3 @@ If there are any validation errors, it will display the error message below the 
 In this article, we learned how to validate a form in React using Zod and SWR hooks. Zod is a TypeScript-first schema declaration and validation library. SWR is a React Hooks library for remote data fetching. We used Zod to validate the form data and SWR to fetch the data from the server.
 
 I hope you found this article helpful. Thanks for reading!
-
-
-

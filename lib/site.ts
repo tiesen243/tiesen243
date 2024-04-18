@@ -1,4 +1,5 @@
 import * as icons from 'lucide-react'
+import { Metadata, Viewport } from 'next'
 
 export const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
@@ -6,8 +7,16 @@ export const baseUrl =
 const description =
   "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things."
 
-export const siteConfig = {
-  metadata: {
+interface SiteConfig {
+  meta: Metadata
+  viewport: Viewport
+  email: string
+  socials: { label: string; href: string; icon: icons.LucideIcon }[]
+  navLinks: { label: string; url: string }[]
+}
+
+export const siteConfig: SiteConfig = {
+  meta: {
     metadataBase: new URL(baseUrl),
     title: { default: 'Tiesen', template: '%s | Tiesen' },
     description,
@@ -32,6 +41,16 @@ export const siteConfig = {
       apple: '/apple-touch-icon.png',
     },
     alternates: { canonical: baseUrl },
+  },
+  viewport: {
+    themeColor: [
+      { media: '(prefers-color-scheme: light)', color: 'hsl(0 0% 100%)' },
+      { media: '(prefers-color-scheme: dark)', color: 'hsl(240 10% 3.9%)' },
+    ],
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
   },
   email: 'ttien56906@gmail.com',
 
