@@ -1,3 +1,5 @@
+<img src='./public/images/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
+
 ## Hi there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35px" height="35px"/> I'm Tiesen, a Weeb Developer from Vietnam!
 
 <img align="right" width=200px height=200px alt="side_sticker" src="https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif" />

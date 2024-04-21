@@ -98,7 +98,7 @@ export const siteConfig: SiteConfig = {
   navLinks: [
     {
       label: 'Home',
-      url: '/',
+      url: '/#home',
     },
     {
       label: 'About',
