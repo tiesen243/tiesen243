@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import { ButtonGroup } from './button-group'
 import { Intro } from './intro'
+import { description } from '@/lib/site'
 
 export const Home: React.FC = () => (
   <section
@@ -13,8 +14,7 @@ export const Home: React.FC = () => (
     <Intro />
 
     <p className="border-none text-center text-2xl font-medium leading-10 [&:not(:first-child)]:mt-4">
-      I&apos;m a weeb developer who loves to build things. I enjoy working with TypeScript, Next.js,
-      and ElysiaJS. I&apos;m also a fan of anime, manga, and light novels.
+      {description}
     </p>
 
     <ButtonGroup />

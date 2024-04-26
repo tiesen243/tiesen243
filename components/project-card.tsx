@@ -48,11 +48,9 @@ export const ProjectCard: React.FC<{ project: Project }> = ({ project }) => (
       </div>
     </card.CardHeader>
 
-    <card.CardContent>
-      <div className="flex items-center justify-between">
-        <card.CardTitle className="capitalize">{project.name.replace(/-/g, ' ')}</card.CardTitle>
-        <time className="text-muted-foreground">{new Date(project.created_at).toDateString()}</time>
-      </div>
+    <card.CardContent className="space-y-1 pb-2">
+      <card.CardTitle className="capitalize">{project.name.replace(/-/g, ' ')}</card.CardTitle>
+      <card.CardDescription>{new Date(project.created_at).toDateString()}</card.CardDescription>
       <card.CardDescription>Language: {project.language}</card.CardDescription>
       <card.CardDescription className="line-clamp-1">{project.description}</card.CardDescription>
     </card.CardContent>

@@ -12,8 +12,8 @@ import type { Metadata, Viewport } from 'next'
 export const baseUrl =
   process.env.NODE_ENV === 'production' ? 'https://tiesen.id.vn' : 'http://localhost:3000'
 
-const description =
-  "Hi there, I'm Tiesen, a web developer from Vietnam. I seft-taught and love to build new things."
+export const description =
+  "I'm a weeb developer who loves to build things. I enjoy working with TypeScript, Next.js, and ElysiaJS. I'm also a fan of anime, manga, and light novels."
 
 interface SiteConfig {
   meta: Metadata
