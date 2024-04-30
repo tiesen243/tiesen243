@@ -40,10 +40,10 @@ const Page: NextPage = async () => {
       </section>
 
       <section className="mt-4 space-y-4">
-        {Array.from({ length: 4 }).map((_, i) => (
+        {Array.from({ length: 5 }).map((_, i) => (
           <Image
             key={i}
-            src={`/images/design/0${i + 1}.png`}
+            src={`/images/design/${i + 1}.png`}
             alt={`Design ${i + 1}`}
             className="rounded-lg object-cover shadow-lg"
             width={1920}
