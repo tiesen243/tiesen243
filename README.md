@@ -1,7 +1,5 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-## Hi there <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35px" height="35px"/> I'm Tiesen, a Weeb Developer from Vietnam!
-
 <img align="right" width=200px height=200px alt="side_sticker" src="https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif" />
 
 - 🔭 I'm passionate about Full Stack Web Development and Machine Learning
@@ -25,7 +23,7 @@
 
 ### Languages and Frameworks
 
-<div align="center">
+<div align="left">
     <img src="https://api.iconify.design/skill-icons/typescript.svg" alt="skill-icons:typescript" height="40" />
     <img width="10" />
     <img src="https://api.iconify.design/skill-icons/react-light.svg" alt="skill-icons:react-light" height="40" />
@@ -55,7 +53,7 @@
 
 ### Tools and Platforms
 
-<div align="center">
+<div align="left">
     <img src="https://api.iconify.design/skill-icons/arch-dark.svg" alt="skill-icons:arch-dark" height="40" />
     <img width="10" />
     <img src="https://api.iconify.design/logos/bun.svg" alt="logos:bun" height="40" />
