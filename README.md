@@ -85,5 +85,5 @@
 ## 👀 Visitors Count
 
 <div align="center">
-    <img src='https://count.getloli.com/get/@tiesen243?theme=gelbooru' alt='visitor badge'/>
+    <img src='https://tiesen.id.vn/api/view-count/tiesen243' width='1100px' alt='visitor badge'/>
 </div>
