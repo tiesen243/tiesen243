@@ -1,5 +1,5 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
-
+ 
 <img align="right" width=200px height=200px alt="side_sticker" src="https://media.giphy.com/media/TEnXkcsHrP4YedChhA/giphy.gif" />
 
 - 🔭 I'm passionate about Full Stack Web Development and Machine Learning
