@@ -83,5 +83,5 @@
 ## 👀 Visitors Count
 
 <div align="center">
-    <img src='https://tiesen-blond.vercel.app/api' width='1200px' height="630px" alt='visitor badge'/>
+    <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count'/>
 </div>
