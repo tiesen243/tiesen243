@@ -83,5 +83,5 @@
 ## 👀 Visitors Count
 
 <div align="center">
-    <img src='https://api.tiesen.id.vn/api/view-count/tiesen243' width='1050px' alt='visitor badge'/>
+    <img src='https://tiesen-blond.vercel.app' width='1050px' alt='visitor badge'/>
 </div>
