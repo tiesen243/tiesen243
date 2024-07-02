@@ -1,7 +1,8 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-- :zap: See my [portfolio](https://tiesen.id.vn/) for more information
-- I use Arch btw
+I use Arch btw
+
+---
 
 ## ✨ GitHub Stats:
 
