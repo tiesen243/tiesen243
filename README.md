@@ -1,6 +1,6 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-I use Arch btw
+<p akigh='center'>-- I use Arch btw --</p>
 
 ---
 
