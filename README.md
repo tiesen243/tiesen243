@@ -26,9 +26,9 @@
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/react-light.svg" alt="skill-icons:react-light" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/devicon/nextjs.svg" alt="devicon:nextjs" height="20" />
+    <img src="https://api.iconify.design/skill-icons/nextjs-light.svg" alt="skill-icons:nextjs-light" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/simple-icons/remix.svg" alt="simple-icons:remix" height="20" />
+    <img src="https://api.iconify.design/skill-icons/remix-light.svg" alt="skill-icons:remix-light" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/devicon/tailwindcss.svg" alt="devicon:tailwindcss" height="20" />
     <img width="5" />
