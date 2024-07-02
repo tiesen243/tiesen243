@@ -34,7 +34,11 @@
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/elysia-light.svg" alt="skill-icons:elysia-light" height="20" />
     <img width="5" />
+    <img src="https://api.iconify.design/simple-icons/trpc.svg" alt="simple-icons:trpc" height="20" />
+    <img width="5" />
     <img src="https://api.iconify.design/skill-icons/mongodb.svg" alt="skill-icons:mongodb" height="20" />
+    <img width="5" />
+    <img src="https://api.iconify.design/skill-icons/postgres.svg" alt="skill-icons:postgres" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/prisma.svg" alt="skill-icons:prisma" height="20" />
     <img width="5" />
@@ -46,8 +50,8 @@
     <img width="5" />
     <img src="https://api.iconify.design/devicon/numpy.svg" alt="devicon:numpy" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/devicon/pandas.svg" alt="devicon:pandas" height="20" />
-    <img width="5" />
+    <img src="https://api.iconify.design/devicon/pandas.svg" alt="devicon:pandas" height="20" />  
+    <img width=5" />
     <img src="https://api.iconify.design/devicon/matplotlib.svg" alt="devicon:matplotlib" height="20" />
     <img src="https://api.iconify.design/skill-icons/arch-dark.svg" alt="skill-icons:arch-dark" height="20" />
     <img width="5" />
