@@ -1,8 +1,7 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-- 🔭 I'm passionate about Full Stack Web Development and Machine Learning
-- 🥅 I'm currently learning Computer Engineering Technology
 - :zap: See my [portfolio](https://tiesen.id.vn/) for more information
+- I use Arch btw
 
 ## ✨ GitHub Stats:
 
