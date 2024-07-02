@@ -48,7 +48,7 @@
     <img width="5" />
     <img src="https://api.iconify.design/simple-icons/clerk.svg" alt="simple-icons:clerk" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/logos/python.svg" alt="logos:python" height="20" />
+    <img src="https://api.iconify.design/skill-icons/python-light.svg" alt="skill-icons:python-light" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/devicon/numpy.svg" alt="devicon:numpy" height="20" />
     <img width="5" />
