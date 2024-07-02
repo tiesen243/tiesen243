@@ -13,7 +13,7 @@
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=compact&show_icons=true&hide_border=true" />
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" />
   </td>
-  <td width="55%"><img alt="yuki" align="right" src="./.github/yuki.gif"/></td>
+  <td width="55%"></td>
 </tr>
 <table>
 
@@ -85,3 +85,5 @@
 <div align="center">
     <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count'/>
 </div>
+
+<img alt="yuki" align="right" src="./.github/yuki.gif"/>
