@@ -30,10 +30,10 @@
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/remix-light.svg" alt="skill-icons:remix-light" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/devicon/tailwindcss.svg" alt="devicon:tailwindcss" height="20" />
+    <img src="https://api.iconify.design/skill-icons/tailwindcss-light.svg" alt="skill-icons:tailwindcss-light" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/simple-icons/shadcnui.svg" alt="simple-icons:shadcnui" height="20" />
-    <img width="5" />
+    <img width="8" />
     <img src="https://api.iconify.design/skill-icons/elysia-light.svg" alt="skill-icons:elysia-light" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/simple-icons/trpc.svg" alt="simple-icons:trpc" height="20" />
