@@ -10,11 +10,12 @@
 <tr>
   <td width="50%">
     <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=compact&show_icons=true&hide_border=true" />
-    </td>
+  </td>
+
   <td width="50%">
- <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide=contribs,issues&hide_border=true" />
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" />
-   </td>
+    <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide=contribs,issues&hide_border=true" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" />
+  </td>
 </tr>
 <table>
 
@@ -86,7 +87,5 @@
 <div align="center">
     <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count'/>
 </div>
-
----
 
 <img alt="yuki" align="right" src="./.github/yuki.gif"/>
