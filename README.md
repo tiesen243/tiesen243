@@ -1,6 +1,6 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-<p align='center'>-- I use Arch btw --</p>
+<p align='center'>~~ I use Arch btw ~~</p>
 
 ---
 
@@ -86,5 +86,7 @@
 <div align="center">
     <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count'/>
 </div>
+
+---
 
 <img alt="yuki" align="right" src="./.github/yuki.gif"/>
