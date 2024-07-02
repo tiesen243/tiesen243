@@ -38,7 +38,7 @@
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/mongodb.svg" alt="skill-icons:mongodb" height="20" />
     <img width="5" />
-    <img src="https://api.iconify.design/skill-icons/postgres.svg" alt="skill-icons:postgres" height="20" />
+    <img src="https://api.iconify.design/skill-icons/postgresql-light.svg" alt="skill-icons:postgresql-light" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/skill-icons/prisma.svg" alt="skill-icons:prisma" height="20" />
     <img width="5" />
