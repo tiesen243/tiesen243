@@ -28,6 +28,8 @@
     <img width="5" />
     <img src="https://api.iconify.design/devicon/nextjs.svg" alt="devicon:nextjs" height="20" />
     <img width="5" />
+    <img src="https://api.iconify.design/simple-icons/remix.svg" alt="simple-icons:remix" height="20" />
+    <img width="5" />
     <img src="https://api.iconify.design/devicon/tailwindcss.svg" alt="devicon:tailwindcss" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/simple-icons/shadcnui.svg" alt="simple-icons:shadcnui" height="20" />
@@ -53,6 +55,7 @@
     <img src="https://api.iconify.design/devicon/pandas.svg" alt="devicon:pandas" height="20" />  
     <img width=5" />
     <img src="https://api.iconify.design/devicon/matplotlib.svg" alt="devicon:matplotlib" height="20" />
+    <img width="5" />
     <img src="https://api.iconify.design/skill-icons/arch-dark.svg" alt="skill-icons:arch-dark" height="20" />
     <img width="5" />
     <img src="https://api.iconify.design/logos/bun.svg" alt="logos:bun" height="20" />
