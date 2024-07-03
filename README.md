@@ -4,7 +4,7 @@
 
 ---
 
-I love Typescript 
+I love Yukikaze 🥰
 
 <img src="./.github/20240429_025959.jpg" alt="duci" width="100%" />
 
