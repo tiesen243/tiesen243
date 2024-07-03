@@ -6,8 +6,7 @@
 
 I love Typescript 
 
-
-<img width="2" />
+<img src="./.github/20240429_025959.jpg" alt="duci" width="100%" />
 
 <div align="left">
     <img src="https://api.iconify.design/skill-icons/typescript.svg" alt="skill-icons:typescript" height="32" />
