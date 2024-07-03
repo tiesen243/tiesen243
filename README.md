@@ -1,25 +1,14 @@
 <img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-<p align='center'>~~ I use Arch btw ~~</p>
+<p align='center'> < I use Arch btw /> </p>
 
 ---
 
-## ✨ GitHub Stats:
+I love Typescript 
 
-<table width="100%">
-<tr>
-  <td width="50%">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=compact&show_icons=true&hide_border=true" />
-  </td>
+<img alt="yuki" align="right" src="./.github/yuki.gif"/>
 
-  <td width="50%">
-    <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide=contribs,issues&hide_border=true" />
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" />
-  </td>
-</tr>
-<table>
-
-## 💻 Tech Stack
+<img width="2" />
 
 <div align="left">
     <img src="https://api.iconify.design/skill-icons/typescript.svg" alt="skill-icons:typescript" height="20" />
@@ -79,6 +68,21 @@
     <img src="https://api.iconify.design/skill-icons/figma-light.svg" alt="skill-icons:figma-light" height="20" />
 </div>
 
+## ✨ GitHub Stats:
+
+<table width="100%">
+<tr>
+  <td width="50%">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=compact&show_icons=true&hide_border=true" />
+  </td>
+
+  <td width="50%">
+    <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide=contribs,issues&hide_border=true" />
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" />
+  </td>
+</tr>
+<table>
+
 ## 🐍 Snake Eating Contributions
 
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
@@ -87,7 +91,5 @@
 ## 👀 Visitors Count
 
 <div align="center">
-    <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count'/>
+    <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
 </div>
-
-<img alt="yuki" align="right" src="./.github/yuki.gif"/>
