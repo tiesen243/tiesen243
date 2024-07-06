@@ -29,10 +29,10 @@ I am a weeb developer and I love Yukikaze 🥰
 </tr>
 <table>
 
-## 🐍 Snake Eating Contributions
-
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
 ![snake-light](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake.svg#gh-light-mode-only)
+
+---
 
 <img src="./.github/yuki.gif" alt="yuki" width="100%" />
 
