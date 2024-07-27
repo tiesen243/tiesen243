@@ -6,7 +6,9 @@
 
 I am a weeb developer and I love Yukikaze 🥰
 
-<img src="./.github/20240429_025959.jpg" alt="duci" width="100%" />
+I have experience working with TypeScript, Next.js, TailwindCSS, tRPC, ElysiaJS, Prisma, MongoDb and more... Sometime I also work with Machine Learning. I am a quick learner and I am always looking to expand my knowledge and skill set.
+
+<img src="./.github/banner-05.png" alt="duci" width="100%" />
 
 <div align="center">
     <img src="https://skillicons.dev/icons?i=ts,nextjs,remix,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop&perline=8" />
