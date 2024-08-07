@@ -4,9 +4,7 @@
 
 ---
 
-I am a weeb developer and I love Yukikaze 🥰
-
-I have experience working with TypeScript, Next.js, TailwindCSS, tRPC, ElysiaJS, Prisma, MongoDb and more... Sometime I also work with Machine Learning. I am a quick learner and I am always looking to expand my knowledge and skill set.
+I am a web developer with a passion for creating interactive and responsive web applications. I have experience working with TypeScript, Next.js, TailwindCSS, tRPC, ElysiaJS, Prisma, MongoDb and more... Sometime I also work with Machine Learning. I am a quick learner and I am always looking to expand my knowledge and skill set.
 
 <img src="./.github/banner-05.png" alt="duci" width="100%" />
 
