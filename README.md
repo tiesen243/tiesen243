@@ -24,7 +24,7 @@ I am a web developer with a passion for creating interactive and responsive web 
 
   <td width="45%">
     <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" width="100%" />
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=tiesen243&theme=tokyonight&hide_border=true&mode=weekly" width="100%" />
+    <img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula" width="100%" />
   </td>
 </tr>
 <table>
