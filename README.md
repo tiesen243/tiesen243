@@ -9,7 +9,7 @@ I am a web developer with a passion for creating interactive and responsive web 
 <img src="./.github/banner-05.png" alt="duci" width="100%" />
 
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=ts,nextjs,remix,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop&perline=8" />
+    <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop, illustrator&perline=8" />
 </div>
 
 ---
