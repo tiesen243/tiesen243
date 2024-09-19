@@ -4,7 +4,7 @@
 
 ---
 
-I am a web developer with a passion for creating interactive and responsive web applications. I have experience working with TypeScript, Next.js, TailwindCSS, tRPC, ElysiaJS, Prisma, Python and more... Sometime I also work with Machine Learning. I am a quick learner and I am always looking to expand my knowledge and skill set.
+I'm Tran Tien, a weeb developer with a love for all things anime. I'm passionate about creating software that makes a difference in the world. I'm have experience in Next.js, Tailwind CSS, tRPC, and Python. Some of my hobbies include watching anime, playing video games, and reading manga. I also enjoy learning new things.
 
 <img src="./.github/banner-05.png" alt="duci" width="100%" />
 
