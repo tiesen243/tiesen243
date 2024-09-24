@@ -1,4 +1,4 @@
-<img src='./.github/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
+<img src='https://tiesen.id.vn/assets/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
 <p align='center'> < I use Arch btw /> </p>
 
@@ -6,7 +6,7 @@
 
 I'm Tran Tien, a weeb developer with a love for all things anime. I'm passionate about creating software that makes a difference in the world. I'm have experience in Next.js, Tailwind CSS, tRPC, and Python. Some of my hobbies include watching anime, playing video games, and reading manga. I also enjoy learning new things.
 
-<img src="./.github/banner-05.png" alt="duci" width="100%" />
+<img src="https://tiesen.id.vn/assets/design/tiesen-v2.png" alt="duci" width="100%" />
 
 <div align="center">
     <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" />
