@@ -2,7 +2,7 @@
 
 <p align='center'>< I use Arch btw /></p>
 
-## 🌟 About Me:
+## 🌟 About Me
 
 My name is Tran Tien and I'm a weeb developer with a love for all things anime. My goal is to become a full-stack developer. I'm currently learning Next.js and Machine Learning.
 
@@ -21,11 +21,21 @@ class Tiesen {
 
 <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
 
-## ✏️ My Blog:
+## ✏️ My Blog
 
 I write about my journey as a developer and my love for anime on my blog. You can check it out [here](https://tiesen.id.vn/blogs).
 
-## ✨ GitHub Stats:
+## ✨ Project Showcase
+
+- [Yuki](https://yuki.tiesen.id.vn) - A e-commerce website built with Turborepo, Next.js, Tailwind CSS, Prisma, and tRPC.
+- [Egg Community](https://egg-community.vercel.app) - A community website built with Next.js, Tailwind CSS, and ElysiaJS.
+
+## ✨ Stuff I'm Making
+
+- [Create Yuki App](https://github.com/tiesen243/create-yuki-app) - A Next.js template with configurations for ESLint, Prettier, and Tailwind CSS.
+- [Create Yuki Turbo](https://github.com/tiesen243/create-yuki-turbo) - A Turborepo template with configurations for ESLint, Prettier, Tailwind CSS, tRPC, and Prisma for building full-stack applications.
+
+## ✨ GitHub Stats
 
 <table width="100%">
 <tr>
