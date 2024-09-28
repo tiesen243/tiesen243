@@ -1,8 +1,8 @@
 <img src='https://tiesen.id.vn/assets/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-<p align='center'> < I use Arch btw /> </p>
+<p align='center'>< I use Arch btw /></p>
 
----
+## 🌟 About Me:
 
 My name is Tran Tien and I'm a weeb developer with a love for all things anime. My goal is to become a full-stack developer. I'm currently learning Next.js and Machine Learning.
 
