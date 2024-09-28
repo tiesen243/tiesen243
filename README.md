@@ -19,9 +19,7 @@ class Tiesen {
 }
 ```
 
-<div align="center" width="100%">
-    <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
-</div>
+<img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
 
 ## ✏️ My Blog:
 
@@ -49,6 +47,5 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ---
 
-<img src="./.github/yuki.gif" alt="yuki" width="100%" />
-
 <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
+<img src="./.github/yuki.gif" alt="yuki" width="100%" />
