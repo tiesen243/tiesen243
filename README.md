@@ -19,8 +19,8 @@ class Tiesen {
 }
 ```
 
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" />
+<div align="center" width="100%">
+    <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
 </div>
 
 ## ✏️ My Blog:
