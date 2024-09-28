@@ -45,7 +45,7 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
 ![snake-light](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake.svg#gh-light-mode-only)
 
----
+## Thanks for visiting my profile! <4
 
 <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
 <img src="./.github/yuki.gif" alt="yuki" width="100%" />
