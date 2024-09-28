@@ -4,15 +4,30 @@
 
 ---
 
-I'm Tran Tien, a weeb developer with a love for all things anime. I'm passionate about creating software that makes a difference in the world. I'm have experience in Next.js, Tailwind CSS, tRPC, and Python. Some of my hobbies include watching anime, playing video games, and reading manga. I also enjoy learning new things.
+My name is Tran Tien and I'm a weeb developer with a love for all things anime. My goal is to become a full-stack developer. I'm currently learning Next.js and Machine Learning.
 
-<img src="https://tiesen.id.vn/assets/design/tiesen-v2.png" alt="duci" width="100%" />
+```ts
+class Tiesen {
+  constructor() {
+    this.name = "Tran Tien";
+    this.pronouns = "He/Him";
+    this.dateOfBirth = "2004-06-22";
+    this.languages = ["Vietnamese", "English"];
+    this.programmingLanguages = ["TypeScript", "Python"];
+    this.hobbies = ["Watching anime", "Playing video games", "Reading manga"];
+  }
+}
+```
 
 <div align="center">
     <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" />
 </div>
 
----
+## ✏️ My Blog:
+
+I write about my journey as a developer and my love for anime on my blog. You can check it out [here](https://tiesen.id.vn/blogs).
+
+## <img src="https://tiesen.id.vn/assets/design/tiesen-v2.png" alt="duci" width="100%" />
 
 ## ✨ GitHub Stats:
 
@@ -28,6 +43,8 @@ I'm Tran Tien, a weeb developer with a love for all things anime. I'm passionate
   </td>
 </tr>
 <table>
+
+## 🐍 GitHub Contribution Snake:
 
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
 ![snake-light](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake.svg#gh-light-mode-only)
