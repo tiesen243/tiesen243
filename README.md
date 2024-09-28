@@ -27,8 +27,6 @@ class Tiesen {
 
 I write about my journey as a developer and my love for anime on my blog. You can check it out [here](https://tiesen.id.vn/blogs).
 
-## <img src="https://tiesen.id.vn/assets/design/tiesen-v2.png" alt="duci" width="100%" />
-
 ## ✨ GitHub Stats:
 
 <table width="100%">
