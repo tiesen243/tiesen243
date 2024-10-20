@@ -43,18 +43,13 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## ✨ GitHub Stats
 
-<table width="100%">
-<tr>
-  <td width="55%">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="100%" />
-  </td>
+<p align="center" width="100%">
+	<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="55%" align="left" />
+	<img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" width="41%" align="right" />
+	<img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula&hide_border=true&mode=weekly" width="41%" align="right" />  
+</p>
 
-  <td width="45%">
-    <img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" width="100%" />
-    <img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula&hide_border=true&mode=weekly" width="100%" />
-  </td>
-</tr>
-<table>
+<img src='' width="1" />
 
 ## 🐍 GitHub Contribution Snake:
 
