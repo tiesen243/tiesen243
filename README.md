@@ -4,12 +4,16 @@
 
 ## 🌟 About Me
 
-<img src="./.github/yuki.gif" alt="yuki" align="right" width="30%" />
+
+I'm a passionate developer currently honing my skills in Next.js. My ultimate goal is to become a well-rounded full-stack developer.
+
+I'm actively engaged in learning and expanding my knowledge base in both Next.js and Machine Learning.  This combination is particularly exciting to me as it unlocks possibilities for creating dynamic and intelligent web applications.
+
+<img src="./.github/yuki.gif" alt="yuki" align="right" width="22%" />
 <img width="1px" height="200px" align="right" alt=' ' />
-Passionate about crafting engaging web experiences with Next.js. My goal is mastering full-stack development and building scalable web applications., eager to expand my skills and contribute to innovative projects.
-    
-  ```ts
-  class Tiesen {
+
+```ts
+class Tiesen {
     constructor() {
       this.name = "Tran Tien";
       this.pronouns = "He/Him";
@@ -18,8 +22,8 @@ Passionate about crafting engaging web experiences with Next.js. My goal is mast
       this.programmingLanguages = ["TypeScript", "Python"];
       this.hobbies = ["Watching anime", "Playing video games", "Reading manga"];
     }
-  }
-  ```
+}
+```
 
 
 <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
