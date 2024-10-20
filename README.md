@@ -43,20 +43,21 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## ✨ GitHub Stats
 
-<p align="center" width="100%">
-	<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="55%" align="left" />
-	<img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" width="41%" align="right" />
-	<img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula&hide_border=true&mode=weekly" width="41%" align="right" />  
-</p>
-
-<img src='' width="1" />
+<table>
+<td width="55%"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="100%" /></td>
+<td width="45%">
+	<img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" />
+	<img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula&hide_border=true&mode=weekly" />  
+</td>
+<td></td>
+</table>
 
 ## 🐍 GitHub Contribution Snake:
 
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
 ![snake-light](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake.svg#gh-light-mode-only)
 
-## Thanks for visiting my profile! <4
+## 👀 Thanks for visiting my profile! <4
 
 <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
 
