@@ -10,7 +10,6 @@ I'm a passionate developer currently honing my skills in Next.js. My ultimate go
 I'm actively engaged in learning and expanding my knowledge base in both Next.js and Machine Learning.  This combination is particularly exciting to me as it unlocks possibilities for creating dynamic and intelligent web applications.
 
 <img src="./.github/yuki.gif" alt="yuki" align="right" width="22%" />
-<img width="1px" height="200px" align="right" alt=' ' />
 
 ```ts
 class Tiesen {
