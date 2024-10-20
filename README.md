@@ -4,20 +4,23 @@
 
 ## 🌟 About Me
 
-My name is Tran Tien and I'm a weeb developer with a love for all things anime. My goal is to become a full-stack developer. I'm currently learning Next.js and Machine Learning.
-
-```ts
-class Tiesen {
-  constructor() {
-    this.name = "Tran Tien";
-    this.pronouns = "He/Him";
-    this.dateOfBirth = "2004-06-22";
-    this.languages = ["Vietnamese", "English"];
-    this.programmingLanguages = ["TypeScript", "Python"];
-    this.hobbies = ["Watching anime", "Playing video games", "Reading manga"];
+<img src="./.github/yuki.gif" alt="yuki" align="right" width="30%" />
+<img width="1px" height="200px" align="right" alt=' ' />
+Passionate about crafting engaging web experiences with Next.js. My goal is mastering full-stack development and building scalable web applications., eager to expand my skills and contribute to innovative projects.
+    
+  ```ts
+  class Tiesen {
+    constructor() {
+      this.name = "Tran Tien";
+      this.pronouns = "He/Him";
+      this.dateOfBirth = "2004-06-22";
+      this.languages = ["Vietnamese", "English"];
+      this.programmingLanguages = ["TypeScript", "Python"];
+      this.hobbies = ["Watching anime", "Playing video games", "Reading manga"];
+    }
   }
-}
-```
+  ```
+
 
 <img src="https://skillicons.dev/icons?i=ts,nextjs,tailwindcss,elysia,mongodb,prisma,python,arch,bun,anaconda,git,github,vercel,neovim,photoshop,illustrator&perline=8" width="100%" />
 
@@ -58,4 +61,4 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 ## Thanks for visiting my profile! <4
 
 <img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
-<img src="./.github/yuki.gif" alt="yuki" width="100%" />
+
