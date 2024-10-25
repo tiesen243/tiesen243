@@ -9,8 +9,6 @@ I'm a passionate developer currently honing my skills in Next.js. My ultimate go
 
 I'm actively engaged in learning and expanding my knowledge base in both Next.js and Machine Learning.  This combination is particularly exciting to me as it unlocks possibilities for creating dynamic and intelligent web applications.
 
-<img src="./.github/yuki.gif" alt="yuki" align="right" width="22%" />
-
 ```ts
 class Tiesen {
     constructor() {
@@ -33,8 +31,9 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## ✨ Project Showcase
 
-- [Yuki](https://yuki.tiesen.id.vn) - A e-commerce website built with Turborepo, Next.js, Tailwind CSS, Prisma, and tRPC.
+- [Yuki](https://yuki.tiesen.id.vn) - An e-commerce website built with Turborepo, Next.js, Tailwind CSS, Prisma, and tRPC.
 - [Egg Community](https://egg-community.vercel.app) - A community website built with Next.js, Tailwind CSS, and ElysiaJS.
+- [Digit Recognition](https://github.com/tiesen243/digit-recognition) - CNN model to predict MNIST dataset from scratch.
 
 ## ✨ Stuff I'm Making
 
@@ -58,5 +57,5 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## 👀 Thanks for visiting my profile! <4
 
-<img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="100%" />
-
+<img src="./.github/yuki.gif" alt="yuki" align="right" width="25%" />
+<img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="75%" />
