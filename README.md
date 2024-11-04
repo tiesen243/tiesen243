@@ -57,5 +57,5 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## 👀 Thanks for visiting my profile! <4
 
-<img src="./.github/yuki.gif" alt="yuki" align="right" width="25%" />
-<img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="75%" />
+<img src="./.github/yuki.gif" alt="yuki" align="right" width="24%" />
+<img src='https://count.getloli.com/get/@tiesen243?theme=moebooru' alt='visitor count' width="74%" />
