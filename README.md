@@ -43,11 +43,8 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 ## ✨ GitHub Stats
 
 <table>
-	<td width="55%"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="100%" /></td>
-	<td width="45%">
-		<img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" />
-		<img src="https://streak-stats.demolab.com?user=tiesen243&theme=dracula&hide_border=true&mode=weekly" />  
-	</td>
+	<td width="40%"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="100%" /></td>
+	<td width="60%"><img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" /></td>
 </table>
 
 ## 🐍 GitHub Contribution Snake:
