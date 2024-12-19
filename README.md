@@ -1,7 +1,5 @@
 <img src='https://tiesen.id.vn/assets/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
 
-<p align='center'>< I use Arch btw /></p>
-
 ## 🌟 About Me
 
 
