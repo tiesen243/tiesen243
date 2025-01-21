@@ -33,7 +33,7 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 - [Yuki](https://yuki.tiesen.id.vn) - An e-commerce website built with Turborepo, Next.js, Tailwind CSS, Prisma, and tRPC.
 - [Egg Community](https://egg-community.vercel.app) - A community website built with Next.js, Tailwind CSS, and ElysiaJS.
-- [Digit Recognition](https://github.com/tiesen243/digit-recognition) - CNN model to predict MNIST dataset from scratch.
+- [CNN](https://github.com/tiesen243/cnn) - CNN model to predict MNIST dataset built with PyTorch and Vue.
 
 ## ✨ Stuff I'm Making
 
