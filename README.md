@@ -3,9 +3,11 @@
 ## 🌟 About Me
 
 
-I'm a passionate developer currently honing my skills in Next.js. My ultimate goal is to become a well-rounded full-stack developer.
+I fell in love with programming and anime and am fluent in Typescript and Python.
 
-I'm actively engaged in learning and expanding my knowledge base in both Next.js and Machine Learning.  This combination is particularly exciting to me as it unlocks possibilities for creating dynamic and intelligent web applications.
+My field of interest are building new web applications and also in areas related to Artificial Intelligence.
+
+Whatever possible, I try to contribute to the open-source community with Next.js and Machine Learning projects.
 
 ```ts
 class Tiesen {
