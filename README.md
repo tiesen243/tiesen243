@@ -31,14 +31,14 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## ✨ Project Showcase
 
-- [Yuki](https://yuki.tiesen.id.vn) - An e-commerce website built with Turborepo, Next.js, Tailwind CSS, Prisma, and tRPC.
+- [Yuki](https://yukinu.vercel.app) - Your complete e-commerce destination for shopping online with a wide selection of products, easy checkout, and secure payments.
 - [Egg Community](https://egg-community.vercel.app) - A community website built with Next.js, Tailwind CSS, and ElysiaJS.
 - [CNN](https://github.com/tiesen243/cnn) - CNN model to predict MNIST dataset built with PyTorch and Vue.
 
 ## ✨ Stuff I'm Making
 
-- [Create Yuki App](https://github.com/tiesen243/create-yuki-app) - A Next.js template with configurations for ESLint, Prettier, and Tailwind CSS.
-- [Create Yuki Turbo](https://github.com/tiesen243/create-yuki-turbo) - A Turborepo template with configurations for ESLint, Prettier, Tailwind CSS, tRPC, and Prisma for building full-stack applications.
+- [Create Yuki Stack](https://github.com/tiesen243/create-yuki-stack) - A CLI tool for scaffolding type-safe, full-stack TypeScript applications with best practices and customizable.
+- [Yuki UI](https://yuki-ui.vercel.app) - A comprehensive collection of copy-paste React components and libraries. Install components instantly using the shadcn CLI with a focus on customization, accessibility, and developer experience.
 
 ## ✨ GitHub Stats
 
