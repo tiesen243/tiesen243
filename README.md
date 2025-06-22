@@ -1,4 +1,4 @@
-<img src='https://tiesen.id.vn/assets/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto'/>
+<img src='https://tiesen.id.vn/assets/images/tiesen.png' alt='Tiesen' align='center' width='100%' height='auto' />
 
 ## 🌟 About Me
 
