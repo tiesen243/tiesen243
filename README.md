@@ -14,7 +14,7 @@ class Tiesen {
     constructor() {
       this.name = "Tran Tien";
       this.pronouns = "He/Him";
-      this.dateOfBirth = "2004-06-22";
+      this.dateOfBirth = "2004-06-??";
       this.languages = ["Vietnamese", "English"];
       this.programmingLanguages = ["TypeScript", "Python"];
       this.hobbies = ["Watching anime", "Playing video games", "Reading manga"];
