@@ -55,7 +55,7 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 
 ## 📫 Connect with Me
 
-- Portfolio: [tiesen.id.vn](https://tiesen.id.v)
+- Portfolio: [tiesen.id.vn](https://tiesen.id.vn)
 - Facebook: [facebook.com/tiesen243.nanoda](https://facebook.com/tiesen243.nanoda)
 - X (Twitter): [x.com/tiesen243](https://x.com/tiesen243)
 
