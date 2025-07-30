@@ -60,7 +60,7 @@ I write about my journey as a developer and my love for anime on my blog. You ca
 - X (Twitter): [x.com/tiesen243](https://x.com/tiesen243)
 
 <p align="center">
-  <img src="https://media1.tenor.com/m/us5fTpWBdMcAAAAC/yukikaze-azur-lane.gif" width="200"/><br>
+  <img src="./.github/yukikaze-azur-lane.gif" width="200"/><br>
   <em>Loli is justice!</em>
 </p>
 
