@@ -9,7 +9,8 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 - [tiesen](https://tiesen.id.vn): My personal website where I share my projects and blog posts about web development and anime.
 - [Create Yuki Stack](https://npmjs.com/package/create-yuki-stack): A CLI tool to quickly scaffold a new project.
 - [Yuki UI](https://yuki-ui.vercel.app): A modern component library for building web applications with React and TypeScript.
-- [Yukinu](https://yukinu.vercel.app): An multi-vendor e-commerce platform.
+- [verlce.nvim](github.com/tiesen243/vercel.nvim): Neovim theme based on Vercel's design system.
+- [Yukinu](https://yukinu.vercel.app): An multi-vendor e-commerce platform (WIP).
 
 ## Stats
 
