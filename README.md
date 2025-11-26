@@ -4,7 +4,7 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 
 <img src='./.github/banner.png' alt='Tiesen' align='center' width='100%' height='auto' />
 
-<img src='https://skillicons.dev/icons?i=arch,neovim,docker,github,bun,postgres,nextjs,vite,tailwind' alt='Technologies' align='center' width='100%' height='auto' />
+<img src='https://skillicons.dev/icons?i=arch,neovim,docker,github,bun,postgres,ts,react,nextjs,vite,tailwind,arduino,ps,ai' alt='Technologies' align='center' width='100%' height='auto' />
 
 ## Stuff I Make
 
