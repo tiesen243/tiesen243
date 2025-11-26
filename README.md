@@ -20,8 +20,8 @@ class Tiesen {
 ## ✨ GitHub Stats
 
 <table>
-	<td width="40%"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=tiesen243&theme=dracula&layout=donut&show_icons=true&hide_border=true" width="100%" /></td>
-	<td width="60%"><img src="https://github-readme-stats.vercel.app/api?username=tiesen243&theme=dracula&show_icons=true&hide_border=true" /></td>
+	<td width="40%"><img src="https://github-readme-stats-tiesen243.vercel.app/api/top-langs/?username=tiesen243&layout=donut&&theme=tokyonight&show_icons=true&hide_border=true" width="100%" /></td>
+	<td width="60%"><img src="https://github-readme-stats-tiesen243.vercel.app/api?username=tiesen243&theme=tokyonight&show_icons=true&hide_border=true" /></td>
 </table>
 
 ## 🐍 GitHub Contribution Snake:
