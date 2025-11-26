@@ -4,6 +4,8 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 
 <img src='./.github/banner.png' alt='Tiesen' align='center' width='100%' height='auto' />
 
+<img src='https://skillicons.dev/icons?i=arch,neovim,docker,github,bun,postgres,nextjs,vite,tailwind' alt='Technologies' align='center' width='100%' height='auto' />
+
 ## Stuff I Make
 
 - [tiesen](https://tiesen.id.vn): My personal website where I share my projects and blog posts about web development and anime.
@@ -27,6 +29,6 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 <div align="center">
 <img src="./.github/yukikaze-azur-lane.gif" alt="Yukikaze" width="400" height="auto" />
 
-<i>Loli is justice!</i>
+<i>I use Arch, btw</i>
 
 </div>
