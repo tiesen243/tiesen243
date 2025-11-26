@@ -27,7 +27,7 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 ---
 
 <div align="center">
-<img src="./.github/yukikaze-azur-lane.gif" alt="Yukikaze" width="400" height="auto" />
+<img src="./.github/yukikaze-azur-lane.gif" alt="Yukikaze" width="250" height="auto" />
 
 <i>I use Arch, btw</i>
 
