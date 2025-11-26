@@ -23,6 +23,7 @@ Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions
 
 ---
 
-<img src="./.github/yukikaze-azur-lane.gif" alt="Yukikaze" align="center" width="200" height="auto" />
-
-<i align="center">Loli is justice!</i>
+<div align="center">
+  <img src="./.github/yukikaze-azur-lane.gif" alt="Yukikaze" width="400" height="auto" />
+  <i>Loli is justice!</i>
+</div>
