@@ -1,6 +1,6 @@
 # Tiesen 🐺
 
-Hi, I'm Tiesen, a weeb devalopa with a passion for building innovative solutions. I love working with TypeScript and Next.js to create dynamic web applications. When I'm not coding, you can find me exploring new technologies or contributing to open-source projects.
+Hi, I'm a Weeb Developer who converts caffeine, open-source code, and 2D waifus into working software. I love building open-source projects for the community, mostly because my code is public but my tears during debugging are private. My open-source repos are free, highly scalable, and well-maintained, which is ironic because my life is currently held together by a single git commit and pure luck. If my code works, it's a miracle; if it doesn't, I have no idea 😭
 
 <img src='./.github/banner.png' alt='Tiesen' align='center' width='100%' height='auto' />
 
