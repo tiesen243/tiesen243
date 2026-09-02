@@ -15,8 +15,8 @@ Hi, I'm a Weeb Developer who converts caffeine, open-source code, and 2D waifus 
 ## Stats
 
 <table>
-	<td width="40%"><img src="https://github-readme-stats-tiesen243.vercel.app/api/top-langs/?username=tiesen243&layout=donut&&theme=tokyonight&show_icons=true&hide_border=true" width="100%" /></td>
-	<td width="60%"><img src="https://github-readme-stats-tiesen243.vercel.app/api?username=tiesen243&theme=tokyonight&show_icons=true&hide_border=true" /></td>
+	<td width="40%"><img src="https://github-stats-extended.vercel.app/api/top-langs?username=tiesen243&layout=donut&hide_title=true&langs_count=4&disable_animations=true&theme=transparent&hide_border=true" width="100%" /></td>
+	<td width="60%"><img src="https://github-stats-extended.vercel.app/api?username=tiesen243&hide_title=true&show_icons=true&include_all_commits=true&disable_animations=true&theme=transparent&hide_border=true" /></td>
 </table>
 
 ![snake-dark](https://raw.githubusercontent.com/tiesen243/tiesen243/output/github-contribution-grid-snake-dark.svg#gh-dark-mode-only)
