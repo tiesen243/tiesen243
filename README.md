@@ -11,6 +11,8 @@ Hi, I'm a Weeb Developer who converts caffeine, open-source code, and 2D waifus 
   </picture>
 </a>
 
+> Click a pixel to paint!
+
 ## Stuff I Make
 
 - [tiesen](https://tiesen.id.vn): My personal website where I share my projects and blog posts about web development and anime.
