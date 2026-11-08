@@ -4,6 +4,13 @@ Hi, I'm a Weeb Developer who converts caffeine, open-source code, and 2D waifus 
 
 <img src='https://skillicons.dev/icons?i=arch,neovim,docker,github,bun,postgres,ts,react,nextjs,vite,tailwind,arduino,ps,ai' alt='Technologies' align='center' width='100%' height='auto' />
 
+<a href="https://placefile.cnrad.workers.dev/u/tiesen243/tap">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://placefile.cnrad.workers.dev/u/tiesen243/canvas.svg?theme=dark">
+    <img ismap src="https://placefile.cnrad.workers.dev/u/YOUR_USERNAME/canvas.svg?theme=light" width="846" alt="Shared pixel canvas. Click a square to toggle it.">
+  </picture>
+</a>
+
 ## Stuff I Make
 
 - [tiesen](https://tiesen.id.vn): My personal website where I share my projects and blog posts about web development and anime.
